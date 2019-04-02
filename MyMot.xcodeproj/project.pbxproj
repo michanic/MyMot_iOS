@@ -22,6 +22,14 @@
 		8EC6242F2253A45E00E122F8 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6242E2253A45E00E122F8 /* CatalogViewController.swift */; };
 		8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624302253A47200E122F8 /* SearchViewController.swift */; };
 		8EC624342253A48500E122F8 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624332253A48500E122F8 /* FavouritesViewController.swift */; };
+		8EC624372253AAA100E122F8 /* ModelsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624352253AAA100E122F8 /* ModelsListCell.swift */; };
+		8EC624382253AAA100E122F8 /* ModelsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC624362253AAA100E122F8 /* ModelsListCell.xib */; };
+		8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624392253AACA00E122F8 /* AdvertsListCell.swift */; };
+		8EC6243C2253AACA00E122F8 /* AdvertsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6243A2253AACA00E122F8 /* AdvertsListCell.xib */; };
+		8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6243D2253AB3200E122F8 /* SimpleCell.swift */; };
+		8EC624402253AB3200E122F8 /* SimpleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6243E2253AB3200E122F8 /* SimpleCell.xib */; };
+		8EC624432253ABF000E122F8 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624412253ABF000E122F8 /* LoadingViewController.swift */; };
+		8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC624422253ABF000E122F8 /* LoadingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +51,14 @@
 		8EC6242E2253A45E00E122F8 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		8EC624302253A47200E122F8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8EC624332253A48500E122F8 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		8EC624352253AAA100E122F8 /* ModelsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsListCell.swift; sourceTree = "<group>"; };
+		8EC624362253AAA100E122F8 /* ModelsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModelsListCell.xib; sourceTree = "<group>"; };
+		8EC624392253AACA00E122F8 /* AdvertsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertsListCell.swift; sourceTree = "<group>"; };
+		8EC6243A2253AACA00E122F8 /* AdvertsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertsListCell.xib; sourceTree = "<group>"; };
+		8EC6243D2253AB3200E122F8 /* SimpleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCell.swift; sourceTree = "<group>"; };
+		8EC6243E2253AB3200E122F8 /* SimpleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleCell.xib; sourceTree = "<group>"; };
+		8EC624412253ABF000E122F8 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		8EC624422253ABF000E122F8 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		B09040197D89841FC6473A72 /* Pods_MyMot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +174,12 @@
 		8EC624212253947900E122F8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8EC6243D2253AB3200E122F8 /* SimpleCell.swift */,
+				8EC6243E2253AB3200E122F8 /* SimpleCell.xib */,
+				8EC624392253AACA00E122F8 /* AdvertsListCell.swift */,
+				8EC6243A2253AACA00E122F8 /* AdvertsListCell.xib */,
+				8EC624352253AAA100E122F8 /* ModelsListCell.swift */,
+				8EC624362253AAA100E122F8 /* ModelsListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -165,6 +187,8 @@
 		8EC624222253947F00E122F8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8EC624412253ABF000E122F8 /* LoadingViewController.swift */,
+				8EC624422253ABF000E122F8 /* LoadingViewController.xib */,
 				8EC6242E2253A45E00E122F8 /* CatalogViewController.swift */,
 				8EC624302253A47200E122F8 /* SearchViewController.swift */,
 				8EC624332253A48500E122F8 /* FavouritesViewController.swift */,
@@ -239,9 +263,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */,
 				8EC6241322538F4A00E122F8 /* LaunchScreen.storyboard in Resources */,
+				8EC624402253AB3200E122F8 /* SimpleCell.xib in Resources */,
 				8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */,
+				8EC6243C2253AACA00E122F8 /* AdvertsListCell.xib in Resources */,
 				8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */,
+				8EC624382253AAA100E122F8 /* ModelsListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,12 +334,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
+				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
+				8EC624432253ABF000E122F8 /* LoadingViewController.swift in Sources */,
 				8EC6241F225393EA00E122F8 /* Sources.swift in Sources */,
 				8EC6240822538F4600E122F8 /* ViewController.swift in Sources */,
 				8EC624342253A48500E122F8 /* FavouritesViewController.swift in Sources */,
 				8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */,
 				8EC6242D2253A1D800E122F8 /* UIColor.swift in Sources */,
+				8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */,
 				8EC62429225399DE00E122F8 /* NetworkManager.swift in Sources */,
+				8EC624372253AAA100E122F8 /* ModelsListCell.swift in Sources */,
 				8EC6240E22538F4600E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8EC6242F2253A45E00E122F8 /* CatalogViewController.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
