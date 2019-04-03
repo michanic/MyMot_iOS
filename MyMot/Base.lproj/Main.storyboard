@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UQp-7A-THj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="H7Z-bw-JEe">
             <objects>
-                <tabBarController hidesBottomBarWhenPushed="YES" id="UQp-7A-THj" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" modalTransitionStyle="crossDissolve" hidesBottomBarWhenPushed="YES" id="UQp-7A-THj" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="4jK-Qg-yUb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="-465" y="-497"/>
         </scene>
-        <!--Каталог-->
+        <!-- -Каталог- -->
         <scene sceneID="asW-uy-eX9">
             <objects>
                 <tableViewController id="lOI-E7-vVZ" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                             <outlet property="delegate" destination="lOI-E7-vVZ" id="ReS-jT-eZ7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Каталог" id="tbE-oH-j5e"/>
+                    <navigationItem key="navigationItem" title="-Каталог-" id="tbE-oH-j5e"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myn-7R-crn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

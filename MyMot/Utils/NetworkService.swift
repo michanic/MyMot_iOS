@@ -9,9 +9,9 @@
 import Alamofire
 import SwiftyJSON
 
-class NetworkManager {
+class NetworkService {
 
-    static let shared : NetworkManager = NetworkManager()
+    static let shared : NetworkService = NetworkService()
     
     func getJsonData(endpoint: Endpoint, result: ((JSON?, Error?) -> ())?) {
         
