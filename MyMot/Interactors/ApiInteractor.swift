@@ -10,32 +10,46 @@ import UIKit
 
 class ApiInteractor {
 
-    func loadCatalog(completed: (()->())) {
+    func loadCatalog(completed: @escaping (()->())) {
         loadRegions {
-            loadClasses {
-                loadModels {
+            self.loadClasses {
+                self.loadModels {
                     completed()
                 }
             }
         }
     }
     
-    private func loadRegions(completed: (()->())) {
-        print("loadRegions")
-        completed()
+    private func loadRegions(completed: @escaping (()->())) {
+        NetworkService.shared.getJsonData(endpoint: .catalogRegions) { (json, error) in
+            
+            guard let array = json?.array else { return }
+            for location in array {
+                let managedObject = Location(json: location)
+                print(managedObject?.avito)
+            }
+            
+            CoreDataManager.instance.saveContext()
+        }
+        
     }
     
-    private func loadClasses(completed: (()->())) {
-        print("loadClasses")
-        completed()
+    private func loadClasses(completed: @escaping (()->())) {
+        NetworkService.shared.getJsonData(endpoint: .catalogClasses) { (json, error) in
+            //print(json as Any)
+            completed()
+        }
     }
     
-    private func loadModels(completed: (()->())) {
-        print("loadModels")
-        completed()
+    private func loadModels(completed: @escaping (()->())) {
+        NetworkService.shared.getJsonData(endpoint: .catalogModels) { (json, error) in
+            //print(json as Any)
+            completed()
+        }
     }
     
     deinit {
         print("ApiInteractor deinit")
     }
+    
 }

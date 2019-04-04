@@ -10,7 +10,6 @@
 		013D9DF5B33DF7671CF5551D /* Pods_MyMot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09040197D89841FC6473A72 /* Pods_MyMot.framework */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
-		8EC6240E22538F4600E122F8 /* MyMot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240C22538F4600E122F8 /* MyMot.xcdatamodeld */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
 		8EC6241322538F4A00E122F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6241122538F4A00E122F8 /* LaunchScreen.storyboard */; };
 		8EC6241F225393EA00E122F8 /* Sources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6241E225393EA00E122F8 /* Sources.swift */; };
@@ -35,6 +34,9 @@
 		8EC6244C2254F51500E122F8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6244B2254F51500E122F8 /* Router.swift */; };
 		8EC6244E2254F53E00E122F8 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6244D2254F53E00E122F8 /* ViewControllerFactory.swift */; };
 		8EC624502255009800E122F8 /* ApiInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6244F2255009800E122F8 /* ApiInteractor.swift */; };
+		8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6248E2256388300E122F8 /* CoreDataManager.swift */; };
+		8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240C22538F4600E122F8 /* MyMot.xcdatamodeld */; };
+		8EC624BA2256429F00E122F8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624B92256429F00E122F8 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		8EC6244B2254F51500E122F8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		8EC6244D2254F53E00E122F8 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		8EC6244F2255009800E122F8 /* ApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInteractor.swift; sourceTree = "<group>"; };
+		8EC6248E2256388300E122F8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8EC624B92256429F00E122F8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B09040197D89841FC6473A72 /* Pods_MyMot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				8EC62428225399DE00E122F8 /* NetworkService.swift */,
+				8EC6248E2256388300E122F8 /* CoreDataManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 		8EC6241C225393AF00E122F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8EC624B92256429F00E122F8 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,19 +366,21 @@
 			files = (
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
 				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
+				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,
 				8EC624432253ABF000E122F8 /* LoadingViewController.swift in Sources */,
 				8EC6241F225393EA00E122F8 /* Sources.swift in Sources */,
 				8EC624342253A48500E122F8 /* FavouritesViewController.swift in Sources */,
+				8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */,
 				8EC6242D2253A1D800E122F8 /* UIColor.swift in Sources */,
 				8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */,
 				8EC62429225399DE00E122F8 /* NetworkService.swift in Sources */,
 				8EC6244C2254F51500E122F8 /* Router.swift in Sources */,
 				8EC624372253AAA100E122F8 /* ModelsListCell.swift in Sources */,
-				8EC6240E22538F4600E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8EC6244A2254F1B500E122F8 /* UIFont.swift in Sources */,
 				8EC6242F2253A45E00E122F8 /* CatalogViewController.swift in Sources */,
 				8EC6244E2254F53E00E122F8 /* ViewControllerFactory.swift in Sources */,
+				8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
 				8EC624272253970E00E122F8 /* URL.swift in Sources */,
 				8EC624502255009800E122F8 /* ApiInteractor.swift in Sources */,

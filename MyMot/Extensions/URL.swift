@@ -20,6 +20,6 @@ extension URL {
     }
 
     init?(fromEndpoint: String) {
-        self.init(string: URL.api + "user/login")
+        self.init(string: URL.api + fromEndpoint)
     }
 }
