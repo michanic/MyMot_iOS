@@ -15,6 +15,9 @@
 		8E0012C3225B3EF60034E8BB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012C2225B3EF60034E8BB /* Model.swift */; };
 		8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */; };
 		8E0012C7225B42A70034E8BB /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012C6225B42A70034E8BB /* Manufacturer.swift */; };
+		8E0FB2F2225B967B001753C4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB2F1225B967B001753C4 /* UIView.swift */; };
+		8E0FB2F5225B989F001753C4 /* CatalogSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB2F3225B989F001753C4 /* CatalogSliderCell.swift */; };
+		8E0FB2F6225B989F001753C4 /* CatalogSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB2F4225B989F001753C4 /* CatalogSliderCell.xib */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -56,6 +59,9 @@
 		8E0012C2225B3EF60034E8BB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Manufacturer.swift"; sourceTree = "<group>"; };
 		8E0012C6225B42A70034E8BB /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
+		8E0FB2F1225B967B001753C4 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8E0FB2F3225B989F001753C4 /* CatalogSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSliderCell.swift; sourceTree = "<group>"; };
+		8E0FB2F4225B989F001753C4 /* CatalogSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogSliderCell.xib; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 				8EC624262253970E00E122F8 /* URL.swift */,
 				8EC6242C2253A1D800E122F8 /* UIColor.swift */,
 				8EC624492254F1B500E122F8 /* UIFont.swift */,
+				8E0FB2F1225B967B001753C4 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +227,8 @@
 				8EC6243A2253AACA00E122F8 /* AdvertsListCell.xib */,
 				8EC624352253AAA100E122F8 /* ModelsListCell.swift */,
 				8EC624362253AAA100E122F8 /* ModelsListCell.xib */,
+				8E0FB2F3225B989F001753C4 /* CatalogSliderCell.swift */,
+				8E0FB2F4225B989F001753C4 /* CatalogSliderCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -313,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E0FB2F6225B989F001753C4 /* CatalogSliderCell.xib in Resources */,
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
 				8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */,
 				8EC6241322538F4A00E122F8 /* LaunchScreen.storyboard in Resources */,
@@ -400,6 +410,7 @@
 				8EC62429225399DE00E122F8 /* NetworkService.swift in Sources */,
 				8EC6244C2254F51500E122F8 /* Router.swift in Sources */,
 				8EC624372253AAA100E122F8 /* ModelsListCell.swift in Sources */,
+				8E0FB2F5225B989F001753C4 /* CatalogSliderCell.swift in Sources */,
 				8EC6244A2254F1B500E122F8 /* UIFont.swift in Sources */,
 				8EC6242F2253A45E00E122F8 /* CatalogViewController.swift in Sources */,
 				8E0012C7225B42A70034E8BB /* Manufacturer.swift in Sources */,
@@ -409,6 +420,7 @@
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
 				8E0012BF225B3B940034E8BB /* CoreDataManager+Categories.swift in Sources */,
 				8E0012C1225B3E800034E8BB /* CoreDataManager+Models.swift in Sources */,
+				8E0FB2F2225B967B001753C4 /* UIView.swift in Sources */,
 				8EC624272253970E00E122F8 /* URL.swift in Sources */,
 				8EC624502255009800E122F8 /* ApiInteractor.swift in Sources */,
 				8E0012BC225B3B080034E8BB /* Category.swift in Sources */,
