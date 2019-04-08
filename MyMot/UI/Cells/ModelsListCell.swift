@@ -8,16 +8,14 @@
 
 import UIKit
 
-class ModelsListCell: UITableViewCell {
+class ModelsListCell: UITableViewCell, CellContentProtocol {
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var years: UILabel!
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
+        
     }
     
 }

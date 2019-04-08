@@ -1,5 +1,5 @@
 //
-//  CatalogSliderCell.swift
+//  CatalogSlideCell.swift
 //  MyMot
 //
 //  Created by Michail Solyanic on 08/04/2019.
@@ -8,12 +8,14 @@
 
 import UIKit
 
-class CatalogSliderCell: UICollectionViewCell {
+class CatalogSlideCell: UICollectionViewCell, CellContentProtocol {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var about: UILabel!
     
-    
+    func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
+        
+    }
 
 }

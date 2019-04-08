@@ -17,4 +17,12 @@ extension UIColor {
     @nonobjc class var appPassiveBlue: UIColor {
         return UIColor(red: 41.0 / 255.0, green: 128.0 / 255.0, blue: 185.0 / 255.0, alpha: 1.0)
     }
+    
+    @nonobjc class var tableSectionBack: UIColor {
+        return UIColor(red: 236.0 / 255.0, green: 240.0 / 255.0, blue: 241.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var tableSectionTitle: UIColor {
+        return UIColor(white: 119.0 / 255.0, alpha: 1.0)
+    }
 }
