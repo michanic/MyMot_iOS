@@ -23,7 +23,7 @@ class Router {
     }
     
     func startApp() {
-        window.rootViewController = ViewControllerFactory.loading("Загрузка", "Подождите, идет сбор данных").create
+        window.rootViewController = ViewControllerFactory.loading("Загрузка", "Синхронизация каталога").create
         
         let apiInteractor = ApiInteractor()
         apiInteractor.loadCatalog { [weak self] in

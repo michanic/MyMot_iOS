@@ -22,34 +22,36 @@ class ApiInteractor {
     
     private func loadRegions(completed: @escaping (()->())) {
         NetworkService.shared.getJsonData(endpoint: .catalogRegions) { (json, error) in
-            
-            guard let array = json?.array else { return }
-            for location in array {
-                let managedObject = Location(json: location)
-                print(managedObject?.avito)
+            if let array = json?.array {
+                Location.createOrUpdate(regionsJson: array)
+                CoreDataManager.instance.saveContext()
             }
-            
-            CoreDataManager.instance.saveContext()
+            completed()
         }
-        
     }
     
     private func loadClasses(completed: @escaping (()->())) {
         NetworkService.shared.getJsonData(endpoint: .catalogClasses) { (json, error) in
-            //print(json as Any)
+            if let array = json?.array {
+                Category.createOrUpdate(categoriesJson: array)
+                CoreDataManager.instance.saveContext()
+            }
             completed()
         }
     }
     
     private func loadModels(completed: @escaping (()->())) {
         NetworkService.shared.getJsonData(endpoint: .catalogModels) { (json, error) in
-            //print(json as Any)
+            if let array = json?.array {
+                Manufacturer.createOrUpdate(manufacturersJson: array)
+                CoreDataManager.instance.saveContext()
+            }
             completed()
         }
     }
     
     deinit {
-        print("ApiInteractor deinit")
+        //print("ApiInteractor deinit")
     }
     
 }

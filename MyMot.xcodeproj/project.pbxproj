@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		013D9DF5B33DF7671CF5551D /* Pods_MyMot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09040197D89841FC6473A72 /* Pods_MyMot.framework */; };
+		8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012B9225B3A930034E8BB /* CoreDataManager+Locations.swift */; };
+		8E0012BC225B3B080034E8BB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012BB225B3B080034E8BB /* Category.swift */; };
+		8E0012BF225B3B940034E8BB /* CoreDataManager+Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012BE225B3B940034E8BB /* CoreDataManager+Categories.swift */; };
+		8E0012C1225B3E800034E8BB /* CoreDataManager+Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */; };
+		8E0012C3225B3EF60034E8BB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012C2225B3EF60034E8BB /* Model.swift */; };
+		8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */; };
+		8E0012C7225B42A70034E8BB /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0012C6225B42A70034E8BB /* Manufacturer.swift */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -42,6 +49,13 @@
 /* Begin PBXFileReference section */
 		6802D5A9DE722164446B5B82 /* Pods-MyMot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyMot/Pods-MyMot.debug.xcconfig"; sourceTree = "<group>"; };
 		83F2AC689EDBAAEA66ADF601 /* Pods-MyMot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMot.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyMot/Pods-MyMot.release.xcconfig"; sourceTree = "<group>"; };
+		8E0012B9225B3A930034E8BB /* CoreDataManager+Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Locations.swift"; sourceTree = "<group>"; };
+		8E0012BB225B3B080034E8BB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8E0012BE225B3B940034E8BB /* CoreDataManager+Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Categories.swift"; sourceTree = "<group>"; };
+		8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Models.swift"; sourceTree = "<group>"; };
+		8E0012C2225B3EF60034E8BB /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Manufacturer.swift"; sourceTree = "<group>"; };
+		8E0012C6225B42A70034E8BB /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +163,10 @@
 			children = (
 				8EC62428225399DE00E122F8 /* NetworkService.swift */,
 				8EC6248E2256388300E122F8 /* CoreDataManager.swift */,
+				8E0012B9225B3A930034E8BB /* CoreDataManager+Locations.swift */,
+				8E0012BE225B3B940034E8BB /* CoreDataManager+Categories.swift */,
+				8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */,
+				8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -167,6 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				8EC624B92256429F00E122F8 /* Location.swift */,
+				8E0012BB225B3B080034E8BB /* Category.swift */,
+				8E0012C2225B3EF60034E8BB /* Model.swift */,
+				8E0012C6225B42A70034E8BB /* Manufacturer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -371,19 +392,26 @@
 				8EC6241F225393EA00E122F8 /* Sources.swift in Sources */,
 				8EC624342253A48500E122F8 /* FavouritesViewController.swift in Sources */,
 				8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */,
+				8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */,
 				8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */,
 				8EC6242D2253A1D800E122F8 /* UIColor.swift in Sources */,
 				8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */,
+				8E0012C3225B3EF60034E8BB /* Model.swift in Sources */,
 				8EC62429225399DE00E122F8 /* NetworkService.swift in Sources */,
 				8EC6244C2254F51500E122F8 /* Router.swift in Sources */,
 				8EC624372253AAA100E122F8 /* ModelsListCell.swift in Sources */,
 				8EC6244A2254F1B500E122F8 /* UIFont.swift in Sources */,
 				8EC6242F2253A45E00E122F8 /* CatalogViewController.swift in Sources */,
+				8E0012C7225B42A70034E8BB /* Manufacturer.swift in Sources */,
 				8EC6244E2254F53E00E122F8 /* ViewControllerFactory.swift in Sources */,
 				8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
+				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
+				8E0012BF225B3B940034E8BB /* CoreDataManager+Categories.swift in Sources */,
+				8E0012C1225B3E800034E8BB /* CoreDataManager+Models.swift in Sources */,
 				8EC624272253970E00E122F8 /* URL.swift in Sources */,
 				8EC624502255009800E122F8 /* ApiInteractor.swift in Sources */,
+				8E0012BC225B3B080034E8BB /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

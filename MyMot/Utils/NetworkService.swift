@@ -13,9 +13,7 @@ class NetworkService {
     static let shared : NetworkService = NetworkService()
     
     func getJsonData(endpoint: Endpoint, result: ((JSON?, Error?) -> ())?) {
-        
-        print(endpoint.url)
-        
+        //print(endpoint.url)
         Alamofire.request(endpoint.url, method: endpoint.method, parameters: nil, encoding: URLEncoding.default, headers: nil).apiResponse { (json, error) in
             result?(json, error)
         }

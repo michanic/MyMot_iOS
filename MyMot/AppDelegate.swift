@@ -19,20 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.appBlue
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white , NSAttributedString.Key.font: UIFont.progress(size: 20)]
         
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
-        do {
-            let results = try CoreDataManager.instance.persistentContainer.viewContext.fetch(fetchRequest)
-            
-            for result in results as! [Location] {
-                print("saved - \(result.name!)")
-            }
-            
-        } catch {
-            print(error)
-        }
-        
-        
         Router.shared.startApp()
         return true
     }
