@@ -25,13 +25,19 @@ class CatalogViewController: UIViewController, TableViewUniversalDelegate {
     func createCells() {
         dataSource = []
         for manufacturer in CoreDataManager.instance.getManufacturers() {
-            let section = Section()
-            section.headerProperties.title = manufacturer.name
-            
-            let modelCell = Cell(cellType: .modelsList)
-            section.cells.append(modelCell)
-            
-            dataSource.append(section)
+            let models = manufacturer.getSotredModels()
+            if models.count > 0 {
+                
+                let section = Section()
+                section.headerProperties.title = manufacturer.name?.uppercased()
+                
+                for model in models {
+                    let modelCell = Cell(modelsList: model)
+                    section.cells.append(modelCell)
+                }
+                
+                dataSource.append(section)
+            }
         }
     }
     

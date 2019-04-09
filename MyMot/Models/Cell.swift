@@ -12,6 +12,7 @@ class Cell {
 
     var type: CellType
     var content: Any?
+    var eventListener: CellEventProtocol?
     
     init(cellType: CellType) {
         self.type = cellType

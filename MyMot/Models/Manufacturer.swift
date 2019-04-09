@@ -33,5 +33,8 @@ extension Manufacturer {
             }
         }
     }
-    
+ 
+    func getSotredModels() -> [Model] {
+        return CoreDataManager.instance.getManufacturerModels(self)
+    }
 }

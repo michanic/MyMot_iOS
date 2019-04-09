@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol CellEventProtocol: class {
     func boolValueChanged(newValue: Bool)

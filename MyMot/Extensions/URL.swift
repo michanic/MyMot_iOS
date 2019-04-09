@@ -10,10 +10,19 @@ import Foundation
 
 extension URL {
     
+    static var root: String {
+        guard let info = Bundle.main.infoDictionary,
+            let urlString = info["Domain"] as? String,
+            let url = URL(string: urlString) else {
+                fatalError("Cannot get base url from info.plist")
+        }
+        return url.absoluteString
+    }
+    
     static var api: String {
         guard let info = Bundle.main.infoDictionary,
-            let urlString = info["ApiUrl"] as? String,
-            let url = URL(string: urlString) else {
+            let urlString = info["Domain"] as? String,
+            let url = URL(string: urlString + "api/") else {
                 fatalError("Cannot get base url from info.plist")
         }
         return url.absoluteString

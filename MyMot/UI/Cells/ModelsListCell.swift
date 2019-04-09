@@ -16,6 +16,13 @@ class ModelsListCell: UITableViewCell, CellContentProtocol {
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         
+        if let model = content as? Model {
+            
+            photo.setImage(path: model.preview_picture, placeholder: UIImage(named: "launch_logo"))
+            name.text = model.name
+            years.text = model.preview_text
+            
+        }
     }
     
 }

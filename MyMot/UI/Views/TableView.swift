@@ -44,8 +44,9 @@ extension TableView: UITableViewDataSource {
             register(nib, forCellReuseIdentifier: reuseIdentifier)
             registeredCellTypes.insert(cellModel.type)
         }
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        let contentProtocolCell = cell as? CellContentProtocol
+        contentProtocolCell?.fillWithContent(content: cellModel.content, eventListener: cellModel.eventListener)
         return cell
     }
     

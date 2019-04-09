@@ -43,4 +43,22 @@ extension CoreDataManager {
         }
     }
     
+    func getManufacturerModels(_ manufacturer: Manufacturer) -> [Model] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
+        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        request.predicate = NSPredicate(format: "manufacturer.id = %@", "\(manufacturer.id)")
+        
+        do {
+            let result = try persistentContainer.viewContext.fetch(request)
+            if let models = result as? [Model] {
+                return models
+            } else {
+                return []
+            }
+        } catch {
+            return []
+        }
+    }
+    
 }

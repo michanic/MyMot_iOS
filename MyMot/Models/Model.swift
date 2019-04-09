@@ -48,3 +48,9 @@ extension Model {
     }
 }
 
+extension Cell {
+    convenience init(modelsList: Model) {
+        self.init(cellType: .modelsList)
+        self.content = modelsList
+    }
+}
