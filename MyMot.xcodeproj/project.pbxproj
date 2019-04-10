@@ -270,8 +270,8 @@
 				8E0FB302225BA2F8001753C4 /* Section.swift */,
 				8EC624B92256429F00E122F8 /* Location.swift */,
 				8E0012BB225B3B080034E8BB /* Category.swift */,
-				8E0012C2225B3EF60034E8BB /* Model.swift */,
 				8E0012C6225B42A70034E8BB /* Manufacturer.swift */,
+				8E0012C2225B3EF60034E8BB /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

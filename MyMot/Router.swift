@@ -36,13 +36,12 @@ class Router {
     func pushController(_ viewController: UIViewController) {
         if let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
             let currentNavigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController {
+            viewController.hidesBottomBarWhenPushed = true
             currentNavigationController.pushViewController(viewController, animated: true)
         }
     }
     
     func presentController(_ viewController: UniversalViewController) {
-        
-        
         
     }
     
@@ -51,10 +50,12 @@ class Router {
     }
     
     private func changeRootController(_ newController: UIViewController) {
-        UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.window.rootViewController = newController
-            }, completion: nil)
+        UIView.transition(with: window, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            let oldState: Bool = UIView.areAnimationsEnabled
+            UIView.setAnimationsEnabled(false)
+            self.window.rootViewController = newController
+            UIView.setAnimationsEnabled(oldState)
+        }, completion: nil)
     }
     
     

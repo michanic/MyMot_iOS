@@ -28,7 +28,7 @@ class CatalogByClassViewController: UniversalViewController {
 
     override func prepareData() {
         for manufacturer in CoreDataManager.instance.getManufacturers() {
-            let models = manufacturer.getSotredModels()
+            let models = manufacturer.getModelsOfCategory(category)
             if models.count > 0 {
                 
                 let section = Section()

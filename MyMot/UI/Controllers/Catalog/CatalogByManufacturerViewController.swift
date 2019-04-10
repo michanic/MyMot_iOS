@@ -27,6 +27,21 @@ class CatalogByManufacturerViewController: UniversalViewController {
     }
     
     override func prepareData() {
-        
+        for category in CoreDataManager.instance.getCategories() {
+            
+            let models = category.getModelsOfManufacturer(manufacturer)
+            if models.count > 0 {
+                
+                let section = Section()
+                section.headerProperties.title = category.name?.uppercased()
+                
+                for model in models {
+                    let modelCell = Cell(modelsList: model)
+                    section.cells.append(modelCell)
+                }
+                dataSource.append(section)
+            }
+            
+        }
     }
 }
