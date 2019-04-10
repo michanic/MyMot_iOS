@@ -43,8 +43,14 @@ extension Model {
         model?.preview_picture = dict["preview_picture"]?.string
         model?.preview_text = dict["preview_text"]?.string
         model?.parameters = dict["parameters"]?.string
+        model?.first_year = Int16(dict["first_year"]?.int ?? 0)
+        model?.last_year = Int16(dict["last_year"]?.int ?? 0)
         
         return model
+    }
+    
+    var years: String {
+        return String(first_year) + " - " + (last_year == 0 ? "настоящее время" : String(last_year))
     }
 }
 

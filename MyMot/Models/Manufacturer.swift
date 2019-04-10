@@ -38,3 +38,10 @@ extension Manufacturer {
         return CoreDataManager.instance.getManufacturerModels(self)
     }
 }
+
+extension Cell {
+    convenience init(manufacturersSliderTitle: String, content: [Manufacturer]) {
+        self.init(cellType: .catalogSlider)
+        self.content = (manufacturersSliderTitle, content)
+    }
+}

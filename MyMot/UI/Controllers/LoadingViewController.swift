@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoadingViewController: UIViewController {
+class LoadingViewController: UniversalViewController {
 
     var bigTitle: String
     var subtitle: String

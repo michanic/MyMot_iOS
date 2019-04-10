@@ -10,11 +10,11 @@ import UIKit
 
 class TableView: UITableView {
 
-    let universalDelegate: TableViewUniversalDelegate
+    let DS: DataSource
     var registeredCellTypes: Set<CellType> = []
     
-    init(universalDelegate: TableViewUniversalDelegate, frame: CGRect, style: UITableView.Style) {
-        self.universalDelegate = universalDelegate
+    init(dataSourceDelegate: DataSource, frame: CGRect, style: UITableView.Style) {
+        self.DS = dataSourceDelegate
         super.init(frame: frame, style: style)
         dataSource = self
         delegate = self
@@ -29,15 +29,15 @@ class TableView: UITableView {
 extension TableView: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return universalDelegate.dataSource.count
+        return DS.dataSource.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return universalDelegate.dataSource[section].cells.count
+        return DS.dataSource[section].cells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellModel = universalDelegate.dataSource[indexPath.section].cells[indexPath.row]
+        let cellModel = DS.dataSource[indexPath.section].cells[indexPath.row]
         let reuseIdentifier = String(describing: cellModel.type.cellClass)
         if !registeredCellTypes.contains(cellModel.type) {
             let nib = UINib(nibName: String(describing: cellModel.type.cellClass), bundle: nil)
@@ -55,15 +55,15 @@ extension TableView: UITableViewDataSource {
 extension TableView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return universalDelegate.dataSource[indexPath.section].cells[indexPath.row].type.height
+        return DS.dataSource[indexPath.section].cells[indexPath.row].height
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return universalDelegate.dataSource[section].headerProperties.height
+        return DS.dataSource[section].headerProperties.height
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return universalDelegate.dataSource[section].headerProperties.view
+        return DS.dataSource[section].headerProperties.view
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

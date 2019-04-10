@@ -13,6 +13,7 @@ enum CellType {
     case simple
     case advertsList
     case modelsList
+    case catalogSlider
     case catalogSlide
     
     var cellClass: Any {
@@ -23,6 +24,8 @@ enum CellType {
             return AdvertsListCell.self
         case .modelsList:
             return ModelsListCell.self
+        case .catalogSlider:
+            return CatalogSliderCell.self
         case .catalogSlide:
             return CatalogSlideCell.self
         }
@@ -32,6 +35,8 @@ enum CellType {
         switch self {
         case .modelsList:
             return 60
+        case .catalogSlider:
+            return 240
         default:
             return UITableView.automaticDimension
         }

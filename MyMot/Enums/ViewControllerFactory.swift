@@ -12,7 +12,10 @@ enum ViewControllerFactory {
     
     case loading(String, String)
     case tabBarController
-    case catalogRoot
+    
+    case catalogByClass(Category)
+    case catalogByManufacturer(Manufacturer)
+    
     case searchRoot
     case favouritesRoot
     
@@ -22,6 +25,12 @@ enum ViewControllerFactory {
             return LoadingViewController(title: title, subtitle: subtitle)
         case .tabBarController:
             return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController")
+            
+        case .catalogByClass(let category):
+            return CatalogByClassViewController(category: category)
+        case .catalogByManufacturer(let manufacturer):
+            return CatalogByManufacturerViewController(manufacturer: manufacturer)
+            
         default:
             return UIViewController()
         }

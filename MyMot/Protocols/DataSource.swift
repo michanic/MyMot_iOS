@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol TableViewUniversalDelegate: class {
+protocol DataSource: class {
     var dataSource: [Section] { get }
+    func prepareData()
 }

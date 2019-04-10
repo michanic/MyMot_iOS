@@ -12,10 +12,15 @@ class CatalogSlideCell: UICollectionViewCell, CellContentProtocol {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var about: UILabel!
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
-        
+        if let category = content as? Category {
+            image.setImage(path: category.image, placeholder: UIImage(named: "launch_logo"))
+            title.text = category.name
+        } else if let manufacturer = content as? Manufacturer {
+            image.setImage(path: manufacturer.image, placeholder: UIImage(named: "launch_logo"))
+            title.text = manufacturer.name
+        }
     }
 
 }

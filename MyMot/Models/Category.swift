@@ -32,3 +32,11 @@ extension Category {
     }
     
 }
+
+
+extension Cell {
+    convenience init(categoriesSliderTitle: String, categories: [Category]) {
+        self.init(cellType: .catalogSlider)
+        self.content = (categoriesSliderTitle, categories)
+    }
+}

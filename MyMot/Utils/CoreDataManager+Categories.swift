@@ -26,6 +26,23 @@ extension CoreDataManager {
         }
     }
     
+    func getCategories() -> [Category] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let result = try persistentContainer.viewContext.fetch(request)
+            if let categories = result as? [Category] {
+                return categories
+            } else {
+                return []
+            }
+        } catch {
+            return []
+        }
+    }
+    
     func getCategoriesMap() -> [Int : Category] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)

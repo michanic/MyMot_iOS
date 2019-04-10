@@ -33,15 +33,29 @@ class Router {
         }
     }
     
-    func showMain() {
+    func pushController(_ viewController: UIViewController) {
+        if let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
+            let currentNavigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController {
+            currentNavigationController.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func presentController(_ viewController: UniversalViewController) {
+        
+        
+        
+    }
+    
+    private func showMain() {
         changeRootController(ViewControllerFactory.tabBarController.create)
     }
     
-    func changeRootController(_ newController: UIViewController) {
+    private func changeRootController(_ newController: UIViewController) {
         UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.window.rootViewController = newController
-        }, completion: nil)
+            }, completion: nil)
     }
+    
     
 }

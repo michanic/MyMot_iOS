@@ -20,7 +20,7 @@ class ModelsListCell: UITableViewCell, CellContentProtocol {
             
             photo.setImage(path: model.preview_picture, placeholder: UIImage(named: "launch_logo"))
             name.text = model.name
-            years.text = model.preview_text
+            years.text = model.years
             
         }
     }
