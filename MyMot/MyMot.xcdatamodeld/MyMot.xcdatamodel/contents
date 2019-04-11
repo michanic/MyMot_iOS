@@ -33,14 +33,12 @@
     </entity>
     <entity name="Model" representedClassName="Model" syncable="YES" codeGenerationType="class">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favourite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="first_year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="images" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="last_year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="parameters" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preview_picture" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="preview_text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sort" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="models" inverseEntity="Category" syncable="YES"/>
         <relationship name="manufacturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Manufacturer" inverseName="models" inverseEntity="Manufacturer" syncable="YES"/>
@@ -50,6 +48,6 @@
         <element name="Category" positionX="68.60546875" positionY="29.0234375" width="128" height="150"/>
         <element name="Location" positionX="-650.50390625" positionY="-167.08203125" width="128" height="150"/>
         <element name="Manufacturer" positionX="-337.93359375" positionY="46.55078125" width="128" height="135"/>
-        <element name="Model" positionX="-136.5390625" positionY="-147.69140625" width="128" height="225"/>
+        <element name="Model" positionX="-136.5390625" positionY="-147.69140625" width="128" height="195"/>
     </elements>
 </model>

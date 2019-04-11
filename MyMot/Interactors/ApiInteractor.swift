@@ -20,6 +20,15 @@ class ApiInteractor {
         }
     }
     
+    func loadModelDetails(modelId: Int, completed: @escaping ((ModelDetails)->())) {
+        
+        NetworkService.shared.getJsonData(endpoint: .catalogModelDetails(modelId)) { (json, error) in
+            if let json = json, let details = ModelDetails(json: json) {
+                completed(details)
+            }
+        }
+    }
+    
     private func loadRegions(completed: @escaping (()->())) {
         NetworkService.shared.getJsonData(endpoint: .catalogRegions) { (json, error) in
             if let array = json?.array {

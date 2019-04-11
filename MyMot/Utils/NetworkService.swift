@@ -23,7 +23,6 @@ class NetworkService {
 extension DataRequest {
     
     func apiResponse(handler: @escaping (JSON?, Error?) -> Void) {
-        
         response(queue: nil, responseSerializer: DataRequest.apiResponseSerializer()) { (result) in
             switch result.result {
             case .success(let json):
@@ -32,7 +31,6 @@ extension DataRequest {
                 handler(nil, error)
             }
         }
-        
     }
     
     private static func apiResponseSerializer() -> DataResponseSerializer<JSON> {

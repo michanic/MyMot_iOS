@@ -15,6 +15,7 @@ enum ViewControllerFactory {
     
     case catalogByClass(Category)
     case catalogByManufacturer(Manufacturer)
+    case catalogModelDetails(Model)
     
     case searchRoot
     case favouritesRoot
@@ -30,7 +31,9 @@ enum ViewControllerFactory {
             return CatalogByClassViewController(category: category)
         case .catalogByManufacturer(let manufacturer):
             return CatalogByManufacturerViewController(manufacturer: manufacturer)
-            
+        case .catalogModelDetails(let model):
+            return CatalogModelViewController(model: model)
+        
         default:
             return UIViewController()
         }

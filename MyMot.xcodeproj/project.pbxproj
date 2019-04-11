@@ -32,6 +32,8 @@
 		8E0FB326225E0D04001753C4 /* CatalogByManufacturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB325225E0D04001753C4 /* CatalogByManufacturerViewController.swift */; };
 		8E0FB329225E0D78001753C4 /* CatalogSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB327225E0D78001753C4 /* CatalogSliderCell.swift */; };
 		8E0FB32A225E0D78001753C4 /* CatalogSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */; };
+		8E0FB32E225E3B60001753C4 /* CatalogModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */; };
+		8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -90,6 +92,8 @@
 		8E0FB325225E0D04001753C4 /* CatalogByManufacturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogByManufacturerViewController.swift; sourceTree = "<group>"; };
 		8E0FB327225E0D78001753C4 /* CatalogSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogSliderCell.swift; sourceTree = "<group>"; };
 		8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogSliderCell.xib; sourceTree = "<group>"; };
+		8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModelViewController.swift; sourceTree = "<group>"; };
+		8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogModelViewController.xib; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				8EC6242E2253A45E00E122F8 /* CatalogViewController.swift */,
 				8E0FB323225E0BA0001753C4 /* CatalogByClassViewController.swift */,
 				8E0FB325225E0D04001753C4 /* CatalogByManufacturerViewController.swift */,
+				8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */,
+				8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			files = (
 				8E0FB2F6225B989F001753C4 /* CatalogSlideCell.xib in Resources */,
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
+				8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */,
 				8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */,
 				8EC6241322538F4A00E122F8 /* LaunchScreen.storyboard in Resources */,
 				8EC624402253AB3200E122F8 /* SimpleCell.xib in Resources */,
@@ -517,6 +524,7 @@
 				8E0FB2F2225B967B001753C4 /* UIView.swift in Sources */,
 				8E0FB2FF225BA0F7001753C4 /* UIScreen.swift in Sources */,
 				8EC624272253970E00E122F8 /* URL.swift in Sources */,
+				8E0FB32E225E3B60001753C4 /* CatalogModelViewController.swift in Sources */,
 				8EC624502255009800E122F8 /* ApiInteractor.swift in Sources */,
 				8E0FB322225E066E001753C4 /* UniversalViewController.swift in Sources */,
 				8E0012BC225B3B080034E8BB /* Category.swift in Sources */,

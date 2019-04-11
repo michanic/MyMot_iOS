@@ -14,10 +14,11 @@ enum Endpoint {
     case catalogRegions
     case catalogClasses
     case catalogModels
+    case catalogModelDetails(Int)
     
     var method: HTTPMethod {
         switch self {
-        case .catalogRegions, .catalogClasses, .catalogModels:
+        case .catalogRegions, .catalogClasses, .catalogModels, .catalogModelDetails:
             return .get
         }
     }
@@ -30,6 +31,8 @@ enum Endpoint {
             return URL(fromEndpoint: "catalog.php?type=classes")!
         case .catalogModels:
             return URL(fromEndpoint: "catalog.php?type=models")!
+        case .catalogModelDetails(let modelId):
+            return URL(fromEndpoint: "catalog.php?type=model_details&id=\(modelId)")!
         }
     }
     

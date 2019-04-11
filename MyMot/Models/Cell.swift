@@ -10,14 +10,27 @@ import UIKit
 
 class Cell {
 
+    // Properties
     var type: CellType
     var content: Any?
-    var eventListener: CellEventProtocol?
     var height: CGFloat
+    
+    // Events
+    var eventListener: CellEventProtocol?
+    var cellTapped: (() -> ())?
     
     init(cellType: CellType) {
         self.type = cellType
         self.height = cellType.height
+        self.eventListener = self
+    }
+    
+}
+
+extension Cell: CellEventProtocol {
+    
+    func tapEvent() {
+        cellTapped?()
     }
     
 }

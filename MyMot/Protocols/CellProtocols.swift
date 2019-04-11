@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 protocol CellEventProtocol: class {
-    func boolValueChanged(newValue: Bool)
+    func tapEvent()
 }
 
 protocol CellContentProtocol: class {

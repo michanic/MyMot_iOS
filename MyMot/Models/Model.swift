@@ -9,6 +9,35 @@
 import Foundation
 import SwiftyJSON
 
+struct ModelDetails {
+    
+    var parameters: [String : String]
+    var images: [String]
+    var text: String?
+    
+    init?(json: JSON) {
+        
+        self.text = json.dictionary?["preview_text"]?.string
+        
+        self.images = []
+        if let images = json.dictionary?["images"]?.array {
+            for row in images {
+                if let imagePath = row.string {
+                    self.images.append(imagePath)
+                }
+            }
+        }
+        
+        self.parameters = [:]
+        if let parameters = json.dictionary?["parameters"]?.dictionary {
+            for row in parameters {
+                self.parameters[row.key] = row.value.string
+            }
+        }
+    }
+    
+}
+
 extension Model {
     
     static func createOrUpdate(modelsJson: [JSON], manufacturer: Manufacturer) {
@@ -41,8 +70,6 @@ extension Model {
         model?.code = dict["code"]?.string
         model?.sort = Int32(dict["sort"]?.int ?? 0)
         model?.preview_picture = dict["preview_picture"]?.string
-        model?.preview_text = dict["preview_text"]?.string
-        model?.parameters = dict["parameters"]?.string
         model?.first_year = Int16(dict["first_year"]?.int ?? 0)
         model?.last_year = Int16(dict["last_year"]?.int ?? 0)
         
@@ -58,5 +85,8 @@ extension Cell {
     convenience init(modelsList: Model) {
         self.init(cellType: .modelsList)
         self.content = modelsList
+        self.cellTapped = {
+            Router.shared.pushController(ViewControllerFactory.catalogModelDetails(modelsList).create)
+        }
     }
 }
