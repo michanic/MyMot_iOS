@@ -9,10 +9,13 @@
 import Foundation
 import SwiftyJSON
 
+typealias Parameters = [String : String]
+typealias Images = [String]
+
 struct ModelDetails {
     
-    var parameters: [String : String]
-    var images: [String]
+    var parameters: Parameters
+    var images: Images
     var text: String?
     
     init?(json: JSON) {

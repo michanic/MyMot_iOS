@@ -25,4 +25,16 @@ extension UIColor {
     @nonobjc class var tableSectionTitle: UIColor {
         return UIColor(white: 119.0 / 255.0, alpha: 1.0)
     }
+    
+    @nonobjc class var textDarkGray: UIColor {
+        return UIColor(white: 74.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var textLightGray: UIColor {
+        return UIColor(white: 155.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var separatorGray: UIColor {
+        return UIColor(white: 230.0 / 255.0, alpha: 1.0)
+    }
 }

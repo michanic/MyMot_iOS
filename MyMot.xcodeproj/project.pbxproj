@@ -34,6 +34,8 @@
 		8E0FB32A225E0D78001753C4 /* CatalogSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */; };
 		8E0FB32E225E3B60001753C4 /* CatalogModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */; };
 		8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */; };
+		8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1C2260CBA000C18BE3 /* String.swift */; };
+		8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -94,6 +96,8 @@
 		8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogSliderCell.xib; sourceTree = "<group>"; };
 		8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModelViewController.swift; sourceTree = "<group>"; };
 		8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogModelViewController.xib; sourceTree = "<group>"; };
+		8EA0FA1C2260CBA000C18BE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSliderView.swift; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				8E0FB307225BA3B2001753C4 /* TableView.swift */,
+				8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 				8E0FB2F1225B967B001753C4 /* UIView.swift */,
 				8E0FB2FE225BA0F7001753C4 /* UIScreen.swift */,
 				8E0FB30C225C7AE8001753C4 /* UIImageView.swift */,
+				8EA0FA1C2260CBA000C18BE3 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +505,7 @@
 				8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8E0FB305225BA368001753C4 /* DataSource.swift in Sources */,
 				8E0FB2FD225BA0B1001753C4 /* Screen.swift in Sources */,
+				8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */,
 				8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */,
 				8E0FB30D225C7AE8001753C4 /* UIImageView.swift in Sources */,
 				8E0FB303225BA2F8001753C4 /* Section.swift in Sources */,
@@ -520,6 +527,7 @@
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
 				8E0012BF225B3B940034E8BB /* CoreDataManager+Categories.swift in Sources */,
+				8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */,
 				8E0012C1225B3E800034E8BB /* CoreDataManager+Models.swift in Sources */,
 				8E0FB2F2225B967B001753C4 /* UIView.swift in Sources */,
 				8E0FB2FF225BA0F7001753C4 /* UIScreen.swift in Sources */,
@@ -678,6 +686,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7462QGU6J5;
 				INFOPLIST_FILE = MyMot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -697,6 +706,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7462QGU6J5;
 				INFOPLIST_FILE = MyMot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
