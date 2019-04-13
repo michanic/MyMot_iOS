@@ -28,6 +28,7 @@ extension CoreDataManager {
     
     func getCategories() -> [Category] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+        request.predicate = NSPredicate(format: "models.@count > 0")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
