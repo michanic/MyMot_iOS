@@ -14,6 +14,8 @@ class CatalogModelViewController: UniversalViewController {
     @IBOutlet weak var imagesSliderHeight: NSLayoutConstraint!
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var manufacturerLabel: UILabel!
+    @IBOutlet weak var classLabel: UILabel!
+    @IBOutlet weak var yearsLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
     @IBOutlet weak var parametersView: UIStackView!
     @IBOutlet weak var parametersViewHeight: NSLayoutConstraint!
@@ -69,6 +71,8 @@ class CatalogModelViewController: UniversalViewController {
         imagesSlider.fillWithImages(modelDetails.images)
         modelLabel.text = model.name
         manufacturerLabel.text = model.manufacturer?.name
+        classLabel.text = model.category?.name
+        yearsLabel.text = model.years
         aboutLabel.text = modelDetails.text
         drawParametersView(modelDetails.parameters)
     }

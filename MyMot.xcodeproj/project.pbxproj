@@ -36,6 +36,8 @@
 		8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */; };
 		8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1C2260CBA000C18BE3 /* String.swift */; };
 		8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */; };
+		8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA339A2226199270038863C /* CategoryAboutCell.swift */; };
+		8EA339A5226199270038863C /* CategoryAboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA339A3226199270038863C /* CategoryAboutCell.xib */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -98,6 +100,8 @@
 		8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogModelViewController.xib; sourceTree = "<group>"; };
 		8EA0FA1C2260CBA000C18BE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSliderView.swift; sourceTree = "<group>"; };
+		8EA339A2226199270038863C /* CategoryAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAboutCell.swift; sourceTree = "<group>"; };
+		8EA339A3226199270038863C /* CategoryAboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryAboutCell.xib; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */,
 				8E0FB2F3225B989F001753C4 /* CatalogSlideCell.swift */,
 				8E0FB2F4225B989F001753C4 /* CatalogSlideCell.xib */,
+				8EA339A2226199270038863C /* CategoryAboutCell.swift */,
+				8EA339A3226199270038863C /* CategoryAboutCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				8E0FB2F6225B989F001753C4 /* CatalogSlideCell.xib in Resources */,
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
 				8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */,
+				8EA339A5226199270038863C /* CategoryAboutCell.xib in Resources */,
 				8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */,
 				8EC6241322538F4A00E122F8 /* LaunchScreen.storyboard in Resources */,
 				8EC624402253AB3200E122F8 /* SimpleCell.xib in Resources */,
@@ -443,7 +450,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -460,7 +467,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		912FFC6F413AECCCEC471566 /* [CP] Check Pods Manifest.lock */ = {
@@ -499,6 +506,7 @@
 				8E0FB308225BA3B2001753C4 /* TableView.swift in Sources */,
 				8EC624432253ABF000E122F8 /* LoadingViewController.swift in Sources */,
 				8E0FB329225E0D78001753C4 /* CatalogSliderCell.swift in Sources */,
+				8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */,
 				8EC6241F225393EA00E122F8 /* Sources.swift in Sources */,
 				8E0FB301225BA2CD001753C4 /* Cell.swift in Sources */,
 				8EC624342253A48500E122F8 /* FavouritesViewController.swift in Sources */,
@@ -683,8 +691,8 @@
 			baseConfigurationReference = 6802D5A9DE722164446B5B82 /* Pods-MyMot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7462QGU6J5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyMot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -693,6 +701,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = michanic.MyMot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -703,8 +712,8 @@
 			baseConfigurationReference = 83F2AC689EDBAAEA66ADF601 /* Pods-MyMot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7462QGU6J5;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MyMot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -713,6 +722,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = michanic.MyMot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

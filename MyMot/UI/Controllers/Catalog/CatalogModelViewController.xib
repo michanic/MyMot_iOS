@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CatalogModelViewController" customModule="MyMot" customModuleProvider="target">
             <connections>
                 <outlet property="aboutLabel" destination="b7b-Hu-z0g" id="t37-Qy-OL1"/>
+                <outlet property="classLabel" destination="0st-wZ-lR0" id="Xes-Fh-CMv"/>
                 <outlet property="imagesSlider" destination="BBd-Pc-gUg" id="ZJu-I1-Jea"/>
                 <outlet property="imagesSliderHeight" destination="Ixf-0c-2Dz" id="DuY-j7-UuW"/>
                 <outlet property="manufacturerLabel" destination="nyw-4C-LwK" id="03t-a8-7d1"/>
@@ -28,15 +29,16 @@
                 <outlet property="parametersView" destination="ubh-Pk-tTU" id="AHD-fP-ipN"/>
                 <outlet property="parametersViewHeight" destination="IAT-L2-UNJ" id="IvY-uH-x3X"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yearsLabel" destination="OqA-cG-Rhq" id="CVm-JC-pET"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="936"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="931"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoQ-FD-mqv">
-                    <rect key="frame" x="0.0" y="20" width="375" height="916"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="911"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBd-Pc-gUg" customClass="ImagesSliderView" customModule="MyMot" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="386"/>
@@ -52,39 +54,45 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyw-4C-LwK">
-                            <rect key="frame" x="33" y="424" width="309" height="17"/>
+                            <rect key="frame" x="33" y="424" width="35.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqA-cG-Rhq">
+                            <rect key="frame" x="33" y="446" width="309" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1I3-Zr-FTY">
-                            <rect key="frame" x="33" y="466" width="309" height="1"/>
+                            <rect key="frame" x="33" y="480.5" width="309" height="1"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="IRD-gD-XFH"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7b-Hu-z0g">
-                            <rect key="frame" x="33" y="492" width="309" height="150.5"/>
+                            <rect key="frame" x="33" y="506.5" width="309" height="150.5"/>
                             <string key="text">Модель спорт-туриста Honda VFR800F (Interceptor) появилась в 1998 году, придя на смену Honda VFR750F. Модель была ориентирована, в основном, на экспорт в страны Европы, Северной Америки и Океании, но также была доступна и на внутреннем японском рынке (первые поколения внутрияпонских VFR800 были "задушены" до 80 л.с. мощности).</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Технические характеристики:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E9-P5-49c">
-                            <rect key="frame" x="26" y="700" width="323" height="16"/>
+                            <rect key="frame" x="26" y="714.5" width="323" height="16"/>
                             <fontDescription key="fontDescription" name="SuzukiAlstareExtremeRacing" family="Suzuki Alstare Extreme Racing" pointSize="16"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-Pk-tTU">
-                            <rect key="frame" x="0.0" y="732" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="746.5" width="375" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="IAT-L2-UNJ"/>
                             </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-eq-atM">
-                            <rect key="frame" x="10" y="856" width="355" height="50"/>
+                            <rect key="frame" x="10" y="840.5" width="355" height="50"/>
                             <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="bzz-iu-FwK"/>
@@ -102,23 +110,32 @@
                                 <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="TCb-e8-OWr"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Спорт-турист" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0st-wZ-lR0">
+                            <rect key="frame" x="248" y="424" width="93.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="nyw-4C-LwK" secondAttribute="trailing" constant="33" id="5Pe-1d-ai1"/>
                         <constraint firstItem="EBv-9x-Bj3" firstAttribute="top" secondItem="BBd-Pc-gUg" secondAttribute="bottom" constant="7" id="6z6-Cc-pdc"/>
                         <constraint firstItem="dUy-eq-atM" firstAttribute="leading" secondItem="OoQ-FD-mqv" secondAttribute="leading" constant="10" id="BJS-XX-bxI"/>
+                        <constraint firstItem="1I3-Zr-FTY" firstAttribute="top" secondItem="OqA-cG-Rhq" secondAttribute="bottom" constant="20" id="Eau-3a-oHa"/>
                         <constraint firstAttribute="trailing" secondItem="8E9-P5-49c" secondAttribute="trailing" constant="26" id="FPe-or-CA8"/>
                         <constraint firstItem="ubh-Pk-tTU" firstAttribute="top" secondItem="8E9-P5-49c" secondAttribute="bottom" constant="16" id="FSV-Yl-NPN"/>
                         <constraint firstAttribute="trailing" secondItem="ubh-Pk-tTU" secondAttribute="trailing" id="Frx-py-7uh"/>
+                        <constraint firstAttribute="trailing" secondItem="OqA-cG-Rhq" secondAttribute="trailing" constant="33" id="ITs-a2-of0"/>
                         <constraint firstItem="BBd-Pc-gUg" firstAttribute="width" secondItem="OoQ-FD-mqv" secondAttribute="width" id="JI3-tS-9kv"/>
                         <constraint firstItem="b7b-Hu-z0g" firstAttribute="top" secondItem="1I3-Zr-FTY" secondAttribute="bottom" constant="25" id="Kuu-8B-ycd"/>
                         <constraint firstItem="nyw-4C-LwK" firstAttribute="top" secondItem="EBv-9x-Bj3" secondAttribute="bottom" constant="11" id="LLc-b7-dz5"/>
                         <constraint firstAttribute="trailing" secondItem="dUy-eq-atM" secondAttribute="trailing" constant="10" id="LjH-gc-epg"/>
                         <constraint firstItem="8E9-P5-49c" firstAttribute="leading" secondItem="OoQ-FD-mqv" secondAttribute="leading" constant="26" id="Lpr-jL-K8k"/>
+                        <constraint firstItem="0st-wZ-lR0" firstAttribute="top" secondItem="EBv-9x-Bj3" secondAttribute="bottom" constant="11" id="MdR-fG-yCK"/>
                         <constraint firstItem="BBd-Pc-gUg" firstAttribute="leading" secondItem="OoQ-FD-mqv" secondAttribute="leading" id="MwY-pS-qf1"/>
                         <constraint firstAttribute="trailing" secondItem="b7b-Hu-z0g" secondAttribute="trailing" constant="33" id="NkC-KD-44g"/>
                         <constraint firstAttribute="trailing" secondItem="1I3-Zr-FTY" secondAttribute="trailing" constant="33" id="SEv-c3-iao"/>
                         <constraint firstItem="1I3-Zr-FTY" firstAttribute="leading" secondItem="OoQ-FD-mqv" secondAttribute="leading" constant="33" id="Sba-aa-UPP"/>
+                        <constraint firstItem="OqA-cG-Rhq" firstAttribute="leading" secondItem="OoQ-FD-mqv" secondAttribute="leading" constant="33" id="WVX-P9-iCI"/>
                         <constraint firstAttribute="bottom" secondItem="dUy-eq-atM" secondAttribute="bottom" constant="10" id="X0b-dI-S2o"/>
                         <constraint firstItem="nyw-4C-LwK" firstAttribute="leading" secondItem="OoQ-FD-mqv" secondAttribute="leading" constant="33" id="fx1-NE-4KP"/>
                         <constraint firstItem="EBv-9x-Bj3" firstAttribute="leading" secondItem="OoQ-FD-mqv" secondAttribute="leading" constant="33" id="gtH-dY-8Sc"/>
@@ -128,8 +145,9 @@
                         <constraint firstAttribute="trailing" secondItem="BBd-Pc-gUg" secondAttribute="trailing" id="q1q-QA-S62"/>
                         <constraint firstItem="8E9-P5-49c" firstAttribute="top" secondItem="b7b-Hu-z0g" secondAttribute="bottom" constant="57.5" id="q4P-FB-Zbl"/>
                         <constraint firstAttribute="trailing" secondItem="EBv-9x-Bj3" secondAttribute="trailing" constant="33" id="qFq-hb-iA9"/>
-                        <constraint firstItem="1I3-Zr-FTY" firstAttribute="top" secondItem="nyw-4C-LwK" secondAttribute="bottom" constant="25" id="xiw-6h-Mpb"/>
-                        <constraint firstItem="dUy-eq-atM" firstAttribute="top" secondItem="ubh-Pk-tTU" secondAttribute="bottom" constant="80" id="yug-Kb-7E5"/>
+                        <constraint firstAttribute="trailing" secondItem="0st-wZ-lR0" secondAttribute="trailing" constant="33.5" id="xFL-d6-ot5"/>
+                        <constraint firstItem="dUy-eq-atM" firstAttribute="top" secondItem="ubh-Pk-tTU" secondAttribute="bottom" constant="50" id="yug-Kb-7E5"/>
+                        <constraint firstItem="OqA-cG-Rhq" firstAttribute="top" secondItem="nyw-4C-LwK" secondAttribute="bottom" constant="5" id="zFX-QI-zBi"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -142,7 +160,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="138.40000000000001" y="277.06146926536735"/>
+            <point key="canvasLocation" x="138.40000000000001" y="274.81259370314842"/>
         </view>
     </objects>
 </document>

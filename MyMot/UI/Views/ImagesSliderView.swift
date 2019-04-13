@@ -13,6 +13,7 @@ class ImagesSliderView: UIView {
     var images: Images = []
     var currentImage: Int = 0
     
+    lazy var indicatorView = UIActivityIndicatorView(style: .gray)
     lazy var scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: self.bounds.height - 37))
     lazy var pagerView = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - 37, width: UIScreen.width, height: 37))
     
@@ -24,6 +25,10 @@ class ImagesSliderView: UIView {
     }
 
     private func createElements() {
+        indicatorView.frame = CGRect(x: scrollView.bounds.width / 2 - 10, y: scrollView.bounds.height / 2 - 10, width: 20, height: 20)
+        indicatorView.startAnimating()
+        addSubview(indicatorView)
+        
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
         scrollView.delegate = self
@@ -46,7 +51,7 @@ class ImagesSliderView: UIView {
         for image in images {
             let imageView = UIImageView(frame: CGRect(x: UIScreen.width * CGFloat(index), y: 0, width: UIScreen.width, height: scrollView.bounds.height))
             imageView.contentMode = .scaleAspectFill
-            imageView.setImage(path: image, placeholder: UIImage(named: "launch_logo"))
+            imageView.setImage(path: image, placeholder: nil)
             imageView.clipsToBounds = true
             scrollView.addSubview(imageView)
             index += 1

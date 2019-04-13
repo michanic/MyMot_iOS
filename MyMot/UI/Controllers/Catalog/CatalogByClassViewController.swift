@@ -27,6 +27,11 @@ class CatalogByClassViewController: UniversalViewController {
     }
 
     override func prepareData() {
+        let section = Section()
+        let categoryCell = Cell(categoryAbout: category)
+        section.cells.append(categoryCell)
+        dataSource.append(section)
+        
         for manufacturer in CoreDataManager.instance.getManufacturers() {
             let models = manufacturer.getModelsOfCategory(category)
             if models.count > 0 {

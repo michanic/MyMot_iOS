@@ -13,6 +13,7 @@ enum CellType {
     case simple
     case advertsList
     case modelsList
+    case categoryAbout
     case catalogSlider
     case catalogSlide
     
@@ -24,6 +25,8 @@ enum CellType {
             return AdvertsListCell.self
         case .modelsList:
             return ModelsListCell.self
+        case .categoryAbout:
+            return CategoryAboutCell.self
         case .catalogSlider:
             return CatalogSliderCell.self
         case .catalogSlide:

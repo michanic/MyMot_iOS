@@ -38,8 +38,15 @@ extension Category {
 
 
 extension Cell {
+    
     convenience init(categoriesSliderTitle: String, categories: [Category]) {
         self.init(cellType: .catalogSlider)
         self.content = (categoriesSliderTitle, categories)
     }
+    
+    convenience init(categoryAbout category: Category) {
+        self.init(cellType: .categoryAbout)
+        self.content = (category.image, category.about)
+    }
 }
+
