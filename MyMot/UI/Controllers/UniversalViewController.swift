@@ -20,17 +20,18 @@ class UniversalViewController: UIViewController, DataSource {
         }
     }
     
-    lazy var tableView: TableView = {
-        return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain)
-    } ()
+    var loadingView: UIView?
+    lazy var tableView: TableView = { return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain) } ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareData()
+        
         if dataSource.count > 0 {
             view.addSubview(tableView)
         }
+        
         
         if let navigationController = navigationController {
             if navigationController.viewControllers.count == 1 && tabBarController == nil {
@@ -39,10 +40,35 @@ class UniversalViewController: UIViewController, DataSource {
                 addBackButton()
             }
         }
+        
+        
     }
     
     func prepareData() {
         dataSource = []
+    }
+    
+    func createLoadingView() {
+        let loadingView = UIView(frame: self.view.bounds)
+        let indicatorView = UIActivityIndicatorView(style: .gray)
+        indicatorView.frame = CGRect(x: loadingView.bounds.width / 2 - 10, y: loadingView.bounds.height / 2 - 10, width: 20, height: 20)
+        indicatorView.startAnimating()
+        loadingView.addSubview(indicatorView)
+        loadingView.backgroundColor = UIColor.white
+        view.addSubview(loadingView)
+        self.loadingView = loadingView
+    }
+    
+    func showLoading() {
+        if let loadingView = loadingView {
+            view.addSubview(loadingView)
+        } else {
+            createLoadingView()
+        }
+    }
+    
+    func hideLoading() {
+        loadingView?.removeFromSuperview()
     }
     
     private func addCloseButton() {

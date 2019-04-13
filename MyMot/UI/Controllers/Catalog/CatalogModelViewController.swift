@@ -35,13 +35,18 @@ class CatalogModelViewController: UniversalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navBarTitle = (model.name ?? "")
-        
         updateFavouriteButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showLoading()
         
         let apiInteractor = ApiInteractor()
         apiInteractor.loadModelDetails(modelId: Int(model.id)) { (details) in
             self.modelDetails = details
             self.fillProperties()
+            self.hideLoading()
         }
     }
 
