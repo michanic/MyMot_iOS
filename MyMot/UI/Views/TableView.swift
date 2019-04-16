@@ -18,6 +18,7 @@ class TableView: UITableView {
         super.init(frame: frame, style: style)
         dataSource = self
         delegate = self
+        tableFooterView = UIView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -64,6 +65,10 @@ extension TableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return DS.dataSource[section].headerProperties.view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return CGFloat.leastNormalMagnitude
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

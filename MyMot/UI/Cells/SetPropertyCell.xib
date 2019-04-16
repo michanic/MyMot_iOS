@@ -11,38 +11,34 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SimpleCell" id="KGk-i7-Jjw" customClass="SimpleCell" customModule="MyMot" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SetPropertyCell" id="KGk-i7-Jjw" customClass="SetPropertyCell" customModule="MyMot" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="47.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="ti6-gZ-fqM">
-                        <rect key="frame" x="296" y="17" width="8" height="12"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-IM-I28">
-                        <rect key="frame" x="26" y="12" width="265" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GyG-g4-Imw">
+                        <rect key="frame" x="26" y="12" width="164" height="20"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="kh2-lc-RoB">
+                        <rect key="frame" x="198" y="8" width="96" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <color key="textColor" red="0.60392156862745094" green="0.60271537303924561" blue="0.60271537303924561" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="simpleLabel" destination="GKK-IM-I28" id="PwY-dq-0tf"/>
+                <outlet property="propertyCaption" destination="GyG-g4-Imw" id="0BN-id-wKg"/>
+                <outlet property="propertyField" destination="kh2-lc-RoB" id="a5u-Uw-iuX"/>
             </connections>
-            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+            <point key="canvasLocation" x="47.826086956521742" y="34.821428571428569"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="cell_arrow_right" width="8" height="12"/>
-    </resources>
 </document>

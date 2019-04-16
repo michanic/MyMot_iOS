@@ -10,10 +10,52 @@ import UIKit
 
 class SearchViewController: UniversalViewController {
 
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.titleView = searchController.searchBar
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск по модели"
+        searchController.searchBar.delegate = self
+        searchController.searchBar.tintColor = UIColor.textLightGray
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
+    }
+    
+    override func prepareData() {
+        dataSource = [Section()]
+    }
+    
+    @objc func showFilter() {
+        view.endEditing(true)
+        searchController.searchBar.resignFirstResponder()
+        
+        Router.shared.presentController(ViewControllerFactory.searchFilter.create)
+    }
+}
 
-        // Do any additional setup after loading the view.
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("searchBarTextDidEndEditing")
+        searchController.searchBar.resignFirstResponder()
+        view.endEditing(true)
+        
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        Delay(0.01) {
+            self.searchController.searchBar.showsCancelButton = false
+        }
     }
     
 }

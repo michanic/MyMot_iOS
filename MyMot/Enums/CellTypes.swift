@@ -11,6 +11,7 @@ import UIKit
 enum CellType {
     
     case simple
+    case setProperty
     case advertsList
     case modelsList
     case categoryAbout
@@ -21,6 +22,8 @@ enum CellType {
         switch self {
         case .simple:
             return SimpleCell.self
+        case .setProperty:
+            return SetPropertyCell.self
         case .advertsList:
             return AdvertsListCell.self
         case .modelsList:
@@ -36,6 +39,8 @@ enum CellType {
     
     var height: CGFloat {
         switch self {
+        case .simple, .setProperty:
+            return 48
         case .modelsList:
             return 60
         case .catalogSlider:

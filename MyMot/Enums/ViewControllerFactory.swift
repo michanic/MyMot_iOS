@@ -18,6 +18,8 @@ enum ViewControllerFactory {
     case catalogModelDetails(Model)
     
     case searchRoot
+    case searchFilter
+    
     case favouritesRoot
     
     var create: UIViewController {
@@ -34,6 +36,9 @@ enum ViewControllerFactory {
         case .catalogModelDetails(let model):
             return CatalogModelViewController(model: model)
         
+        case .searchFilter:
+            return UINavigationController(rootViewController: FilterViewController())
+            
         default:
             return UIViewController()
         }
