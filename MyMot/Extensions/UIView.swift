@@ -33,4 +33,8 @@ extension UIView {
         }
     }
     
+    func rotate(angle: CGFloat) {
+        transform = CGAffineTransform(rotationAngle: angle)
+    }
+    
 }

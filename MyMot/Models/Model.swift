@@ -88,7 +88,7 @@ extension Cell {
     convenience init(modelsList: Model) {
         self.init(cellType: .modelsList)
         self.content = modelsList
-        self.cellTapped = {
+        self.cellTapped = { indexPath in
             Router.shared.pushController(ViewControllerFactory.catalogModelDetails(modelsList).create)
         }
     }

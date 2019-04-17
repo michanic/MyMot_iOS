@@ -28,11 +28,17 @@ class FilterViewController: UniversalViewController {
         let sectionRegion = Section()
         sectionRegion.headerProperties.title = "Регион поиска"
         let regionCell = Cell(simpleTitle: "Край")
+        regionCell.cellTapped = { indexPath in
+            Router.shared.pushController(ViewControllerFactory.searchFilterRegions.create)
+        }
         sectionRegion.cells = [regionCell]
         
         let sectionModel = Section()
         sectionModel.headerProperties.title = "Модель"
         let modelCell = Cell(simpleTitle: "Любая")
+        modelCell.cellTapped = { indexPath in
+            Router.shared.pushController(ViewControllerFactory.searchFilterModels.create)
+        }
         sectionModel.cells = [modelCell]
         
         let sectionPrice = Section()

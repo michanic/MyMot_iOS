@@ -44,4 +44,22 @@ extension CoreDataManager {
         }
     }
     
+    func getRegionCities(regionId: Int) -> [Location] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
+        request.predicate = NSPredicate(format: "region.id = %@", "\(regionId)")
+        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        
+        do {
+            let result = try persistentContainer.viewContext.fetch(request)
+            if let locations = result as? [Location] {
+                return locations
+            } else {
+                return []
+            }
+        } catch {
+            return []
+        }
+    }
+    
 }

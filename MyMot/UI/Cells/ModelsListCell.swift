@@ -18,7 +18,7 @@ class ModelsListCell: UITableViewCell, CellContentProtocol {
         
         if let model = content as? Model {
             
-            photo.setImage(path: model.preview_picture, placeholder: UIImage(named: "launch_logo"))
+            photo.setImage(path: model.preview_picture, placeholder: UIImage.placeholder)
             name.text = model.name
             years.text = model.years
             

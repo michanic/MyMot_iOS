@@ -14,10 +14,11 @@ class Cell {
     var type: CellType
     var content: Any?
     var height: CGFloat
+    var indexPath: IndexPath?
     
     // Events
     var eventListener: CellEventProtocol?
-    var cellTapped: (() -> ())?
+    var cellTapped: ((IndexPath?) -> ())?
     
     init(cellType: CellType) {
         self.type = cellType
@@ -30,7 +31,7 @@ class Cell {
 extension Cell: CellEventProtocol {
     
     func tapEvent() {
-        cellTapped?()
+        cellTapped?(indexPath)
     }
     
 }

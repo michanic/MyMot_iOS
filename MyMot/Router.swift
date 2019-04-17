@@ -36,8 +36,14 @@ class Router {
     func pushController(_ viewController: UIViewController) {
         if let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
             let currentNavigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController {
-            viewController.hidesBottomBarWhenPushed = true
-            currentNavigationController.pushViewController(viewController, animated: true)
+            
+            if let presentedNavigationController = currentNavigationController.presentedViewController as? UINavigationController {
+                presentedNavigationController.pushViewController(viewController, animated: true)
+            } else {
+                viewController.hidesBottomBarWhenPushed = true
+                currentNavigationController.pushViewController(viewController, animated: true)
+            }
+            
         }
     }
     

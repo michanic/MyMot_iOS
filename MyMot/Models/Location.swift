@@ -48,4 +48,8 @@ extension Location {
         }
         return location
     }
+    
+    func getCities() -> [Location] {
+        return CoreDataManager.instance.getRegionCities(regionId: Int(id))
+    }
 }

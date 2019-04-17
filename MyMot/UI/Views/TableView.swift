@@ -39,6 +39,7 @@ extension TableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellModel = DS.dataSource[indexPath.section].cells[indexPath.row]
+        cellModel.indexPath = indexPath
         let reuseIdentifier = String(describing: cellModel.type.cellClass)
         if !registeredCellTypes.contains(cellModel.type) {
             let nib = UINib(nibName: String(describing: cellModel.type.cellClass), bundle: nil)

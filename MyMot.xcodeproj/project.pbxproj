@@ -42,6 +42,10 @@
 		8EA5251C226618ED005D342E /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA5251A226618ED005D342E /* FilterViewController.xib */; };
 		8EA5251F22661F66005D342E /* SetPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA5251D22661F66005D342E /* SetPropertyCell.swift */; };
 		8EA5252022661F66005D342E /* SetPropertyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA5251E22661F66005D342E /* SetPropertyCell.xib */; };
+		8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F402267961E00C5F02B /* UIImage.swift */; };
+		8EAF5F43226797A700C5F02B /* FilterRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */; };
+		8EAF5F45226797BA00C5F02B /* FilterModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */; };
+		8EAF5F4722679DBB00C5F02B /* CellArrowPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -110,6 +114,10 @@
 		8EA5251A226618ED005D342E /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		8EA5251D22661F66005D342E /* SetPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPropertyCell.swift; sourceTree = "<group>"; };
 		8EA5251E22661F66005D342E /* SetPropertyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetPropertyCell.xib; sourceTree = "<group>"; };
+		8EAF5F402267961E00C5F02B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRegionsViewController.swift; sourceTree = "<group>"; };
+		8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModelsViewController.swift; sourceTree = "<group>"; };
+		8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellArrowPosition.swift; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +217,8 @@
 				8EC624302253A47200E122F8 /* SearchViewController.swift */,
 				8EA52519226618ED005D342E /* FilterViewController.swift */,
 				8EA5251A226618ED005D342E /* FilterViewController.xib */,
+				8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */,
+				8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -285,6 +295,7 @@
 				8E0FB2FE225BA0F7001753C4 /* UIScreen.swift */,
 				8E0FB30C225C7AE8001753C4 /* UIImageView.swift */,
 				8EA0FA1C2260CBA000C18BE3 /* String.swift */,
+				8EAF5F402267961E00C5F02B /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +318,7 @@
 			children = (
 				8EC6244D2254F53E00E122F8 /* ViewControllerFactory.swift */,
 				8E0FB2F7225B9C79001753C4 /* CellTypes.swift */,
+				8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */,
 				8EC624242253963F00E122F8 /* Endpoints.swift */,
 				8EC6241E225393EA00E122F8 /* Sources.swift */,
 			);
@@ -464,7 +476,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -481,7 +493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		912FFC6F413AECCCEC471566 /* [CP] Check Pods Manifest.lock */ = {
@@ -515,6 +527,7 @@
 			files = (
 				8E0FB324225E0BA0001753C4 /* CatalogByClassViewController.swift in Sources */,
 				8EA5251F22661F66005D342E /* SetPropertyCell.swift in Sources */,
+				8EAF5F4722679DBB00C5F02B /* CellArrowPosition.swift in Sources */,
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
 				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
 				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,
@@ -525,6 +538,7 @@
 				8EC6241F225393EA00E122F8 /* Sources.swift in Sources */,
 				8E0FB301225BA2CD001753C4 /* Cell.swift in Sources */,
 				8EC624342253A48500E122F8 /* FavouritesViewController.swift in Sources */,
+				8EAF5F43226797A700C5F02B /* FilterRegionsViewController.swift in Sources */,
 				8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8E0FB305225BA368001753C4 /* DataSource.swift in Sources */,
 				8E0FB2FD225BA0B1001753C4 /* Screen.swift in Sources */,
@@ -547,6 +561,7 @@
 				8EC6242F2253A45E00E122F8 /* CatalogViewController.swift in Sources */,
 				8E0012C7225B42A70034E8BB /* Manufacturer.swift in Sources */,
 				8EC6244E2254F53E00E122F8 /* ViewControllerFactory.swift in Sources */,
+				8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */,
 				8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
@@ -554,6 +569,7 @@
 				8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */,
 				8E0012C1225B3E800034E8BB /* CoreDataManager+Models.swift in Sources */,
 				8E0FB2F2225B967B001753C4 /* UIView.swift in Sources */,
+				8EAF5F45226797BA00C5F02B /* FilterModelsViewController.swift in Sources */,
 				8E0FB2FF225BA0F7001753C4 /* UIScreen.swift in Sources */,
 				8EC624272253970E00E122F8 /* URL.swift in Sources */,
 				8E0FB32E225E3B60001753C4 /* CatalogModelViewController.swift in Sources */,

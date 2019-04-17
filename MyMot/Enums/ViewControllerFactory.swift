@@ -19,6 +19,8 @@ enum ViewControllerFactory {
     
     case searchRoot
     case searchFilter
+    case searchFilterRegions
+    case searchFilterModels
     
     case favouritesRoot
     
@@ -38,6 +40,10 @@ enum ViewControllerFactory {
         
         case .searchFilter:
             return UINavigationController(rootViewController: FilterViewController())
+        case .searchFilterRegions:
+            return FilterRegionsViewController()
+        case .searchFilterModels:
+            return FilterModelsViewController()
             
         default:
             return UIViewController()

@@ -37,6 +37,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="arrowImage" destination="ti6-gZ-fqM" id="ZJc-iX-KOY"/>
                 <outlet property="simpleLabel" destination="GKK-IM-I28" id="PwY-dq-0tf"/>
             </connections>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
