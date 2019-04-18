@@ -12,6 +12,8 @@ class FilterViewController: UniversalViewController {
 
     @IBOutlet weak var searchButon: UIButton!
     var selectedRegion: Location?
+    var selectedManufacturer: Manufacturer?
+    var selectedModel: Model?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +34,7 @@ class FilterViewController: UniversalViewController {
         
         let sectionModel = Section()
         sectionModel.headerProperties.title = "Модель"
-        let modelCell = Cell(simpleTitle: "Любая")
-        modelCell.cellTapped = { indexPath in
-            Router.shared.pushController(ViewControllerFactory.searchFilterModels.create)
-        }
-        sectionModel.cells = [modelCell]
+        sectionModel.cells = [selectedModelCell()]
         
         let sectionPrice = Section()
         sectionPrice.headerProperties.title = "Цена"
@@ -60,6 +58,27 @@ class FilterViewController: UniversalViewController {
             Router.shared.pushController(ViewControllerFactory.searchFilterRegions(self.selectedRegion, regionSelectedCallback).create)
         }
         return regionCell
+    }
+    
+    func selectedModelCell() -> Cell {
+        var selectedTitle = "Любая"
+        if let selectedModelName = selectedModel?.name {
+            selectedTitle = selectedModelName
+        } else if let selectedManufacturerName = selectedManufacturer?.name {
+            selectedTitle = selectedManufacturerName
+        }
+        
+        let modelCell = Cell(simpleTitle: selectedTitle)
+        let selectedCallback: ((Model?, Manufacturer?) -> ())? = { (model, manufacturer) in
+            self.selectedModel = model
+            self.selectedManufacturer = manufacturer
+            self.dataSource[1].cells = [self.selectedModelCell()]
+            self.updateRows(indexPaths: [IndexPath(row: 0, section: 1)])
+        }
+        modelCell.cellTapped = { indexPath in
+            Router.shared.pushController(ViewControllerFactory.searchFilterModels(self.selectedModel, self.selectedManufacturer, selectedCallback).create)
+        }
+        return modelCell
     }
     
     @IBAction func searchAction(_ sender: Any) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SimpleCell: UITableViewCell, CellContentProtocol {
+class SimpleCell: UITableViewCell, CellContentProtocol, CellAccessoryStateProtocol {
     
     @IBOutlet weak var simpleLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
@@ -24,9 +24,8 @@ class SimpleCell: UITableViewCell, CellContentProtocol {
         
     }
     
-    private func setAccessoryState(_ state: CellAccessoryType) {
+    func setAccessoryState(_ state: CellAccessoryType) {
         arrowImage.rotate(angle: state.angle)
-        
         switch state {
         case .hidden:
             arrowImage.image = nil

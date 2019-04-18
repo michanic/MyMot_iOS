@@ -42,7 +42,7 @@ enum CellType {
         case .simple, .setProperty:
             return 48
         case .modelsList:
-            return 60
+            return 70
         case .catalogSlider:
             return 240
         default:

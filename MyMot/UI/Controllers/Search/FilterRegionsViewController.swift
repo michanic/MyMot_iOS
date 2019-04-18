@@ -101,7 +101,7 @@ class FilterRegionsViewController: UniversalViewController {
         
         guard let regionCells: (Bool, Int, [Cell]) = regionsMap[Int(region.id)] else { return }
         
-        if regionCells.0 {
+        if regionCells.0 { // expanded
             dataSource[regionCells.1].cells.removeLast(regionCells.2.count)
         } else {
             dataSource[regionCells.1].cells.append(contentsOf: regionCells.2)

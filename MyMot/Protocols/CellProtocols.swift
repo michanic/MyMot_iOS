@@ -17,6 +17,10 @@ protocol CellContentProtocol: class {
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?)
 }
 
+protocol CellAccessoryStateProtocol: class {
+    func setAccessoryState(_ state: CellAccessoryType)
+}
+
 protocol CellUpdateProtocol: class {
     func updateData()
     func updateSections(sections: IndexSet)
