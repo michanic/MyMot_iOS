@@ -19,7 +19,7 @@ enum ViewControllerFactory {
     
     case searchRoot
     case searchFilter
-    case searchFilterRegions
+    case searchFilterRegions(Location?, ((Location?) -> ())?)
     case searchFilterModels
     
     case favouritesRoot
@@ -40,8 +40,8 @@ enum ViewControllerFactory {
         
         case .searchFilter:
             return UINavigationController(rootViewController: FilterViewController())
-        case .searchFilterRegions:
-            return FilterRegionsViewController()
+        case .searchFilterRegions(let selectedRegion, let callback):
+            return FilterRegionsViewController(selectedRegion: selectedRegion, selectedCallback: callback)
         case .searchFilterModels:
             return FilterModelsViewController()
             

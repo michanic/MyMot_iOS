@@ -14,29 +14,39 @@ class SimpleCell: UITableViewCell, CellContentProtocol {
     @IBOutlet weak var arrowImage: UIImageView!
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
-        if let content = content as? String {
+        if let content = content as? String? {
             simpleLabel.text = content
-            setArrowPosition(.right)
-        } else if let content = content as? (String?, Bool) {
+            setAccessoryState(.right)
+        } else if let content = content as? (String?, CellAccessoryType) {
             simpleLabel.text = content.0
-            setArrowPosition(content.1 ? .top : .bottom)
+            setAccessoryState(content.1)
         }
+        
     }
     
-    private func setArrowPosition(_ position: CellArrowPosition) {
-        arrowImage.rotate(angle: position.angle)
+    private func setAccessoryState(_ state: CellAccessoryType) {
+        arrowImage.rotate(angle: state.angle)
+        
+        switch state {
+        case .hidden:
+            arrowImage.image = nil
+        case .checked:
+            arrowImage.image = UIImage(named: "cell_checked")
+        default:
+            arrowImage.image = UIImage(named: "cell_arrow_right")
+        }
     }
     
 }
 
 extension Cell {
-    convenience init(simpleTitle: String) {
+    convenience init(simpleTitle: String?) {
         self.init(cellType: .simple)
         self.content = simpleTitle
     }
     
-    convenience init(simpleTitle: String?, expanded: Bool) {
+    convenience init(simpleTitle: String?, accessoryState: CellAccessoryType) {
         self.init(cellType: .simple)
-        self.content = (simpleTitle, expanded)
+        self.content = (simpleTitle, accessoryState)
     }
 }

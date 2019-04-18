@@ -11,6 +11,7 @@ import UIKit
 class FilterViewController: UniversalViewController {
 
     @IBOutlet weak var searchButon: UIButton!
+    var selectedRegion: Location?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,7 @@ class FilterViewController: UniversalViewController {
         
         let sectionRegion = Section()
         sectionRegion.headerProperties.title = "Регион поиска"
-        let regionCell = Cell(simpleTitle: "Край")
-        regionCell.cellTapped = { indexPath in
-            Router.shared.pushController(ViewControllerFactory.searchFilterRegions.create)
-        }
-        sectionRegion.cells = [regionCell]
+        sectionRegion.cells = [selectedRegionCell()]
         
         let sectionModel = Section()
         sectionModel.headerProperties.title = "Модель"
@@ -49,6 +46,20 @@ class FilterViewController: UniversalViewController {
         
         dataSource = [sectionRegion, sectionModel, sectionPrice]
         
+    }
+    
+    func selectedRegionCell() -> Cell {
+        let selectedRegionTitle = selectedRegion?.name ?? "По всей России"
+        let regionCell = Cell(simpleTitle: selectedRegionTitle)
+        let regionSelectedCallback: ((Location?) -> ())? = { locaion in
+            self.selectedRegion = locaion
+            self.dataSource[0].cells = [self.selectedRegionCell()]
+            self.updateRows(indexPaths: [IndexPath(row: 0, section: 0)])
+        }
+        regionCell.cellTapped = { indexPath in
+            Router.shared.pushController(ViewControllerFactory.searchFilterRegions(self.selectedRegion, regionSelectedCallback).create)
+        }
+        return regionCell
     }
     
     @IBAction func searchAction(_ sender: Any) {

@@ -45,7 +45,7 @@
 		8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F402267961E00C5F02B /* UIImage.swift */; };
 		8EAF5F43226797A700C5F02B /* FilterRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */; };
 		8EAF5F45226797BA00C5F02B /* FilterModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */; };
-		8EAF5F4722679DBB00C5F02B /* CellArrowPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */; };
+		8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -117,7 +117,7 @@
 		8EAF5F402267961E00C5F02B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRegionsViewController.swift; sourceTree = "<group>"; };
 		8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModelsViewController.swift; sourceTree = "<group>"; };
-		8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellArrowPosition.swift; sourceTree = "<group>"; };
+		8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAccessoryType.swift; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -318,7 +318,7 @@
 			children = (
 				8EC6244D2254F53E00E122F8 /* ViewControllerFactory.swift */,
 				8E0FB2F7225B9C79001753C4 /* CellTypes.swift */,
-				8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */,
+				8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */,
 				8EC624242253963F00E122F8 /* Endpoints.swift */,
 				8EC6241E225393EA00E122F8 /* Sources.swift */,
 			);
@@ -476,7 +476,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
@@ -493,7 +493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		912FFC6F413AECCCEC471566 /* [CP] Check Pods Manifest.lock */ = {
@@ -527,7 +527,7 @@
 			files = (
 				8E0FB324225E0BA0001753C4 /* CatalogByClassViewController.swift in Sources */,
 				8EA5251F22661F66005D342E /* SetPropertyCell.swift in Sources */,
-				8EAF5F4722679DBB00C5F02B /* CellArrowPosition.swift in Sources */,
+				8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */,
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
 				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
 				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  CellArrowPosition.swift
+//  CellAccessoryType.swift
 //  MyMot
 //
 //  Created by Michail Solyanic on 17/04/2019.
@@ -8,14 +8,16 @@
 
 import UIKit
 
-enum CellArrowPosition {
+enum CellAccessoryType {
     case right
     case top
     case bottom
+    case hidden
+    case checked
     
     var angle: CGFloat {
         switch self {
-        case .right:
+        case .right, .hidden, .checked:
             return 0
         case .top:
             return -CGFloat.pi / 2

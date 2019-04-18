@@ -16,3 +16,9 @@ protocol CellEventProtocol: class {
 protocol CellContentProtocol: class {
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?)
 }
+
+protocol CellUpdateProtocol: class {
+    func updateData()
+    func updateSections(sections: IndexSet)
+    func updateRows(indexPaths: [IndexPath])
+}

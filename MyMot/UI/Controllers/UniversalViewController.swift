@@ -91,6 +91,25 @@ class UniversalViewController: UIViewController, DataSource {
     
 }
 
+extension UniversalViewController: CellUpdateProtocol {
+    
+    func updateData() {
+        tableView.reloadData()
+    }
+    
+    func updateSections(sections: IndexSet) {
+        tableView.beginUpdates()
+        tableView.reloadSections(sections, with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    func updateRows(indexPaths: [IndexPath]) {
+        tableView.beginUpdates()
+        tableView.reloadRows(at: indexPaths, with: .fade)
+        tableView.endUpdates()
+    }
+    
+}
 
 func Delay(_ delay:Double, closure:@escaping ()->()) {
     let when = DispatchTime.now() + delay
