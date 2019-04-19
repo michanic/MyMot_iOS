@@ -65,7 +65,7 @@ class FilterViewController: UniversalViewController {
         if let selectedModelName = selectedModel?.name {
             selectedTitle = selectedModelName
         } else if let selectedManufacturerName = selectedManufacturer?.name {
-            selectedTitle = selectedManufacturerName
+            selectedTitle = "Все мотоциклы " + selectedManufacturerName
         }
         
         let modelCell = Cell(simpleTitle: selectedTitle)

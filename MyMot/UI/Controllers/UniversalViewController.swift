@@ -23,6 +23,8 @@ class UniversalViewController: UIViewController, DataSource {
     var loadingView: UIView?
     lazy var tableView: TableView = { return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain) } ()
     
+    var startScrollTo: IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,14 @@ class UniversalViewController: UIViewController, DataSource {
         }
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        if let startScrollTo = startScrollTo {
+            tableView.scrollToRow(at: startScrollTo, at: .middle, animated: false)
+            self.startScrollTo = nil
+        }
     }
     
     func prepareData() {

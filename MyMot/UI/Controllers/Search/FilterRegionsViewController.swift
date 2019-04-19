@@ -46,10 +46,10 @@ class FilterRegionsViewController: UniversalViewController {
             let section = Section()
             var regionExpanded = false
             
-            
             var cityCells: [Cell] = []
             if let selectedRegion = selectedRegion, selectedRegion.id == region.id {
                 regionExpanded = true
+                startScrollTo = IndexPath(row: 1, section: sectionIndex)
             }
             let allRegionCell = Cell(simpleTitle: "Все города", accessoryState: regionExpanded ? .checked : .hidden)
             allRegionCell.cellTapped = { indexPath in
@@ -58,11 +58,13 @@ class FilterRegionsViewController: UniversalViewController {
             }
             cityCells.append(allRegionCell)
             
+            var row = 2
             for city in region.getCities() {
                 var cityChecked = false
                 if let selectedRegion = selectedRegion, selectedRegion.id == city.id {
                     cityChecked = true
                     regionExpanded = true
+                    startScrollTo = IndexPath(row: row, section: sectionIndex)
                 }
                 let cityCell = Cell(simpleTitle: city.name, accessoryState: cityChecked ? .checked : .hidden)
                 cityCell.cellTapped = { indexPath in
@@ -70,6 +72,7 @@ class FilterRegionsViewController: UniversalViewController {
                     self.selectedCallback?(city)
                 }
                 cityCells.append(cityCell)
+                row += 1
             }
             
             regionsMap[Int(region.id)] = (regionExpanded, sectionIndex, cityCells)
