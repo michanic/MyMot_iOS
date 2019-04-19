@@ -11,6 +11,8 @@ import SDWebImage
 
 protocol CellEventProtocol: class {
     func tapEvent()
+    func intValueChanged(_ newValue: Int?)
+    func stringValueChanged(_ newValue: String?)
 }
 
 protocol CellContentProtocol: class {

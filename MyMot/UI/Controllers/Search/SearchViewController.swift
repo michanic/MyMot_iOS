@@ -32,7 +32,6 @@ class SearchViewController: UniversalViewController {
     @objc func showFilter() {
         view.endEditing(true)
         searchController.searchBar.resignFirstResponder()
-        
         Router.shared.presentController(ViewControllerFactory.searchFilter.create)
     }
 }
@@ -44,8 +43,6 @@ extension SearchViewController: UISearchBarDelegate {
         print("searchBarTextDidEndEditing")
         searchController.searchBar.resignFirstResponder()
         view.endEditing(true)
-        
-        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

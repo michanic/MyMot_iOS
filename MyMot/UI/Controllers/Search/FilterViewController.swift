@@ -11,9 +11,12 @@ import UIKit
 class FilterViewController: UniversalViewController {
 
     @IBOutlet weak var searchButon: UIButton!
+    
     var selectedRegion: Location?
     var selectedManufacturer: Manufacturer?
     var selectedModel: Model?
+    var priceFrom: Int?
+    var priceFor: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +41,24 @@ class FilterViewController: UniversalViewController {
         
         let sectionPrice = Section()
         sectionPrice.headerProperties.title = "Цена"
-        let priceFromCell = Cell(propertyTitle: "От", propertyValue: "0", keyboardType: .numberPad)
-        let priceForCell = Cell(propertyTitle: "До", propertyValue: "0", keyboardType: .numberPad)
+        
+        var priceFromString: String?
+        if let priceFrom = priceFrom {
+            priceFromString = String(priceFrom)
+        }
+        let priceFromCell = Cell(setPriceTitle: "От", value: priceFromString)
+        priceFromCell.intChangedEvent = { newValue in
+            self.priceFrom = newValue
+        }
+        
+        var priceForString: String?
+        if let priceFor = priceFor {
+            priceForString = String(priceFor)
+        }
+        let priceForCell = Cell(setPriceTitle: "До", value: priceForString)
+        priceForCell.intChangedEvent = { newValue in
+            self.priceFor = newValue
+        }
         sectionPrice.cells = [priceFromCell, priceForCell]
         
         dataSource = [sectionRegion, sectionModel, sectionPrice]

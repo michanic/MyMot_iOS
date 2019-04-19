@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - InputMask (4.1.1)
   - SDWebImage (5.0.1):
     - SDWebImage/Core (= 5.0.1)
   - SDWebImage/Core (5.0.1)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - InputMask
   - SDWebImage
   - SwiftSoup
   - SwiftyJSON
@@ -15,16 +17,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - InputMask
     - SDWebImage
     - SwiftSoup
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  InputMask: 88c7c1432816333e884e647f8c2d69485ba525d1
   SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: d5a66df34edcd9e22435b9df7e3d5d530a8a833d
+PODFILE CHECKSUM: 658ce3b86419b9b649eda4ef87fec5ec5efa4745
 
 COCOAPODS: 1.5.3

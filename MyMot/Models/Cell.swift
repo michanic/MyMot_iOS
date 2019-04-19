@@ -19,6 +19,8 @@ class Cell {
     // Events
     var eventListener: CellEventProtocol?
     var cellTapped: ((IndexPath?) -> ())?
+    var stringChangedEvent: ((String?) -> ())?
+    var intChangedEvent: ((Int?) -> ())?
     
     init(cellType: CellType) {
         self.type = cellType
@@ -32,6 +34,14 @@ extension Cell: CellEventProtocol {
     
     func tapEvent() {
         cellTapped?(indexPath)
+    }
+    
+    func intValueChanged(_ newValue: Int?) {
+        intChangedEvent?(newValue)
+    }
+    
+    func stringValueChanged(_ newValue: String?) {
+        stringChangedEvent?(newValue)
     }
     
 }

@@ -8,25 +8,24 @@
 
 import UIKit
 
-class UniversalViewController: UIViewController, DataSource {
-
-    var dataSource: [Section] = []
-    var navBarTitle: String {
-        get {
-            return title ?? ""
-        }
-        set {
-            title = "‌‌‍‍ " + newValue + "‌‌‍‍ "
-        }
-    }
+class UniversalViewController: UIViewController, DataSource, KeyboardEventsDelegate {
     
+    var dataSource: [Section] = []
     var loadingView: UIView?
+    var keyboardManager = KeyboardManager()
+    var hideKeyboardByTouchView: UIView?
+    var navBarTitle: String {
+        get { return title ?? "" }
+        set { title = "‌‌‍‍ " + newValue + "‌‌‍‍ " }
+    }
+    var startScrollTo: IndexPath?
     lazy var tableView: TableView = { return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain) } ()
     
-    var startScrollTo: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.keyboardManager.delegate = self
+        hideKeyboardByTouchView = view
         
         prepareData()
         
@@ -52,6 +51,12 @@ class UniversalViewController: UIViewController, DataSource {
             tableView.scrollToRow(at: startScrollTo, at: .middle, animated: false)
             self.startScrollTo = nil
         }
+        keyboardManager.beginMonitoring()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(animated)
+        keyboardManager.stopMonitoring()
     }
     
     func prepareData() {
