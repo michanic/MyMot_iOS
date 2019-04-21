@@ -61,4 +61,22 @@ extension CoreDataManager {
         }
     }
     
+    func getFavouriteModels() -> [Model] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
+        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        request.predicate = NSPredicate(format: "favourite = true")
+        
+        do {
+            let result = try persistentContainer.viewContext.fetch(request)
+            if let models = result as? [Model] {
+                return models
+            } else {
+                return []
+            }
+        } catch {
+            return []
+        }
+    }
+    
 }

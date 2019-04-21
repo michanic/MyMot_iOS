@@ -21,17 +21,25 @@ class UniversalViewController: UIViewController, DataSource {
     }
     
     var loadingView: UIView?
-    lazy var tableView: TableView = { return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain) } ()
+    @IBOutlet weak var customTableView: TableView?
+    
+    lazy var tableView: TableView = {
+        if let customTableView = customTableView {
+            customTableView.setupWithCustomView(dataSourceDelegate: self)
+            return customTableView
+        } else {
+            return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain)
+        }
+    } ()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         prepareData()
         
-        if dataSource.count > 0 {
+        if dataSource.count > 0 && customTableView == nil {
             view.addSubview(tableView)
         }
-        
         
         if let navigationController = navigationController {
             if navigationController.viewControllers.count == 1 && tabBarController == nil {

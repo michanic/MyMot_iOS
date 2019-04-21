@@ -91,18 +91,48 @@
         <!--‌‌‍‍ Избранное -->
         <scene sceneID="jDW-Oj-Od1">
             <objects>
-                <viewController id="FuQ-Sz-xAw" sceneMemberID="viewController">
+                <viewController id="FuQ-Sz-xAw" customClass="FavouritesViewController" customModule="MyMot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C0g-2I-lb7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Uq0-CR-JrM">
+                                <rect key="frame" x="10" y="74" width="355" height="29"/>
+                                <segments>
+                                    <segment title="Объявления"/>
+                                    <segment title="Модели"/>
+                                </segments>
+                                <color key="tintColor" red="0.20392156862745098" green="0.59580334337183105" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="FuQ-Sz-xAw" eventType="valueChanged" id="BO4-4B-XMG"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="efm-UM-MsN" customClass="TableView" customModule="MyMot" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="111" width="375" height="507"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b9X-mg-VGu" firstAttribute="trailing" secondItem="efm-UM-MsN" secondAttribute="trailing" id="0aY-cP-mnj"/>
+                            <constraint firstItem="b9X-mg-VGu" firstAttribute="trailing" secondItem="Uq0-CR-JrM" secondAttribute="trailing" constant="10" id="FOv-Rc-vDK"/>
+                            <constraint firstItem="efm-UM-MsN" firstAttribute="leading" secondItem="b9X-mg-VGu" secondAttribute="leading" id="JAV-Gz-3vf"/>
+                            <constraint firstItem="b9X-mg-VGu" firstAttribute="bottom" secondItem="efm-UM-MsN" secondAttribute="bottom" id="nzh-we-m8K"/>
+                            <constraint firstItem="Uq0-CR-JrM" firstAttribute="leading" secondItem="b9X-mg-VGu" secondAttribute="leading" constant="10" id="rvv-wg-khG"/>
+                            <constraint firstItem="efm-UM-MsN" firstAttribute="top" secondItem="Uq0-CR-JrM" secondAttribute="bottom" constant="9" id="tpT-9S-sne"/>
+                            <constraint firstItem="Uq0-CR-JrM" firstAttribute="top" secondItem="b9X-mg-VGu" secondAttribute="top" constant="10" id="zL6-dg-UCK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b9X-mg-VGu"/>
                     </view>
                     <navigationItem key="navigationItem" title="‌‌‍‍ Избранное " id="HcJ-6X-ZJ5"/>
+                    <connections>
+                        <outlet property="customTableView" destination="efm-UM-MsN" id="imc-XM-CwY"/>
+                        <outlet property="segmentControl" destination="Uq0-CR-JrM" id="dN6-Fn-m0D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLW-1h-fHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-66" y="1039"/>
+            <point key="canvasLocation" x="-66.400000000000006" y="1038.5307346326838"/>
         </scene>
         <!--‌‌‍‍ О приложении -->
         <scene sceneID="BGk-Za-Zar">

@@ -10,7 +10,7 @@ import UIKit
 
 class TableView: UITableView {
 
-    let DS: DataSource
+    var DS: DataSource?
     var registeredCellTypes: Set<CellType> = []
     
     init(dataSourceDelegate: DataSource, frame: CGRect, style: UITableView.Style) {
@@ -22,23 +22,29 @@ class TableView: UITableView {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
+
+    func setupWithCustomView(dataSourceDelegate: DataSource) {
+        self.DS = dataSourceDelegate
+        dataSource = self
+        delegate = self
+    }
 }
 
 extension TableView: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return DS.dataSource.count
+        return DS?.dataSource.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DS.dataSource[section].cells.count
+        return DS?.dataSource[section].cells.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellModel = DS.dataSource[indexPath.section].cells[indexPath.row]
+        guard let cellModel = DS?.dataSource[indexPath.section].cells[indexPath.row] else { return UITableViewCell() }
         cellModel.indexPath = indexPath
         let reuseIdentifier = String(describing: cellModel.type.cellClass)
         if !registeredCellTypes.contains(cellModel.type) {
@@ -57,15 +63,15 @@ extension TableView: UITableViewDataSource {
 extension TableView: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return DS.dataSource[indexPath.section].cells[indexPath.row].height
+        return DS?.dataSource[indexPath.section].cells[indexPath.row].height ?? CGFloat.leastNormalMagnitude
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return DS.dataSource[section].headerProperties.height
+        return DS?.dataSource[section].headerProperties.height ?? CGFloat.leastNormalMagnitude
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return DS.dataSource[section].headerProperties.view
+        return DS?.dataSource[section].headerProperties.view
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -74,8 +80,7 @@ extension TableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let cellModel = DS.dataSource[indexPath.section].cells[indexPath.row]
+        guard let cellModel = DS?.dataSource[indexPath.section].cells[indexPath.row] else { return }
         cellModel.eventListener?.tapEvent()
     }
     
