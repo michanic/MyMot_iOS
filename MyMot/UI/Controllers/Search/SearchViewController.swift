@@ -21,6 +21,7 @@ class SearchViewController: UniversalViewController {
         searchController.searchBar.placeholder = "Поиск по модели"
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = UIColor.textLightGray
+        searchController.searchBar.showsCancelButton = false
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
     }
@@ -50,7 +51,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        Delay(0.01) {
+        Delay(0) {
             self.searchController.searchBar.showsCancelButton = false
         }
     }
