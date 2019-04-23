@@ -12,6 +12,7 @@ class Router {
     
     static let shared : Router = Router()
     var window: UIWindow
+    weak var presentedController: UIViewController?
     
     init() {
         if let w = UIApplication.shared.delegate?.window, let window = w {
@@ -37,7 +38,7 @@ class Router {
         if let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
             let currentNavigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController {
             
-            if let presentedNavigationController = currentNavigationController.presentedViewController as? UINavigationController {
+            if let presentedNavigationController = presentedController as? UINavigationController {
                 presentedNavigationController.pushViewController(viewController, animated: true)
             } else {
                 viewController.hidesBottomBarWhenPushed = true
@@ -51,6 +52,7 @@ class Router {
         if let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
             let currentNavigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController {
             currentNavigationController.present(viewController, animated: true, completion: nil)
+            presentedController = viewController
         }
     }
     
