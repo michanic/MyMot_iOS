@@ -90,8 +90,8 @@ class CatalogModelViewController: UniversalViewController {
         
         for parameter in parameters {
             
-            let captionHeight = parameter.key.getHeightFor(width: captionWidth, font: UIFont.systemFont(ofSize: 14))
-            let valueHeight = parameter.value.getHeightFor(width: valueWidth, font: UIFont.systemFont(ofSize: 12))
+            let captionHeight = parameter.0.getHeightFor(width: captionWidth, font: UIFont.systemFont(ofSize: 14))
+            let valueHeight = parameter.1.getHeightFor(width: valueWidth, font: UIFont.systemFont(ofSize: 12))
             var viewHeight: CGFloat = 0
             if captionHeight > valueHeight {
                 viewHeight = captionHeight + 24.0
@@ -109,14 +109,14 @@ class CatalogModelViewController: UniversalViewController {
             captionLabel.font = UIFont.systemFont(ofSize: 14)
             captionLabel.numberOfLines = 0
             captionLabel.textColor = UIColor.textDarkGray
-            captionLabel.text = parameter.key
+            captionLabel.text = parameter.0
             backView.addSubview(captionLabel)
             
             let valueLabel = UILabel(frame: CGRect(x: UIScreen.width - valueWidth - 32, y: 12, width: valueWidth, height: valueHeight))
             valueLabel.font = UIFont.systemFont(ofSize: 12)
             valueLabel.numberOfLines = 0
             valueLabel.textColor = UIColor.textLightGray
-            valueLabel.text = parameter.value
+            valueLabel.text = parameter.1
             backView.addSubview(valueLabel)
             
             parametersView.addSubview(backView)

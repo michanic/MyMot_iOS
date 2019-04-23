@@ -8,21 +8,20 @@
 
 import UIKit
 
-class UniversalViewController: UIViewController, DataSource {
-
+class UniversalViewController: UIViewController, DataSource, KeyboardEventsDelegate {
+    
     var dataSource: [Section] = []
-    var navBarTitle: String {
-        get {
-            return title ?? ""
-        }
-        set {
-            title = "‌‌‍‍ " + newValue + "‌‌‍‍ "
-        }
-    }
-    
     var loadingView: UIView?
-    @IBOutlet weak var customTableView: TableView?
+    var keyboardManager = KeyboardManager()
+    var hideKeyboardByTouchView: UIView?
+    var navBarTitle: String {
+        get { return title ?? "" }
+        set { title = "‌‌‍‍ " + newValue + "‌‌‍‍ " }
+    }
+    var startScrollTo: IndexPath?
     
+    @IBOutlet weak var customTableView: TableView?
+
     lazy var tableView: TableView = {
         if let customTableView = customTableView {
             customTableView.setupWithCustomView(dataSourceDelegate: self)
@@ -31,9 +30,12 @@ class UniversalViewController: UIViewController, DataSource {
             return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain)
         }
     } ()
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.keyboardManager.delegate = self
+        hideKeyboardByTouchView = view
         
         prepareData()
         
@@ -50,6 +52,20 @@ class UniversalViewController: UIViewController, DataSource {
         }
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(animated)
+        if let startScrollTo = startScrollTo {
+            tableView.scrollToRow(at: startScrollTo, at: .middle, animated: false)
+            self.startScrollTo = nil
+        }
+        keyboardManager.beginMonitoring()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super .viewWillDisappear(animated)
+        keyboardManager.stopMonitoring()
     }
     
     func prepareData() {
@@ -99,6 +115,25 @@ class UniversalViewController: UIViewController, DataSource {
     
 }
 
+extension UniversalViewController: CellUpdateProtocol {
+    
+    func updateData() {
+        tableView.reloadData()
+    }
+    
+    func updateSections(sections: IndexSet) {
+        tableView.beginUpdates()
+        tableView.reloadSections(sections, with: .automatic)
+        tableView.endUpdates()
+    }
+    
+    func updateRows(indexPaths: [IndexPath]) {
+        tableView.beginUpdates()
+        tableView.reloadRows(at: indexPaths, with: .fade)
+        tableView.endUpdates()
+    }
+    
+}
 
 func Delay(_ delay:Double, closure:@escaping ()->()) {
     let when = DispatchTime.now() + delay

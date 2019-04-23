@@ -36,7 +36,7 @@ class CatalogByManufacturerViewController: UniversalViewController {
                 section.headerProperties.title = category.name?.uppercased()
                 
                 for model in models {
-                    let modelCell = Cell(modelsList: model)
+                    let modelCell = Cell(modelsList: model, accessoryState: .right)
                     section.cells.append(modelCell)
                 }
                 dataSource.append(section)

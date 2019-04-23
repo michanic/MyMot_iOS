@@ -40,12 +40,13 @@
 		8EA339A5226199270038863C /* CategoryAboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA339A3226199270038863C /* CategoryAboutCell.xib */; };
 		8EA5251B226618ED005D342E /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA52519226618ED005D342E /* FilterViewController.swift */; };
 		8EA5251C226618ED005D342E /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA5251A226618ED005D342E /* FilterViewController.xib */; };
-		8EA5251F22661F66005D342E /* SetPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA5251D22661F66005D342E /* SetPropertyCell.swift */; };
-		8EA5252022661F66005D342E /* SetPropertyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA5251E22661F66005D342E /* SetPropertyCell.xib */; };
+		8EA5251F22661F66005D342E /* SetPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA5251D22661F66005D342E /* SetPriceCell.swift */; };
+		8EA5252022661F66005D342E /* SetPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA5251E22661F66005D342E /* SetPriceCell.xib */; };
+		8EAD9E202269BF6500B34BEF /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAD9E1F2269BF6500B34BEF /* KeyboardManager.swift */; };
 		8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F402267961E00C5F02B /* UIImage.swift */; };
 		8EAF5F43226797A700C5F02B /* FilterRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */; };
 		8EAF5F45226797BA00C5F02B /* FilterModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */; };
-		8EAF5F4722679DBB00C5F02B /* CellArrowPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */; };
+		8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -112,12 +113,13 @@
 		8EA339A3226199270038863C /* CategoryAboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryAboutCell.xib; sourceTree = "<group>"; };
 		8EA52519226618ED005D342E /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		8EA5251A226618ED005D342E /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
-		8EA5251D22661F66005D342E /* SetPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPropertyCell.swift; sourceTree = "<group>"; };
-		8EA5251E22661F66005D342E /* SetPropertyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetPropertyCell.xib; sourceTree = "<group>"; };
+		8EA5251D22661F66005D342E /* SetPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPriceCell.swift; sourceTree = "<group>"; };
+		8EA5251E22661F66005D342E /* SetPriceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetPriceCell.xib; sourceTree = "<group>"; };
+		8EAD9E1F2269BF6500B34BEF /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		8EAF5F402267961E00C5F02B /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRegionsViewController.swift; sourceTree = "<group>"; };
 		8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModelsViewController.swift; sourceTree = "<group>"; };
-		8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellArrowPosition.swift; sourceTree = "<group>"; };
+		8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAccessoryType.swift; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */,
 				8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */,
 				8E0FB2FC225BA0B1001753C4 /* Screen.swift */,
+				8EAD9E1F2269BF6500B34BEF /* KeyboardManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -318,7 +321,7 @@
 			children = (
 				8EC6244D2254F53E00E122F8 /* ViewControllerFactory.swift */,
 				8E0FB2F7225B9C79001753C4 /* CellTypes.swift */,
-				8EAF5F4622679DBB00C5F02B /* CellArrowPosition.swift */,
+				8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */,
 				8EC624242253963F00E122F8 /* Endpoints.swift */,
 				8EC6241E225393EA00E122F8 /* Sources.swift */,
 			);
@@ -340,8 +343,8 @@
 			children = (
 				8EC6243D2253AB3200E122F8 /* SimpleCell.swift */,
 				8EC6243E2253AB3200E122F8 /* SimpleCell.xib */,
-				8EA5251D22661F66005D342E /* SetPropertyCell.swift */,
-				8EA5251E22661F66005D342E /* SetPropertyCell.xib */,
+				8EA5251D22661F66005D342E /* SetPriceCell.swift */,
+				8EA5251E22661F66005D342E /* SetPriceCell.xib */,
 				8EC624392253AACA00E122F8 /* AdvertsListCell.swift */,
 				8EC6243A2253AACA00E122F8 /* AdvertsListCell.xib */,
 				8EC624352253AAA100E122F8 /* ModelsListCell.swift */,
@@ -458,7 +461,7 @@
 				8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */,
 				8EC6243C2253AACA00E122F8 /* AdvertsListCell.xib in Resources */,
 				8EC624472254F12D00E122F8 /* Progress.ttf in Resources */,
-				8EA5252022661F66005D342E /* SetPropertyCell.xib in Resources */,
+				8EA5252022661F66005D342E /* SetPriceCell.xib in Resources */,
 				8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */,
 				8EC624382253AAA100E122F8 /* ModelsListCell.xib in Resources */,
 				8E0FB32A225E0D78001753C4 /* CatalogSliderCell.xib in Resources */,
@@ -478,6 +481,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -487,6 +491,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputMask.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -526,8 +531,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E0FB324225E0BA0001753C4 /* CatalogByClassViewController.swift in Sources */,
-				8EA5251F22661F66005D342E /* SetPropertyCell.swift in Sources */,
-				8EAF5F4722679DBB00C5F02B /* CellArrowPosition.swift in Sources */,
+				8EA5251F22661F66005D342E /* SetPriceCell.swift in Sources */,
+				8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */,
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
 				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
 				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,
@@ -541,6 +546,7 @@
 				8EAF5F43226797A700C5F02B /* FilterRegionsViewController.swift in Sources */,
 				8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8E0FB305225BA368001753C4 /* DataSource.swift in Sources */,
+				8EAD9E202269BF6500B34BEF /* KeyboardManager.swift in Sources */,
 				8E0FB2FD225BA0B1001753C4 /* Screen.swift in Sources */,
 				8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */,
 				8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */,

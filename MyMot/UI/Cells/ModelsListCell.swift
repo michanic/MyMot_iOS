@@ -8,20 +8,31 @@
 
 import UIKit
 
-class ModelsListCell: UITableViewCell, CellContentProtocol {
+class ModelsListCell: UITableViewCell, CellContentProtocol, CellAccessoryStateProtocol {
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var years: UILabel!
+    @IBOutlet weak var arrowImage: UIImageView!
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
-        
-        if let model = content as? Model {
-            
-            photo.setImage(path: model.preview_picture, placeholder: UIImage.placeholder)
-            name.text = model.name
-            years.text = model.years
-            
+        if let content = content as? (Model, CellAccessoryType) {
+            photo.setImage(path: content.0.preview_picture, placeholder: UIImage.placeholder)
+            name.text = content.0.name
+            years.text = content.0.years
+            setAccessoryState(content.1)
+        }
+    }
+    
+    func setAccessoryState(_ state: CellAccessoryType) {
+        arrowImage.rotate(angle: state.angle)
+        switch state {
+        case .hidden:
+            arrowImage.image = nil
+        case .checked:
+            arrowImage.image = UIImage(named: "cell_checked")
+        default:
+            arrowImage.image = UIImage(named: "cell_arrow_right")
         }
     }
     

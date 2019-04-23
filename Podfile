@@ -2,6 +2,7 @@ use_frameworks!
 
 def general_dependencies
 pod 'Alamofire'
+pod 'InputMask'
 pod 'SwiftSoup'
 pod 'SwiftyJSON'
 pod 'SDWebImage'

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-typealias Parameters = [String : String]
+typealias Parameters = [(String, String)]
 typealias Images = [String]
 
 struct ModelDetails {
@@ -31,10 +31,12 @@ struct ModelDetails {
             }
         }
         
-        self.parameters = [:]
-        if let parameters = json.dictionary?["parameters"]?.dictionary {
-            for row in parameters {
-                self.parameters[row.key] = row.value.string
+        self.parameters = []
+        if let parametersArray = json.dictionary?["parameters"]?.array {
+            for parameterDict in parametersArray {
+                if let dict = parameterDict.first, let value = dict.1.string {
+                    self.parameters.append((dict.0, value))
+                }
             }
         }
     }
@@ -85,11 +87,11 @@ extension Model {
 }
 
 extension Cell {
-    convenience init(modelsList: Model) {
+    convenience init(modelsList model: Model, accessoryState: CellAccessoryType) {
         self.init(cellType: .modelsList)
-        self.content = modelsList
+        self.content = (model, accessoryState)
         self.cellTapped = { indexPath in
-            Router.shared.pushController(ViewControllerFactory.catalogModelDetails(modelsList).create)
+            Router.shared.pushController(ViewControllerFactory.catalogModelDetails(model).create)
         }
     }
 }

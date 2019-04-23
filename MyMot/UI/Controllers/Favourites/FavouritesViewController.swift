@@ -27,7 +27,7 @@ class FavouritesViewController: UniversalViewController {
             
         } else {
             for model in CoreDataManager.instance.getFavouriteModels() {
-                let modelCell = Cell(modelsList: model)
+                let modelCell = Cell(modelsList: model, accessoryState: .right)
                 dataSource[0].cells.append(modelCell)
             }
         }
