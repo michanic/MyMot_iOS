@@ -35,9 +35,9 @@ extension Location {
             location = coreLocation
         } else {
             location = Location.init(context: CoreDataManager.instance.persistentContainer.viewContext)
+            location?.id = Int32(id)
         }
         
-        location?.id = Int32(id)
         location?.name = name
         location?.sort = Int32(dict["sort"]?.int ?? 0)
         location?.avito = dict["avito"]?.string

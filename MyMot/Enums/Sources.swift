@@ -10,18 +10,27 @@ import Foundation
 
 enum Source {
     
-    case avito
-    case auto_ru
+    case avito(String)
+    case auto_ru(String)
     
     static let all = [avito, auto_ru]
     
-    /*var siteUrl: String {
+    var sitePath: String {
+        switch self {
+        case .avito(let region):
+            return "https://www.avito.ru/\(region)/mototsikly_i_mototehnika/mototsikly"
+        case .auto_ru(let region):
+            return "https://auto.ru/\(region)/motorcycle/"
+        }
+    }
+    
+    var itemSelector: String {
         switch self {
         case .avito:
-            return "https://www.avito.ru/krasnodarskiy_kray/mototsikly_i_mototehnika"
+            return ".js-catalog-item-enum.item-with-contact"
         case .auto_ru:
-            return "https://auto.ru/krasnodarskiy_kray/motorcycle/honda/vfr/all/"
+            return ".listing-item.stat_type_listing"
         }
-    }*/
+    }
     
 }

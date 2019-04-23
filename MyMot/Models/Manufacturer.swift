@@ -20,9 +20,9 @@ extension Manufacturer {
                 manufacturer = coreManufacturer
             } else {
                 manufacturer = Manufacturer.init(context: CoreDataManager.instance.persistentContainer.viewContext)
+                manufacturer?.id = Int32(id)
             }
             
-            manufacturer?.id = Int32(id)
             manufacturer?.name = name
             manufacturer?.code = dict["code"]?.string
             manufacturer?.sort = Int32(dict["sort"]?.int ?? 0)

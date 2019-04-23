@@ -20,9 +20,9 @@ extension Category {
                 category = coreCategory
             } else {
                 category = Category.init(context: CoreDataManager.instance.persistentContainer.viewContext)
+                category?.id = Int32(id)
             }
             
-            category?.id = Int32(id)
             category?.code = dict["code"]?.string
             category?.sort = Int32(dict["sort"]?.int ?? 0)
             category?.name = name

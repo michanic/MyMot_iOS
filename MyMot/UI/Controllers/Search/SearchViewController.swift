@@ -28,6 +28,16 @@ class SearchViewController: UniversalViewController {
     
     override func prepareData() {
         dataSource = [Section()]
+        
+        let sitesInteractor = SitesInteractor()
+        sitesInteractor.loadFeedAdverts(ofSource: .avito("rossiya")) { (adverts) in
+            if let adverts = adverts {
+                for advert in adverts {
+                    print(advert.title)
+                }
+            }
+        }
+        
     }
     
     @objc func showFilter() {

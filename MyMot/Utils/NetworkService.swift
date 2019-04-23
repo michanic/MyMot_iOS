@@ -10,12 +10,21 @@ import Alamofire
 import SwiftyJSON
 
 class NetworkService {
+    
     static let shared : NetworkService = NetworkService()
     
     func getJsonData(endpoint: Endpoint, result: ((JSON?, Error?) -> ())?) {
         //print(endpoint.url)
         Alamofire.request(endpoint.url, method: endpoint.method, parameters: nil, encoding: URLEncoding.default, headers: nil).apiResponse { (json, error) in
             result?(json, error)
+        }
+    }
+    
+    func getHtmlData(source: Source, result: ((String?, Error?) -> ())?) {
+        let request = URL(string: source.sitePath)!
+        print(request)
+        Alamofire.request(request, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).htmlResponse { (html, error) in
+            result?(html, error)
         }
     }
 }
@@ -29,6 +38,16 @@ extension DataRequest {
                 handler(json, nil)
             case .failure(let error as NSError):
                 handler(nil, error)
+            }
+        }
+    }
+    
+    func htmlResponse(handler: @escaping (String?, Error?) -> Void) {
+        response(queue: nil, responseSerializer: DataRequest.apiResponseSerializer()) { (response) in
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                handler(utf8Text, nil)
+            } else {
+                handler(nil, NSError.notValidLink)
             }
         }
     }

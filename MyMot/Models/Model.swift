@@ -68,9 +68,9 @@ extension Model {
             model = coreModel
         } else {
             model = Model.init(context: CoreDataManager.instance.persistentContainer.viewContext)
+            model?.id = Int32(id)
         }
         
-        model?.id = Int32(id)
         model?.name = name
         model?.code = dict["code"]?.string
         model?.sort = Int32(dict["sort"]?.int ?? 0)

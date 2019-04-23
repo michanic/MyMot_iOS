@@ -20,7 +20,6 @@
 		8E0FB2F6225B989F001753C4 /* CatalogSlideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB2F4225B989F001753C4 /* CatalogSlideCell.xib */; };
 		8E0FB2F8225B9C79001753C4 /* CellTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB2F7225B9C79001753C4 /* CellTypes.swift */; };
 		8E0FB2FB225B9DB2001753C4 /* CellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB2FA225B9DB2001753C4 /* CellProtocols.swift */; };
-		8E0FB2FD225BA0B1001753C4 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB2FC225BA0B1001753C4 /* Screen.swift */; };
 		8E0FB2FF225BA0F7001753C4 /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB2FE225BA0F7001753C4 /* UIScreen.swift */; };
 		8E0FB301225BA2CD001753C4 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB300225BA2CD001753C4 /* Cell.swift */; };
 		8E0FB303225BA2F8001753C4 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB302225BA2F8001753C4 /* Section.swift */; };
@@ -37,6 +36,11 @@
 		8E3E9356226ECA9D006573FA /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9355226ECA9D006573FA /* CollectionView.swift */; };
 		8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */; };
 		8E3E935A226ECE7A006573FA /* SearchFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3E9358226ECE7A006573FA /* SearchFeedCell.xib */; };
+		8E627B32226EEA5900B44FC6 /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B31226EEA5900B44FC6 /* HtmlParser.swift */; };
+		8E627B34226EEC5500B44FC6 /* Advert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B33226EEC5500B44FC6 /* Advert.swift */; };
+		8E627B36226EED5B00B44FC6 /* CoreDataManager+Adverts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B35226EED5B00B44FC6 /* CoreDataManager+Adverts.swift */; };
+		8E627B38226EF5AF00B44FC6 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B37226EF5AF00B44FC6 /* NSError.swift */; };
+		8E627B3A226EFAE400B44FC6 /* SitesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B39226EFAE400B44FC6 /* SitesInteractor.swift */; };
 		8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1C2260CBA000C18BE3 /* String.swift */; };
 		8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */; };
 		8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA339A2226199270038863C /* CategoryAboutCell.swift */; };
@@ -96,7 +100,6 @@
 		8E0FB2F4225B989F001753C4 /* CatalogSlideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogSlideCell.xib; sourceTree = "<group>"; };
 		8E0FB2F7225B9C79001753C4 /* CellTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellTypes.swift; sourceTree = "<group>"; };
 		8E0FB2FA225B9DB2001753C4 /* CellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocols.swift; sourceTree = "<group>"; };
-		8E0FB2FC225BA0B1001753C4 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		8E0FB2FE225BA0F7001753C4 /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		8E0FB300225BA2CD001753C4 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		8E0FB302225BA2F8001753C4 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
@@ -113,6 +116,11 @@
 		8E3E9355226ECA9D006573FA /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFeedCell.swift; sourceTree = "<group>"; };
 		8E3E9358226ECE7A006573FA /* SearchFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFeedCell.xib; sourceTree = "<group>"; };
+		8E627B31226EEA5900B44FC6 /* HtmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlParser.swift; sourceTree = "<group>"; };
+		8E627B33226EEC5500B44FC6 /* Advert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advert.swift; sourceTree = "<group>"; };
+		8E627B35226EED5B00B44FC6 /* CoreDataManager+Adverts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Adverts.swift"; sourceTree = "<group>"; };
+		8E627B37226EF5AF00B44FC6 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
+		8E627B39226EFAE400B44FC6 /* SitesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesInteractor.swift; sourceTree = "<group>"; };
 		8EA0FA1C2260CBA000C18BE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSliderView.swift; sourceTree = "<group>"; };
 		8EA339A2226199270038863C /* CategoryAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAboutCell.swift; sourceTree = "<group>"; };
@@ -285,12 +293,13 @@
 			children = (
 				8EC62428225399DE00E122F8 /* NetworkService.swift */,
 				8EC6248E2256388300E122F8 /* CoreDataManager.swift */,
+				8E627B35226EED5B00B44FC6 /* CoreDataManager+Adverts.swift */,
 				8E0012B9225B3A930034E8BB /* CoreDataManager+Locations.swift */,
 				8E0012BE225B3B940034E8BB /* CoreDataManager+Categories.swift */,
 				8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */,
 				8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */,
-				8E0FB2FC225BA0B1001753C4 /* Screen.swift */,
 				8EAD9E1F2269BF6500B34BEF /* KeyboardManager.swift */,
+				8E627B31226EEA5900B44FC6 /* HtmlParser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -298,6 +307,7 @@
 		8EC6241B2253939B00E122F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8E627B37226EF5AF00B44FC6 /* NSError.swift */,
 				8EC624262253970E00E122F8 /* URL.swift */,
 				8EC6242C2253A1D800E122F8 /* UIColor.swift */,
 				8EC624492254F1B500E122F8 /* UIFont.swift */,
@@ -315,8 +325,9 @@
 			children = (
 				8E0FB300225BA2CD001753C4 /* Cell.swift */,
 				8E0FB302225BA2F8001753C4 /* Section.swift */,
-				8EC624B92256429F00E122F8 /* Location.swift */,
+				8E627B33226EEC5500B44FC6 /* Advert.swift */,
 				8E0012BB225B3B080034E8BB /* Category.swift */,
+				8EC624B92256429F00E122F8 /* Location.swift */,
 				8E0012C6225B42A70034E8BB /* Manufacturer.swift */,
 				8E0012C2225B3EF60034E8BB /* Model.swift */,
 			);
@@ -394,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				8EC6244F2255009800E122F8 /* ApiInteractor.swift */,
+				8E627B39226EFAE400B44FC6 /* SitesInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -489,7 +501,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -508,7 +520,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		912FFC6F413AECCCEC471566 /* [CP] Check Pods Manifest.lock */ = {
@@ -542,9 +554,11 @@
 			files = (
 				8E0FB324225E0BA0001753C4 /* CatalogByClassViewController.swift in Sources */,
 				8EA5251F22661F66005D342E /* SetPriceCell.swift in Sources */,
+				8E627B3A226EFAE400B44FC6 /* SitesInteractor.swift in Sources */,
 				8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */,
 				8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */,
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
+				8E627B32226EEA5900B44FC6 /* HtmlParser.swift in Sources */,
 				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
 				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,
 				8E0FB308225BA3B2001753C4 /* TableView.swift in Sources */,
@@ -558,15 +572,16 @@
 				8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8E0FB305225BA368001753C4 /* DataSource.swift in Sources */,
 				8EAD9E202269BF6500B34BEF /* KeyboardManager.swift in Sources */,
-				8E0FB2FD225BA0B1001753C4 /* Screen.swift in Sources */,
 				8E3E9356226ECA9D006573FA /* CollectionView.swift in Sources */,
 				8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */,
+				8E627B34226EEC5500B44FC6 /* Advert.swift in Sources */,
 				8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */,
 				8E0FB30D225C7AE8001753C4 /* UIImageView.swift in Sources */,
 				8E0FB303225BA2F8001753C4 /* Section.swift in Sources */,
 				8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */,
 				8EC6242D2253A1D800E122F8 /* UIColor.swift in Sources */,
 				8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */,
+				8E627B36226EED5B00B44FC6 /* CoreDataManager+Adverts.swift in Sources */,
 				8EA5251B226618ED005D342E /* FilterViewController.swift in Sources */,
 				8E0012C3225B3EF60034E8BB /* Model.swift in Sources */,
 				8EC62429225399DE00E122F8 /* NetworkService.swift in Sources */,
@@ -585,6 +600,7 @@
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
 				8E0012BF225B3B940034E8BB /* CoreDataManager+Categories.swift in Sources */,
 				8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */,
+				8E627B38226EF5AF00B44FC6 /* NSError.swift in Sources */,
 				8E0012C1225B3E800034E8BB /* CoreDataManager+Models.swift in Sources */,
 				8E0FB2F2225B967B001753C4 /* UIView.swift in Sources */,
 				8EAF5F45226797BA00C5F02B /* FilterModelsViewController.swift in Sources */,
