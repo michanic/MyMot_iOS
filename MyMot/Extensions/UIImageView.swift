@@ -11,7 +11,7 @@ import UIKit
 extension UIImageView {
     
     func setImage(path: String?, placeholder: UIImage?) {
-        if let path = path, let url = URL(string: URL.root + path) {
+        if let path = path, let url = URL(string: path.contains("https:") ? path : (URL.root + path)) {
             sd_setImage(with: url, placeholderImage: placeholder, options: .highPriority, completed: nil)
         } else {
             image = placeholder

@@ -21,6 +21,7 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
     var startScrollTo: IndexPath?
     
     @IBOutlet weak var customTableView: TableView?
+    @IBOutlet weak var customCollectionView: CollectionView?
 
     lazy var tableView: TableView = {
         if let customTableView = customTableView {
@@ -39,8 +40,10 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
         
         prepareData()
         
-        if dataSource.count > 0 && customTableView == nil {
+        if dataSource.count > 0 && customTableView == nil && customCollectionView == nil {
             view.addSubview(tableView)
+        } else if let customCollectionView = customCollectionView {
+            customCollectionView.setupWithCustomView(dataSourceDelegate: self)
         }
         
         if let navigationController = navigationController {
@@ -119,6 +122,7 @@ extension UniversalViewController: CellUpdateProtocol {
     
     func updateData() {
         tableView.reloadData()
+        customCollectionView?.reloadData()
     }
     
     func updateSections(sections: IndexSet) {

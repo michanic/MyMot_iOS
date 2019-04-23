@@ -23,5 +23,5 @@ class SearchFeedCell: UICollectionViewCell, CellContentProtocol {
             details.text = (advert.city ?? "") + "\n" + (advert.date ?? "")
         }
     }
-    
+        
 }

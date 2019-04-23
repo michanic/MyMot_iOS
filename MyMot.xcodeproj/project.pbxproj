@@ -41,6 +41,8 @@
 		8E627B36226EED5B00B44FC6 /* CoreDataManager+Adverts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B35226EED5B00B44FC6 /* CoreDataManager+Adverts.swift */; };
 		8E627B38226EF5AF00B44FC6 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B37226EF5AF00B44FC6 /* NSError.swift */; };
 		8E627B3A226EFAE400B44FC6 /* SitesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B39226EFAE400B44FC6 /* SitesInteractor.swift */; };
+		8E627B43226F5D7600B44FC6 /* CollectionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B41226F5D7600B44FC6 /* CollectionTitleCell.swift */; };
+		8E627B44226F5D7600B44FC6 /* CollectionTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E627B42226F5D7600B44FC6 /* CollectionTitleCell.xib */; };
 		8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1C2260CBA000C18BE3 /* String.swift */; };
 		8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */; };
 		8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA339A2226199270038863C /* CategoryAboutCell.swift */; };
@@ -121,6 +123,8 @@
 		8E627B35226EED5B00B44FC6 /* CoreDataManager+Adverts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Adverts.swift"; sourceTree = "<group>"; };
 		8E627B37226EF5AF00B44FC6 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		8E627B39226EFAE400B44FC6 /* SitesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesInteractor.swift; sourceTree = "<group>"; };
+		8E627B41226F5D7600B44FC6 /* CollectionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTitleCell.swift; sourceTree = "<group>"; };
+		8E627B42226F5D7600B44FC6 /* CollectionTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionTitleCell.xib; sourceTree = "<group>"; };
 		8EA0FA1C2260CBA000C18BE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSliderView.swift; sourceTree = "<group>"; };
 		8EA339A2226199270038863C /* CategoryAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAboutCell.swift; sourceTree = "<group>"; };
@@ -361,6 +365,8 @@
 			children = (
 				8EC6243D2253AB3200E122F8 /* SimpleCell.swift */,
 				8EC6243E2253AB3200E122F8 /* SimpleCell.xib */,
+				8E627B41226F5D7600B44FC6 /* CollectionTitleCell.swift */,
+				8E627B42226F5D7600B44FC6 /* CollectionTitleCell.xib */,
 				8EA5251D22661F66005D342E /* SetPriceCell.swift */,
 				8EA5251E22661F66005D342E /* SetPriceCell.xib */,
 				8EC624392253AACA00E122F8 /* AdvertsListCell.swift */,
@@ -472,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EA5251C226618ED005D342E /* FilterViewController.xib in Resources */,
+				8E627B44226F5D7600B44FC6 /* CollectionTitleCell.xib in Resources */,
 				8E0FB2F6225B989F001753C4 /* CatalogSlideCell.xib in Resources */,
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
 				8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */,
@@ -566,6 +573,7 @@
 				8E0FB329225E0D78001753C4 /* CatalogSliderCell.swift in Sources */,
 				8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */,
 				8EC6241F225393EA00E122F8 /* Sources.swift in Sources */,
+				8E627B43226F5D7600B44FC6 /* CollectionTitleCell.swift in Sources */,
 				8E0FB301225BA2CD001753C4 /* Cell.swift in Sources */,
 				8EC624342253A48500E122F8 /* FavouritesViewController.swift in Sources */,
 				8EAF5F43226797A700C5F02B /* FilterRegionsViewController.swift in Sources */,

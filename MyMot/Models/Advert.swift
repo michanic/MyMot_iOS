@@ -49,3 +49,14 @@ extension Advert {
     }
     
 }
+
+
+extension Cell {
+    convenience init(searchFeedAdvert advert: Advert) {
+        self.init(cellType: .searchFeed)
+        self.content = advert
+        self.cellTapped = { indexPath in
+            //Router.shared.pushController(ViewControllerFactory.catalogModelDetails(model).create)
+        }
+    }
+}

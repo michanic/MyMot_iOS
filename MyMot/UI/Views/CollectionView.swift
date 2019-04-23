@@ -58,6 +58,16 @@ extension CollectionView: UICollectionViewDataSource {
 extension CollectionView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        
+        guard let cellModel = DS?.dataSource[indexPath.section].cells[indexPath.row] else { return }
+        cellModel.eventListener?.tapEvent()
     }
+}
+
+extension CollectionView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let cellModel = DS?.dataSource[indexPath.section].cells[indexPath.row] else { return CGSize.zero }
+        return CGSize(width: cellModel.width, height: cellModel.height)
+    }
+    
 }

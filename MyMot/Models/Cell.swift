@@ -14,6 +14,7 @@ class Cell {
     var type: CellType
     var content: Any?
     var height: CGFloat
+    var width: CGFloat
     var indexPath: IndexPath?
     
     // Events
@@ -25,6 +26,7 @@ class Cell {
     init(cellType: CellType) {
         self.type = cellType
         self.height = cellType.height
+        self.width = cellType.width
         self.eventListener = self
     }
     

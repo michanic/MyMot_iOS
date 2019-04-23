@@ -28,14 +28,23 @@ class SearchViewController: UniversalViewController {
     
     override func prepareData() {
         dataSource = [Section()]
+        showLoading()
         
         let sitesInteractor = SitesInteractor()
         sitesInteractor.loadFeedAdverts(ofSource: .avito("rossiya")) { (adverts) in
+            let section = Section()
+            section.cells.append(Cell(collectionTitle: "Все подряд"))
+            
             if let adverts = adverts {
                 for advert in adverts {
-                    print(advert.title)
+                    let advertCell = Cell(searchFeedAdvert: advert)
+                    section.cells.append(advertCell)
                 }
             }
+            
+            self.dataSource = [section]
+            self.updateData()
+            self.hideLoading()
         }
         
     }
