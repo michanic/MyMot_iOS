@@ -57,7 +57,7 @@ extension Cell {
         self.init(cellType: .searchFeed)
         self.content = advert
         self.cellTapped = { indexPath in
-            //Router.shared.pushController(ViewControllerFactory.catalogModelDetails(model).create)
+            Router.shared.pushController(ViewControllerFactory.searchAdvertPage(advert).create)
         }
     }
 }

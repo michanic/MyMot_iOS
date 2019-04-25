@@ -44,6 +44,8 @@
 		8E627B43226F5D7600B44FC6 /* CollectionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B41226F5D7600B44FC6 /* CollectionTitleCell.swift */; };
 		8E627B44226F5D7600B44FC6 /* CollectionTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E627B42226F5D7600B44FC6 /* CollectionTitleCell.xib */; };
 		8E627B542271B07B00B44FC6 /* ConfigStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B532271B07B00B44FC6 /* ConfigStorage.swift */; };
+		8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B552271FE4200B44FC6 /* AdvertViewController.swift */; };
+		8E627B582271FE4200B44FC6 /* AdvertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E627B562271FE4200B44FC6 /* AdvertViewController.xib */; };
 		8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1C2260CBA000C18BE3 /* String.swift */; };
 		8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */; };
 		8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA339A2226199270038863C /* CategoryAboutCell.swift */; };
@@ -127,6 +129,8 @@
 		8E627B41226F5D7600B44FC6 /* CollectionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTitleCell.swift; sourceTree = "<group>"; };
 		8E627B42226F5D7600B44FC6 /* CollectionTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionTitleCell.xib; sourceTree = "<group>"; };
 		8E627B532271B07B00B44FC6 /* ConfigStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigStorage.swift; sourceTree = "<group>"; };
+		8E627B552271FE4200B44FC6 /* AdvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertViewController.swift; sourceTree = "<group>"; };
+		8E627B562271FE4200B44FC6 /* AdvertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertViewController.xib; sourceTree = "<group>"; };
 		8EA0FA1C2260CBA000C18BE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSliderView.swift; sourceTree = "<group>"; };
 		8EA339A2226199270038863C /* CategoryAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAboutCell.swift; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 				8EA5251A226618ED005D342E /* FilterViewController.xib */,
 				8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */,
 				8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */,
+				8E627B552271FE4200B44FC6 /* AdvertViewController.swift */,
+				8E627B562271FE4200B44FC6 /* AdvertViewController.xib */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				8E627B44226F5D7600B44FC6 /* CollectionTitleCell.xib in Resources */,
 				8E0FB2F6225B989F001753C4 /* CatalogSlideCell.xib in Resources */,
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
+				8E627B582271FE4200B44FC6 /* AdvertViewController.xib in Resources */,
 				8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */,
 				8EA339A5226199270038863C /* CategoryAboutCell.xib in Resources */,
 				8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */,
@@ -608,6 +615,7 @@
 				8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */,
 				8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
+				8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */,
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
 				8E0012BF225B3B940034E8BB /* CoreDataManager+Categories.swift in Sources */,
 				8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */,
