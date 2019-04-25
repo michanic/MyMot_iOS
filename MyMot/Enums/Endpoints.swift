@@ -11,6 +11,8 @@ import Foundation
 
 enum Endpoint {
 
+    case configWords
+    
     case catalogRegions
     case catalogClasses
     case catalogModels
@@ -18,13 +20,15 @@ enum Endpoint {
     
     var method: HTTPMethod {
         switch self {
-        case .catalogRegions, .catalogClasses, .catalogModels, .catalogModelDetails:
+        case .configWords, .catalogRegions, .catalogClasses, .catalogModels, .catalogModelDetails:
             return .get
         }
     }
     
     var url: URL {
         switch self {
+        case .configWords:
+            return URL(fromEndpoint: "config.php?type=word_exceptions")!
         case .catalogRegions:
             return URL(fromEndpoint: "catalog.php?type=regions")!
         case .catalogClasses:

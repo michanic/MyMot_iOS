@@ -12,7 +12,8 @@ extension Advert {
 
     static func createOrUpdateFromAvito(_ row: Element) -> Advert? {
         
-        guard let id = try? row.attr("data-item-id") else { return nil }
+        guard let id = try? row.attr("data-item-id"), let title = try? row.select("a.item-description-title-link span").text() else { return nil }
+        guard title.checkForExteption() else { return nil }
         
         var advert: Advert?
         if let coreAdvert = CoreDataManager.instance.getAdvertById(id) {
@@ -23,7 +24,7 @@ extension Advert {
         }
         
         do {
-            advert?.title = try row.select("a.item-description-title-link span").text()
+            advert?.title = title
             advert?.city = try row.select(".item_table-description .data p:eq(1)").text()
             advert?.date = try row.select(".js-item-date").text()
 

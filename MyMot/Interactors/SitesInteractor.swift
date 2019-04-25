@@ -13,14 +13,12 @@ class SitesInteractor {
     let htmlParser: HtmlParser = HtmlParser()
     
     func loadFeedAdverts(ofSource source: Source, completed: @escaping (([Advert]?)->())) {
-
         NetworkService.shared.getHtmlData(source: source) { (html, error) in
             if let html = html {
                 let adverts = self.htmlParser.parseAdverts(html: html, source: source)
                 completed(adverts)
             }
         }
-        
     }
     
 }

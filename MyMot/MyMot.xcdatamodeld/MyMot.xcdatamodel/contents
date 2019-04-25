@@ -5,6 +5,7 @@
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favourite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="previewImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
@@ -48,7 +49,7 @@
         <relationship name="manufacturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Manufacturer" inverseName="models" inverseEntity="Manufacturer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Advert" positionX="-419.28515625" positionY="-290.3125" width="128" height="150"/>
+        <element name="Advert" positionX="-419.28515625" positionY="-290.3125" width="128" height="165"/>
         <element name="Category" positionX="68.60546875" positionY="29.0234375" width="128" height="150"/>
         <element name="Location" positionX="-650.50390625" positionY="-167.08203125" width="128" height="150"/>
         <element name="Manufacturer" positionX="-337.93359375" positionY="46.55078125" width="128" height="135"/>

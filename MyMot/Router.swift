@@ -27,11 +27,15 @@ class Router {
         window.rootViewController = ViewControllerFactory.loading("Загрузка", "Синхронизация каталога").create
         
         let apiInteractor = ApiInteractor()
-        apiInteractor.loadCatalog { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self?.showMain()
+        apiInteractor.loadConfig {
+            apiInteractor.loadCatalog { [weak self] in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self?.showMain()
+                }
             }
         }
+        
+        
     }
     
     func pushController(_ viewController: UIViewController) {
