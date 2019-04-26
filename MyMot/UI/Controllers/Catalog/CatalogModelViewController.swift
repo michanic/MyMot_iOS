@@ -73,7 +73,7 @@ class CatalogModelViewController: UniversalViewController {
         imagesSliderHeight.constant = UIScreen.width * 0.75 + 37
         view.layoutIfNeeded()
         
-        imagesSlider.fillWithImages(modelDetails.images)
+        imagesSlider.fillWithImages(modelDetails.images, contentMode: .scaleAspectFill)
         modelLabel.text = model.name
         manufacturerLabel.text = model.manufacturer?.name
         classLabel.text = model.category?.name

@@ -15,12 +15,21 @@ enum Source {
     
     static let all = [avito, auto_ru]
     
+    var domain: String {
+        switch self {
+        case .avito:
+            return "https://www.avito.ru/"
+        case .auto_ru:
+            return "https://auto.ru/"
+        }
+    }
+    
     var sitePath: String {
         switch self {
         case .avito(let region):
-            return "https://www.avito.ru/\(region)/mototsikly_i_mototehnika/mototsikly"
+            return self.domain + "\(region)/mototsikly_i_mototehnika/mototsikly"
         case .auto_ru(let region):
-            return "https://auto.ru/\(region)/motorcycle/"
+            return self.domain + "\(region)/motorcycle/"
         }
     }
     

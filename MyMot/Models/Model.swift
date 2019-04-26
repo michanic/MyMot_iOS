@@ -10,7 +10,6 @@ import Foundation
 import SwiftyJSON
 
 typealias Parameters = [(String, String)]
-typealias Images = [String]
 
 struct ModelDetails {
     

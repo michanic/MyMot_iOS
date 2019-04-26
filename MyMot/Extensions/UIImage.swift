@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias Images = [String]
+
 extension UIImage {
     static var placeholder: UIImage? {
         return UIImage(named: "placeholder")

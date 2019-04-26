@@ -13,7 +13,7 @@ extension String {
     func checkForExteption() -> Bool {
         for word in ConfigStorage.shared.exteptedWords {
             if self.lowercased().contains(word.lowercased()) {
-                print(self)
+                //print(self)
                 return false
             }
         }

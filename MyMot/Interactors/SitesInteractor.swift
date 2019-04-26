@@ -21,4 +21,16 @@ class SitesInteractor {
         }
     }
     
+    func loadAdvertDetails(advert: Advert, completed: @escaping ((AdvertDetails?)->())) {
+        
+        guard let link = advert.link, let url = URL(string: link) else { completed(nil); return }
+        
+        NetworkService.shared.getHtmlData(url: url) { (html, error) in
+            if let html = html {
+                let details = self.htmlParser.parseAdvertDetails(html: html, source: .avito(""))
+                completed(details)
+            }
+        }
+    }
+    
 }

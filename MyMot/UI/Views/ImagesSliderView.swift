@@ -12,13 +12,15 @@ class ImagesSliderView: UIView {
 
     var images: Images = []
     var currentImage: Int = 0
+    var imagesContentMode: UIView.ContentMode = .scaleAspectFill
     
     lazy var indicatorView = UIActivityIndicatorView(style: .gray)
     lazy var scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: self.bounds.height - 37))
     lazy var pagerView = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - 37, width: UIScreen.width, height: 37))
     
-    func fillWithImages(_ images: Images) {
+    func fillWithImages(_ images: Images, contentMode: UIView.ContentMode) {
         self.images = images
+        self.imagesContentMode = contentMode
         if subviews.count == 0 {
             createElements()
         }
@@ -50,7 +52,7 @@ class ImagesSliderView: UIView {
         var index: Int = 0
         for image in images {
             let imageView = UIImageView(frame: CGRect(x: UIScreen.width * CGFloat(index), y: 0, width: UIScreen.width, height: scrollView.bounds.height))
-            imageView.contentMode = .scaleAspectFill
+            imageView.contentMode = imagesContentMode
             imageView.setImage(path: image, placeholder: nil)
             imageView.clipsToBounds = true
             scrollView.addSubview(imageView)

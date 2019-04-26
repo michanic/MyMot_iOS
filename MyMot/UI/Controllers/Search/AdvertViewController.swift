@@ -19,6 +19,7 @@ class AdvertViewController: UniversalViewController {
     @IBOutlet weak var aboutLabel: UILabel!
     
     let advert: Advert
+    var advertDetails: AdvertDetails?
     
     init(advert: Advert) {
         self.advert = advert
@@ -38,15 +39,12 @@ class AdvertViewController: UniversalViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showLoading()
-        
-        let apiInteractor = ApiInteractor()
-        self.hideLoading()
-        self.fillProperties()
-        /*apiInteractor.loadModelDetails(modelId: Int(model.id)) { (details) in
-            self.modelDetails = details
+        let siteInteractor = SitesInteractor()
+        siteInteractor.loadAdvertDetails(advert: advert) { (details) in
+            self.advertDetails = details
             self.fillProperties()
             self.hideLoading()
-        }*/
+        }
     }
 
     @objc func toFavourite() {
@@ -67,11 +65,14 @@ class AdvertViewController: UniversalViewController {
         imagesSliderHeight.constant = UIScreen.width * 0.75 + 37
         view.layoutIfNeeded()
         
-        //imagesSlider.fillWithImages(modelDetails.images)
         titleLabel.text = advert.title
         cityLabel.text = advert.city
         dateLabel.text = advert.date
         priceLabel.text = String(advert.price) + " р."
-        aboutLabel.text = ""
+        
+        if let advertDetails = advertDetails {
+            imagesSlider.fillWithImages(advertDetails.images, contentMode: .scaleAspectFill)
+            aboutLabel.text = advertDetails.text
+        }
     }
 }
