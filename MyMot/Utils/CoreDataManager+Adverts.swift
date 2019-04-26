@@ -27,4 +27,20 @@ extension CoreDataManager {
         }
     }
     
+    func getFavouriteAdverts() -> [Advert] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Advert")
+        request.predicate = NSPredicate(format: "favourite = true")
+        
+        do {
+            let result = try persistentContainer.viewContext.fetch(request)
+            if let adverts = result as? [Advert] {
+                return adverts
+            } else {
+                return []
+            }
+        } catch {
+            return []
+        }
+    }
+    
 }

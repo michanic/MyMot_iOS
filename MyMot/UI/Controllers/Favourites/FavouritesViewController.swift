@@ -24,7 +24,10 @@ class FavouritesViewController: UniversalViewController {
     func refreshData() {
         dataSource = [Section()]
         if segmentControl.selectedSegmentIndex == 0 {
-            
+            for advert in CoreDataManager.instance.getFavouriteAdverts() {
+                let advertCell = Cell(advertsList: advert)
+                dataSource[0].cells.append(advertCell)
+            }
         } else {
             for model in CoreDataManager.instance.getFavouriteModels() {
                 let modelCell = Cell(modelsList: model, accessoryState: .right)

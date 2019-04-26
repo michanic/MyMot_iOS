@@ -19,7 +19,7 @@ class SearchFeedCell: UICollectionViewCell, CellContentProtocol {
         if let advert = content as? Advert {
             image.setImage(path: advert.previewImage, placeholder: nil)
             title.text = advert.title
-            price.text = String(advert.price) + " р."
+            price.text = advert.price.toStringPrice()
             details.text = (advert.city ?? "") + "\n" + (advert.date ?? "")
         }
     }

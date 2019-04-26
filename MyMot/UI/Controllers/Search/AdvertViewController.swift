@@ -68,7 +68,7 @@ class AdvertViewController: UniversalViewController {
         titleLabel.text = advert.title
         cityLabel.text = advert.city
         dateLabel.text = advert.date
-        priceLabel.text = String(advert.price) + " р."
+        priceLabel.text = advert.price.toStringPrice()
         
         if let advertDetails = advertDetails {
             imagesSlider.fillWithImages(advertDetails.images, contentMode: .scaleAspectFill)

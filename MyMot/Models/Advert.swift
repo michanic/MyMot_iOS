@@ -23,4 +23,12 @@ extension Cell {
             Router.shared.pushController(ViewControllerFactory.searchAdvertPage(advert).create)
         }
     }
+    
+    convenience init(advertsList advert: Advert) {
+        self.init(cellType: .advertsList)
+        self.content = advert
+        self.cellTapped = { indexPath in
+            Router.shared.pushController(ViewControllerFactory.searchAdvertPage(advert).create)
+        }
+    }
 }
