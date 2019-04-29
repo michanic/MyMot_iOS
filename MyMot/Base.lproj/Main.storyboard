@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Suzuki.ttf">
+            <string>SuzukiAlstareExtremeRacing</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="H7Z-bw-JEe">
@@ -126,6 +131,12 @@
                                     <action selector="segmentChanged:" destination="FuQ-Sz-xAw" eventType="valueChanged" id="BO4-4B-XMG"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Список пуст" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46d-Kl-Jz6">
+                                <rect key="frame" x="0.0" y="111" width="375" height="507"/>
+                                <fontDescription key="fontDescription" name="SuzukiAlstareExtremeRacing" family="Suzuki Alstare Extreme Racing" pointSize="17"/>
+                                <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60552687679999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="efm-UM-MsN" customClass="TableView" customModule="MyMot" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="111" width="375" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,10 +145,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="b9X-mg-VGu" firstAttribute="trailing" secondItem="efm-UM-MsN" secondAttribute="trailing" id="0aY-cP-mnj"/>
+                            <constraint firstItem="46d-Kl-Jz6" firstAttribute="leading" secondItem="b9X-mg-VGu" secondAttribute="leading" id="DJh-BU-T6T"/>
                             <constraint firstItem="b9X-mg-VGu" firstAttribute="trailing" secondItem="Uq0-CR-JrM" secondAttribute="trailing" constant="10" id="FOv-Rc-vDK"/>
                             <constraint firstItem="efm-UM-MsN" firstAttribute="leading" secondItem="b9X-mg-VGu" secondAttribute="leading" id="JAV-Gz-3vf"/>
+                            <constraint firstItem="46d-Kl-Jz6" firstAttribute="top" secondItem="Uq0-CR-JrM" secondAttribute="bottom" constant="9" id="Utx-VC-tot"/>
+                            <constraint firstItem="b9X-mg-VGu" firstAttribute="bottom" secondItem="46d-Kl-Jz6" secondAttribute="bottom" id="iOV-E2-maO"/>
                             <constraint firstItem="b9X-mg-VGu" firstAttribute="bottom" secondItem="efm-UM-MsN" secondAttribute="bottom" id="nzh-we-m8K"/>
                             <constraint firstItem="Uq0-CR-JrM" firstAttribute="leading" secondItem="b9X-mg-VGu" secondAttribute="leading" constant="10" id="rvv-wg-khG"/>
+                            <constraint firstItem="b9X-mg-VGu" firstAttribute="trailing" secondItem="46d-Kl-Jz6" secondAttribute="trailing" id="tft-Jk-r3Z"/>
                             <constraint firstItem="efm-UM-MsN" firstAttribute="top" secondItem="Uq0-CR-JrM" secondAttribute="bottom" constant="9" id="tpT-9S-sne"/>
                             <constraint firstItem="Uq0-CR-JrM" firstAttribute="top" secondItem="b9X-mg-VGu" secondAttribute="top" constant="10" id="zL6-dg-UCK"/>
                         </constraints>
@@ -186,7 +201,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-HM-xmK">
                                         <rect key="frame" x="15" y="200.5" width="345" height="751.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <mutableString key="text">Продам мотоцикл Suzuki SV 1000 S 2003 год выпуска, 120 л.с. Пробег 60000 км.
+                                        <string key="text">Продам мотоцикл Suzuki SV 1000 S 2003 год выпуска, 120 л.с. Пробег 60000 км.
 
 Мотоцикл привезен из США, я второй владелец в России. 
 Технически полностью исправен. Перед сезоном проведено ТО, заменено масло, антифриз, иридиевые свечи, перебрана передняя вилка, заменены рулевые подшипники, отрегулированы клапана. 
@@ -201,7 +216,7 @@
 
 Так же имеются оригинальные глушители, но на них уже есть покупатель. Поэтому с ними цена - 230 000.
 
-С предложениями "за 200 заберу" не беспокоить. Обмен не рассматриваю (кроме Honda VFR 800).</mutableString>
+С предложениями "за 200 заберу" не беспокоить. Обмен не рассматриваю (кроме Honda VFR 800).</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>

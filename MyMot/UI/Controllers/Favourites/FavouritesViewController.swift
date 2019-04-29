@@ -12,9 +12,13 @@ class FavouritesViewController: UniversalViewController {
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    lazy var favouritesSwitchSubscriber = NotificationSubscriber(types: [.favouriteAdvertSwitched, .favouriteModelSwitched], received: { (object) in
+        self.refreshData()
+    })
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.subscribe(favouritesSwitchSubscriber)
     }
 
     override func prepareData() {
@@ -35,6 +39,7 @@ class FavouritesViewController: UniversalViewController {
             }
         }
         tableView.reloadData()
+        tableView.isHidden = dataSource[0].cells.count == 0
     }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {

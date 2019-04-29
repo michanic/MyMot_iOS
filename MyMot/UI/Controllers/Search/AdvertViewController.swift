@@ -49,7 +49,8 @@ class AdvertViewController: UniversalViewController {
 
     @objc func toFavourite() {
         advert.favourite =  !advert.favourite
-        CoreDataManager.instance.saveContext()
+        CoreDataManager.instance.saveContext()        
+        NotificationCenter.post(type: .favouriteAdvertSwitched, object: advert)
         updateFavouriteButton()
     }
     

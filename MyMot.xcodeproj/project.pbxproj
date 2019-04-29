@@ -89,6 +89,8 @@
 		8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6248E2256388300E122F8 /* CoreDataManager.swift */; };
 		8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240C22538F4600E122F8 /* MyMot.xcdatamodeld */; };
 		8EC624BA2256429F00E122F8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624B92256429F00E122F8 /* Location.swift */; };
+		8EC900CE2276ED3700CEF99C /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900CD2276ED3700CEF99C /* NotificationType.swift */; };
+		8EC900D02276F04300CEF99C /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900CF2276F04300CEF99C /* NotificationCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +179,8 @@
 		8EC6244F2255009800E122F8 /* ApiInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInteractor.swift; sourceTree = "<group>"; };
 		8EC6248E2256388300E122F8 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		8EC624B92256429F00E122F8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		8EC900CD2276ED3700CEF99C /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
+		8EC900CF2276F04300CEF99C /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		B09040197D89841FC6473A72 /* Pods_MyMot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -322,15 +326,16 @@
 		8EC6241B2253939B00E122F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8E3D45142273490F008F90FF /* Int.swift */,
+				8EC900CF2276F04300CEF99C /* NotificationCenter.swift */,
 				8E627B37226EF5AF00B44FC6 /* NSError.swift */,
+				8EA0FA1C2260CBA000C18BE3 /* String.swift */,
 				8EC624262253970E00E122F8 /* URL.swift */,
 				8EC6242C2253A1D800E122F8 /* UIColor.swift */,
 				8EC624492254F1B500E122F8 /* UIFont.swift */,
 				8E0FB2F1225B967B001753C4 /* UIView.swift */,
 				8E0FB2FE225BA0F7001753C4 /* UIScreen.swift */,
 				8E0FB30C225C7AE8001753C4 /* UIImageView.swift */,
-				8E3D45142273490F008F90FF /* Int.swift */,
-				8EA0FA1C2260CBA000C18BE3 /* String.swift */,
 				8EAF5F402267961E00C5F02B /* UIImage.swift */,
 			);
 			path = Extensions;
@@ -353,11 +358,12 @@
 		8EC6241D225393BE00E122F8 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				8EC6244D2254F53E00E122F8 /* ViewControllerFactory.swift */,
 				8E0FB2F7225B9C79001753C4 /* CellTypes.swift */,
 				8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */,
 				8EC624242253963F00E122F8 /* Endpoints.swift */,
+				8EC900CD2276ED3700CEF99C /* NotificationType.swift */,
 				8EC6241E225393EA00E122F8 /* Sources.swift */,
+				8EC6244D2254F53E00E122F8 /* ViewControllerFactory.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
 				8E627B32226EEA5900B44FC6 /* HtmlParser.swift in Sources */,
 				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
+				8EC900CE2276ED3700CEF99C /* NotificationType.swift in Sources */,
 				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,
 				8E0FB308225BA3B2001753C4 /* TableView.swift in Sources */,
 				8EC624432253ABF000E122F8 /* LoadingViewController.swift in Sources */,
@@ -593,6 +600,7 @@
 				8EC624B82256418900E122F8 /* MyMot.xcdatamodeld in Sources */,
 				8E0FB305225BA368001753C4 /* DataSource.swift in Sources */,
 				8EAD9E202269BF6500B34BEF /* KeyboardManager.swift in Sources */,
+				8EC900D02276F04300CEF99C /* NotificationCenter.swift in Sources */,
 				8E3E9356226ECA9D006573FA /* CollectionView.swift in Sources */,
 				8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */,
 				8E627B34226EEC5500B44FC6 /* Advert.swift in Sources */,

@@ -53,6 +53,7 @@ class CatalogModelViewController: UniversalViewController {
     @objc func toFavourite() {
         model.favourite =  !model.favourite
         CoreDataManager.instance.saveContext()
+        NotificationCenter.post(type: .favouriteModelSwitched, object: model)
         updateFavouriteButton()
     }
     
