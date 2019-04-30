@@ -11,24 +11,30 @@ import UIKit
 class SearchViewController: UniversalViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
+    lazy var filterButton = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.titleView = searchController.searchBar
+        
+        searchController.searchBar.barStyle = .blackOpaque
+        
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск по модели"
+        searchController.searchBar.setSearchButtonText("Отмена")
+        searchController.searchBar.setPlaceholderColor(UIColor.white)
         searchController.searchBar.delegate = self
-        searchController.searchBar.tintColor = UIColor.textLightGray
-        searchController.searchBar.showsCancelButton = false
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
+        searchController.searchBar.tintColor = UIColor.white
+
+        self.navigationItem.rightBarButtonItem = filterButton
     }
     
     override func prepareData() {
         dataSource = [Section()]
-        showLoading()
+        /*showLoading()
         
         let sitesInteractor = SitesInteractor()
         sitesInteractor.loadFeedAdverts(ofSource: .avito("rossiya")) { (adverts) in
@@ -45,14 +51,17 @@ class SearchViewController: UniversalViewController {
             self.dataSource = [section]
             self.updateData()
             self.hideLoading()
-        }
+        }*/
         
     }
     
     @objc func showFilter() {
         view.endEditing(true)
         searchController.searchBar.resignFirstResponder()
-        Router.shared.presentController(ViewControllerFactory.searchFilter.create)
+        let searchCallback: ((SearchFilterConfig) -> ())  = { config in
+            Router.shared.pushController(ViewControllerFactory.searchResults(config).create)
+        }
+        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback).create)
     }
 }
 
@@ -61,18 +70,23 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print("searchBarTextDidEndEditing")
-        searchController.searchBar.resignFirstResponder()
-        view.endEditing(true)
+        //searchController.searchBar.resignFirstResponder()
+        //view.endEditing(true)
+        self.navigationItem.rightBarButtonItem = filterButton
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        print("searchBarSearchButtonClicked")
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchBarTextDidEndEditing")
         print(searchText)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        Delay(0) {
-            self.searchController.searchBar.showsCancelButton = false
-        }
+        self.navigationItem.rightBarButtonItem = nil
     }
     
 }

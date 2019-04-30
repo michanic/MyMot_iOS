@@ -91,6 +91,10 @@
 		8EC624BA2256429F00E122F8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC624B92256429F00E122F8 /* Location.swift */; };
 		8EC900CE2276ED3700CEF99C /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900CD2276ED3700CEF99C /* NotificationType.swift */; };
 		8EC900D02276F04300CEF99C /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900CF2276F04300CEF99C /* NotificationCenter.swift */; };
+		8EC900DC2278816C00CEF99C /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900DB2278816C00CEF99C /* SearchResultsViewController.swift */; };
+		8EC900DF22788E3500CEF99C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900DE22788E3500CEF99C /* AboutViewController.swift */; };
+		8EC900E122788EE600CEF99C /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900E022788EE600CEF99C /* NSAttributedString.swift */; };
+		8EC900E32278947A00CEF99C /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC900E22278947A00CEF99C /* UISearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -181,6 +185,10 @@
 		8EC624B92256429F00E122F8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8EC900CD2276ED3700CEF99C /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		8EC900CF2276F04300CEF99C /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		8EC900DB2278816C00CEF99C /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		8EC900DE22788E3500CEF99C /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		8EC900E022788EE600CEF99C /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
+		8EC900E22278947A00CEF99C /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
 		B09040197D89841FC6473A72 /* Pods_MyMot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -248,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				8EC624302253A47200E122F8 /* SearchViewController.swift */,
+				8EC900DB2278816C00CEF99C /* SearchResultsViewController.swift */,
 				8EA52519226618ED005D342E /* FilterViewController.swift */,
 				8EA5251A226618ED005D342E /* FilterViewController.xib */,
 				8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */,
@@ -328,6 +337,7 @@
 			children = (
 				8E3D45142273490F008F90FF /* Int.swift */,
 				8EC900CF2276F04300CEF99C /* NotificationCenter.swift */,
+				8EC900E022788EE600CEF99C /* NSAttributedString.swift */,
 				8E627B37226EF5AF00B44FC6 /* NSError.swift */,
 				8EA0FA1C2260CBA000C18BE3 /* String.swift */,
 				8EC624262253970E00E122F8 /* URL.swift */,
@@ -337,6 +347,7 @@
 				8E0FB2FE225BA0F7001753C4 /* UIScreen.swift */,
 				8E0FB30C225C7AE8001753C4 /* UIImageView.swift */,
 				8EAF5F402267961E00C5F02B /* UIImage.swift */,
+				8EC900E22278947A00CEF99C /* UISearchBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -412,6 +423,7 @@
 				8E0FB309225BA81E001753C4 /* Catalog */,
 				8E0FB30A225BA82C001753C4 /* Search */,
 				8E0FB30B225BA835001753C4 /* Favourites */,
+				8EC900DD22788E0F00CEF99C /* About */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -432,6 +444,14 @@
 				8E627B39226EFAE400B44FC6 /* SitesInteractor.swift */,
 			);
 			path = Interactors;
+			sourceTree = "<group>";
+		};
+		8EC900DD22788E0F00CEF99C /* About */ = {
+			isa = PBXGroup;
+			children = (
+				8EC900DE22788E3500CEF99C /* AboutViewController.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,6 +625,7 @@
 				8EC900D02276F04300CEF99C /* NotificationCenter.swift in Sources */,
 				8E3E9356226ECA9D006573FA /* CollectionView.swift in Sources */,
 				8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */,
+				8EC900DC2278816C00CEF99C /* SearchResultsViewController.swift in Sources */,
 				8E627B34226EEC5500B44FC6 /* Advert.swift in Sources */,
 				8E3D45152273490F008F90FF /* Int.swift in Sources */,
 				8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */,
@@ -618,7 +639,9 @@
 				8E0012C3225B3EF60034E8BB /* Model.swift in Sources */,
 				8EC62429225399DE00E122F8 /* NetworkService.swift in Sources */,
 				8EC6244C2254F51500E122F8 /* Router.swift in Sources */,
+				8EC900E122788EE600CEF99C /* NSAttributedString.swift in Sources */,
 				8E0FB326225E0D04001753C4 /* CatalogByManufacturerViewController.swift in Sources */,
+				8EC900E32278947A00CEF99C /* UISearchBar.swift in Sources */,
 				8EC624372253AAA100E122F8 /* ModelsListCell.swift in Sources */,
 				8E0FB2F8225B9C79001753C4 /* CellTypes.swift in Sources */,
 				8E0FB2F5225B989F001753C4 /* CatalogSlideCell.swift in Sources */,
@@ -628,6 +651,7 @@
 				8EC6244E2254F53E00E122F8 /* ViewControllerFactory.swift in Sources */,
 				8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */,
 				8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */,
+				8EC900DF22788E3500CEF99C /* AboutViewController.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
 				8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */,
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,

@@ -52,7 +52,7 @@ enum CellType {
         case .modelsList:
             return 70
         case .catalogSlider:
-            return 240
+            return 236
         case .searchFeed:
             return self.width * 0.75 + 95
         default:

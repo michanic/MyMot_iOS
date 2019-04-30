@@ -12,7 +12,9 @@ class ApiInteractor {
 
     func loadConfig(completed: @escaping (()->())) {
         loadExteptedWords {
-            completed()
+            self.loadAboutText {
+                completed()
+            }
         }
     }
     
@@ -25,7 +27,16 @@ class ApiInteractor {
                     }
                 }
             }
-            print(ConfigStorage.shared.exteptedWords.count)
+            //print(ConfigStorage.shared.exteptedWords.count)
+            completed()
+        }
+    }
+    
+    private func loadAboutText(completed: @escaping (()->())) {
+        NetworkService.shared.getJsonData(endpoint: .configAbout) { (json, error) in
+            if let aboutText = json?.dictionary?["text"]?.string {
+                ConfigStorage.shared.aboutText = aboutText
+            }
             completed()
         }
     }

@@ -60,6 +60,11 @@ class Router {
         }
     }
     
+    func clearPresentController() {
+        presentedController = nil
+    }
+    
+    
     private func showMain() {
         changeRootController(ViewControllerFactory.tabBarController.create)
     }

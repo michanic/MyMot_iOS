@@ -22,7 +22,22 @@ class FilterViewController: UniversalViewController {
 
     @IBOutlet weak var searchButon: UIButton!
     
-    var filterConfig = ConfigStorage.getFilterConfig()
+    var filterConfig: SearchFilterConfig
+    var searchPressedCallback: ((SearchFilterConfig) -> ())?
+    
+    init(filterConfig: SearchFilterConfig?, searchPressedCallback: ((SearchFilterConfig) -> ())?) {
+        if let filterConfig = filterConfig {
+            self.filterConfig = filterConfig
+        } else {
+             self.filterConfig = ConfigStorage.getFilterConfig()
+        }
+        self.searchPressedCallback = searchPressedCallback
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,6 +127,7 @@ class FilterViewController: UniversalViewController {
     
     @IBAction func searchAction(_ sender: Any) {
         close()
+        searchPressedCallback?(filterConfig)
     }
     
 

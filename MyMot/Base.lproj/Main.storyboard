@@ -171,7 +171,7 @@
         <!--‌‌‍‍ О приложении -->
         <scene sceneID="BGk-Za-Zar">
             <objects>
-                <viewController id="hKf-te-fzo" sceneMemberID="viewController">
+                <viewController id="hKf-te-fzo" customClass="AboutViewController" customModule="MyMot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0PX-fx-RDD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,27 +198,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-HM-xmK">
-                                        <rect key="frame" x="15" y="200.5" width="345" height="751.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-HM-xmK">
+                                        <rect key="frame" x="15" y="200.5" width="345" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Продам мотоцикл Suzuki SV 1000 S 2003 год выпуска, 120 л.с. Пробег 60000 км.
-
-Мотоцикл привезен из США, я второй владелец в России. 
-Технически полностью исправен. Перед сезоном проведено ТО, заменено масло, антифриз, иридиевые свечи, перебрана передняя вилка, заменены рулевые подшипники, отрегулированы клапана. 
-Износ резины: задняя 10%, передняя 70%. Колодки 40% перед, 50% зад.
-Из ништяков: приподнятый ветровик, приподнятые клипоны, индикатор передач, слайдеры, хагер, боковой пластик, прикуриватель и usb зарядка, армированные шланги, выхлоп Yoshimura и автомобильный гудок - на дороге вас точно заметят. Имеется Power Commander 3, нужно подключить и настроить.
-В дополнение: заглушка заднего крыла, заглушка пассажирского сидения, светодиодные поворотники, родные клипоны.
-В дополнение: заглушка заднего крыла, заглушка пассажирского сидения, светодиодные поворотники, родные клипоны.
-В дополнение: заглушка заднего крыла, заглушка пассажирского сидения, светодиодные поворотники, родные клипоны.
-В дополнение: заглушка заднего крыла, заглушка пассажирского сидения, светодиодные поворотники, родные клипоны.
-
-В дополнение: заглушка заднего крыла, заглушка пассажирского сидения, светодиодные поворотники, родные клипоны.
-
-Так же имеются оригинальные глушители, но на них уже есть покупатель. Поэтому с ними цена - 230 000.
-
-С предложениями "за 200 заберу" не беспокоить. Обмен не рассматриваю (кроме Honda VFR 800).</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
@@ -249,6 +234,9 @@
                         <viewLayoutGuide key="safeArea" id="ozn-6D-s0K"/>
                     </view>
                     <navigationItem key="navigationItem" title="‌‌‍‍ О приложении " id="0hu-bd-aAK"/>
+                    <connections>
+                        <outlet property="aboutText" destination="fyA-HM-xmK" id="Z1S-5S-0al"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5y-VD-TjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

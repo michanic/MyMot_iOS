@@ -109,6 +109,7 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
     }
     
     @objc func close() {
+        Router.shared.clearPresentController()
         dismiss(animated: true, completion: nil)
     }
     

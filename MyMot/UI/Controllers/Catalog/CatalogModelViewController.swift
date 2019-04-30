@@ -58,7 +58,10 @@ class CatalogModelViewController: UniversalViewController {
     }
     
     @IBAction func searchAction(_ sender: Any) {
-        
+        var searchConfig = ConfigStorage.getFilterConfig()
+        searchConfig.selectedModel = model
+        ConfigStorage.saveFilterConfig(searchConfig)
+        Router.shared.pushController(ViewControllerFactory.searchResults(searchConfig).create)
     }
     
     private func updateFavouriteButton() {

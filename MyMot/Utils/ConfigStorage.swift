@@ -12,6 +12,7 @@ class ConfigStorage {
 
     static let shared : ConfigStorage = ConfigStorage()
     var exteptedWords: Set<String> = []
+    var aboutText: String?
     
     static func saveFilterConfig(_ config: SearchFilterConfig) {
         
