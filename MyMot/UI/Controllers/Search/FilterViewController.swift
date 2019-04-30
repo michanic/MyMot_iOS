@@ -8,15 +8,21 @@
 
 import UIKit
 
-class FilterViewController: UniversalViewController {
-
-    @IBOutlet weak var searchButon: UIButton!
+struct SearchFilterConfig {
     
     var selectedRegion: Location?
     var selectedManufacturer: Manufacturer?
     var selectedModel: Model?
     var priceFrom: Int?
     var priceFor: Int?
+    
+}
+
+class FilterViewController: UniversalViewController {
+
+    @IBOutlet weak var searchButon: UIButton!
+    
+    var filterConfig = ConfigStorage.getFilterConfig()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,21 +49,23 @@ class FilterViewController: UniversalViewController {
         sectionPrice.headerProperties.title = "Цена"
         
         var priceFromString: String?
-        if let priceFrom = priceFrom {
+        if let priceFrom = filterConfig.priceFrom {
             priceFromString = String(priceFrom)
         }
         let priceFromCell = Cell(setPriceTitle: "От", value: priceFromString)
         priceFromCell.intChangedEvent = { newValue in
-            self.priceFrom = newValue
+            self.filterConfig.priceFrom = newValue
+            ConfigStorage.saveFilterConfig(self.filterConfig)
         }
         
         var priceForString: String?
-        if let priceFor = priceFor {
+        if let priceFor = filterConfig.priceFor {
             priceForString = String(priceFor)
         }
         let priceForCell = Cell(setPriceTitle: "До", value: priceForString)
         priceForCell.intChangedEvent = { newValue in
-            self.priceFor = newValue
+            self.filterConfig.priceFor = newValue
+            ConfigStorage.saveFilterConfig(self.filterConfig)
         }
         sectionPrice.cells = [priceFromCell, priceForCell]
         
@@ -66,36 +74,38 @@ class FilterViewController: UniversalViewController {
     }
     
     func selectedRegionCell() -> Cell {
-        let selectedRegionTitle = selectedRegion?.name ?? "По всей России"
+        let selectedRegionTitle = filterConfig.selectedRegion?.name ?? "По всей России"
         let regionCell = Cell(simpleTitle: selectedRegionTitle)
         let regionSelectedCallback: ((Location?) -> ())? = { locaion in
-            self.selectedRegion = locaion
+            self.filterConfig.selectedRegion = locaion
+            ConfigStorage.saveFilterConfig(self.filterConfig)
             self.dataSource[0].cells = [self.selectedRegionCell()]
             self.updateRows(indexPaths: [IndexPath(row: 0, section: 0)])
         }
         regionCell.cellTapped = { indexPath in
-            Router.shared.pushController(ViewControllerFactory.searchFilterRegions(self.selectedRegion, regionSelectedCallback).create)
+            Router.shared.pushController(ViewControllerFactory.searchFilterRegions(self.filterConfig.selectedRegion, regionSelectedCallback).create)
         }
         return regionCell
     }
     
     func selectedModelCell() -> Cell {
         var selectedTitle = "Любая"
-        if let selectedModelName = selectedModel?.name {
+        if let selectedModelName = filterConfig.selectedModel?.name {
             selectedTitle = selectedModelName
-        } else if let selectedManufacturerName = selectedManufacturer?.name {
+        } else if let selectedManufacturerName = filterConfig.selectedManufacturer?.name {
             selectedTitle = "Все мотоциклы " + selectedManufacturerName
         }
         
         let modelCell = Cell(simpleTitle: selectedTitle)
         let selectedCallback: ((Model?, Manufacturer?) -> ())? = { (model, manufacturer) in
-            self.selectedModel = model
-            self.selectedManufacturer = manufacturer
+            self.filterConfig.selectedModel = model
+            self.filterConfig.selectedManufacturer = manufacturer
+            ConfigStorage.saveFilterConfig(self.filterConfig)
             self.dataSource[1].cells = [self.selectedModelCell()]
             self.updateRows(indexPaths: [IndexPath(row: 0, section: 1)])
         }
         modelCell.cellTapped = { indexPath in
-            Router.shared.pushController(ViewControllerFactory.searchFilterModels(self.selectedModel, self.selectedManufacturer, selectedCallback).create)
+            Router.shared.pushController(ViewControllerFactory.searchFilterModels(self.filterConfig.selectedModel, self.filterConfig.selectedManufacturer, selectedCallback).create)
         }
         return modelCell
     }

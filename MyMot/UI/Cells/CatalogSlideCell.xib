@@ -31,9 +31,9 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Спорт - турист" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7G-uc-H7a">
-                        <rect key="frame" x="0.0" y="139" width="129" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="0.0" y="139" width="129" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -41,7 +41,7 @@
             <constraints>
                 <constraint firstItem="1E1-Wv-3ke" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3tn-wy-fgp"/>
                 <constraint firstItem="B7G-uc-H7a" firstAttribute="top" secondItem="1E1-Wv-3ke" secondAttribute="bottom" constant="10" id="AhS-i9-Sjt"/>
-                <constraint firstAttribute="bottom" secondItem="B7G-uc-H7a" secondAttribute="bottom" constant="3" id="Exw-2V-Lle"/>
+                <constraint firstAttribute="bottom" secondItem="B7G-uc-H7a" secondAttribute="bottom" constant="5" id="Exw-2V-Lle"/>
                 <constraint firstItem="1E1-Wv-3ke" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="K1x-1Q-eD3"/>
                 <constraint firstAttribute="trailing" secondItem="B7G-uc-H7a" secondAttribute="trailing" id="Z5L-9f-mdD"/>
                 <constraint firstAttribute="trailing" secondItem="1E1-Wv-3ke" secondAttribute="trailing" id="qdI-JJ-X6B"/>

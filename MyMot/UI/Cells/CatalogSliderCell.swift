@@ -71,7 +71,7 @@ extension CatalogSliderCell: UICollectionViewDelegate {
 extension CatalogSliderCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 130, height: 184)
+        return CGSize(width: 130, height: 160)
     }
     
 }
