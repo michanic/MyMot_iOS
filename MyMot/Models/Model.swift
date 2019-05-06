@@ -83,6 +83,10 @@ extension Model {
     var years: String {
         return String(first_year) + " - " + (last_year == 0 ? "настоящее время" : String(last_year))
     }
+    
+    var searchName: String {
+        return (manufacturer?.name?.lowercased() ?? "") + "+" + (name?.replacingOccurrences(of: " ", with: "+").lowercased() ?? "")
+    }
 }
 
 extension Cell {

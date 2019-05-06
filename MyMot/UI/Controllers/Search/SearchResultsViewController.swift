@@ -23,19 +23,46 @@ class SearchResultsViewController: UniversalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navBarTitle = "Результаты поиска"
-        
+        updateTitle()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
     }
 
     override func prepareData() {
         dataSource = [Section()]
+        showLoading()
+        
+        let sitesInteractor = SitesInteractor()
+        sitesInteractor.searchAdverts(config: filterConfig) { (adverts) in
+            
+            if adverts.count > 0 {
+                for advert in adverts {
+                    let advertCell = Cell(advertsList: advert)
+                    self.dataSource[0].cells.append(advertCell)
+                }
+            } else {
+                let noResultsCell = Cell(simpleTitle: "Ничего не найдено", accessoryState: .hidden)
+                self.dataSource[0].cells = [noResultsCell]
+            }
+            
+            self.updateData()
+            self.hideLoading()
+        }
+    }
+    
+    func updateTitle() {
+        if let model = filterConfig.selectedModel, let name = model.name {
+            navBarTitle = name
+        } else if let manufacturer = filterConfig.selectedManufacturer, let name = manufacturer.name {
+            navBarTitle = name
+        } else {
+            navBarTitle = "Результаты поиска"
+        }
     }
     
     @objc func showFilter() {
         let searchCallback: ((SearchFilterConfig) -> ())  = { config in
             self.filterConfig = config
-            // reload data
+            self.prepareData()
         }
         Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback).create)
     }

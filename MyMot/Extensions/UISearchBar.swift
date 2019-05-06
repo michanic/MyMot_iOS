@@ -20,12 +20,7 @@ extension UISearchBar {
         
         let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.value(forKey: "placeholderLabel") as? UILabel
         textFieldInsideSearchBarLabel?.textColor = color
-        
-        if let clearButton = textFieldInsideSearchBar?.value(forKey: "clearButton") as? UIButton {
-            clearButton.setImage(clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate), for : .normal)
-            clearButton.tintColor = color
-        }
-        
+                
         let glassIconView = textFieldInsideSearchBar?.leftView as? UIImageView
         glassIconView?.image = glassIconView?.image?.withRenderingMode(.alwaysTemplate)
         glassIconView?.tintColor = color

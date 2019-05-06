@@ -10,8 +10,8 @@ import Foundation
 
 enum Source {
     
-    case avito(String)
-    case auto_ru(String)
+    case avito(String?, String?, Int?, Int?)
+    case auto_ru(String?, String?, Int?, Int?)
     
     static let all = [avito, auto_ru]
     
@@ -24,12 +24,12 @@ enum Source {
         }
     }
     
-    var sitePath: String {
+    var mobileDomain: String {
         switch self {
-        case .avito(let region):
-            return self.domain + "\(region)/mototsikly_i_mototehnika/mototsikly"
-        case .auto_ru(let region):
-            return self.domain + "\(region)/motorcycle/"
+        case .avito:
+            return "https://m.avito.ru/"
+        case .auto_ru:
+            return "https://m.auto.ru/"
         }
     }
     
@@ -39,6 +39,41 @@ enum Source {
             return ".js-catalog-item-enum.item-with-contact"
         case .auto_ru:
             return ".listing-item.stat_type_listing"
+        }
+    }
+    
+    var feedPath: String {
+        switch self {
+        case .avito(let params):
+            let regionString = params.0 ?? "rossiya"
+            return self.domain + "\(regionString)/mototsikly_i_mototehnika/mototsikly"
+        case .auto_ru(let region):
+            return self.domain + "\(region)/motorcycle/"
+        }
+    }
+    
+    var searchPath: String {
+        switch self {
+        case .avito(let region, let model, let pMin, let pMax):
+            let regionString = region ?? "rossiya"
+            let path = self.domain + "\(regionString)/mototsikly_i_mototehnika/mototsikly"
+            var request = ""
+            if let pMin = pMin {
+                request += "&pmin=" + String(pMin)
+            }
+            if let pMax = pMax {
+                request += "&pmax=" + String(pMax)
+            }
+            if let model = model {
+                request += "&q=" + String(model)
+            }
+            if request.count > 0 {
+                request = "?" + request.dropFirst()
+            }
+            return path + request
+            
+        case .auto_ru(let region, let model, let pMin, let pMax):
+            return self.domain + "\(region)/motorcycle/"
         }
     }
     

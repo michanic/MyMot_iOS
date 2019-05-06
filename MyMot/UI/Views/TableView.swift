@@ -13,9 +13,9 @@ class TableView: UITableView {
     var DS: DataSource?
     var registeredCellTypes: Set<CellType> = []
     
-    init(dataSourceDelegate: DataSource, frame: CGRect, style: UITableView.Style) {
+    init(dataSourceDelegate: DataSource, frame: CGRect) {
         self.DS = dataSourceDelegate
-        super.init(frame: frame, style: style)
+        super.init(frame: frame, style: .plain)
         dataSource = self
         delegate = self
         tableFooterView = UIView()

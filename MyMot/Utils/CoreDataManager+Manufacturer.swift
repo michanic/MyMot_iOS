@@ -29,6 +29,7 @@ extension CoreDataManager {
     func getManufacturers() -> [Manufacturer] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Manufacturer")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        request.predicate = NSPredicate(format: "models.@count > 0")
         request.sortDescriptors = [sortDescriptor]
         
         do {

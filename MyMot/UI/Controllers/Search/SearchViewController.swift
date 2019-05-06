@@ -13,31 +13,47 @@ class SearchViewController: UniversalViewController {
     let searchController = UISearchController(searchResultsController: nil)
     lazy var filterButton = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
     
+    var searchDataSource = SearchModelDataSource()
+    lazy var searchTableView: TableView = TableView(dataSourceDelegate: searchDataSource, frame: customCollectionView!.bounds)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.titleView = searchController.searchBar
         
         searchController.searchBar.barStyle = .blackOpaque
-        
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Поиск по модели"
+        searchController.searchBar.placeholder = "Введите модель или объем"
         searchController.searchBar.setSearchButtonText("Отмена")
         searchController.searchBar.setPlaceholderColor(UIColor.white)
+        searchController.searchBar.setImage(UIImage(named: "search_clear"), for: .clear, state: .normal)
         searchController.searchBar.delegate = self
-        
         searchController.searchBar.tintColor = UIColor.white
 
         self.navigationItem.rightBarButtonItem = filterButton
+        
+        self.view.addSubview(searchTableView)
+        searchTableView.isHidden = true
+        hideKeyboardByTouchView = searchTableView
+        
+        hideKeyboardPressed = {
+            self.searchController.searchBar.resignFirstResponder()
+        }
+        searchDataSource.modelSelected = { model in
+            var searchConfig = ConfigStorage.getFilterConfig()
+            searchConfig.selectedModel = model
+            ConfigStorage.saveFilterConfig(searchConfig)
+            Router.shared.pushController(ViewControllerFactory.searchResults(searchConfig).create)
+        }
     }
     
     override func prepareData() {
         dataSource = [Section()]
-        /*showLoading()
+        showLoading()
         
         let sitesInteractor = SitesInteractor()
-        sitesInteractor.loadFeedAdverts(ofSource: .avito("rossiya")) { (adverts) in
+        sitesInteractor.loadFeedAdverts() { (adverts) in
             let section = Section()
             section.cells.append(Cell(collectionTitle: "Все подряд"))
             
@@ -51,8 +67,21 @@ class SearchViewController: UniversalViewController {
             self.dataSource = [section]
             self.updateData()
             self.hideLoading()
-        }*/
+        }
         
+    }
+    
+    func showSearchResults(searchText: String) {
+        if searchText.count == 0 {
+            searchTableView.isHidden = true
+            customCollectionView?.isScrollEnabled = true
+        } else {
+            searchDataSource.updateWithText(searchText: searchText)
+            searchTableView.isHidden = false
+            searchTableView.frame = customCollectionView!.frame
+            customCollectionView?.isScrollEnabled = false
+            searchTableView.reloadData()
+        }
     }
     
     @objc func showFilter() {
@@ -68,21 +97,13 @@ class SearchViewController: UniversalViewController {
 
 extension SearchViewController: UISearchBarDelegate {
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("searchBarTextDidEndEditing")
-        //searchController.searchBar.resignFirstResponder()
-        //view.endEditing(true)
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        showSearchResults(searchText: "")
         self.navigationItem.rightBarButtonItem = filterButton
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        print("searchBarSearchButtonClicked")
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("searchBarTextDidEndEditing")
-        print(searchText)
+        showSearchResults(searchText: searchText)
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

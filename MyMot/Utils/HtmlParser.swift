@@ -67,7 +67,7 @@ extension Advert {
             advert?.date = try row.select(".js-item-date").text()
             advert?.link = try row.select(".item-description-title-link").attr("href")
             if let link = advert?.link {
-                advert?.link = Source.avito("").domain + link
+                advert?.link = Source.avito(nil, nil, nil, nil).domain + link
             }
             
             var priceText = try row.select("span.price").text()

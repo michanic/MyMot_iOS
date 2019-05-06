@@ -10,6 +10,7 @@ import UIKit
 
 protocol KeyboardEventsDelegate {
     var hideKeyboardByTouchView: UIView? { get }
+    var hideKeyboardPressed: (() -> ())? { get }
     func keyboardWillShow(duration: TimeInterval, animationOptions: UIView.AnimationOptions, keyboardHeight: CGFloat)
     func keyboardWillHide(duration: TimeInterval, animationOptions: UIView.AnimationOptions, keyboardHeight: CGFloat)
 }
@@ -58,6 +59,7 @@ class KeyboardManager {
     @objc func hideKeyboardByTap() {
         if let delegate = delegate, let touchView = delegate.hideKeyboardByTouchView {
             touchView.endEditing(true)
+            delegate.hideKeyboardPressed?()
         }
     }
     

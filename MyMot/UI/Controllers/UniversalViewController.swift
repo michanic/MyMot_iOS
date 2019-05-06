@@ -14,6 +14,7 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
     var loadingView: UIView?
     var keyboardManager = KeyboardManager()
     var hideKeyboardByTouchView: UIView?
+    var hideKeyboardPressed: (() -> ())?
     var navBarTitle: String {
         get { return title ?? "" }
         set { title = "‌‌‍‍ " + newValue + "‌‌‍‍ " }
@@ -28,7 +29,7 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
             customTableView.setupWithCustomView(dataSourceDelegate: self)
             return customTableView
         } else {
-            return TableView(dataSourceDelegate: self, frame: self.view.bounds, style: .plain)
+            return TableView(dataSourceDelegate: self, frame: self.view.bounds)
         }
     } ()
 

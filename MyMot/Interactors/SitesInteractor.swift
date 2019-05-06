@@ -12,11 +12,34 @@ class SitesInteractor {
 
     let htmlParser: HtmlParser = HtmlParser()
     
-    func loadFeedAdverts(ofSource source: Source, completed: @escaping (([Advert]?)->())) {
-        NetworkService.shared.getHtmlData(source: source) { (html, error) in
+    func loadFeedAdverts(completed: @escaping (([Advert]?)->())) {
+
+        let sourceOne = Source.avito(ConfigStorage.getFilterConfig().selectedRegion?.avito, nil, nil, nil)
+        guard let url = URL(string: sourceOne.feedPath) else {
+            completed([])
+            return
+        }
+        NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {
-                let adverts = self.htmlParser.parseAdverts(html: html, source: source)
+                let adverts = self.htmlParser.parseAdverts(html: html, source: sourceOne)
                 completed(adverts)
+            }
+        }
+    }
+    
+    func searchAdverts(config: SearchFilterConfig, completed: @escaping (([Advert])->())) {
+        let sourceOne = Source.avito(config.selectedRegion?.avito, config.selectedModel?.searchName, config.priceFrom, config.priceFor)
+        
+        guard let url = URL(string: sourceOne.searchPath) else {
+            completed([])
+            return
+        }
+        //print(url)
+        
+        NetworkService.shared.getHtmlData(url: url) { (html, error) in
+            if let html = html {
+                let adverts = self.htmlParser.parseAdverts(html: html, source: sourceOne)
+                completed(adverts ?? [])
             }
         }
     }
@@ -27,7 +50,7 @@ class SitesInteractor {
         
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {
-                let details = self.htmlParser.parseAdvertDetails(html: html, source: .avito(""))
+                let details = self.htmlParser.parseAdvertDetails(html: html, source: .avito(nil, nil, nil, nil))
                 completed(details)
             }
         }
