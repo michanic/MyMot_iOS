@@ -24,15 +24,20 @@ class SearchResultsViewController: UniversalViewController {
     override func viewDidLoad() {
         dataSource = [Section()]
         super.viewDidLoad()
+        
         updateTitle()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
+        
+        showLoading()
     }
 
     override func prepareData() {
         showLoading()
         
         let sitesInteractor = SitesInteractor()
-        sitesInteractor.searchAdverts(config: filterConfig) { (adverts) in
+        sitesInteractor.searchAdverts(page: 1, config: filterConfig) { (adverts, loadMore) in
+            self.dataSource = [Section()]
+            
             if adverts.count > 0 {
                 for advert in adverts {
                     let advertCell = Cell(advertsList: advert)

@@ -15,6 +15,19 @@ struct AdvertDetails {
     
 }
 
+extension Advert {
+    func getSource() -> Source? {
+        guard let link = link else { return nil }
+        
+        if link.contains("avito") {
+            return Source.avito(nil, nil, nil, nil, nil)
+        } else if link.contains("auto.ru") {
+            return Source.auto_ru(nil, nil, nil, nil, nil)
+        }
+        return nil
+    }
+}
+
 extension Cell {
     convenience init(searchFeedAdvert advert: Advert) {
         self.init(cellType: .searchFeed)

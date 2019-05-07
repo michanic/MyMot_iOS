@@ -63,16 +63,16 @@ class SearchViewController: UniversalViewController, UniversalViewControllerRefr
         }
         
         let sitesInteractor = SitesInteractor()
-        sitesInteractor.loadFeedAdverts() { (adverts) in
+        sitesInteractor.loadFeedAdverts(page: 1) { (adverts, loadMore) in
             
             let section = Section()
             section.cells.append(Cell(collectionTitle: "Все подряд"))
+        
+            let newAdverts = adverts.count % 2 != 0 ? adverts.dropLast() : adverts
             
-            if let adverts = adverts {
-                for advert in adverts {
-                    let advertCell = Cell(searchFeedAdvert: advert)
-                    section.cells.append(advertCell)
-                }
+            for advert in newAdverts {
+                let advertCell = Cell(searchFeedAdvert: advert)
+                section.cells.append(advertCell)
             }
             
             self.dataSource = [section]

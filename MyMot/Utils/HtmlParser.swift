@@ -12,7 +12,8 @@ import SwiftyJSON
 
 class HtmlParser {
 
-    func parseAdverts(html: String, source: Source) -> [Advert]? {
+    func parseAdverts(html: String, source: Source) -> ([Advert]?, Bool) {
+        var loadMore = false
         do {
             let doc: Document = try SwiftSoup.parse(html)
             var adverts: [Advert] = []
@@ -30,10 +31,10 @@ class HtmlParser {
                     break
                 }
             }
-            return adverts.count > 0 ? adverts : nil
+            return (adverts.count > 0 ? adverts : nil, loadMore)
         } catch let error {
             print(error.localizedDescription)
-            return nil
+            return (nil, loadMore)
         }
     }
     
@@ -42,7 +43,7 @@ class HtmlParser {
         case .avito:
             return AdvertDetails(parseFromAvito: html)
         default:
-            return nil
+            return AdvertDetails(parseFromAutoru: html)
         }
     }
     
@@ -70,7 +71,7 @@ extension Advert {
             advert?.date = try row.select(".js-item-date").text()
             advert?.link = try row.select(".item-description-title-link").attr("href")
             if let link = advert?.link {
-                advert?.link = Source.avito(nil, nil, nil, nil).domain + link
+                advert?.link = Source.avito(nil, nil, nil, nil, nil).domain + link
             }
             
             var priceText = try row.select("span.price").text()
@@ -147,6 +148,24 @@ extension AdvertDetails {
             text = try doc.select(".item-description-text p").text()
             for imageRow in try! doc.select(".js-gallery-img-frame") {
                 if let image = try? imageRow.attr("data-url") {
+                    images.append("https:" + image)
+                }
+            }
+        } catch let error {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    init?(parseFromAutoru html: String) {
+        images = []
+        text = ""
+        
+        do {
+            let doc: Document = try SwiftSoup.parse(html)
+            text = try doc.select(".seller-details__text").text()
+            for imageRow in try! doc.select(".gallery__thumb-item") {
+                if let image = try? imageRow.attr("data-img") {
                     images.append("https:" + image)
                 }
             }

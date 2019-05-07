@@ -84,8 +84,12 @@ extension Model {
         return String(first_year) + " - " + (last_year == 0 ? "настоящее время" : String(last_year))
     }
     
-    var searchName: String {
+    var avitoSearchName: String {
         return (manufacturer?.name?.lowercased() ?? "") + "+" + (name?.replacingOccurrences(of: " ", with: "+").lowercased() ?? "")
+    }
+    
+    var autoruSearchName: String {
+        return (manufacturer?.name?.uppercased() ?? "") + "%23" + (code?.uppercased() ?? "")
     }
 }
 

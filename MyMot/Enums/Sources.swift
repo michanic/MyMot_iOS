@@ -10,8 +10,8 @@ import Foundation
 
 enum Source {
     
-    case avito(String?, String?, Int?, Int?)
-    case auto_ru(String?, String?, Int?, Int?)
+    case avito(String?, String?, Int?, Int?, Int?)
+    case auto_ru(String?, String?, Int?, Int?, Int?)
     
     static let all = [avito, auto_ru]
     
@@ -46,16 +46,24 @@ enum Source {
         switch self {
         case .avito(let params):
             let regionString = params.0 ?? "rossiya"
-            return self.domain + "\(regionString)/mototsikly_i_mototehnika/mototsikly"
+            var page = ""
+            if let pageInt = params.4 {
+                page = "?p=" + String(pageInt)
+            }
+            return self.domain + "\(regionString)/mototsikly_i_mototehnika/mototsikly" + page
         case .auto_ru(let params):
             let regionString = params.0 ?? "rossiya"
-            return self.domain + "\(regionString)/motorcycle/all/"
+            var page = ""
+            if let pageInt = params.4 {
+                page = "?page_num_offers=" + String(pageInt)
+            }
+            return self.domain + "\(regionString)/motorcycle/all/" + page
         }
     }
     
     var searchPath: String {
         switch self {
-        case .avito(let region, let model, let pMin, let pMax):
+        case .avito(let region, let model, let pMin, let pMax, let page):
             let regionString = region ?? "rossiya"
             let path = self.domain + "\(regionString)/mototsikly_i_mototehnika/mototsikly"
             var request = ""
@@ -73,9 +81,25 @@ enum Source {
             }
             return path + request
             
-        case .auto_ru(let region, _, _, _):
+        case .auto_ru(let region, let model, let pMin, let pMax, let page):
             let regionString = region ?? "rossiya"
-            return self.domain + "\(regionString)/motorcycle/"
+            let path = self.domain + "\(regionString)/motorcycle/all/"
+            
+            var request = ""
+            if let pMin = pMin {
+                request += "&price_from=" + String(pMin)
+            }
+            if let pMax = pMax {
+                request += "&price_to=" + String(pMax)
+            }
+            if let model = model {
+                request += "&mark-model-nameplate=" + String(model)
+            }
+            if request.count > 0 {
+                request = "?" + request.dropFirst()
+            }
+            
+            return path + request
         }
     }
     
