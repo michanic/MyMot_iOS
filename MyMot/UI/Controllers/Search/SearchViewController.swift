@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SearchViewController: UniversalViewController {
+class SearchViewController: UniversalViewController, UniversalViewControllerRefreshing {
+    
+    var refreshCompletionHandler: (() -> Void)?
 
     let searchController = UISearchController(searchResultsController: nil)
     lazy var filterButton = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
@@ -17,6 +19,8 @@ class SearchViewController: UniversalViewController {
     lazy var searchTableView: TableView = TableView(dataSourceDelegate: searchDataSource, frame: customCollectionView!.bounds)
     
     override func viewDidLoad() {
+        dataSource = [Section()]
+        self.refreshDelegate = self
         super.viewDidLoad()
         
         self.navigationItem.titleView = searchController.searchBar
@@ -48,12 +52,19 @@ class SearchViewController: UniversalViewController {
         }
     }
     
+    func refreshPulled() {
+        prepareData()
+    }
+    
     override func prepareData() {
-        dataSource = [Section()]
-        showLoading()
+        
+        if refreshCompletionHandler == nil {
+            showLoading()
+        }
         
         let sitesInteractor = SitesInteractor()
         sitesInteractor.loadFeedAdverts() { (adverts) in
+            
             let section = Section()
             section.cells.append(Cell(collectionTitle: "Все подряд"))
             
@@ -65,6 +76,7 @@ class SearchViewController: UniversalViewController {
             }
             
             self.dataSource = [section]
+            self.refreshCompletionHandler?()
             self.updateData()
             self.hideLoading()
         }

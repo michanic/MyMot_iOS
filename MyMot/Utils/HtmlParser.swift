@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSoup
+import SwiftyJSON
 
 class HtmlParser {
 
@@ -23,7 +24,9 @@ class HtmlParser {
                         adverts.append(advert)
                     }
                 case .auto_ru:
-                    
+                    if let advert = Advert.createOrUpdateFromAutoru(row) {
+                        adverts.append(advert)
+                    }
                     break
                 }
             }
@@ -89,6 +92,46 @@ extension Advert {
         
         return advert
         
+    }
+    
+    static func createOrUpdateFromAutoru(_ row: Element) -> Advert? {
+        guard let dataBem = try? row.attr("data-bem"), let id = JSON(parseJSON: dataBem).dictionary?["listing-item"]?.dictionary?["id"]?.string else { return nil }
+        guard let title = try? row.select(".listing-item__link").text() else { return nil }
+        guard title.checkForExteption() else { return nil }
+        
+        var advert: Advert?
+        if let coreAdvert = CoreDataManager.instance.getAdvertById(id) {
+            advert = coreAdvert
+        } else {
+            advert = Advert.init(context: CoreDataManager.instance.persistentContainer.viewContext)
+            advert?.id = id
+        }
+        
+        do {
+            advert?.title = title
+            advert?.city = try row.select(".listing-item__place").text()
+            advert?.date = try row.select(".listing-item__date").text()
+            advert?.link = try row.select(".listing-item__link").attr("href")
+            
+            var priceText = try row.select(".listing-item__price").text()
+            
+            priceText = priceText.replacingOccurrences(of: " ", with: "")
+            priceText = priceText.replacingOccurrences(of: " ", with: "")
+            priceText = priceText.replacingOccurrences(of: "₽", with: "")
+
+            if let price = Int32(priceText) {
+                advert?.price = price
+            }
+            
+            let image = try row.select(".image.tile__image").attr("data-original")
+            advert?.previewImage = "https:" + image
+            
+        } catch let error {
+            print(error.localizedDescription)
+            return nil
+        }
+        
+        return advert
     }
     
 }

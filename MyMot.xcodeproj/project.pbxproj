@@ -48,6 +48,7 @@
 		8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B552271FE4200B44FC6 /* AdvertViewController.swift */; };
 		8E627B582271FE4200B44FC6 /* AdvertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E627B562271FE4200B44FC6 /* AdvertViewController.xib */; };
 		8E9A32E322804B0D003E6D0C /* SearchModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A32E222804B0D003E6D0C /* SearchModelDataSource.swift */; };
+		8E9A32E52281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A32E42281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift */; };
 		8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1C2260CBA000C18BE3 /* String.swift */; };
 		8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */; };
 		8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA339A2226199270038863C /* CategoryAboutCell.swift */; };
@@ -141,6 +142,7 @@
 		8E627B552271FE4200B44FC6 /* AdvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertViewController.swift; sourceTree = "<group>"; };
 		8E627B562271FE4200B44FC6 /* AdvertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertViewController.xib; sourceTree = "<group>"; };
 		8E9A32E222804B0D003E6D0C /* SearchModelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModelDataSource.swift; sourceTree = "<group>"; };
+		8E9A32E42281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniversalViewController+KRPullLoadViewDelegate.swift"; sourceTree = "<group>"; };
 		8EA0FA1C2260CBA000C18BE3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8EA0FA1E2260CE1400C18BE3 /* ImagesSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSliderView.swift; sourceTree = "<group>"; };
 		8EA339A2226199270038863C /* CategoryAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAboutCell.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				8E0FB321225E066E001753C4 /* UniversalViewController.swift */,
+				8E9A32E42281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift */,
 				8EC624412253ABF000E122F8 /* LoadingViewController.swift */,
 				8EC624422253ABF000E122F8 /* LoadingViewController.xib */,
 				8E0FB309225BA81E001753C4 /* Catalog */,
@@ -637,6 +640,7 @@
 				8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */,
 				8EC6242D2253A1D800E122F8 /* UIColor.swift in Sources */,
 				8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */,
+				8E9A32E52281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift in Sources */,
 				8E627B36226EED5B00B44FC6 /* CoreDataManager+Adverts.swift in Sources */,
 				8EA5251B226618ED005D342E /* FilterViewController.swift in Sources */,
 				8E0012C3225B3EF60034E8BB /* Model.swift in Sources */,

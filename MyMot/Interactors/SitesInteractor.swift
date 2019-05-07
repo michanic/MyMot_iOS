@@ -14,11 +14,14 @@ class SitesInteractor {
     
     func loadFeedAdverts(completed: @escaping (([Advert]?)->())) {
 
-        let sourceOne = Source.avito(ConfigStorage.getFilterConfig().selectedRegion?.avito, nil, nil, nil)
+        //let sourceOne = Source.avito(ConfigStorage.getFilterConfig().selectedRegion?.avito, nil, nil, nil)
+        let sourceOne = Source.auto_ru(ConfigStorage.getFilterConfig().selectedRegion?.autoru, nil, nil, nil)
+        
         guard let url = URL(string: sourceOne.feedPath) else {
             completed([])
             return
         }
+        
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {
                 let adverts = self.htmlParser.parseAdverts(html: html, source: sourceOne)

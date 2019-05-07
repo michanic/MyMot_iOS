@@ -21,6 +21,7 @@ class NetworkService {
     }
     
     func getHtmlData(url: URL, result: ((String?, Error?) -> ())?) {
+        //print(url)
         Alamofire.request(url, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).htmlResponse { (html, error) in
             result?(html, error)
         }

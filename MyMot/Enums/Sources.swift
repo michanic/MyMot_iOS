@@ -47,8 +47,9 @@ enum Source {
         case .avito(let params):
             let regionString = params.0 ?? "rossiya"
             return self.domain + "\(regionString)/mototsikly_i_mototehnika/mototsikly"
-        case .auto_ru(let region):
-            return self.domain + "\(region)/motorcycle/"
+        case .auto_ru(let params):
+            let regionString = params.0 ?? "rossiya"
+            return self.domain + "\(regionString)/motorcycle/all/"
         }
     }
     
@@ -72,8 +73,9 @@ enum Source {
             }
             return path + request
             
-        case .auto_ru(let region, let model, let pMin, let pMax):
-            return self.domain + "\(region)/motorcycle/"
+        case .auto_ru(let region, _, _, _):
+            let regionString = region ?? "rossiya"
+            return self.domain + "\(regionString)/motorcycle/"
         }
     }
     

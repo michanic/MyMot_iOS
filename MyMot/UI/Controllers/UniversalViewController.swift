@@ -7,6 +7,17 @@
 //
 
 import UIKit
+import KRPullLoader
+
+protocol UniversalViewControllerRefreshing: class {
+    func refreshPulled()
+    var refreshCompletionHandler: (()->Void)? { get set }
+}
+
+protocol UniversalViewControllerLoadMore: class {
+    func loadMore()
+    var loadMoreCompletionHandler: (()->Void)? { get set }
+}
 
 class UniversalViewController: UIViewController, DataSource, KeyboardEventsDelegate {
     
@@ -20,6 +31,13 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
         set { title = "‌‌‍‍ " + newValue + "‌‌‍‍ " }
     }
     var startScrollTo: IndexPath?
+    
+    weak var refreshDelegate: UniversalViewControllerRefreshing?
+    let refreshView = KRPullLoadView()
+    
+    weak var loadMoreDelegate: UniversalViewControllerLoadMore?
+    let loadMoreView = KRPullLoadView()
+    var allowNextPageLoad = false
     
     @IBOutlet weak var customTableView: TableView?
     @IBOutlet weak var customCollectionView: CollectionView?
@@ -55,6 +73,14 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
             }
         }
         
+        if refreshDelegate != nil {
+            refreshView.delegate = self
+            refreshSetEnabled(true)
+        }
+        if loadMoreDelegate != nil {
+            loadMoreView.delegate = self
+            loadMoreSetEnabled(true)
+        }
         
     }
     
