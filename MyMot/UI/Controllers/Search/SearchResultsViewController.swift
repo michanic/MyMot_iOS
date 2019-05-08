@@ -45,7 +45,7 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
     func loadMore() {
         
         let sitesInteractor = SitesInteractor()
-        sitesInteractor.searchAdverts(page: 1, config: filterConfig) { (adverts, loadMore) in
+        sitesInteractor.searchAdverts(page: currentPage, config: filterConfig) { (adverts, loadMore) in
             
             if self.currentPage == 1 {
                 self.dataSource = [Section()]
