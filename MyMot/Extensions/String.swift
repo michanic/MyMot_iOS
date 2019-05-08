@@ -26,4 +26,34 @@ extension String {
         return ceil(boundingBox.height)
     }
     
+    
+    func makeCall() {
+        let cleanPhoneNumber = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+        let urlString:String = "telprompt://\(cleanPhoneNumber)"
+        if let phoneCallURL = URL(string: urlString) {
+            let application: UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                if #available(iOS 10.0, *) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                } else {
+                    application.openURL(phoneCallURL as URL)
+                }
+            }
+        }
+    }
+    
+    func sendEmail() {
+        let urlString:String = "mailto://\(self)"
+        if let emailURL = URL(string: urlString) {
+            let application: UIApplication = UIApplication.shared
+            if (application.canOpenURL(emailURL)) {
+                if #available(iOS 10.0, *) {
+                    application.open(emailURL, options: [:], completionHandler: nil)
+                } else {
+                    application.openURL(emailURL as URL)
+                }
+            }
+        }
+    }
+    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 class AdvertViewController: UniversalViewController {
 
@@ -17,6 +18,8 @@ class AdvertViewController: UniversalViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
+    
+    @IBOutlet weak var webView: WKWebView!
     
     let advert: Advert
     var advertDetails: AdvertDetails?
@@ -34,6 +37,10 @@ class AdvertViewController: UniversalViewController {
         super.viewDidLoad()
         self.navBarTitle = (advert.title ?? "")
         updateFavouriteButton()
+        
+        webView.navigationDelegate = self
+        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/601.5.17 (KHTML, like Gecko) Version/9.1 Safari/601.5.17"
+        webView.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -76,4 +83,57 @@ class AdvertViewController: UniversalViewController {
             aboutLabel.text = advertDetails.text
         }
     }
+    
+    @IBAction func callPressed(_ sender: Any) {
+        
+        /*if let link = advert.link, let url = URL(string: link) {
+            webView.load(URLRequest(url: url))
+        }*/
+        
+        let siteInteractor = SitesInteractor()
+        siteInteractor.loadAdvertPhone(advert: advert) { (phone) in
+            phone.makeCall()
+            print(phone)
+        }
+    }
+    
+}
+
+
+extension AdvertViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        //let script = "$('.phone-call__show-phone-button').click();"
+        
+        //let script = "var element = document.getElementsByClassName(\"phone-call__show-phone\")[0];" + "element.click();"
+        
+        //let script = "var clickEvent = new MouseEvent('click', {'view': window,'bubbles': true,'cancelable': false}); var element = document.getElementsByClassName('phone-call__show-phone-button'); element.dispatchEvent(clickEvent);"
+        
+        let script = "var clickEvent = new MouseEvent('click', {'view': window,'bubbles': true,'cancelable': false}); document.getElementsByClassName('phone-call__show-phone-button')[0].dispatchEvent(clickEvent);"
+
+        webView.evaluateJavaScript(script) { (result, error) in
+            
+            if let result = result {
+                print(result)
+            }
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if let url = navigationAction.request.url {
+            
+            print(url)
+        }
+        
+        decisionHandler(.allow)
+    }
+    
+    /*func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        decisionHandler(.allow)
+    }*/
+    
 }

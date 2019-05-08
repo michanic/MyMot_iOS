@@ -93,4 +93,29 @@ class SitesInteractor {
         }
     }
     
+    func loadAdvertPhone(advert: Advert, completed: @escaping ((String)->())) {
+        
+        guard var link = advert.link, let source = advert.getSource() else { completed(""); return }
+        
+        switch source {
+        case .avito:
+            link = link.replacingOccurrences(of: "www.avito", with: "m.avito")
+            break
+        case .auto_ru:
+            break
+        }
+        
+        guard let url = URL(string: link) else { completed(""); return }
+        
+        NetworkService.shared.getHtmlData(url: url) { (html, error) in
+            if let html = html {
+                let phone = self.htmlParser.parsePhoneFromAvito(html: html)
+                completed(phone)
+            } else {
+                completed("")
+            }
+        }
+        
+    }
+    
 }

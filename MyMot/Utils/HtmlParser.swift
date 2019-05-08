@@ -17,10 +17,11 @@ class HtmlParser {
         do {
             let doc: Document = try SwiftSoup.parse(html)
             var adverts: [Advert] = []
-            
+                        
             switch source {
             case .avito:
-                if (try? doc.select(".pagination-page.js-pagination-next")) != nil {
+                
+                if try! doc.select(".pagination-page.js-pagination-next").hasText() {
                     loadMore = true
                 }
                 
@@ -31,8 +32,9 @@ class HtmlParser {
                 }
                 
             case .auto_ru:
-                if let button = try? doc.select(".pager__next.button__control") {
-                    if button.hasClass("button_disabled") {
+                
+                if try! doc.select(".pager__next.button__control .button__text").hasText() {
+                    if try! doc.select(".pager__next.button__control").hasClass("button_disabled") {
                         loadMore = false
                     } else {
                         loadMore = true
@@ -61,6 +63,19 @@ class HtmlParser {
             return AdvertDetails(parseFromAvito: html)
         default:
             return AdvertDetails(parseFromAutoru: html)
+        }
+    }
+    
+    func parsePhoneFromAvito(html: String) -> String {
+        do {
+            let doc: Document = try SwiftSoup.parse(html)
+            if let phone = try? doc.select("[data-marker='item-contact-bar/call']").attr("href") {
+                return(phone.replacingOccurrences(of: "tel:", with: ""))
+            }
+            return ("")
+        } catch let error {
+            print(error.localizedDescription)
+            return ("")
         }
     }
     

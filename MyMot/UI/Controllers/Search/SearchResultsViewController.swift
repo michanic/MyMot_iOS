@@ -62,6 +62,7 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
             }
             
             self.loadMoreAvailable = loadMore
+            self.loadMoreSetEnabled(loadMore)
             self.currentPage += 1
             self.loadMoreCompletionHandler?()
             
