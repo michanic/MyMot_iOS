@@ -76,6 +76,9 @@ enum Source {
             if let model = model {
                 request += "&q=" + String(model)
             }
+            if let page = page {
+                request += "&p=" + String(page)
+            }
             if request.count > 0 {
                 request = "?" + request.dropFirst()
             }
@@ -94,6 +97,9 @@ enum Source {
             }
             if let model = model {
                 request += "&mark-model-nameplate=" + String(model)
+            }
+            if let page = page {
+                request += "&page_num_offers=" + String(page)
             }
             if request.count > 0 {
                 request = "?" + request.dropFirst()

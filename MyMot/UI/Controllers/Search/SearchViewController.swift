@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SearchViewController: UniversalViewController, UniversalViewControllerRefreshing {
+class SearchViewController: UniversalViewController, UniversalViewControllerLoadMore, UniversalViewControllerRefreshing {
     
+    var loadMoreCompletionHandler: (() -> Void)?
+    var currentPage: Int = 1
+    var loadMoreAvailable: Bool = false
     var refreshCompletionHandler: (() -> Void)?
 
     let searchController = UISearchController(searchResultsController: nil)
@@ -20,6 +23,7 @@ class SearchViewController: UniversalViewController, UniversalViewControllerRefr
     
     override func viewDidLoad() {
         dataSource = [Section()]
+        self.loadMoreDelegate = self
         self.refreshDelegate = self
         super.viewDidLoad()
         
@@ -52,36 +56,50 @@ class SearchViewController: UniversalViewController, UniversalViewControllerRefr
         }
     }
     
+    override func prepareData() {
+        if refreshCompletionHandler == nil {
+            showLoading()
+        }
+        currentPage = 1
+        loadMore()
+    }
+    
     func refreshPulled() {
         prepareData()
     }
     
-    override func prepareData() {
-        
-        if refreshCompletionHandler == nil {
-            showLoading()
-        }
+    func loadMore() {
         
         let sitesInteractor = SitesInteractor()
-        sitesInteractor.loadFeedAdverts(page: 1) { (adverts, loadMore) in
+        sitesInteractor.loadFeedAdverts(page: currentPage) { (adverts, loadMore) in
             
-            let section = Section()
-            section.cells.append(Cell(collectionTitle: "Все подряд"))
-        
-            let newAdverts = adverts.count % 2 != 0 ? adverts.dropLast() : adverts
-            
-            for advert in newAdverts {
-                let advertCell = Cell(searchFeedAdvert: advert)
-                section.cells.append(advertCell)
+            if self.currentPage == 1 {
+                let section = Section()
+                section.cells.append(Cell(collectionTitle: "Все объявления"))
+                self.dataSource = [section]
             }
             
-            self.dataSource = [section]
-            self.refreshCompletionHandler?()
+            let newAdverts = adverts.count % 2 != 0 ? adverts.dropLast() : adverts
+            for advert in newAdverts {
+                let advertCell = Cell(searchFeedAdvert: advert)
+                self.dataSource[0].cells.append(advertCell)
+            }
+            
+            if self.currentPage == 1 {
+                self.refreshCompletionHandler?()
+            }
+            
+            self.loadMoreAvailable = loadMore
+            self.currentPage += 1
+            self.loadMoreCompletionHandler?()
+            
             self.updateData()
             self.hideLoading()
         }
         
     }
+    
+    
     
     func showSearchResults(searchText: String) {
         if searchText.count == 0 {

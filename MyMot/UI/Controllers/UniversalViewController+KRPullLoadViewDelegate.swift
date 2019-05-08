@@ -15,7 +15,7 @@ extension UniversalViewController: KRPullLoadViewDelegate {
         case let .loading(completionHandler):
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+1) {
                 if type == .loadMore {
-                    if self.allowNextPageLoad {
+                    if let loadMore = self.loadMoreDelegate?.loadMoreAvailable, loadMore {
                         self.loadMoreDelegate?.loadMoreCompletionHandler = completionHandler
                         self.loadMoreDelegate?.loadMore()
                     } else {

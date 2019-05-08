@@ -8,9 +8,13 @@
 
 import UIKit
 
-class SearchResultsViewController: UniversalViewController {
+class SearchResultsViewController: UniversalViewController, UniversalViewControllerLoadMore {
 
     var filterConfig: SearchFilterConfig
+
+    var loadMoreCompletionHandler: (() -> Void)?
+    var currentPage: Int = 1
+    var loadMoreAvailable: Bool = false
     
     init(filterConfig: SearchFilterConfig) {
         self.filterConfig = filterConfig
@@ -23,6 +27,7 @@ class SearchResultsViewController: UniversalViewController {
     
     override func viewDidLoad() {
         dataSource = [Section()]
+        self.loadMoreDelegate = self
         super.viewDidLoad()
         
         updateTitle()
@@ -33,25 +38,39 @@ class SearchResultsViewController: UniversalViewController {
 
     override func prepareData() {
         showLoading()
+        currentPage = 1
+        loadMore()
+    }
+    
+    func loadMore() {
         
         let sitesInteractor = SitesInteractor()
         sitesInteractor.searchAdverts(page: 1, config: filterConfig) { (adverts, loadMore) in
-            self.dataSource = [Section()]
+            
+            if self.currentPage == 1 {
+                self.dataSource = [Section()]
+            }
             
             if adverts.count > 0 {
                 for advert in adverts {
                     let advertCell = Cell(advertsList: advert)
                     self.dataSource[0].cells.append(advertCell)
                 }
-            } else {
+            } else if self.currentPage == 1 {
                 let noResultsCell = Cell(simpleTitle: "Ничего не найдено", accessoryState: .hidden)
                 self.dataSource[0].cells = [noResultsCell]
             }
             
+            self.loadMoreAvailable = loadMore
+            self.currentPage += 1
+            self.loadMoreCompletionHandler?()
+            
             self.updateData()
             self.hideLoading()
         }
+        
     }
+    
     
     func updateTitle() {
         if let model = filterConfig.selectedModel, let name = model.name {

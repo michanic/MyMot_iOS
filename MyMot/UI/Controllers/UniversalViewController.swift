@@ -17,6 +17,8 @@ protocol UniversalViewControllerRefreshing: class {
 protocol UniversalViewControllerLoadMore: class {
     func loadMore()
     var loadMoreCompletionHandler: (()->Void)? { get set }
+    var loadMoreAvailable: Bool { get set }
+    var currentPage: Int { get set }
 }
 
 class UniversalViewController: UIViewController, DataSource, KeyboardEventsDelegate {
@@ -37,7 +39,6 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
     
     weak var loadMoreDelegate: UniversalViewControllerLoadMore?
     let loadMoreView = KRPullLoadView()
-    var allowNextPageLoad = false
     
     @IBOutlet weak var customTableView: TableView?
     @IBOutlet weak var customCollectionView: CollectionView?

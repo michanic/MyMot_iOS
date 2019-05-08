@@ -18,20 +18,37 @@ class HtmlParser {
             let doc: Document = try SwiftSoup.parse(html)
             var adverts: [Advert] = []
             
-            for row in try! doc.select(source.itemSelector) {
-                switch source {
-                case .avito:
+            switch source {
+            case .avito:
+                if (try? doc.select(".pagination-page.js-pagination-next")) != nil {
+                    loadMore = true
+                }
+                
+                for row in try! doc.select(source.itemSelector) {
                     if let advert = Advert.createOrUpdateFromAvito(row) {
                         adverts.append(advert)
                     }
-                case .auto_ru:
+                }
+                
+            case .auto_ru:
+                if let button = try? doc.select(".pager__next.button__control") {
+                    if button.hasClass("button_disabled") {
+                        loadMore = false
+                    } else {
+                        loadMore = true
+                    }
+                }
+                
+                for row in try! doc.select(source.itemSelector) {
                     if let advert = Advert.createOrUpdateFromAutoru(row) {
                         adverts.append(advert)
                     }
-                    break
                 }
+                
+                break
             }
             return (adverts.count > 0 ? adverts : nil, loadMore)
+            
         } catch let error {
             print(error.localizedDescription)
             return (nil, loadMore)
