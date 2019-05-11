@@ -18,6 +18,7 @@ class FavouritesViewController: UniversalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.editingDelegate = self
         NotificationCenter.subscribe(favouritesSwitchSubscriber)
     }
 
@@ -30,11 +31,13 @@ class FavouritesViewController: UniversalViewController {
         if segmentControl.selectedSegmentIndex == 0 {
             for advert in CoreDataManager.instance.getFavouriteAdverts() {
                 let advertCell = Cell(advertsList: advert)
+                advertCell.editingDelete = true
                 dataSource[0].cells.append(advertCell)
             }
         } else {
             for model in CoreDataManager.instance.getFavouriteModels() {
                 let modelCell = Cell(modelsList: model, accessoryState: .right)
+                modelCell.editingDelete = true
                 dataSource[0].cells.append(modelCell)
             }
         }
@@ -46,4 +49,15 @@ class FavouritesViewController: UniversalViewController {
         refreshData()
     }
     
+}
+
+extension FavouritesViewController: TableViewEditing {
+    func deleteCellPressed(indexPath: IndexPath) {
+        print(indexPath.row)
+        if segmentControl.selectedSegmentIndex == 0 {
+            
+        } else {
+            
+        }
+    }
 }

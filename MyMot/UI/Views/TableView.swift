@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol TableViewEditing: class {
+    func deleteCellPressed(indexPath: IndexPath)
+}
+
 class TableView: UITableView {
 
     var DS: DataSource?
     var registeredCellTypes: Set<CellType> = []
+    weak var editingDelegate: TableViewEditing?
     
     init(dataSourceDelegate: DataSource, frame: CGRect) {
         self.DS = dataSourceDelegate
@@ -82,6 +87,23 @@ extension TableView: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let cellModel = DS?.dataSource[indexPath.section].cells[indexPath.row] else { return }
         cellModel.eventListener?.tapEvent()
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return DS?.dataSource[indexPath.section].cells[indexPath.row].editingDelete ?? false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            editingDelegate?.deleteCellPressed(indexPath: indexPath)
+        default:
+            break
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Удалить"
     }
     
 }

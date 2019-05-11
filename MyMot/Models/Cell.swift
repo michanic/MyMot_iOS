@@ -16,6 +16,7 @@ class Cell {
     var height: CGFloat
     var width: CGFloat
     var indexPath: IndexPath?
+    var editingDelete: Bool = false
     
     // Events
     var eventListener: CellEventProtocol?
