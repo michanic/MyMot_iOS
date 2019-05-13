@@ -193,7 +193,8 @@ extension AdvertDetails {
         
         do {
             let doc: Document = try SwiftSoup.parse(html)
-            text = try doc.select(".item-description-text p").text()
+            text = try doc.select(".item-description-text p").html()
+            
             for imageRow in try! doc.select(".js-gallery-img-frame") {
                 if let image = try? imageRow.attr("data-url") {
                     images.append("https:" + image)
@@ -211,7 +212,8 @@ extension AdvertDetails {
                 
         do {
             let doc: Document = try SwiftSoup.parse(html)
-            text = try doc.select(".seller-details__text").text()
+            text = try doc.select(".seller-details__text").html()
+            
             for imageRow in try! doc.select(".gallery__thumb-item") {
                 if let image = try? imageRow.attr("data-img") {
                     images.append("https:" + image)

@@ -17,7 +17,7 @@ class AdvertViewController: UniversalViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var aboutTextView: UITextView!
     
     let advert: Advert
     var advertDetails: AdvertDetails?
@@ -34,6 +34,7 @@ class AdvertViewController: UniversalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navBarTitle = (advert.title ?? "")
+        aboutTextView.textContainerInset = UIEdgeInsets(top: -2, left: -5, bottom: 0, right: 0)
         updateFavouriteButton()
     }
 
@@ -75,7 +76,11 @@ class AdvertViewController: UniversalViewController {
         
         if let advertDetails = advertDetails {
             imagesSlider.fillWithImages(advertDetails.images, contentMode: .scaleAspectFill)
-            aboutLabel.text = advertDetails.text
+            aboutTextView.text = advertDetails.text
+            
+            if let aboutString = advertDetails.text, let attributedString = try? NSAttributedString(htmlString: aboutString, font: UIFont.systemFont(ofSize: 14), useDocumentFontSize: false) {
+                aboutTextView.attributedText = attributedString
+            }
         }
     }
     

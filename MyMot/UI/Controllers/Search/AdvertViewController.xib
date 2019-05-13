@@ -20,7 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvertViewController" customModule="MyMot" customModuleProvider="target">
             <connections>
-                <outlet property="aboutLabel" destination="5xE-hG-6uD" id="Pv7-nc-Jt7"/>
+                <outlet property="aboutTextView" destination="pfU-DM-daf" id="IRs-KQ-9lJ"/>
                 <outlet property="cityLabel" destination="ddw-Yi-8gN" id="gvC-UY-cu8"/>
                 <outlet property="dateLabel" destination="pjC-Kw-YVf" id="ccC-oA-wvJ"/>
                 <outlet property="imagesSlider" destination="cgx-sc-eWW" id="9Vr-P7-1n5"/>
@@ -76,15 +76,15 @@
                                 <constraint firstAttribute="height" constant="1" id="g2V-Ep-meb"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xE-hG-6uD">
-                            <rect key="frame" x="33" y="506.5" width="309" height="150.5"/>
-                            <string key="text">Модель спорт-туриста Honda VFR800F (Interceptor) появилась в 1998 году, придя на смену Honda VFR750F. Модель была ориентирована, в основном, на экспорт в страны Европы, Северной Америки и Океании, но также была доступна и на внутреннем японском рынке (первые поколения внутрияпонских VFR800 были "задушены" до 80 л.с. мощности).</string>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.59999999999999998" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pfU-DM-daf">
+                            <rect key="frame" x="33" y="506.5" width="309" height="49.5"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.51764705879999995" green="0.51764705879999995" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdV-VX-W9c">
-                            <rect key="frame" x="10" y="715" width="355" height="50"/>
+                            <rect key="frame" x="10" y="606" width="355" height="50"/>
                             <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="aJV-0t-lwd"/>
@@ -109,21 +109,21 @@
                         <constraint firstItem="pjC-Kw-YVf" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="33" id="6Do-TH-Yg0"/>
                         <constraint firstAttribute="trailing" secondItem="eWN-kj-zee" secondAttribute="trailing" constant="33" id="7hF-fS-OD8"/>
                         <constraint firstItem="T9E-qH-Pl6" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="33" id="B3K-jz-HxR"/>
-                        <constraint firstItem="5xE-hG-6uD" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="33" id="Eeh-Bd-SUM"/>
+                        <constraint firstItem="TdV-VX-W9c" firstAttribute="top" secondItem="pfU-DM-daf" secondAttribute="bottom" constant="50" id="BHT-zO-5pk"/>
                         <constraint firstItem="eWN-kj-zee" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="33" id="EuR-Vu-bcY"/>
                         <constraint firstItem="ddw-Yi-8gN" firstAttribute="top" secondItem="eWN-kj-zee" secondAttribute="bottom" constant="11" id="G4Y-Ip-uMM"/>
-                        <constraint firstItem="TdV-VX-W9c" firstAttribute="top" secondItem="5xE-hG-6uD" secondAttribute="bottom" constant="58" id="KaL-Yp-xCJ"/>
                         <constraint firstAttribute="trailing" secondItem="T9E-qH-Pl6" secondAttribute="trailing" constant="33" id="MpH-cY-MvW"/>
                         <constraint firstItem="pjC-Kw-YVf" firstAttribute="top" secondItem="ddw-Yi-8gN" secondAttribute="bottom" constant="5" id="NAy-TK-5Ct"/>
                         <constraint firstItem="ddw-Yi-8gN" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="33" id="NaZ-M8-3Q2"/>
                         <constraint firstItem="eWN-kj-zee" firstAttribute="top" secondItem="cgx-sc-eWW" secondAttribute="bottom" constant="7" id="Nxu-gO-PVs"/>
                         <constraint firstItem="hxO-nG-Wun" firstAttribute="top" secondItem="eWN-kj-zee" secondAttribute="bottom" constant="11" id="axB-mR-IKY"/>
-                        <constraint firstItem="5xE-hG-6uD" firstAttribute="top" secondItem="T9E-qH-Pl6" secondAttribute="bottom" constant="25" id="cuG-Z1-YDX"/>
                         <constraint firstItem="T9E-qH-Pl6" firstAttribute="top" secondItem="pjC-Kw-YVf" secondAttribute="bottom" constant="20" id="edG-e0-Zcw"/>
                         <constraint firstAttribute="trailing" secondItem="pjC-Kw-YVf" secondAttribute="trailing" constant="33" id="hZ5-jz-iMU"/>
+                        <constraint firstItem="pfU-DM-daf" firstAttribute="top" secondItem="T9E-qH-Pl6" secondAttribute="bottom" constant="25" id="iC1-6o-r8Q"/>
+                        <constraint firstItem="pfU-DM-daf" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="33" id="iwJ-Z5-oOu"/>
                         <constraint firstItem="cgx-sc-eWW" firstAttribute="width" secondItem="DiT-rC-QbG" secondAttribute="width" id="mEV-HP-Ia6"/>
                         <constraint firstItem="TdV-VX-W9c" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="10" id="q6X-eh-cdQ"/>
-                        <constraint firstAttribute="trailing" secondItem="5xE-hG-6uD" secondAttribute="trailing" constant="33" id="rX3-QW-V69"/>
+                        <constraint firstAttribute="trailing" secondItem="pfU-DM-daf" secondAttribute="trailing" constant="33" id="qEl-ry-w2i"/>
                         <constraint firstAttribute="trailing" secondItem="hxO-nG-Wun" secondAttribute="trailing" constant="33.5" id="s56-mV-lKE"/>
                         <constraint firstItem="cgx-sc-eWW" firstAttribute="top" secondItem="DiT-rC-QbG" secondAttribute="top" id="sUe-OJ-C2j"/>
                         <constraint firstAttribute="trailing" secondItem="TdV-VX-W9c" secondAttribute="trailing" constant="10" id="srD-cw-FWr"/>
