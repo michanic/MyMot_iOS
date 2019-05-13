@@ -20,9 +20,24 @@ class NetworkService {
         }
     }
     
+    func getJsonData(url: URL, method: HTTPMethod, headers: HTTPHeaders, result: ((JSON?, Error?) -> ())?) {
+        //print(endpoint.url)
+        Alamofire.request(url, method: method, parameters: nil, encoding: URLEncoding.default, headers: headers).apiResponse { (json, error) in
+            result?(json, error)
+        }
+    }
+    
     func getHtmlData(url: URL, result: ((String?, Error?) -> ())?) {
         //print(url)
-        Alamofire.request(url, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).htmlResponse { (html, error) in
+        Alamofire.request(url, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).htmlResponse { (html, cookies, error) in
+            if let cookies = cookies {
+                for cookie in cookies {
+                    if cookie.name == "_csrf_token" {
+                        print(cookie.value)
+                        ConfigStorage.saveCsrfToken(cookie.value)
+                    }
+                }
+            }
             result?(html, error)
         }
     }
@@ -41,12 +56,16 @@ extension DataRequest {
         }
     }
     
-    func htmlResponse(handler: @escaping (String?, Error?) -> Void) {
+    func htmlResponse(handler: @escaping (String?, [HTTPCookie]?, Error?) -> Void) {
         response(queue: nil, responseSerializer: DataRequest.apiResponseSerializer()) { (response) in
+            var cookies: [HTTPCookie]?
+            if let headerFields = response.response?.allHeaderFields as? [String: String], let URL = response.request?.url {
+                cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
+            }
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                handler(utf8Text, nil)
+                handler(utf8Text, cookies, nil)
             } else {
-                handler(nil, NSError.notValidLink)
+                handler(nil, cookies, NSError.notValidLink)
             }
         }
     }

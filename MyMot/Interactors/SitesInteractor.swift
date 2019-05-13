@@ -93,20 +93,11 @@ class SitesInteractor {
         }
     }
     
-    func loadAdvertPhone(advert: Advert, completed: @escaping ((String)->())) {
+    func loadAvitoAdvertPhone(advert: Advert, completed: @escaping ((String)->())) {
+        guard var link = advert.link else { completed(""); return }
         
-        guard var link = advert.link, let source = advert.getSource() else { completed(""); return }
-        
-        switch source {
-        case .avito:
-            link = link.replacingOccurrences(of: "www.avito", with: "m.avito")
-            break
-        case .auto_ru:
-            break
-        }
-        
+        link = link.replacingOccurrences(of: "www.avito", with: "m.avito")
         guard let url = URL(string: link) else { completed(""); return }
-        
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {
                 let phone = self.htmlParser.parsePhoneFromAvito(html: html)
@@ -114,6 +105,28 @@ class SitesInteractor {
             } else {
                 completed("")
             }
+        }
+    }
+
+    func loadAutoRuAdvertPhones(saleId: String, saleHash: String, token: String, completed: @escaping (([String])->())) {
+        
+        let path = "https://auto.ru/-/ajax/phones/?category=moto&sale_id=\(saleId)&sale_hash=\(saleHash)&isFromPhoneModal=true&__blocks=card-phones%2Ccall-number"
+        guard let url = URL(string: path) else { completed([]); return }
+        
+        let headers = [
+            "x-csrf-token" : token,
+            "Cookie": "_csrf_token=\(token)"
+        ]
+        
+        NetworkService.shared.getJsonData(url: url, method: .get, headers: headers) { (json, error) in
+            if let html = json?.dictionary?["blocks"]?.dictionary?["card-phones"]?.string?.replacingOccurrences(of: ("\""), with: ("'")) {
+                print(html)
+                let phones = self.htmlParser.parsePhonesFromAutoRu(html: html)
+                completed(phones)
+            } else {
+                completed([])
+            }
+            
         }
         
     }

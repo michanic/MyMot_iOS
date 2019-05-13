@@ -56,6 +56,14 @@ class ConfigStorage {
         return config
     }
     
+    static func saveCsrfToken(_ token: String) {
+        UserDefaults.standard.set(token, forKey: Keys.autoruCsrfToken.rawValue)
+    }
+    
+    static func getCsrfToken() -> String? {
+        return UserDefaults.standard.string(forKey: Keys.autoruCsrfToken.rawValue)
+    }
+    
 }
 
 fileprivate enum Keys: String {
@@ -64,4 +72,5 @@ fileprivate enum Keys: String {
     case searchModelId = "search_model_id"
     case searchPriceFrom = "search_price_from"
     case searchPriceFor = "search_price_for"
+    case autoruCsrfToken = "autoru_csrf_token"
 }

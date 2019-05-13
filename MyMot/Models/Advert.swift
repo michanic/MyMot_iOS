@@ -12,7 +12,7 @@ struct AdvertDetails {
     
     var images: Images
     var text: String?
-    
+    var saleHash: String? = nil
 }
 
 extension Advert {

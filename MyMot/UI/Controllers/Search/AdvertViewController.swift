@@ -19,8 +19,6 @@ class AdvertViewController: UniversalViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
     
-    @IBOutlet weak var webView: WKWebView!
-    
     let advert: Advert
     var advertDetails: AdvertDetails?
     
@@ -37,10 +35,6 @@ class AdvertViewController: UniversalViewController {
         super.viewDidLoad()
         self.navBarTitle = (advert.title ?? "")
         updateFavouriteButton()
-        
-        webView.navigationDelegate = self
-        webView.customUserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/601.5.17 (KHTML, like Gecko) Version/9.1 Safari/601.5.17"
-        webView.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +42,7 @@ class AdvertViewController: UniversalViewController {
         showLoading()
         let siteInteractor = SitesInteractor()
         siteInteractor.loadAdvertDetails(advert: advert) { (details) in
+            
             self.advertDetails = details
             self.fillProperties()
             self.hideLoading()
@@ -85,55 +80,39 @@ class AdvertViewController: UniversalViewController {
     }
     
     @IBAction func callPressed(_ sender: Any) {
-        
-        /*if let link = advert.link, let url = URL(string: link) {
-            webView.load(URLRequest(url: url))
-        }*/
-        
+
         let siteInteractor = SitesInteractor()
-        siteInteractor.loadAdvertPhone(advert: advert) { (phone) in
-            phone.makeCall()
-            print(phone)
-        }
-    }
-    
-}
-
-
-extension AdvertViewController: WKNavigationDelegate {
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        //let script = "$('.phone-call__show-phone-button').click();"
         
-        //let script = "var element = document.getElementsByClassName(\"phone-call__show-phone\")[0];" + "element.click();"
-        
-        //let script = "var clickEvent = new MouseEvent('click', {'view': window,'bubbles': true,'cancelable': false}); var element = document.getElementsByClassName('phone-call__show-phone-button'); element.dispatchEvent(clickEvent);"
-        
-        let script = "var clickEvent = new MouseEvent('click', {'view': window,'bubbles': true,'cancelable': false}); document.getElementsByClassName('phone-call__show-phone-button')[0].dispatchEvent(clickEvent);"
-
-        webView.evaluateJavaScript(script) { (result, error) in
-            
-            if let result = result {
-                print(result)
+        if let source = advert.getSource() {
+            switch source {
+            case .avito:
+                siteInteractor.loadAvitoAdvertPhone(advert: advert) { (phone) in
+                    phone.makeCall()
+                }
+            case .auto_ru:
+                guard let advertId = advert.id, let saleHash = advertDetails?.saleHash, let token = ConfigStorage.getCsrfToken() else { return }
+                siteInteractor.loadAutoRuAdvertPhones(saleId: advertId, saleHash: saleHash, token: token) { (phones) in
+                    if phones.count == 1 {
+                        phones[0].makeCall()
+                    } else if phones.count > 1 {
+                        let actionSheet = UIAlertController(title: "Позвонить", message: nil, preferredStyle: .actionSheet)
+                        for phone in phones {
+                            let callAction = UIAlertAction(title: phone, style: .default, handler: { (alert: UIAlertAction!) -> Void in
+                                phone.makeCall()
+                            })
+                            actionSheet.addAction(callAction)
+                        }
+                        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in })
+                        actionSheet.addAction(cancelAction)
+                        self.present(actionSheet, animated: true, completion: nil)
+                        // TODO
+                    } else {
+                        // TODO
+                    }
+                }
             }
-            if let error = error {
-                print(error.localizedDescription)
-            }
         }
         
     }
-    
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if let url = navigationAction.request.url {
-            
-            print(url)
-        }
-        
-        decisionHandler(.allow)
-    }
-    
-    /*func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        decisionHandler(.allow)
-    }*/
     
 }

@@ -28,7 +28,6 @@
                 <outlet property="priceLabel" destination="hxO-nG-Wun" id="VcR-b4-Ggt"/>
                 <outlet property="titleLabel" destination="eWN-kj-zee" id="TCJ-Io-g7d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="webView" destination="z5U-dT-ZQC" id="hB0-0a-F9b"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -46,15 +45,6 @@
                                 <constraint firstAttribute="height" constant="386" id="auq-zC-P9G"/>
                             </constraints>
                         </view>
-                        <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z5U-dT-ZQC">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="563"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <wkWebViewConfiguration key="configuration">
-                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                <wkPreferences key="preferences"/>
-                            </wkWebViewConfiguration>
-                        </wkWebView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MODEL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWN-kj-zee">
                             <rect key="frame" x="33" y="393" width="309" height="20"/>
                             <fontDescription key="fontDescription" name="SuzukiAlstareExtremeRacing" family="Suzuki Alstare Extreme Racing" pointSize="20"/>

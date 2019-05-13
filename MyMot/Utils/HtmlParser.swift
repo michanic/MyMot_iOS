@@ -79,6 +79,22 @@ class HtmlParser {
         }
     }
     
+    func parsePhonesFromAutoRu(html: String) -> [String] {
+        do {
+            let doc: Document = try SwiftSoup.parse(html)
+            var phones:[String] = []
+            for row in try! doc.select(".card-phones__item") {
+                if let phone = try? row.text() {
+                    phones.append(phone)
+                }
+            }
+            return phones
+        } catch let error {
+            print(error.localizedDescription)
+            return []
+        }
+    }
+    
 }
 
 
@@ -192,7 +208,7 @@ extension AdvertDetails {
     init?(parseFromAutoru html: String) {
         images = []
         text = ""
-        
+                
         do {
             let doc: Document = try SwiftSoup.parse(html)
             text = try doc.select(".seller-details__text").text()
@@ -201,6 +217,9 @@ extension AdvertDetails {
                     images.append("https:" + image)
                 }
             }
+            guard let dataBem = try? doc.select(".stat-publicapi").attr("data-bem"), let sale_hash = JSON(parseJSON: dataBem).dictionary?["card"]?.dictionary?["sale_hash"]?.string else { return nil }
+            saleHash = sale_hash
+            
         } catch let error {
             print(error.localizedDescription)
             return nil
