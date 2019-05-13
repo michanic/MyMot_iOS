@@ -166,6 +166,12 @@ extension UniversalViewController: CellUpdateProtocol {
         tableView.endUpdates()
     }
     
+    func deleteRows(indexPaths: [IndexPath]) {
+        tableView.beginUpdates()
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+        tableView.endUpdates()
+    }
+    
 }
 
 func Delay(_ delay:Double, closure:@escaping ()->()) {

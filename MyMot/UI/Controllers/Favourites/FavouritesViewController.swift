@@ -55,9 +55,17 @@ extension FavouritesViewController: TableViewEditing {
     func deleteCellPressed(indexPath: IndexPath) {
         print(indexPath.row)
         if segmentControl.selectedSegmentIndex == 0 {
-            
+            let advert = CoreDataManager.instance.getFavouriteAdverts()[indexPath.row]
+            advert.favourite =  !advert.favourite
+            CoreDataManager.instance.saveContext()
+            dataSource[0].cells.remove(at: indexPath.row)
+            deleteRows(indexPaths: [indexPath])
         } else {
-            
+            let model = CoreDataManager.instance.getFavouriteModels()[indexPath.row]
+            model.favourite =  !model.favourite
+            CoreDataManager.instance.saveContext()
+            dataSource[0].cells.remove(at: indexPath.row)
+            deleteRows(indexPaths: [indexPath])
         }
     }
 }
