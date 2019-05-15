@@ -17,6 +17,10 @@ class AdvertViewController: UniversalViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    
+    @IBOutlet weak var parametersView: UIStackView!
+    @IBOutlet weak var parametersViewTop: NSLayoutConstraint!
+    @IBOutlet weak var parametersViewHeight: NSLayoutConstraint!
     @IBOutlet weak var aboutTextView: UITextView!
     
     let advert: Advert
@@ -74,6 +78,16 @@ class AdvertViewController: UniversalViewController {
         dateLabel.text = advert.date
         priceLabel.text = advert.price.toStringPrice()
         
+        if let parameters = advertDetails?.parameters {
+            parametersView.isHidden = false
+            parametersViewTop.constant = 25
+            drawParametersView(parameters)
+        } else {
+            parametersView.isHidden = true
+            parametersViewTop.constant = 0
+            parametersViewHeight.constant = 0
+        }
+        
         if let advertDetails = advertDetails {
             imagesSlider.fillWithImages(advertDetails.images, contentMode: .scaleAspectFill)
             aboutTextView.text = advertDetails.text
@@ -118,6 +132,50 @@ class AdvertViewController: UniversalViewController {
             }
         }
         
+    }
+    
+    private func drawParametersView(_ parameters: Parameters) {
+        
+        let captionWidth = (UIScreen.width - 26 - 32 - 10) * 0.4
+        let valueWidth = (UIScreen.width - 26 - 32 - 10) * 0.6
+        var posY: CGFloat = 0
+        
+        for parameter in parameters {
+            
+            let captionHeight = parameter.0.getHeightFor(width: captionWidth, font: UIFont.systemFont(ofSize: 14))
+            let valueHeight = parameter.1.getHeightFor(width: valueWidth, font: UIFont.systemFont(ofSize: 12))
+            var viewHeight: CGFloat = 0
+            if captionHeight > valueHeight {
+                viewHeight = captionHeight + 24.0
+            } else {
+                viewHeight = valueHeight + 24.0
+            }
+            
+            let backView = UIView(frame: CGRect(x: 0, y: posY, width: UIScreen.width, height: viewHeight))
+            
+            let separatorView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 0.5))
+            separatorView.backgroundColor = UIColor.separatorGray
+            backView.addSubview(separatorView)
+            
+            let captionLabel = UILabel(frame: CGRect(x: 26, y: 12, width: captionWidth, height: captionHeight))
+            captionLabel.font = UIFont.systemFont(ofSize: 14)
+            captionLabel.numberOfLines = 0
+            captionLabel.textColor = UIColor.textDarkGray
+            captionLabel.text = parameter.0
+            backView.addSubview(captionLabel)
+            
+            let valueLabel = UILabel(frame: CGRect(x: UIScreen.width - valueWidth - 32, y: 12, width: valueWidth, height: valueHeight))
+            valueLabel.font = UIFont.systemFont(ofSize: 12)
+            valueLabel.numberOfLines = 0
+            valueLabel.textColor = UIColor.textLightGray
+            valueLabel.text = parameter.1
+            backView.addSubview(valueLabel)
+            
+            parametersView.addSubview(backView)
+            posY += backView.frame.height
+            
+        }
+        parametersViewHeight.constant = posY
     }
     
 }

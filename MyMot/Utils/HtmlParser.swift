@@ -214,6 +214,16 @@ extension AdvertDetails {
             let doc: Document = try SwiftSoup.parse(html)
             text = try doc.select(".seller-details__text").html()
             
+            var parameters: Parameters = []
+            for label in try! doc.select(".card__info .card__info-label") {
+                if let value = try? label.nextElementSibling()?.text(), let labelText = try? label.text() {
+                    parameters.append((labelText, value))
+                }
+            }
+            if parameters.count > 0 {
+                self.parameters = parameters
+            }
+            
             for imageRow in try! doc.select(".gallery__thumb-item") {
                 if let image = try? imageRow.attr("data-img") {
                     images.append("https:" + image)

@@ -12,6 +12,7 @@ struct AdvertDetails {
     
     var images: Images
     var text: String?
+    var parameters: Parameters? = nil
     var saleHash: String? = nil
 }
 

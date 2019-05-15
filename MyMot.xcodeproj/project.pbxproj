@@ -284,6 +284,19 @@
 			path = Favourites;
 			sourceTree = "<group>";
 		};
+		8E3120B8228BEA7A00F90B84 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8EC6248E2256388300E122F8 /* CoreDataManager.swift */,
+				8E627B35226EED5B00B44FC6 /* CoreDataManager+Adverts.swift */,
+				8E0012B9225B3A930034E8BB /* CoreDataManager+Locations.swift */,
+				8E0012BE225B3B940034E8BB /* CoreDataManager+Categories.swift */,
+				8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */,
+				8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		8EC623F922538F4600E122F8 = {
 			isa = PBXGroup;
 			children = (
@@ -327,13 +340,8 @@
 		8EC6241A2253939000E122F8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8E3120B8228BEA7A00F90B84 /* CoreData */,
 				8EC62428225399DE00E122F8 /* NetworkService.swift */,
-				8EC6248E2256388300E122F8 /* CoreDataManager.swift */,
-				8E627B35226EED5B00B44FC6 /* CoreDataManager+Adverts.swift */,
-				8E0012B9225B3A930034E8BB /* CoreDataManager+Locations.swift */,
-				8E0012BE225B3B940034E8BB /* CoreDataManager+Categories.swift */,
-				8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */,
-				8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */,
 				8EAD9E1F2269BF6500B34BEF /* KeyboardManager.swift */,
 				8E627B31226EEA5900B44FC6 /* HtmlParser.swift */,
 				8E627B532271B07B00B44FC6 /* ConfigStorage.swift */,
