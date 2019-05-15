@@ -25,6 +25,16 @@ class ImagesSliderView: UIView {
             createElements()
         }
     }
+    
+    func getCurrentPage() -> Int {
+        return pagerView.currentPage
+    }
+    
+    func changePage(newPage: Int) {
+        pagerView.currentPage = newPage
+        let posX = CGFloat(newPage) * scrollView.bounds.width
+        scrollView.setContentOffset(CGPoint(x: posX, y: 0), animated: true)
+    }
 
     private func createElements() {
         indicatorView.frame = CGRect(x: scrollView.bounds.width / 2 - 10, y: scrollView.bounds.height / 2 - 10, width: 20, height: 20)
@@ -53,16 +63,15 @@ class ImagesSliderView: UIView {
         for image in images {
             let imageView = UIImageView(frame: CGRect(x: UIScreen.width * CGFloat(index), y: 0, width: UIScreen.width, height: scrollView.bounds.height))
             imageView.contentMode = imagesContentMode
-            imageView.setImage(path: image, placeholder: nil)
+            imageView.setImage(path: image, placeholder: nil, completed: nil)
             imageView.clipsToBounds = true
             scrollView.addSubview(imageView)
             index += 1
         }
     }
-
+    
     @objc func pageChangePressed() {
-        let posX = CGFloat(pagerView.currentPage) * scrollView.bounds.width
-        scrollView.setContentOffset(CGPoint(x: posX, y: 0), animated: true)
+        changePage(newPage: pagerView.currentPage)
     }
 }
 

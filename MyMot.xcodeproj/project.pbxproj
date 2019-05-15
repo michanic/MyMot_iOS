@@ -33,6 +33,10 @@
 		8E0FB32A225E0D78001753C4 /* CatalogSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */; };
 		8E0FB32E225E3B60001753C4 /* CatalogModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */; };
 		8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */; };
+		8E3120BB228BF2CB00F90B84 /* ImagesViewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120B9228BF2CA00F90B84 /* ImagesViewerController.xib */; };
+		8E3120BC228BF2CB00F90B84 /* ImagesViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */; };
+		8E3120BF228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120BD228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift */; };
+		8E3120C0228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */; };
 		8E3D45152273490F008F90FF /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D45142273490F008F90FF /* Int.swift */; };
 		8E3E9356226ECA9D006573FA /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9355226ECA9D006573FA /* CollectionView.swift */; };
 		8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */; };
@@ -128,6 +132,10 @@
 		8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogSliderCell.xib; sourceTree = "<group>"; };
 		8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModelViewController.swift; sourceTree = "<group>"; };
 		8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogModelViewController.xib; sourceTree = "<group>"; };
+		8E3120B9228BF2CA00F90B84 /* ImagesViewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesViewerController.xib; sourceTree = "<group>"; };
+		8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewerController.swift; sourceTree = "<group>"; };
+		8E3120BD228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewerCollectionViewCell.swift; sourceTree = "<group>"; };
+		8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesViewerCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E3D45142273490F008F90FF /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8E3E9355226ECA9D006573FA /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFeedCell.swift; sourceTree = "<group>"; };
@@ -427,6 +435,8 @@
 				8EA339A3226199270038863C /* CategoryAboutCell.xib */,
 				8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */,
 				8E3E9358226ECE7A006573FA /* SearchFeedCell.xib */,
+				8E3120BD228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift */,
+				8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -438,6 +448,8 @@
 				8E9A32E42281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift */,
 				8EC624412253ABF000E122F8 /* LoadingViewController.swift */,
 				8EC624422253ABF000E122F8 /* LoadingViewController.xib */,
+				8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */,
+				8E3120B9228BF2CA00F90B84 /* ImagesViewerController.xib */,
 				8E0FB309225BA81E001753C4 /* Catalog */,
 				8E0FB30A225BA82C001753C4 /* Search */,
 				8E0FB30B225BA835001753C4 /* Favourites */,
@@ -535,11 +547,13 @@
 			files = (
 				8EA5251C226618ED005D342E /* FilterViewController.xib in Resources */,
 				8E627B44226F5D7600B44FC6 /* CollectionTitleCell.xib in Resources */,
+				8E3120C0228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib in Resources */,
 				8E0FB2F6225B989F001753C4 /* CatalogSlideCell.xib in Resources */,
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
 				8E627B582271FE4200B44FC6 /* AdvertViewController.xib in Resources */,
 				8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */,
 				8EA339A5226199270038863C /* CategoryAboutCell.xib in Resources */,
+				8E3120BB228BF2CB00F90B84 /* ImagesViewerController.xib in Resources */,
 				8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */,
 				8EC6241322538F4A00E122F8 /* LaunchScreen.storyboard in Resources */,
 				8EC624402253AB3200E122F8 /* SimpleCell.xib in Resources */,
@@ -625,6 +639,7 @@
 				8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */,
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
 				8E627B32226EEA5900B44FC6 /* HtmlParser.swift in Sources */,
+				8E3120BF228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift in Sources */,
 				8EC6243F2253AB3200E122F8 /* SimpleCell.swift in Sources */,
 				8EC900CE2276ED3700CEF99C /* NotificationType.swift in Sources */,
 				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,
@@ -645,6 +660,7 @@
 				8EA0FA1F2260CE1400C18BE3 /* ImagesSliderView.swift in Sources */,
 				8EC900DC2278816C00CEF99C /* SearchResultsViewController.swift in Sources */,
 				8E627B34226EEC5500B44FC6 /* Advert.swift in Sources */,
+				8E3120BC228BF2CB00F90B84 /* ImagesViewerController.swift in Sources */,
 				8E3D45152273490F008F90FF /* Int.swift in Sources */,
 				8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */,
 				8E0FB30D225C7AE8001753C4 /* UIImageView.swift in Sources */,

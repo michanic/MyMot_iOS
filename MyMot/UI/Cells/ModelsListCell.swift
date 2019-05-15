@@ -17,7 +17,7 @@ class ModelsListCell: UITableViewCell, CellContentProtocol, CellAccessoryStatePr
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         if let content = content as? (Model, CellAccessoryType) {
-            photo.setImage(path: content.0.preview_picture, placeholder: UIImage.placeholder)
+            photo.setImage(path: content.0.preview_picture, placeholder: UIImage.placeholder, completed: nil)
             name.text = content.0.name
             years.text = content.0.years
             setAccessoryState(content.1)

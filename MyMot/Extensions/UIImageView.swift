@@ -10,11 +10,14 @@ import UIKit
 
 extension UIImageView {
     
-    func setImage(path: String?, placeholder: UIImage?) {
+    func setImage(path: String?, placeholder: UIImage?, completed: (()->())?) {
         if let path = path, let url = URL(string: path.contains("https:") ? path : (URL.root + path)) {
-            sd_setImage(with: url, placeholderImage: placeholder, options: .highPriority, completed: nil)
+            sd_setImage(with: url, placeholderImage: placeholder, options: .highPriority) { (_, _, _, _) in
+                completed?()
+            }
         } else {
             image = placeholder
+            completed?()
         }
     }
     

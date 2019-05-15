@@ -24,7 +24,7 @@ class AdvertsListCell: UITableViewCell, CellContentProtocol {
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         if let advert = content as? Advert {
-            preview.setImage(path: advert.previewImage, placeholder: UIImage.placeholder)
+            preview.setImage(path: advert.previewImage, placeholder: UIImage.placeholder, completed: nil)
             title.text = advert.title
             price.setTitle(advert.price.toStringPrice(), for: .normal)
             city.text = advert.city

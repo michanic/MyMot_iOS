@@ -15,10 +15,10 @@ class CatalogSlideCell: UICollectionViewCell, CellContentProtocol {
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         if let category = content as? Category {
-            image.setImage(path: category.image, placeholder: UIImage.placeholder)
+            image.setImage(path: category.image, placeholder: UIImage.placeholder, completed: nil)
             title.text = category.name
         } else if let manufacturer = content as? Manufacturer {
-            image.setImage(path: manufacturer.image, placeholder: UIImage.placeholder)
+            image.setImage(path: manufacturer.image, placeholder: UIImage.placeholder, completed: nil)
             title.text = manufacturer.name
         }
     }

@@ -44,13 +44,15 @@ class AdvertViewController: UniversalViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showLoading()
-        let siteInteractor = SitesInteractor()
-        siteInteractor.loadAdvertDetails(advert: advert) { (details) in
-            
-            self.advertDetails = details
-            self.fillProperties()
-            self.hideLoading()
+        if advertDetails == nil {
+            showLoading()
+            let siteInteractor = SitesInteractor()
+            siteInteractor.loadAdvertDetails(advert: advert) { (details) in
+                
+                self.advertDetails = details
+                self.fillProperties()
+                self.hideLoading()
+            }
         }
     }
 
@@ -61,45 +63,17 @@ class AdvertViewController: UniversalViewController {
         updateFavouriteButton()
     }
     
-    private func updateFavouriteButton() {
-        if advert.favourite {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_favourite_active")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(toFavourite))
-        } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_favourite_passive")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(toFavourite))
-        }
-    }
-    
-    private func fillProperties() {
-        imagesSliderHeight.constant = UIScreen.width * 0.75 + 37
-        view.layoutIfNeeded()
-        
-        titleLabel.text = advert.title
-        cityLabel.text = advert.city
-        dateLabel.text = advert.date
-        priceLabel.text = advert.price.toStringPrice()
-        
-        if let parameters = advertDetails?.parameters {
-            parametersView.isHidden = false
-            parametersViewTop.constant = 25
-            drawParametersView(parameters)
-        } else {
-            parametersView.isHidden = true
-            parametersViewTop.constant = 0
-            parametersViewHeight.constant = 0
-        }
-        
+    @objc func showImagesGallery() {
         if let advertDetails = advertDetails {
-            imagesSlider.fillWithImages(advertDetails.images, contentMode: .scaleAspectFill)
-            aboutTextView.text = advertDetails.text
-            
-            if let aboutString = advertDetails.text, let attributedString = try? NSAttributedString(htmlString: aboutString, font: UIFont.systemFont(ofSize: 14), useDocumentFontSize: false) {
-                aboutTextView.attributedText = attributedString
+            let indexChangedCallback = { newPageIndex in
+                self.imagesSlider.changePage(newPage: newPageIndex)
             }
+            Router.shared.presentController(ViewControllerFactory.imagesViewer(advertDetails.images, imagesSlider.getCurrentPage(), indexChangedCallback).create)
         }
     }
-    
+        
     @IBAction func callPressed(_ sender: Any) {
-
+        
         let siteInteractor = SitesInteractor()
         
         if let source = advert.getSource() {
@@ -132,6 +106,46 @@ class AdvertViewController: UniversalViewController {
             }
         }
         
+    }
+
+    
+    private func updateFavouriteButton() {
+        if advert.favourite {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_favourite_active")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(toFavourite))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_favourite_passive")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(toFavourite))
+        }
+    }
+    
+    private func fillProperties() {
+        imagesSliderHeight.constant = UIScreen.width * 0.75 + 37
+        view.layoutIfNeeded()
+        
+        titleLabel.text = advert.title
+        cityLabel.text = advert.city
+        dateLabel.text = advert.date
+        priceLabel.text = advert.price.toStringPrice()
+        
+        if let parameters = advertDetails?.parameters {
+            parametersView.isHidden = false
+            parametersViewTop.constant = 25
+            drawParametersView(parameters)
+        } else {
+            parametersView.isHidden = true
+            parametersViewTop.constant = 0
+            parametersViewHeight.constant = 0
+        }
+        
+        if let advertDetails = advertDetails {
+            imagesSlider.fillWithImages(advertDetails.images, contentMode: .scaleAspectFill)
+            imagesSlider.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showImagesGallery)))
+            
+            aboutTextView.text = advertDetails.text
+            
+            if let aboutString = advertDetails.text, let attributedString = try? NSAttributedString(htmlString: aboutString, font: UIFont.systemFont(ofSize: 14), useDocumentFontSize: false) {
+                aboutTextView.attributedText = attributedString
+            }
+        }
     }
     
     private func drawParametersView(_ parameters: Parameters) {

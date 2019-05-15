@@ -13,6 +13,8 @@ enum ViewControllerFactory {
     case loading(String, String)
     case tabBarController
     
+    case imagesViewer(Images, Int, ((Int) -> ())?)
+    
     case catalogByClass(Category)
     case catalogByManufacturer(Manufacturer)
     case catalogModelDetails(Model)
@@ -32,6 +34,9 @@ enum ViewControllerFactory {
             return LoadingViewController(title: title, subtitle: subtitle)
         case .tabBarController:
             return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController")
+            
+        case .imagesViewer(let images, let currentIndex, let callback):
+            return UINavigationController(rootViewController: ImagesViewerController(images: images, currentIndex: currentIndex, indexChangedCallback: callback))
             
         case .catalogByClass(let category):
             return CatalogByClassViewController(category: category)

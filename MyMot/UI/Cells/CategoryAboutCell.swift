@@ -15,7 +15,7 @@ class CategoryAboutCell: UITableViewCell, CellContentProtocol {
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         if let content = content as? (String?, String?) {
-            categoryImage.setImage(path: content.0, placeholder: nil)
+            categoryImage.setImage(path: content.0, placeholder: nil, completed: nil)
             aboutLabel.text = content.1
         }
     }

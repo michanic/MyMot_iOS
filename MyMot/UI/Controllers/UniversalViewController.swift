@@ -23,6 +23,7 @@ protocol UniversalViewControllerLoadMore: class {
 
 class UniversalViewController: UIViewController, DataSource, KeyboardEventsDelegate {
     
+    var darkStyle: Bool = false
     var dataSource: [Section] = []
     var loadingView: UIView?
     var keyboardManager = KeyboardManager()

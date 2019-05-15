@@ -1,9 +1,9 @@
 //
 //  NSAttributedString.swift
-//  Direct Farm
+//  MyMot
 //
 //  Created by Michail Solyanic on 05/02/2019.
-//  Copyright © 2019 Levon Hovsepyan. All rights reserved.
+//  Copyright © 2019 Michail Solyanic. All rights reserved.
 //
 
 import UIKit
