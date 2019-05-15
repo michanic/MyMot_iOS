@@ -120,7 +120,7 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         let searchCallback: ((SearchFilterConfig) -> ())  = { config in
             Router.shared.pushController(ViewControllerFactory.searchResults(config).create)
         }
-        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback).create)
+        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback, nil).create)
     }
 }
 

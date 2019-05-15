@@ -86,8 +86,16 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
     @objc func showFilter() {
         let searchCallback: ((SearchFilterConfig) -> ())  = { config in
             self.filterConfig = config
+            self.updateTitle()
             self.prepareData()
         }
-        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback).create)
+        let closedCallback: ((SearchFilterConfig?) -> ())  = { config in
+            if let config = config {
+                self.filterConfig = config
+                self.updateTitle()
+                self.prepareData()
+            }
+        }
+        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback, closedCallback).create)
     }
 }

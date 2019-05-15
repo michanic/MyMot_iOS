@@ -20,7 +20,7 @@ enum ViewControllerFactory {
     case catalogModelDetails(Model)
     
     case searchRoot
-    case searchFilter(SearchFilterConfig?, ((SearchFilterConfig) -> ())?)
+    case searchFilter(SearchFilterConfig?, ((SearchFilterConfig) -> ())?, ((SearchFilterConfig?) -> ())?)
     case searchFilterRegions(Location?, ((Location?) -> ())?)
     case searchFilterModels(Model?, Manufacturer?, ((Model?, Manufacturer?) -> ())?)
     case searchResults(SearchFilterConfig)
@@ -45,8 +45,8 @@ enum ViewControllerFactory {
         case .catalogModelDetails(let model):
             return CatalogModelViewController(model: model)
         
-        case .searchFilter(let config, let callback):
-            return UINavigationController(rootViewController: FilterViewController(filterConfig: config, searchPressedCallback: callback))
+        case .searchFilter(let config, let searchPressedCallback, let closedCallBack):
+            return UINavigationController(rootViewController: FilterViewController(filterConfig: config, searchPressedCallback: searchPressedCallback, filterClosedCallback: closedCallBack))
         case .searchFilterRegions(let selectedRegion, let callback):
             return FilterRegionsViewController(selectedRegion: selectedRegion, selectedCallback: callback)
         case .searchFilterModels(let selectedModel, let selectedManufacturer, let callback):

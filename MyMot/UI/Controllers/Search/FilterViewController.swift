@@ -24,14 +24,17 @@ class FilterViewController: UniversalViewController {
     
     var filterConfig: SearchFilterConfig
     var searchPressedCallback: ((SearchFilterConfig) -> ())?
+    var filterClosedCallback: ((SearchFilterConfig?) -> ())?
+    var filterChanged: Bool = false
     
-    init(filterConfig: SearchFilterConfig?, searchPressedCallback: ((SearchFilterConfig) -> ())?) {
+    init(filterConfig: SearchFilterConfig?, searchPressedCallback: ((SearchFilterConfig) -> ())?, filterClosedCallback: ((SearchFilterConfig?) -> ())?) {
         if let filterConfig = filterConfig {
             self.filterConfig = filterConfig
         } else {
              self.filterConfig = ConfigStorage.getFilterConfig()
         }
         self.searchPressedCallback = searchPressedCallback
+        self.filterClosedCallback = filterClosedCallback
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,6 +51,11 @@ class FilterViewController: UniversalViewController {
         super.viewWillAppear(animated)
         tableView.frame = self.view.bounds
         view.bringSubviewToFront(searchButon)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        filterClosedCallback?(filterChanged ? filterConfig : nil)
     }
 
     override func prepareData() {
@@ -70,6 +78,7 @@ class FilterViewController: UniversalViewController {
         let priceFromCell = Cell(setPriceTitle: "От", value: priceFromString)
         priceFromCell.intChangedEvent = { newValue in
             self.filterConfig.priceFrom = newValue
+            self.filterChanged = true
             ConfigStorage.saveFilterConfig(self.filterConfig)
         }
         
@@ -80,6 +89,7 @@ class FilterViewController: UniversalViewController {
         let priceForCell = Cell(setPriceTitle: "До", value: priceForString)
         priceForCell.intChangedEvent = { newValue in
             self.filterConfig.priceFor = newValue
+            self.filterChanged = true
             ConfigStorage.saveFilterConfig(self.filterConfig)
         }
         sectionPrice.cells = [priceFromCell, priceForCell]
@@ -93,6 +103,7 @@ class FilterViewController: UniversalViewController {
         let regionCell = Cell(simpleTitle: selectedRegionTitle)
         let regionSelectedCallback: ((Location?) -> ())? = { locaion in
             self.filterConfig.selectedRegion = locaion
+            self.filterChanged = true
             ConfigStorage.saveFilterConfig(self.filterConfig)
             self.dataSource[0].cells = [self.selectedRegionCell()]
             self.updateRows(indexPaths: [IndexPath(row: 0, section: 0)])
@@ -114,6 +125,7 @@ class FilterViewController: UniversalViewController {
         let modelCell = Cell(simpleTitle: selectedTitle)
         let selectedCallback: ((Model?, Manufacturer?) -> ())? = { (model, manufacturer) in
             self.filterConfig.selectedModel = model
+            self.filterChanged = true
             self.filterConfig.selectedManufacturer = manufacturer
             ConfigStorage.saveFilterConfig(self.filterConfig)
             self.dataSource[1].cells = [self.selectedModelCell()]
