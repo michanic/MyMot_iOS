@@ -64,9 +64,10 @@ enum Source {
     var searchPath: String {
         switch self {
         case .avito(let region, let model, let pMin, let pMax, let page):
+                        
             let regionString = region ?? "rossiya"
             let path = self.domain + "\(regionString)/mototsikly_i_mototehnika/mototsikly"
-            var request = ""
+            var request = "?bt=1"
             if let pMin = pMin {
                 request += "&pmin=" + String(pMin)
             }
@@ -79,9 +80,9 @@ enum Source {
             if let page = page {
                 request += "&p=" + String(page)
             }
-            if request.count > 0 {
+            /*if request.count > 0 {
                 request = "?" + request.dropFirst()
-            }
+            }*/
             return path + request
             
         case .auto_ru(let region, let model, let pMin, let pMax, let page):

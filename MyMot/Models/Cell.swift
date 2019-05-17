@@ -22,6 +22,7 @@ class Cell {
     var eventListener: CellEventProtocol?
     var cellTapped: ((IndexPath?) -> ())?
     var stringChangedEvent: ((String?) -> ())?
+    var boolChangedEvent: ((Bool?) -> ())?
     var intChangedEvent: ((Int?) -> ())?
     
     init(cellType: CellType) {
@@ -45,6 +46,10 @@ extension Cell: CellEventProtocol {
     
     func stringValueChanged(_ newValue: String?) {
         stringChangedEvent?(newValue)
+    }
+    
+    func boolValueChanged(_ newValue: Bool?) {
+        boolChangedEvent?(newValue)
     }
     
 }

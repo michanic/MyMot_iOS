@@ -37,6 +37,8 @@
 		8E3120BC228BF2CB00F90B84 /* ImagesViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */; };
 		8E3120BF228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120BD228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift */; };
 		8E3120C0228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */; };
+		8E3120D1228E8BBB00F90B84 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120CF228E8BBB00F90B84 /* TextViewController.swift */; };
+		8E3120D2228E8BBB00F90B84 /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120D0228E8BBB00F90B84 /* TextViewController.xib */; };
 		8E3D45152273490F008F90FF /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D45142273490F008F90FF /* Int.swift */; };
 		8E3E9356226ECA9D006573FA /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9355226ECA9D006573FA /* CollectionView.swift */; };
 		8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */; };
@@ -136,6 +138,8 @@
 		8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewerController.swift; sourceTree = "<group>"; };
 		8E3120BD228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewerCollectionViewCell.swift; sourceTree = "<group>"; };
 		8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesViewerCollectionViewCell.xib; sourceTree = "<group>"; };
+		8E3120CF228E8BBB00F90B84 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		8E3120D0228E8BBB00F90B84 /* TextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
 		8E3D45142273490F008F90FF /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8E3E9355226ECA9D006573FA /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFeedCell.swift; sourceTree = "<group>"; };
@@ -480,6 +484,8 @@
 			isa = PBXGroup;
 			children = (
 				8EC900DE22788E3500CEF99C /* AboutViewController.swift */,
+				8E3120CF228E8BBB00F90B84 /* TextViewController.swift */,
+				8E3120D0228E8BBB00F90B84 /* TextViewController.xib */,
 			);
 			path = About;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				8E0FB2F6225B989F001753C4 /* CatalogSlideCell.xib in Resources */,
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
 				8E627B582271FE4200B44FC6 /* AdvertViewController.xib in Resources */,
+				8E3120D2228E8BBB00F90B84 /* TextViewController.xib in Resources */,
 				8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */,
 				8EA339A5226199270038863C /* CategoryAboutCell.xib in Resources */,
 				8E3120BB228BF2CB00F90B84 /* ImagesViewerController.xib in Resources */,
@@ -667,6 +674,7 @@
 				8E0FB303225BA2F8001753C4 /* Section.swift in Sources */,
 				8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */,
 				8EC6242D2253A1D800E122F8 /* UIColor.swift in Sources */,
+				8E3120D1228E8BBB00F90B84 /* TextViewController.swift in Sources */,
 				8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */,
 				8E9A32E52281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift in Sources */,
 				8E627B36226EED5B00B44FC6 /* CoreDataManager+Adverts.swift in Sources */,

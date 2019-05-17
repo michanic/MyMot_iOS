@@ -13,6 +13,7 @@ enum Endpoint {
 
     case configWords
     case configAbout
+    case infoAgreement
     
     case catalogRegions
     case catalogClasses
@@ -32,6 +33,9 @@ enum Endpoint {
             return URL(fromEndpoint: "config.php?type=word_exceptions")!
         case .configAbout:
             return URL(fromEndpoint: "config.php?type=about")!
+        case .infoAgreement:
+            return URL(fromEndpoint: "config.php?type=agreement")!
+            
         case .catalogRegions:
             return URL(fromEndpoint: "catalog.php?type=regions")!
         case .catalogClasses:

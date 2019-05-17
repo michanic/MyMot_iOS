@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Advert" representedClassName="Advert" syncable="YES" codeGenerationType="class">
+        <attribute name="active" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="favourite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -50,7 +51,7 @@
         <relationship name="manufacturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Manufacturer" inverseName="models" inverseEntity="Manufacturer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Advert" positionX="-419.28515625" positionY="-290.3125" width="128" height="180"/>
+        <element name="Advert" positionX="-419.28515625" positionY="-290.3125" width="128" height="195"/>
         <element name="Category" positionX="68.60546875" positionY="29.0234375" width="128" height="150"/>
         <element name="Location" positionX="-650.50390625" positionY="-167.08203125" width="128" height="150"/>
         <element name="Manufacturer" positionX="-337.93359375" positionY="46.55078125" width="128" height="135"/>

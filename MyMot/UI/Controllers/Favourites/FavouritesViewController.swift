@@ -31,6 +31,13 @@ class FavouritesViewController: UniversalViewController {
         if segmentControl.selectedSegmentIndex == 0 {
             for advert in CoreDataManager.instance.getFavouriteAdverts() {
                 let advertCell = Cell(advertsList: advert)
+                advertCell.boolChangedEvent = { newValue in
+                    if let newValue = newValue {
+                        advert.favourite = newValue
+                        CoreDataManager.instance.saveContext()
+                        NotificationCenter.post(type: .favouriteAdvertSwitched, object: advert)
+                    }
+                }
                 advertCell.editingDelete = true
                 dataSource[0].cells.append(advertCell)
             }

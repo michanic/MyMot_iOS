@@ -14,6 +14,7 @@ enum ViewControllerFactory {
     case tabBarController
     
     case imagesViewer(Images, Int, ((Int) -> ())?)
+    case textViewer(String)
     
     case catalogByClass(Category)
     case catalogByManufacturer(Manufacturer)
@@ -37,6 +38,8 @@ enum ViewControllerFactory {
             
         case .imagesViewer(let images, let currentIndex, let callback):
             return UINavigationController(rootViewController: ImagesViewerController(images: images, currentIndex: currentIndex, indexChangedCallback: callback))
+        case .textViewer(let pageTitle):
+            return TextViewController(pageTitle: pageTitle)
             
         case .catalogByClass(let category):
             return CatalogByClassViewController(category: category)

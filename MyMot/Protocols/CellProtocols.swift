@@ -13,6 +13,7 @@ protocol CellEventProtocol: class {
     func tapEvent()
     func intValueChanged(_ newValue: Int?)
     func stringValueChanged(_ newValue: String?)
+    func boolValueChanged(_ newValue: Bool?)
 }
 
 protocol CellContentProtocol: class {

@@ -104,22 +104,26 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
         dataSource = []
     }
     
-    func createLoadingView() {
+    func createLoadingView(transparent: Bool?) {
         let loadingView = UIView(frame: self.view.bounds)
         let indicatorView = UIActivityIndicatorView(style: .gray)
         indicatorView.frame = CGRect(x: loadingView.bounds.width / 2 - 10, y: loadingView.bounds.height / 2 - 10, width: 20, height: 20)
         indicatorView.startAnimating()
         loadingView.addSubview(indicatorView)
-        loadingView.backgroundColor = UIColor.white
+        if let transparent = transparent, transparent == false {
+            loadingView.backgroundColor = UIColor.clear
+        } else {
+            loadingView.backgroundColor = UIColor.white
+        }
         view.addSubview(loadingView)
         self.loadingView = loadingView
     }
     
-    func showLoading() {
+    func showLoading(transparent: Bool? = nil) {
         if let loadingView = loadingView {
             view.addSubview(loadingView)
         } else {
-            createLoadingView()
+            createLoadingView(transparent: transparent)
         }
     }
     

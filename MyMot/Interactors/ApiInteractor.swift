@@ -41,6 +41,16 @@ class ApiInteractor {
         }
     }
     
+    func loadAgreementText(completed: @escaping ((String)->())) {
+        NetworkService.shared.getJsonData(endpoint: .infoAgreement) { (json, error) in
+            if let privacyText = json?.dictionary?["text"]?.string {
+                completed(privacyText)
+            } else {
+                completed("")
+            }
+        }
+    }
+    
     
     func loadCatalog(completed: @escaping (()->())) {
         loadRegions {
@@ -84,7 +94,6 @@ class ApiInteractor {
     
     
     func loadModelDetails(modelId: Int, completed: @escaping ((ModelDetails)->())) {
-        
         NetworkService.shared.getJsonData(endpoint: .catalogModelDetails(modelId)) { (json, error) in
             if let json = json, let details = ModelDetails(json: json) {
                 completed(details)
