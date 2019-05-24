@@ -39,6 +39,17 @@ extension Manufacturer {
     }
 }
 
+extension Manufacturer {
+    var avitoSearchName: String {
+        return name?.replacingOccurrences(of: " ", with: "%20").lowercased() ?? ""
+    }
+    
+    var autoruSearchName: String {
+        return name?.replacingOccurrences(of: " ", with: "_").uppercased() ?? ""
+    }
+}
+
+
 extension Cell {
     convenience init(manufacturersSliderTitle: String, content: [Manufacturer]) {
         self.init(cellType: .catalogSlider)

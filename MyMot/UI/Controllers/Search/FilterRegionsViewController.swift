@@ -33,7 +33,7 @@ class FilterRegionsViewController: UniversalViewController {
         dataSource = []
         
         let sectionAll = Section()
-        let allCountryCell = Cell(simpleTitle: "По всей России", accessoryState: selectedRegion == nil ? .checked : .hidden)
+        let allCountryCell = Cell(simpleTitle: "По всей России", accessoryState: selectedRegion == nil ? .checked : .hidden, level: 1)
         allCountryCell.cellTapped = { indexPath in
             self.goBack()
             self.selectedCallback?(nil)
@@ -51,7 +51,7 @@ class FilterRegionsViewController: UniversalViewController {
                 regionExpanded = true
                 startScrollTo = IndexPath(row: 1, section: sectionIndex)
             }
-            let allRegionCell = Cell(simpleTitle: "Все города", accessoryState: regionExpanded ? .checked : .hidden)
+            let allRegionCell = Cell(simpleTitle: "Все города", accessoryState: regionExpanded ? .checked : .hidden, level: 2)
             allRegionCell.cellTapped = { indexPath in
                 self.goBack()
                 self.selectedCallback?(region)
@@ -66,7 +66,7 @@ class FilterRegionsViewController: UniversalViewController {
                     regionExpanded = true
                     startScrollTo = IndexPath(row: row, section: sectionIndex)
                 }
-                let cityCell = Cell(simpleTitle: city.name, accessoryState: cityChecked ? .checked : .hidden)
+                let cityCell = Cell(simpleTitle: city.name, accessoryState: cityChecked ? .checked : .hidden, level: 2)
                 cityCell.cellTapped = { indexPath in
                     self.goBack()
                     self.selectedCallback?(city)
@@ -93,7 +93,7 @@ class FilterRegionsViewController: UniversalViewController {
             accessoryState = .top
         }
         
-        let regionCell = Cell(simpleTitle: region.name, accessoryState: accessoryState)
+        let regionCell = Cell(simpleTitle: region.name, accessoryState: accessoryState, level: 1)
         regionCell.cellTapped = { indexPath in
             self.regionPressed(region)
         }

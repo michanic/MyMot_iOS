@@ -36,7 +36,7 @@ class FilterModelsViewController: UniversalViewController {
         dataSource = []
         
         let sectionAll = Section()
-        let allModelsCell = Cell(simpleTitle: "Любая", accessoryState: selectedModel == nil ? .checked : .hidden)
+        let allModelsCell = Cell(simpleTitle: "Любая", accessoryState: selectedModel == nil ? .checked : .hidden, level: 1)
         allModelsCell.cellTapped = { indexPath in
             self.goBack()
             self.selectedCallback?(nil, nil)
@@ -54,7 +54,7 @@ class FilterModelsViewController: UniversalViewController {
                 state = .checked
                 startScrollTo = IndexPath(row: 0, section: sectionIndex)
             }
-            let allCategoriesCell = Cell(simpleTitle: "Все", accessoryState: state)
+            let allCategoriesCell = Cell(simpleTitle: "Все", accessoryState: state, level: 1)
             allCategoriesCell.cellTapped = { indexPath in
                 self.goBack()
                 self.selectedCallback?(nil, manufacturer)
@@ -101,7 +101,7 @@ class FilterModelsViewController: UniversalViewController {
             accessoryState = .top
         }
         
-        let categoryCell = Cell(simpleTitle: categoryName, accessoryState: accessoryState)
+        let categoryCell = Cell(simpleTitle: categoryName, accessoryState: accessoryState, level: 1)
         categoryCell.cellTapped = { indexPath in
             if let indexPath = indexPath {
                 self.categoryPressed(indexPath: indexPath)

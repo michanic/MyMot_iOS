@@ -46,17 +46,32 @@ class SitesInteractor {
         var loadedAdverts:[Advert] = []
         var loadMore = false
         
-        let sourceAvito = Source.avito(config.selectedRegion?.avito, config.selectedModel?.avitoSearchName, config.priceFrom, config.priceFor, page)
+        var query: String? = nil
+        if let manufacturer = config.selectedManufacturer {
+            query = manufacturer.avitoSearchName
+        } else if let model = config.selectedModel {
+            query = model.avitoSearchName
+        }
+        
+        let sourceAvito = Source.avito(config.selectedRegion?.avito, query, config.priceFrom, config.priceFor, page)
         guard let urlAvito = URL(string: sourceAvito.searchPath) else { loaded(loadedAdverts, loadMore); return }
 
         loadSourceAdverts(page: page, source: sourceAvito, url: urlAvito) { (adverts, more) in
             loadedAdverts.append(contentsOf: adverts)
             loadMore = more
             
-            let sourceAutoRu = Source.auto_ru(config.selectedRegion?.autoru, config.selectedModel?.autoruSearchName, config.priceFrom, config.priceFor, page)
+            var query: String? = nil
+            if let manufacturer = config.selectedManufacturer {
+                query = manufacturer.autoruSearchName
+            } else if let model = config.selectedModel {
+                query = model.autoruSearchName
+            }
+            
+            let sourceAutoRu = Source.auto_ru(config.selectedRegion?.autoru, query, config.priceFrom, config.priceFor, page)
             guard let urlAutoRu = URL(string: sourceAutoRu.searchPath) else { loaded(loadedAdverts, loadMore); return }
             
             self.loadSourceAdverts(page: page, source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
+                
                 loadedAdverts.append(contentsOf: adverts)
                 if loadMore == false {
                     loadMore = more
@@ -72,6 +87,7 @@ class SitesInteractor {
         
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {
+                
                 let result = self.htmlParser.parseAdverts(html: html, source: source)
                 completed(result.0 ?? [], result.1)
             }

@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="ti6-gZ-fqM">
-                        <rect key="frame" x="293" y="17" width="14" height="14"/>
+                        <rect key="frame" x="293" y="16" width="14" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -27,17 +27,22 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-IM-I28">
-                        <rect key="frame" x="26" y="12" width="265" height="20"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKK-IM-I28">
+                        <rect key="frame" x="26" y="15.5" width="265" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="GKK-IM-I28" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="99I-sn-eVN"/>
+                    <constraint firstAttribute="trailing" secondItem="GKK-IM-I28" secondAttribute="trailing" constant="29" id="OXV-i7-7E6"/>
+                    <constraint firstItem="GKK-IM-I28" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eqz-rF-HAF"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="arrowImage" destination="ti6-gZ-fqM" id="ZJc-iX-KOY"/>
+                <outlet property="paddingLeft" destination="99I-sn-eVN" id="pe7-Fl-gvG"/>
                 <outlet property="simpleLabel" destination="GKK-IM-I28" id="PwY-dq-0tf"/>
             </connections>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>

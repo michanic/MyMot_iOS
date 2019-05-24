@@ -38,7 +38,7 @@ enum Source {
         case .avito:
             return ".js-catalog-item-enum.item-with-contact"
         case .auto_ru:
-            return ".listing-item.stat_type_listing"
+            return ".listing-item.stat-publicapi_type_listing"
         }
     }
     

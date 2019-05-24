@@ -12,16 +12,17 @@ class SimpleCell: UITableViewCell, CellContentProtocol, CellAccessoryStateProtoc
     
     @IBOutlet weak var simpleLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
+    @IBOutlet weak var paddingLeft: NSLayoutConstraint!
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         if let content = content as? String? {
             simpleLabel.text = content
             setAccessoryState(.right)
-        } else if let content = content as? (String?, CellAccessoryType) {
+        } else if let content = content as? (String?, CellAccessoryType, Int) {
             simpleLabel.text = content.0
             setAccessoryState(content.1)
+            paddingLeft.constant = (content.2 == 2) ? 40 : 26
         }
-        
     }
     
     func setAccessoryState(_ state: CellAccessoryType) {
@@ -44,8 +45,8 @@ extension Cell {
         self.content = simpleTitle
     }
     
-    convenience init(simpleTitle: String?, accessoryState: CellAccessoryType) {
+    convenience init(simpleTitle: String?, accessoryState: CellAccessoryType, level: Int) {
         self.init(cellType: .simple)
-        self.content = (simpleTitle, accessoryState)
+        self.content = (simpleTitle, accessoryState, level)
     }
 }

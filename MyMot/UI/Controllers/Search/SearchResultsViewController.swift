@@ -72,7 +72,7 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
                     self.dataSource[0].cells.append(advertCell)
                 }
             } else if self.currentPage == 1 {
-                let noResultsCell = Cell(simpleTitle: "Ничего не найдено", accessoryState: .hidden)
+                let noResultsCell = Cell(simpleTitle: "Ничего не найдено", accessoryState: .hidden, level: 1)
                 self.dataSource[0].cells = [noResultsCell]
             }
             

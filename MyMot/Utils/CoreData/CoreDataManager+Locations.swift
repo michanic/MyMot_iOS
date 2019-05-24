@@ -10,6 +10,20 @@ import CoreData
 
 extension CoreDataManager {
     
+    func locationsIsLoaded() -> Bool {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
+        do {
+            let result = try persistentContainer.viewContext.fetch(request)
+            if result is [Location], result.count > 0 {
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            return false
+        }
+    }
+    
     func getLocationById(_ id: Int) -> Location? {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Location")
         request.predicate = NSPredicate(format: "id = %@", "\(id)")

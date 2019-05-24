@@ -30,7 +30,7 @@ class SearchModelDataSource: DataSource {
                 dataSource[0].cells.append(modelCell)
             }
         } else {
-            let noResultsCell = Cell(simpleTitle: "Ничего не найдено", accessoryState: .hidden)
+            let noResultsCell = Cell(simpleTitle: "Ничего не найдено", accessoryState: .hidden, level: 1)
             dataSource[0].cells = [noResultsCell]
         }
     }
