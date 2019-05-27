@@ -36,7 +36,7 @@ class FilterModelsViewController: UniversalViewController {
         dataSource = []
         
         let sectionAll = Section()
-        let allModelsCell = Cell(simpleTitle: "Любая", accessoryState: selectedModel == nil ? .checked : .hidden, level: 1)
+        let allModelsCell = Cell(simpleTitle: "Любая", accessoryState: (selectedModel == nil && selectedManufacturer == nil) ? .checked : .hidden, level: 1)
         allModelsCell.cellTapped = { indexPath in
             self.goBack()
             self.selectedCallback?(nil, nil)

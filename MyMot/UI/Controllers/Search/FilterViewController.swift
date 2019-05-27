@@ -28,6 +28,7 @@ class FilterViewController: UniversalViewController {
     var filterChanged: Bool = false
     
     init(filterConfig: SearchFilterConfig?, searchPressedCallback: ((SearchFilterConfig) -> ())?, filterClosedCallback: ((SearchFilterConfig?) -> ())?) {
+        
         if let filterConfig = filterConfig {
             self.filterConfig = filterConfig
         } else {
