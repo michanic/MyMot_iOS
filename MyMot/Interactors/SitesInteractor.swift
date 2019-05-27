@@ -22,14 +22,14 @@ class SitesInteractor {
         let sourceAvito = Source.avito(config.selectedRegion?.avito, nil, config.priceFrom, config.priceFor, page)
         guard let urlAvito = URL(string: sourceAvito.searchPath) else { loaded(loadedAdverts, loadMore); return }
         
-        loadSourceAdverts(page: page, source: sourceAvito, url: urlAvito) { (adverts, more) in
+        loadSourceAdverts(source: sourceAvito, url: urlAvito) { (adverts, more) in
             loadedAdverts.append(contentsOf: adverts)
             loadMore = more
             
             let sourceAutoRu = Source.auto_ru(config.selectedRegion?.autoru, nil, config.priceFrom, config.priceFor, page)
             guard let urlAutoRu = URL(string: sourceAutoRu.searchPath) else { loaded(loadedAdverts, loadMore); return }
             
-            self.loadSourceAdverts(page: page, source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
+            self.loadSourceAdverts(source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
                 loadedAdverts.append(contentsOf: adverts)
                 if loadMore == false {
                     loadMore = more
@@ -56,7 +56,7 @@ class SitesInteractor {
         let sourceAvito = Source.avito(config.selectedRegion?.avito, query, config.priceFrom, config.priceFor, page)
         guard let urlAvito = URL(string: sourceAvito.searchPath) else { loaded(loadedAdverts, loadMore); return }
 
-        loadSourceAdverts(page: page, source: sourceAvito, url: urlAvito) { (adverts, more) in
+        loadSourceAdverts(source: sourceAvito, url: urlAvito) { (adverts, more) in
             loadedAdverts.append(contentsOf: adverts)
             loadMore = more
             
@@ -70,7 +70,7 @@ class SitesInteractor {
             let sourceAutoRu = Source.auto_ru(config.selectedRegion?.autoru, query, config.priceFrom, config.priceFor, page)
             guard let urlAutoRu = URL(string: sourceAutoRu.searchPath) else { loaded(loadedAdverts, loadMore); return }
             
-            self.loadSourceAdverts(page: page, source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
+            self.loadSourceAdverts(source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
                 
                 loadedAdverts.append(contentsOf: adverts)
                 if loadMore == false {
@@ -81,13 +81,12 @@ class SitesInteractor {
         }
     }
     
-    private func loadSourceAdverts(page: Int, source: Source, url: URL, completed: @escaping (([Advert], Bool)->())) {
+    private func loadSourceAdverts(source: Source, url: URL, completed: @escaping (([Advert], Bool)->())) {
         
-        print(url)
+        //print(url)
         
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {
-                
                 let result = self.htmlParser.parseAdverts(html: html, source: source)
                 completed(result.0 ?? [], result.1)
             }
@@ -145,6 +144,36 @@ class SitesInteractor {
             
         }
         
+    }
+    
+    
+    func checkRegionLinksAdverts(_ location: Location, loaded: @escaping (()->())) {
+        guard let regionStringAvito = location.avito else { loaded(); return }
+        print("check " + (location.name ?? ""))
+        let path = "https://www.avito.ru/\(regionStringAvito)/mototsikly_i_mototehnika"
+        guard let urlAvito = URL(string: path) else { loaded(); return }
+        let sourceAvito: Source = .avito(nil, nil, nil, nil, nil)
+        
+        
+        loadSourceAdverts(source: sourceAvito, url: urlAvito) { (adverts, more) in
+            
+            if adverts.count == 0 {
+                print("EMPTY Avito: " + regionStringAvito + " - " + String(adverts.count))
+            }
+            
+            guard let regionStringAutoRu = location.autoru else { loaded(); return }
+            let path = "https://auto.ru/\(regionStringAutoRu)/motorcycle/all/"
+            guard let urlAutoRu = URL(string: path) else { loaded(); return }
+            let sourceAutoRu: Source = .auto_ru(nil, nil, nil, nil, nil)
+            
+            self.loadSourceAdverts(source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
+
+                if adverts.count == 0 {
+                    print("EMPTY AutoRu: " + regionStringAutoRu + " - " + String(adverts.count))
+                }
+                loaded()
+            })
+        }
     }
     
 }
