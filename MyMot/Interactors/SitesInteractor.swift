@@ -150,7 +150,7 @@ class SitesInteractor {
     func checkRegionLinksAdverts(_ location: Location, loaded: @escaping (()->())) {
         guard let regionStringAvito = location.avito else { loaded(); return }
         print("check " + (location.name ?? ""))
-        let path = "https://www.avito.ru/\(regionStringAvito)/mototsikly_i_mototehnika"
+        let path = "https://www.avito.ru/\(regionStringAvito)/avtomobili"
         guard let urlAvito = URL(string: path) else { loaded(); return }
         let sourceAvito: Source = .avito(nil, nil, nil, nil, nil)
         
