@@ -22,6 +22,7 @@ class AdvertViewController: UniversalViewController {
     @IBOutlet weak var parametersViewTop: NSLayoutConstraint!
     @IBOutlet weak var parametersViewHeight: NSLayoutConstraint!
     @IBOutlet weak var aboutTextView: UITextView!
+    @IBOutlet weak var callButton: UIButton!
     
     let advert: Advert
     var advertDetails: AdvertDetails?
@@ -48,7 +49,6 @@ class AdvertViewController: UniversalViewController {
             showLoading()
             let siteInteractor = SitesInteractor()
             siteInteractor.loadAdvertDetails(advert: advert) { (details) in
-                
                 self.advertDetails = details
                 self.fillProperties()
                 self.hideLoading()
@@ -123,7 +123,7 @@ class AdvertViewController: UniversalViewController {
         
         titleLabel.text = advert.title
         cityLabel.text = advert.city
-        dateLabel.text = advert.date
+        dateLabel.text = nil
         priceLabel.text = advert.price.toStringPrice()
         
         if let parameters = advertDetails?.parameters {
@@ -139,12 +139,28 @@ class AdvertViewController: UniversalViewController {
         if let advertDetails = advertDetails {
             imagesSlider.fillWithImages(advertDetails.images, contentMode: .scaleAspectFill)
             imagesSlider.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showImagesGallery)))
+            dateLabel.text = advertDetails.date
             
-            aboutTextView.text = advertDetails.text
-            
-            if let aboutString = advertDetails.text, let attributedString = try? NSAttributedString(htmlString: aboutString, font: UIFont.systemFont(ofSize: 14), useDocumentFontSize: false) {
-                aboutTextView.attributedText = attributedString
+            if let warning = advertDetails.warning, warning.count > 0 {
+                advert.active = false
+                aboutTextView.text = warning
+                imagesSlider.alpha = 0.5
+                callButton.isHidden = true
+            } else {
+                advert.active = true
+                imagesSlider.alpha = 1
+                callButton.isHidden = false
+                
+                if let aboutString = advertDetails.text, let attributedString = try? NSAttributedString(htmlString: aboutString, font: UIFont.systemFont(ofSize: 14), useDocumentFontSize: false) {
+                    aboutTextView.attributedText = attributedString
+                } else {
+                    aboutTextView.text = advertDetails.text
+                }
             }
+            NotificationCenter.post(type: .advertActivitySwitched, object: advert)
+            CoreDataManager.instance.saveContext()
+        } else {
+            callButton.isHidden = true
         }
     }
     

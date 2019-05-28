@@ -12,7 +12,7 @@ class FavouritesViewController: UniversalViewController {
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
-    lazy var favouritesSwitchSubscriber = NotificationSubscriber(types: [.favouriteAdvertSwitched, .favouriteModelSwitched], received: { (object) in
+    lazy var favouritesSwitchSubscriber = NotificationSubscriber(types: [.favouriteAdvertSwitched, .favouriteModelSwitched, .advertActivitySwitched], received: { (object) in
         self.refreshData()
     })
     

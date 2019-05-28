@@ -194,6 +194,8 @@ extension AdvertDetails {
         do {
             let doc: Document = try SwiftSoup.parse(html)
             text = try doc.select(".item-description-text p").html()
+            date = try doc.select(".title-info-actions-item .title-info-metadata-item-redesign").text()
+            warning = try doc.select(".item-view-warning-content .has-bold").text()
             
             for imageRow in try! doc.select(".js-gallery-img-frame") {
                 if let image = try? imageRow.attr("data-url") {
@@ -213,6 +215,7 @@ extension AdvertDetails {
         do {
             let doc: Document = try SwiftSoup.parse(html)
             text = try doc.select(".seller-details__text").html()
+            date = try doc.select(".card__stat .card__stat-item:eq(1)").text()
             
             var parameters: Parameters = []
             for label in try! doc.select(".card__info .card__info-label") {

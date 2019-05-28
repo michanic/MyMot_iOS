@@ -30,6 +30,8 @@ class AdvertsListCell: UITableViewCell, CellContentProtocol {
             price.setTitle(advert.price.toStringPrice(), for: .normal)
             city.text = advert.city
             updateFavouriteButton(favourite: advert.favourite)
+            preview.alpha = advert.active ? 1.0 : 0.5
+            price.alpha = advert.active ? 1.0 : 0.5
         }
     }
     

@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvertViewController" customModule="MyMot" customModuleProvider="target">
             <connections>
                 <outlet property="aboutTextView" destination="pfU-DM-daf" id="IRs-KQ-9lJ"/>
+                <outlet property="callButton" destination="TdV-VX-W9c" id="VYn-zD-Wh8"/>
                 <outlet property="cityLabel" destination="ddw-Yi-8gN" id="gvC-UY-cu8"/>
                 <outlet property="dateLabel" destination="pjC-Kw-YVf" id="ccC-oA-wvJ"/>
                 <outlet property="imagesSlider" destination="cgx-sc-eWW" id="9Vr-P7-1n5"/>

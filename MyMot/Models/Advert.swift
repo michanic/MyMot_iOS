@@ -13,7 +13,9 @@ struct AdvertDetails {
     var images: Images
     var text: String?
     var parameters: Parameters? = nil
+    var date: String? = nil
     var saleHash: String? = nil
+    var warning: String? = nil
 }
 
 extension Advert {

@@ -43,4 +43,21 @@ extension CoreDataManager {
         }
     }
     
+    func cleanAdverts() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Advert")
+        request.predicate = NSPredicate(format: "favourite = false")
+        
+        do {
+            let result = try persistentContainer.viewContext.fetch(request)
+            print("CLEAN " + String(result.count))
+            for object in result {
+                guard let objectData = object as? NSManagedObject else {continue}
+                persistentContainer.viewContext.delete(objectData)
+            }
+        } catch {
+            print("CLEAN nothing")
+        }
+        
+    }
+    
 }
