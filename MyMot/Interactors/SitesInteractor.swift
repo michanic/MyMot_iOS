@@ -46,6 +46,25 @@ class SitesInteractor {
         var loadedAdverts:[Advert] = []
         var loadMore = false
         
+        /*var query: String? = nil
+        if let manufacturer = config.selectedManufacturer {
+            query = manufacturer.autoruSearchName
+        } else if let model = config.selectedModel {
+            query = model.autoruSearchName
+        }
+        
+        let sourceAutoRu = Source.auto_ru(config.selectedRegion?.autoru, query, config.priceFrom, config.priceFor, page)
+        guard let urlAutoRu = URL(string: sourceAutoRu.searchPath) else { loaded(loadedAdverts, loadMore); return }
+        
+        self.loadSourceAdverts(source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
+            
+            loadedAdverts.append(contentsOf: adverts)
+            if loadMore == false {
+                loadMore = more
+            }
+            loaded(loadedAdverts, loadMore)
+        })*/
+        
         var query: String? = nil
         if let manufacturer = config.selectedManufacturer {
             query = manufacturer.avitoSearchName
@@ -83,7 +102,7 @@ class SitesInteractor {
     
     private func loadSourceAdverts(source: Source, url: URL, completed: @escaping (([Advert], Bool)->())) {
         
-        //print(url)
+        print(url)
         
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {

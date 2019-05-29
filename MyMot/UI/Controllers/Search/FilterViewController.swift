@@ -116,7 +116,7 @@ class FilterViewController: UniversalViewController {
     }
     
     func selectedModelCell() -> Cell {
-        var selectedTitle = "Любая"
+        var selectedTitle = "Все мотоциклы"
         if let selectedModelName = filterConfig.selectedModel?.name {
             selectedTitle = selectedModelName
         } else if let selectedManufacturerName = filterConfig.selectedManufacturer?.name {
@@ -139,8 +139,9 @@ class FilterViewController: UniversalViewController {
     }
     
     @IBAction func searchAction(_ sender: Any) {
-        close()
-        searchPressedCallback?(filterConfig)
+        Router.shared.pushController(ViewControllerFactory.searchResults(filterConfig).create)
+        //close()
+        //searchPressedCallback?(filterConfig)
     }
     
 

@@ -24,7 +24,7 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
     override func viewDidLoad() {
         dataSource = [Section()]
         self.loadMoreDelegate = self
-        self.refreshDelegate = self
+        //self.refreshDelegate = self
         super.viewDidLoad()
         
         self.navigationItem.titleView = searchController.searchBar
@@ -32,7 +32,7 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         searchController.searchBar.barStyle = .blackOpaque
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Введите модель или объем"
+        searchController.searchBar.placeholder = "Модель или объем"
         searchController.searchBar.setSearchButtonText("Отмена")
         searchController.searchBar.setPlaceholderColor(UIColor.white)
         searchController.searchBar.setImage(UIImage(named: "search_clear"), for: .clear, state: .normal)
@@ -73,9 +73,25 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         let sitesInteractor = SitesInteractor()
         sitesInteractor.loadFeedAdverts(page: currentPage) { (adverts, loadMore) in
             
+            let config = ConfigStorage.getFilterConfig()
+            
+            var sectionTitle = "Все мотоциклы"
+            if let selectedRegionName = config.selectedRegion?.name {
+                sectionTitle = selectedRegionName
+            }
+            if let priceFrom = config.priceFrom {
+                if let priceFor = config.priceFor {
+                    sectionTitle += ",\nЦена " + String(priceFrom) + " - " + String(priceFor) + " руб."
+                } else {
+                    sectionTitle += ",\nЦена от " + String(priceFrom) + " руб."
+                }
+            } else if let priceFor = config.priceFor {
+                sectionTitle += ",\nЦена до " + String(priceFor) + " руб."
+            }
+            
             if self.currentPage == 1 {
                 let section = Section()
-                section.cells.append(Cell(collectionTitle: "Все объявления"))
+                section.cells.append(Cell(collectionTitle: sectionTitle))
                 self.dataSource = [section]
             }
             
@@ -117,10 +133,12 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
     @objc func showFilter() {
         view.endEditing(true)
         searchController.searchBar.resignFirstResponder()
-        let searchCallback: ((SearchFilterConfig) -> ())  = { config in
-            Router.shared.pushController(ViewControllerFactory.searchResults(config).create)
+        let searchClosedCallback: ((SearchFilterConfig?) -> ())  = { config in
+            if config != nil {
+                self.prepareData()
+            }
         }
-        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback, nil).create)
+        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, nil, searchClosedCallback).create)
     }
 }
 

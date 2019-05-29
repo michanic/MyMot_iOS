@@ -16,8 +16,8 @@ class AboutViewController: UniversalViewController {
     
     let sitesInteractor = SitesInteractor()
     let regions = CoreDataManager.instance.getRegions()
-    var currentRegion = 9
-    var lastRegion = 10
+    var currentRegion = 14
+    var lastRegion = 15
     var currentcCity = 0
     
     override func viewDidLoad() {
@@ -35,7 +35,7 @@ class AboutViewController: UniversalViewController {
             }
         }
         
-        checkNextCity()
+        //checkNextCity()
     }
     
     func checkNextCity() {

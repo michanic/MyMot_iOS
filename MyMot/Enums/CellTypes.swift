@@ -48,7 +48,7 @@ enum CellType {
         case .simple, .setPrice:
             return 48
         case .collectionTitle:
-            return 30
+            return 55
         case .modelsList:
             return 70
         case .catalogSlider:
