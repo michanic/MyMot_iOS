@@ -17,10 +17,22 @@ extension Formatter {
     }()
 }
 
+extension Int {
+    
+    func splitThousands() -> String {
+        return (Formatter.withSeparator.string(for: self) ?? "")
+    }
+    
+}
+
 extension Int32 {
     
+    func splitThousands() -> String {
+        return (Formatter.withSeparator.string(for: self) ?? "")
+    }
+    
     func toStringPrice() -> String {
-        return (Formatter.withSeparator.string(for: self) ?? "") + " р."
+        return self.splitThousands() + " р."
     }
     
 }

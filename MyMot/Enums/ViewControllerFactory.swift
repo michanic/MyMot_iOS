@@ -49,7 +49,7 @@ enum ViewControllerFactory {
             return CatalogModelViewController(model: model)
         
         case .searchFilter(let config, let searchPressedCallback, let closedCallBack):
-            return UINavigationController(rootViewController: FilterViewController(filterConfig: config, searchPressedCallback: searchPressedCallback, filterClosedCallback: closedCallBack))
+            return FilterViewController(filterConfig: config, searchPressedCallback: searchPressedCallback, filterClosedCallback: closedCallBack)
         case .searchFilterRegions(let selectedRegion, let callback):
             return FilterRegionsViewController(selectedRegion: selectedRegion, selectedCallback: callback)
         case .searchFilterModels(let selectedModel, let selectedManufacturer, let callback):

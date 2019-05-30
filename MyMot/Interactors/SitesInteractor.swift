@@ -8,35 +8,27 @@
 
 import UIKit
 
+
+
 class SitesInteractor {
 
     let htmlParser: HtmlParser = HtmlParser()
+    var currentSource: Source = .avito(nil, nil, nil, nil, nil)
     
-    func loadFeedAdverts(page: Int, loaded: @escaping (([Advert], Bool)->())) {
+    func loadFeedAdverts(source: Source, loaded: @escaping (([Advert], Bool)->())) {
 
         var loadedAdverts:[Advert] = []
         var loadMore = false
-        
-        let config = ConfigStorage.getFilterConfig()
-        
-        let sourceAvito = Source.avito(config.selectedRegion?.avito, nil, config.priceFrom, config.priceFor, page)
-        guard let urlAvito = URL(string: sourceAvito.searchPath) else { loaded(loadedAdverts, loadMore); return }
-        
-        loadSourceAdverts(source: sourceAvito, url: urlAvito) { (adverts, more) in
+        guard let urlAvito = URL(string: source.searchPath) else { loaded(loadedAdverts, loadMore); return }
+        loadSourceAdverts(source: source, url: urlAvito) { (adverts, more) in
             loadedAdverts.append(contentsOf: adverts)
+            /*if source.domain.contains("avito") {
+                loadMore = true
+            } else {
+                loadMore = more
+            }*/
             loadMore = more
-            
-            let sourceAutoRu = Source.auto_ru(config.selectedRegion?.autoru, nil, config.priceFrom, config.priceFor, page)
-            guard let urlAutoRu = URL(string: sourceAutoRu.searchPath) else { loaded(loadedAdverts, loadMore); return }
-            
-            self.loadSourceAdverts(source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
-                loadedAdverts.append(contentsOf: adverts)
-                if loadMore == false {
-                    loadMore = more
-                }
-                
-                loaded(loadedAdverts, loadMore)
-            })
+            loaded(loadedAdverts, loadMore)
         }
     }
     
@@ -102,7 +94,7 @@ class SitesInteractor {
     
     private func loadSourceAdverts(source: Source, url: URL, completed: @escaping (([Advert], Bool)->())) {
         
-        print(url)
+        print("loadSourceAdverts " + url.absoluteString)
         
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {

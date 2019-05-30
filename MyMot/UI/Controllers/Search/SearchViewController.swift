@@ -14,7 +14,11 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
     var currentPage: Int = 1
     var loadMoreAvailable: Bool = false
     var refreshCompletionHandler: (() -> Void)?
-
+    
+    var currentSource: Source?
+    var avitoLoadMoreAvailable: Bool = true
+    let sitesInteractor = SitesInteractor()
+    
     let searchController = UISearchController(searchResultsController: nil)
     lazy var filterButton = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
     
@@ -60,6 +64,8 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         if refreshCompletionHandler == nil {
             showLoading()
         }
+        currentSource = nil
+        avitoLoadMoreAvailable = true
         currentPage = 1
         loadMore()
     }
@@ -70,10 +76,25 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
     
     func loadMore() {
         
-        let sitesInteractor = SitesInteractor()
-        sitesInteractor.loadFeedAdverts(page: currentPage) { (adverts, loadMore) in
-            
-            let config = ConfigStorage.getFilterConfig()
+        let config = ConfigStorage.getFilterConfig()
+        
+        if let currentSource = currentSource {
+            if currentSource.domain.contains("avito"), avitoLoadMoreAvailable {
+                self.currentSource = Source.auto_ru(config.selectedRegion?.autoru, nil, config.priceFrom, config.priceFor, currentPage)
+            } else {
+                if avitoLoadMoreAvailable {
+                    currentPage += 1
+                    self.currentSource = Source.avito(config.selectedRegion?.avito, nil, config.priceFrom, config.priceFor, currentPage)
+                } else {
+                    self.currentSource = Source.auto_ru(config.selectedRegion?.autoru, nil, config.priceFrom, config.priceFor, currentPage)
+                    currentPage += 1
+                }
+            }
+        } else {
+            currentSource = Source.avito(config.selectedRegion?.avito, nil, config.priceFrom, config.priceFor, currentPage)
+        }
+        
+        sitesInteractor.loadFeedAdverts(source: currentSource!) { (adverts, loadMore) in
             
             var sectionTitle = "Все мотоциклы"
             if let selectedRegionName = config.selectedRegion?.name {
@@ -81,18 +102,23 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
             }
             if let priceFrom = config.priceFrom {
                 if let priceFor = config.priceFor {
-                    sectionTitle += ",\nЦена " + String(priceFrom) + " - " + String(priceFor) + " руб."
+                    sectionTitle += ",\n" + priceFrom.splitThousands() + " - " + priceFor.splitThousands() + " руб."
                 } else {
-                    sectionTitle += ",\nЦена от " + String(priceFrom) + " руб."
+                    sectionTitle += ",\nЦена от " + priceFrom.splitThousands() + " руб."
                 }
             } else if let priceFor = config.priceFor {
-                sectionTitle += ",\nЦена до " + String(priceFor) + " руб."
+                sectionTitle += ",\nЦена до " + priceFor.splitThousands() + " руб."
+            }
+            if adverts.count == 0 {
+                sectionTitle = "Ничего не найдено"
             }
             
-            if self.currentPage == 1 {
+            if self.currentPage == 1 && self.currentSource!.domain.contains("avito") {
                 let section = Section()
                 section.cells.append(Cell(collectionTitle: sectionTitle))
                 self.dataSource = [section]
+            } else {
+                self.dataSource[0].cells[0] = Cell(collectionTitle: sectionTitle)
             }
             
             let newAdverts = adverts.count % 2 != 0 ? adverts.dropLast() : adverts
@@ -101,14 +127,19 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
                 self.dataSource[0].cells.append(advertCell)
             }
             
-            if self.currentPage == 1 {
+            /*if self.currentPage == 1 {
                 self.refreshCompletionHandler?()
+            }*/
+            
+            if self.currentSource!.domain.contains("avito") {
+                self.avitoLoadMoreAvailable = loadMore
+                self.loadMoreAvailable = true
+            } else {
+                self.loadMoreAvailable = loadMore
             }
+    
             
-            self.loadMoreAvailable = loadMore
-            self.currentPage += 1
             self.loadMoreCompletionHandler?()
-            
             self.updateData()
             self.hideLoading()
         }
@@ -138,7 +169,8 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
                 self.prepareData()
             }
         }
-        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, nil, searchClosedCallback).create)
+        let navController = UINavigationController(rootViewController: ViewControllerFactory.searchFilter(nil, nil, searchClosedCallback).create)
+        Router.shared.presentController(navController)
     }
 }
 

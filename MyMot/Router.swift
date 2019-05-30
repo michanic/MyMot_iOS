@@ -39,6 +39,7 @@ class Router {
     }
     
     func pushController(_ viewController: UIViewController) {
+        
         if let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? UITabBarController,
             let currentNavigationController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? UINavigationController {
             

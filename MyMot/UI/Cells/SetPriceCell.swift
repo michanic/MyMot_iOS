@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import InputMask
 
 class SetPriceCell: UITableViewCell, CellContentProtocol {
     
@@ -16,15 +15,12 @@ class SetPriceCell: UITableViewCell, CellContentProtocol {
     @IBOutlet weak var propertySuffix: UILabel!
     private var eventListener: CellEventProtocol?
     
-    var listener: MaskedTextFieldDelegate = MaskedTextFieldDelegate(primaryFormat: "[000][000][000]")
-    
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         self.eventListener = eventListener
         if let content = content as? (String, String?) {
             propertyCaption.text = content.0
             propertyField.text = content.1
-            listener.listener = self
-            propertyField.delegate = listener
+            //listener.listener = self
             propertySuffix.isHidden = content.1 == nil
         }
         contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(setFocused)))
@@ -41,23 +37,18 @@ class SetPriceCell: UITableViewCell, CellContentProtocol {
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(false, animated: false)
     }
-}
-
-extension SetPriceCell: MaskedTextFieldDelegateListener {
-    @objc func textField(_ textField: UITextField, didFillMandatoryCharacters complete: Bool, didExtractValue value: String) {
-
-        if let text = textField.text {
-            propertySuffix.isHidden = text.count == 0
+    
+    @IBAction func valueChanged(_ sender: UITextField) {
+        if let text = sender.text, let price = Int(text.replacingOccurrences(of: " ", with: "")) {
+            propertySuffix.isHidden = price == 0
+            sender.text = price.splitThousands()
+            eventListener?.intValueChanged(price)
         } else {
             propertySuffix.isHidden = true
-        }
-        
-        if let text = textField.text, let textInt = Int(text.replacingOccurrences(of: " ", with: "")), textInt > 0{
-            eventListener?.intValueChanged(textInt)
-        } else {
             eventListener?.intValueChanged(nil)
         }
     }
+    
 }
 
 extension Cell {

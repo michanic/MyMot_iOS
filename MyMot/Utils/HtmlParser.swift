@@ -216,6 +216,7 @@ extension AdvertDetails {
             let doc: Document = try SwiftSoup.parse(html)
             text = try doc.select(".seller-details__text").html()
             date = try doc.select(".card__stat .card__stat-item:eq(1)").text()
+            warning = try doc.select(".card__sold-message-header").text()
             
             var parameters: Parameters = []
             for label in try! doc.select(".card__info .card__info-label") {

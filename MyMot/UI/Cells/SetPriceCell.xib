@@ -31,6 +31,9 @@
                         <color key="textColor" red="0.60392156862745094" green="0.60392156862745094" blue="0.60392156862745094" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        <connections>
+                            <action selector="valueChanged:" destination="KGk-i7-Jjw" eventType="editingChanged" id="bs5-S5-tTq"/>
+                        </connections>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="руб." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQj-04-TtO">
                         <rect key="frame" x="274" y="12" width="30" height="20"/>

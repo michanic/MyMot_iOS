@@ -37,7 +37,7 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
         super.viewDidLoad()
         NotificationCenter.subscribe(favouritesSwitchSubscriber)
         updateTitle()
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
         showLoading()
     }
 
@@ -104,7 +104,7 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
         }
     }
     
-    /*@objc func showFilter() {
+    @objc func showFilter() {
         let searchCallback: ((SearchFilterConfig) -> ())  = { config in
             self.filterConfig = config
             self.updateTitle()
@@ -117,6 +117,6 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
                 self.prepareData()
             }
         }
-        Router.shared.presentController(ViewControllerFactory.searchFilter(nil, searchCallback, closedCallback).create)
-    }*/
+        Router.shared.pushController(ViewControllerFactory.searchFilter(nil, searchCallback, closedCallback).create)
+    }
 }

@@ -2,7 +2,7 @@ use_frameworks!
 
 def general_dependencies
 pod 'Alamofire'
-pod 'InputMask'
+#pod 'InputMask'
 pod 'KRPullLoader'
 pod 'SwiftSoup'
 pod 'SwiftyJSON'

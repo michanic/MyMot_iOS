@@ -56,7 +56,9 @@ class FilterViewController: UniversalViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        filterClosedCallback?(filterChanged ? filterConfig : nil)
+        if filterChanged {
+            filterClosedCallback?(filterConfig)
+        }
     }
 
     override func prepareData() {
@@ -74,7 +76,7 @@ class FilterViewController: UniversalViewController {
         
         var priceFromString: String?
         if let priceFrom = filterConfig.priceFrom {
-            priceFromString = String(priceFrom)
+            priceFromString = priceFrom.splitThousands()
         }
         let priceFromCell = Cell(setPriceTitle: "От", value: priceFromString)
         priceFromCell.intChangedEvent = { newValue in
@@ -85,7 +87,7 @@ class FilterViewController: UniversalViewController {
         
         var priceForString: String?
         if let priceFor = filterConfig.priceFor {
-            priceForString = String(priceFor)
+            priceForString = priceFor.splitThousands()
         }
         let priceForCell = Cell(setPriceTitle: "До", value: priceForString)
         priceForCell.intChangedEvent = { newValue in
@@ -110,6 +112,7 @@ class FilterViewController: UniversalViewController {
             self.updateRows(indexPaths: [IndexPath(row: 0, section: 0)])
         }
         regionCell.cellTapped = { indexPath in
+            self.filterChanged = false
             Router.shared.pushController(ViewControllerFactory.searchFilterRegions(self.filterConfig.selectedRegion, regionSelectedCallback).create)
         }
         return regionCell
@@ -133,15 +136,21 @@ class FilterViewController: UniversalViewController {
             self.updateRows(indexPaths: [IndexPath(row: 0, section: 1)])
         }
         modelCell.cellTapped = { indexPath in
+            self.filterChanged = false
             Router.shared.pushController(ViewControllerFactory.searchFilterModels(self.filterConfig.selectedModel, self.filterConfig.selectedManufacturer, selectedCallback).create)
         }
         return modelCell
     }
     
     @IBAction func searchAction(_ sender: Any) {
-        Router.shared.pushController(ViewControllerFactory.searchResults(filterConfig).create)
-        //close()
-        //searchPressedCallback?(filterConfig)
+        if let searchPressedCallback = searchPressedCallback {
+            filterChanged = false
+            goBack()
+            searchPressedCallback(filterConfig)
+        } else {
+            filterChanged = false
+            Router.shared.pushController(ViewControllerFactory.searchResults(filterConfig).create)
+        }
     }
     
 

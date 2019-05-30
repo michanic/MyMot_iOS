@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (4.8.2)
-  - InputMask (4.1.1)
   - KRPullLoader (1.2.0)
   - SDWebImage (5.0.1):
     - SDWebImage/Core (= 5.0.1)
@@ -10,7 +9,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - InputMask
   - KRPullLoader
   - SDWebImage
   - SwiftSoup
@@ -19,7 +17,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - InputMask
     - KRPullLoader
     - SDWebImage
     - SwiftSoup
@@ -27,12 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  InputMask: 88c7c1432816333e884e647f8c2d69485ba525d1
   KRPullLoader: 58617a4d2d6c08bec489c05691fcda328041416c
   SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 9d3a2c7245f82be31e723f70d9da15e56ff529c6
+PODFILE CHECKSUM: 905107aac9417f85511bde46452d153592b6e07c
 
 COCOAPODS: 1.5.3
