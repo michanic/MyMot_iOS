@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cell_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="ti6-gZ-fqM">
-                        <rect key="frame" x="293" y="16" width="14" height="14"/>
+                        <rect key="frame" x="293" y="15" width="14" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -33,6 +33,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="z6V-MJ-OW9">
+                        <rect key="frame" x="290" y="12" width="20" height="20"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="GKK-IM-I28" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="99I-sn-eVN"/>
@@ -42,6 +46,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="arrowImage" destination="ti6-gZ-fqM" id="ZJc-iX-KOY"/>
+                <outlet property="loadingIndicator" destination="z6V-MJ-OW9" id="Ifw-3Y-cyI"/>
                 <outlet property="paddingLeft" destination="99I-sn-eVN" id="pe7-Fl-gvG"/>
                 <outlet property="simpleLabel" destination="GKK-IM-I28" id="PwY-dq-0tf"/>
             </connections>

@@ -16,9 +16,8 @@ class AboutViewController: UniversalViewController {
     
     let sitesInteractor = SitesInteractor()
     let regions = CoreDataManager.instance.getRegions()
-    var currentRegion = 14
-    var lastRegion = 15
-    var currentcCity = 0
+    //var currentRegion = 83
+    //var currentcCity = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +37,7 @@ class AboutViewController: UniversalViewController {
         //checkNextCity()
     }
     
-    func checkNextCity() {
+    /*func checkNextCity() {
         let cities = self.regions[self.currentRegion].getCities()
         let city = cities[self.currentcCity]
         
@@ -49,15 +48,14 @@ class AboutViewController: UniversalViewController {
             } else {
                 self.currentcCity = 0
                 self.currentRegion += 1
-                if self.currentRegion < self.lastRegion {
+                if self.currentRegion < (self.currentRegion + 1) {
                     self.checkNextCity()
                 } else {
                     print("FINISH")
                 }
             }
         }
-        
-    }
+    }*/
     
     @IBAction func privacyPressed(_ sender: UIButton) {
         guard let title = sender.titleLabel?.text else { return }

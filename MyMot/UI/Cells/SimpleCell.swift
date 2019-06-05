@@ -13,6 +13,8 @@ class SimpleCell: UITableViewCell, CellContentProtocol, CellAccessoryStateProtoc
     @IBOutlet weak var simpleLabel: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
     @IBOutlet weak var paddingLeft: NSLayoutConstraint!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
         if let content = content as? String? {
@@ -28,12 +30,17 @@ class SimpleCell: UITableViewCell, CellContentProtocol, CellAccessoryStateProtoc
     func setAccessoryState(_ state: CellAccessoryType) {
         arrowImage.rotate(angle: state.angle)
         switch state {
-        case .hidden:
+        case .hidden, .loading:
             arrowImage.image = nil
         case .checked:
             arrowImage.image = UIImage(named: "cell_checked")
         default:
             arrowImage.image = UIImage(named: "cell_arrow_right")
+        }
+        if state == .loading {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
         }
     }
     

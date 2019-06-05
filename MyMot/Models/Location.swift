@@ -11,21 +11,22 @@ import SwiftyJSON
 
 extension Location {
     
-    static func createOrUpdate(regionsJson: [JSON]) {
+    static func createOrUpdateRegions(regionsJson: [JSON]) {
         for regionJson in regionsJson {
-            let region = createOrUpdateLocation(json: regionJson, parentId: nil)
-            
-            if let citiesJson = regionJson["cities"].array, let regionId = region?.id {
-                var cities: [Location] = []
-                for cityJson in citiesJson {
-                    if let city = createOrUpdateLocation(json: cityJson, parentId: Int(regionId)) {
-                        cities.append(city)
-                    }
-                }
-                region?.cities = NSSet(array: cities)
-            }
+            _ = createOrUpdateLocation(json: regionJson, parentId: nil)
         }
     }
+    
+    static func createOrUpdateRegionCities(region: Location, citiesJson: [JSON]) {
+        var cities: [Location] = []
+        for cityJson in citiesJson {
+            if let city = createOrUpdateLocation(json: cityJson, parentId: Int(region.id)) {
+                cities.append(city)
+            }
+        }
+        region.cities = NSSet(array: cities)
+    }
+    
     
     private static func createOrUpdateLocation(json: JSON, parentId: Int?) -> Location? {
         guard let dict = json.dictionary, let id = dict["id"]?.int, let name = dict["name"]?.string else { return nil }

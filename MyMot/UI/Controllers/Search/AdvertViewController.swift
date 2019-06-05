@@ -85,6 +85,7 @@ class AdvertViewController: UniversalViewController {
             case .auto_ru:
                 guard let advertId = advert.id, let saleHash = advertDetails?.saleHash, let token = ConfigStorage.getCsrfToken() else { return }
                 siteInteractor.loadAutoRuAdvertPhones(saleId: advertId, saleHash: saleHash, token: token) { (phones) in
+                    
                     if phones.count == 1 {
                         phones[0].makeCall()
                     } else if phones.count > 1 {

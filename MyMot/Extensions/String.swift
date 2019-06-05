@@ -28,7 +28,13 @@ extension String {
     
     
     func makeCall() {
-        let cleanPhoneNumber = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+        
+        var phone = self
+        if let indexC = phone.firstIndex(of: "c") {
+            phone = String(phone[phone.index(phone.startIndex, offsetBy: 0)..<indexC].dropLast())
+        }
+        
+        let cleanPhoneNumber = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
         let urlString:String = "telprompt://\(cleanPhoneNumber)"
         if let phoneCallURL = URL(string: urlString) {
             let application: UIApplication = UIApplication.shared

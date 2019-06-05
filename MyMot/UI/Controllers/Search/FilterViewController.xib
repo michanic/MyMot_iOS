@@ -33,7 +33,7 @@
                         <constraint firstAttribute="height" constant="50" id="uez-2m-jJF"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Progress-BoldItalic" family="Progress(RUS BY LYAJKA)" pointSize="20"/>
-                    <state key="normal" title="‌‌‍‍ Поиск‌‌‍‍ по модели ">
+                    <state key="normal" title="‌‌‍‍ Поиск‌‌‍‍ ">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>

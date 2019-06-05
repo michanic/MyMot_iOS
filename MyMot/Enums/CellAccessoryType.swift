@@ -14,10 +14,11 @@ enum CellAccessoryType {
     case bottom
     case hidden
     case checked
+    case loading
     
     var angle: CGFloat {
         switch self {
-        case .right, .hidden, .checked:
+        case .right, .hidden, .checked, .loading:
             return 0
         case .top:
             return -CGFloat.pi / 2

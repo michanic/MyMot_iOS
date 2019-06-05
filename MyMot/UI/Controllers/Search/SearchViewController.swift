@@ -169,8 +169,9 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
                 self.prepareData()
             }
         }
-        let navController = UINavigationController(rootViewController: ViewControllerFactory.searchFilter(nil, nil, searchClosedCallback).create)
-        Router.shared.presentController(navController)
+        //let navController = UINavigationController(rootViewController: ViewControllerFactory.searchFilter(nil, nil, searchClosedCallback).create)
+        //Router.shared.presentController(navController)
+        Router.shared.pushController(ViewControllerFactory.searchFilter(nil, nil, searchClosedCallback).create)
     }
 }
 

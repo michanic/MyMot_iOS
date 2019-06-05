@@ -81,6 +81,7 @@ class HtmlParser {
     
     func parsePhonesFromAutoRu(html: String) -> [String] {
         do {
+            
             let doc: Document = try SwiftSoup.parse(html)
             var phones:[String] = []
             for row in try! doc.select(".card-phones__item") {

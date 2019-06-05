@@ -64,16 +64,29 @@ class ApiInteractor {
     
     private func loadRegions(completed: @escaping (()->())) {
         if CoreDataManager.instance.locationsIsLoaded() {
-            print("regions loaded")
             completed()
         } else {
-            print("load regions")
             NetworkService.shared.getJsonData(endpoint: .catalogRegions) { (json, error) in
                 if let array = json?.array {
-                    Location.createOrUpdate(regionsJson: array)
+                    Location.createOrUpdateRegions(regionsJson: array)
                     CoreDataManager.instance.saveContext()
                 }
                 completed()
+            }
+        }
+    }
+    
+    func loadRegionCities(_ region: Location, completed: @escaping (([Location])->())) {
+        let cities = region.getCities()
+        if cities.count > 0 {
+            completed(cities)
+        } else {
+            NetworkService.shared.getJsonData(endpoint: .catalogRegionCities(Int(region.id))) { (json, error) in
+                if let citiesJson = json?.array {
+                    Location.createOrUpdateRegionCities(region: region, citiesJson: citiesJson)
+                    CoreDataManager.instance.saveContext()
+                }
+                completed(region.getCities())
             }
         }
     }

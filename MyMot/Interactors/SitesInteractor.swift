@@ -107,7 +107,6 @@ class SitesInteractor {
     
     func loadAdvertDetails(advert: Advert, completed: @escaping ((AdvertDetails?)->())) {
         
-        //advert.link = "https://www.avito.ru/yakutsk/mototsikly_i_mototehnika/suzuki_sv_1000_1563663887"
         guard let link = advert.link, let url = URL(string: link), let source = advert.getSource() else { completed(nil); return }
         print(link)
         
