@@ -6,6 +6,7 @@ PODS:
   - SDWebImage/Core (5.0.1)
   - SwiftSoup (1.7.4)
   - SwiftyJSON (4.3.0)
+  - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - SDWebImage
   - SwiftSoup
   - SwiftyJSON
+  - YouTubePlayer
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - SDWebImage
     - SwiftSoup
     - SwiftyJSON
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -28,7 +31,8 @@ SPEC CHECKSUMS:
   SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 905107aac9417f85511bde46452d153592b6e07c
+PODFILE CHECKSUM: cb1f39755acbf6824285ec96701cd317d91f08bb
 
 COCOAPODS: 1.5.3

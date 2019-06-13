@@ -18,6 +18,7 @@ enum CellType {
     case categoryAbout
     case catalogSlider
     case catalogSlide
+    case youtubeVideo
     case searchFeed
     
     var cellClass: Any {
@@ -38,6 +39,8 @@ enum CellType {
             return CatalogSliderCell.self
         case .catalogSlide:
             return CatalogSlideCell.self
+        case .youtubeVideo:
+            return YoutubeVideoCell.self
         case .searchFeed:
             return SearchFeedCell.self
         }

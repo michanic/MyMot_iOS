@@ -20,6 +20,13 @@ class CatalogModelViewController: UniversalViewController {
     @IBOutlet weak var parametersView: UIStackView!
     @IBOutlet weak var parametersViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var reviewsTitle: UILabel!
+    @IBOutlet weak var reviewsTitleBottom: NSLayoutConstraint!
+    @IBOutlet weak var reviewsCollectionView: UICollectionView!
+    @IBOutlet weak var reviewsCollectionHeight: NSLayoutConstraint!
+    @IBOutlet weak var reviewsCollectionBottom: NSLayoutConstraint!
+    
+    
     let model: Model
     var modelDetails: ModelDetails?
     
@@ -35,18 +42,24 @@ class CatalogModelViewController: UniversalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navBarTitle = (model.name ?? "")
+        
+        let cellName = String(describing: CellType.youtubeVideo.cellClass)
+        reviewsCollectionView.register(UINib(nibName: cellName, bundle: Bundle.main), forCellWithReuseIdentifier: cellName)
+        
         updateFavouriteButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showLoading()
         
-        let apiInteractor = ApiInteractor()
-        apiInteractor.loadModelDetails(modelId: Int(model.id)) { (details) in
-            self.modelDetails = details
-            self.fillProperties()
-            self.hideLoading()
+        if modelDetails == nil {
+            showLoading()
+            let apiInteractor = ApiInteractor()
+            apiInteractor.loadModelDetails(modelId: Int(model.id)) { (details) in
+                self.modelDetails = details
+                self.fillProperties()
+                self.hideLoading()
+            }
         }
     }
 
@@ -74,6 +87,7 @@ class CatalogModelViewController: UniversalViewController {
 
     private func fillProperties() {
         guard let modelDetails = modelDetails else { return }
+        
         imagesSliderHeight.constant = UIScreen.width * 0.75 + 37
         view.layoutIfNeeded()
         
@@ -84,6 +98,7 @@ class CatalogModelViewController: UniversalViewController {
         yearsLabel.text = model.years
         aboutLabel.text = modelDetails.text
         drawParametersView(modelDetails.parameters)
+        drawVideos(modelDetails.videos)
     }
     
     private func drawParametersView(_ parameters: Parameters) {
@@ -129,4 +144,45 @@ class CatalogModelViewController: UniversalViewController {
         }
         parametersViewHeight.constant = posY
     }
+    
+    private func drawVideos(_ videos: Videos) {
+        if videos.isEmpty {
+            reviewsTitle.text = nil
+            reviewsTitleBottom.constant = 0
+            reviewsCollectionHeight.constant = 0
+            reviewsCollectionBottom.constant = 0
+        } else {
+            reviewsTitle.text = "Видеообзоры:"
+            reviewsTitleBottom.constant = 16
+            reviewsCollectionHeight.constant = 100
+            reviewsCollectionBottom.constant = 50
+            reviewsCollectionView.reloadData()
+        }
+    }
+}
+
+
+extension CatalogModelViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return modelDetails?.videos.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let video = modelDetails?.videos[indexPath.row] {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CellType.youtubeVideo.cellClass), for: indexPath) as! YoutubeVideoCell
+            cell.fillWithContent(content: video, eventListener: nil)
+            return cell
+        } else {
+            return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if let video = modelDetails?.videos[indexPath.row] {
+            Router.shared.pushController(ViewControllerFactory.videoViewer(video).create)
+        }
+    }
+    
 }

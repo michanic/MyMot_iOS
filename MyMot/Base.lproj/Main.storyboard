@@ -46,7 +46,7 @@
         <!--Navigation Controller-->
         <scene sceneID="COk-zo-4hi">
             <objects>
-                <navigationController id="aZE-J7-YYN" sceneMemberID="viewController">
+                <navigationController id="aZE-J7-YYN" customClass="NavigationController" customModule="MyMot" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab_catalog" id="7bY-D8-wRe">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
@@ -208,7 +208,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия 1.0.2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rod-dI-l8d">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Версия 1.0.3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rod-dI-l8d">
                                         <rect key="frame" x="30" y="143.5" width="315" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -330,7 +330,7 @@
         <!--Navigation Controller-->
         <scene sceneID="pcx-Wo-x2c">
             <objects>
-                <navigationController id="mFE-Tg-3hm" sceneMemberID="viewController">
+                <navigationController id="mFE-Tg-3hm" customClass="NavigationController" customModule="MyMot" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab_search" id="Vi3-CP-cn9">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
@@ -349,7 +349,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eE8-eU-kNY">
             <objects>
-                <navigationController id="pnu-Da-Et9" sceneMemberID="viewController">
+                <navigationController id="pnu-Da-Et9" customClass="NavigationController" customModule="MyMot" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab_favourites" id="Rxc-zk-nfc">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
@@ -368,7 +368,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Nsi-Po-HjL">
             <objects>
-                <navigationController id="Kmg-bQ-fj0" sceneMemberID="viewController">
+                <navigationController id="Kmg-bQ-fj0" customClass="NavigationController" customModule="MyMot" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tab_info" id="CHN-Ph-LcJ">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>

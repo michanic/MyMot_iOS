@@ -7,6 +7,7 @@ pod 'KRPullLoader'
 pod 'SwiftSoup'
 pod 'SwiftyJSON'
 pod 'SDWebImage'
+pod 'YouTubePlayer'
 end
 
 

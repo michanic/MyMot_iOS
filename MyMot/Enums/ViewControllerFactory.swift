@@ -15,6 +15,7 @@ enum ViewControllerFactory {
     
     case imagesViewer(Images, Int, ((Int) -> ())?)
     case textViewer(String)
+    case videoViewer(YoutubeVideo)
     
     case catalogByClass(Category)
     case catalogByManufacturer(Manufacturer)
@@ -37,9 +38,11 @@ enum ViewControllerFactory {
             return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController")
             
         case .imagesViewer(let images, let currentIndex, let callback):
-            return UINavigationController(rootViewController: ImagesViewerController(images: images, currentIndex: currentIndex, indexChangedCallback: callback))
+            return NavigationController(rootViewController: ImagesViewerController(images: images, currentIndex: currentIndex, indexChangedCallback: callback))
         case .textViewer(let pageTitle):
             return TextViewController(pageTitle: pageTitle)
+        case .videoViewer(let video):
+            return VideoViewerController(video: video)
             
         case .catalogByClass(let category):
             return CatalogByClassViewController(category: category)

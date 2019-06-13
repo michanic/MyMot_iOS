@@ -31,7 +31,6 @@
 		8E0FB326225E0D04001753C4 /* CatalogByManufacturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB325225E0D04001753C4 /* CatalogByManufacturerViewController.swift */; };
 		8E0FB329225E0D78001753C4 /* CatalogSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB327225E0D78001753C4 /* CatalogSliderCell.swift */; };
 		8E0FB32A225E0D78001753C4 /* CatalogSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */; };
-		8E0FB32E225E3B60001753C4 /* CatalogModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */; };
 		8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */; };
 		8E3120BB228BF2CB00F90B84 /* ImagesViewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120B9228BF2CA00F90B84 /* ImagesViewerController.xib */; };
 		8E3120BC228BF2CB00F90B84 /* ImagesViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */; };
@@ -39,6 +38,9 @@
 		8E3120C0228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */; };
 		8E3120D1228E8BBB00F90B84 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120CF228E8BBB00F90B84 /* TextViewController.swift */; };
 		8E3120D2228E8BBB00F90B84 /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120D0228E8BBB00F90B84 /* TextViewController.xib */; };
+		8E3D11DA22B247B200F2F173 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D11D822B247B200F2F173 /* VideoViewController.swift */; };
+		8E3D11DB22B247B200F2F173 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3D11D922B247B200F2F173 /* VideoViewController.xib */; };
+		8E3D11DC22B26BBA00F2F173 /* CatalogModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */; };
 		8E3D45152273490F008F90FF /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D45142273490F008F90FF /* Int.swift */; };
 		8E3E9356226ECA9D006573FA /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9355226ECA9D006573FA /* CollectionView.swift */; };
 		8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */; };
@@ -69,6 +71,12 @@
 		8EAF5F43226797A700C5F02B /* FilterRegionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */; };
 		8EAF5F45226797BA00C5F02B /* FilterModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */; };
 		8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */; };
+		8EC0026F22AFD43F007C7307 /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0026E22AFD43F007C7307 /* YoutubeVideo.swift */; };
+		8EC0027222AFE0D3007C7307 /* YoutubeVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0027022AFE0D3007C7307 /* YoutubeVideoCell.swift */; };
+		8EC0027322AFE0D3007C7307 /* YoutubeVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC0027122AFE0D3007C7307 /* YoutubeVideoCell.xib */; };
+		8EC0027822AFEFB6007C7307 /* VideoViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0027622AFEFB6007C7307 /* VideoViewerController.swift */; };
+		8EC0027922AFEFB6007C7307 /* VideoViewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC0027722AFEFB6007C7307 /* VideoViewerController.xib */; };
+		8EC0027D22AFF7E7007C7307 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0027C22AFF7E7007C7307 /* NavigationController.swift */; };
 		8EC6240622538F4600E122F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC6240522538F4600E122F8 /* AppDelegate.swift */; };
 		8EC6240B22538F4600E122F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240922538F4600E122F8 /* Main.storyboard */; };
 		8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EC6240F22538F4A00E122F8 /* Assets.xcassets */; };
@@ -140,6 +148,8 @@
 		8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesViewerCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E3120CF228E8BBB00F90B84 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		8E3120D0228E8BBB00F90B84 /* TextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
+		8E3D11D822B247B200F2F173 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		8E3D11D922B247B200F2F173 /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		8E3D45142273490F008F90FF /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8E3E9355226ECA9D006573FA /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFeedCell.swift; sourceTree = "<group>"; };
@@ -170,6 +180,12 @@
 		8EAF5F42226797A700C5F02B /* FilterRegionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRegionsViewController.swift; sourceTree = "<group>"; };
 		8EAF5F44226797BA00C5F02B /* FilterModelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModelsViewController.swift; sourceTree = "<group>"; };
 		8EAF5F4622679DBB00C5F02B /* CellAccessoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAccessoryType.swift; sourceTree = "<group>"; };
+		8EC0026E22AFD43F007C7307 /* YoutubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
+		8EC0027022AFE0D3007C7307 /* YoutubeVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoCell.swift; sourceTree = "<group>"; };
+		8EC0027122AFE0D3007C7307 /* YoutubeVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YoutubeVideoCell.xib; sourceTree = "<group>"; };
+		8EC0027622AFEFB6007C7307 /* VideoViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewerController.swift; sourceTree = "<group>"; };
+		8EC0027722AFEFB6007C7307 /* VideoViewerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewerController.xib; sourceTree = "<group>"; };
+		8EC0027C22AFF7E7007C7307 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		8EC6240222538F4600E122F8 /* MyMot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC6240522538F4600E122F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC6240A22538F4600E122F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -391,6 +407,7 @@
 				8EC624B92256429F00E122F8 /* Location.swift */,
 				8E0012C6225B42A70034E8BB /* Manufacturer.swift */,
 				8E0012C2225B3EF60034E8BB /* Model.swift */,
+				8EC0026E22AFD43F007C7307 /* YoutubeVideo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -435,6 +452,8 @@
 				8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */,
 				8E0FB2F3225B989F001753C4 /* CatalogSlideCell.swift */,
 				8E0FB2F4225B989F001753C4 /* CatalogSlideCell.xib */,
+				8EC0027022AFE0D3007C7307 /* YoutubeVideoCell.swift */,
+				8EC0027122AFE0D3007C7307 /* YoutubeVideoCell.xib */,
 				8EA339A2226199270038863C /* CategoryAboutCell.swift */,
 				8EA339A3226199270038863C /* CategoryAboutCell.xib */,
 				8E3E9357226ECE7A006573FA /* SearchFeedCell.swift */,
@@ -448,12 +467,17 @@
 		8EC624222253947F00E122F8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8EC0027C22AFF7E7007C7307 /* NavigationController.swift */,
 				8E0FB321225E066E001753C4 /* UniversalViewController.swift */,
 				8E9A32E42281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift */,
 				8EC624412253ABF000E122F8 /* LoadingViewController.swift */,
 				8EC624422253ABF000E122F8 /* LoadingViewController.xib */,
 				8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */,
 				8E3120B9228BF2CA00F90B84 /* ImagesViewerController.xib */,
+				8E3D11D822B247B200F2F173 /* VideoViewController.swift */,
+				8E3D11D922B247B200F2F173 /* VideoViewController.xib */,
+				8EC0027622AFEFB6007C7307 /* VideoViewerController.swift */,
+				8EC0027722AFEFB6007C7307 /* VideoViewerController.xib */,
 				8E0FB309225BA81E001753C4 /* Catalog */,
 				8E0FB30A225BA82C001753C4 /* Search */,
 				8E0FB30B225BA835001753C4 /* Favourites */,
@@ -558,11 +582,14 @@
 				8EC624482254F12F00E122F8 /* Suzuki.ttf in Resources */,
 				8E627B582271FE4200B44FC6 /* AdvertViewController.xib in Resources */,
 				8E3120D2228E8BBB00F90B84 /* TextViewController.xib in Resources */,
+				8EC0027322AFE0D3007C7307 /* YoutubeVideoCell.xib in Resources */,
 				8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */,
 				8EA339A5226199270038863C /* CategoryAboutCell.xib in Resources */,
+				8EC0027922AFEFB6007C7307 /* VideoViewerController.xib in Resources */,
 				8E3120BB228BF2CB00F90B84 /* ImagesViewerController.xib in Resources */,
 				8EC624442253ABF000E122F8 /* LoadingViewController.xib in Resources */,
 				8EC6241322538F4A00E122F8 /* LaunchScreen.storyboard in Resources */,
+				8E3D11DB22B247B200F2F173 /* VideoViewController.xib in Resources */,
 				8EC624402253AB3200E122F8 /* SimpleCell.xib in Resources */,
 				8EC6241022538F4A00E122F8 /* Assets.xcassets in Resources */,
 				8EC6243C2253AACA00E122F8 /* AdvertsListCell.xib in Resources */,
@@ -592,6 +619,7 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -602,6 +630,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -642,6 +671,7 @@
 				8E627B3A226EFAE400B44FC6 /* SitesInteractor.swift in Sources */,
 				8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */,
 				8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */,
+				8E3D11DC22B26BBA00F2F173 /* CatalogModelViewController.swift in Sources */,
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
 				8E627B32226EEA5900B44FC6 /* HtmlParser.swift in Sources */,
 				8E3120BF228BF4D200F90B84 /* ImagesViewerCollectionViewCell.swift in Sources */,
@@ -650,6 +680,7 @@
 				8EC624BA2256429F00E122F8 /* Location.swift in Sources */,
 				8E0FB308225BA3B2001753C4 /* TableView.swift in Sources */,
 				8EC624432253ABF000E122F8 /* LoadingViewController.swift in Sources */,
+				8EC0027822AFEFB6007C7307 /* VideoViewerController.swift in Sources */,
 				8E0FB329225E0D78001753C4 /* CatalogSliderCell.swift in Sources */,
 				8EA339A4226199270038863C /* CategoryAboutCell.swift in Sources */,
 				8EC6241F225393EA00E122F8 /* Sources.swift in Sources */,
@@ -666,6 +697,7 @@
 				8EC900DC2278816C00CEF99C /* SearchResultsViewController.swift in Sources */,
 				8E627B34226EEC5500B44FC6 /* Advert.swift in Sources */,
 				8E3120BC228BF2CB00F90B84 /* ImagesViewerController.swift in Sources */,
+				8EC0027D22AFF7E7007C7307 /* NavigationController.swift in Sources */,
 				8E3D45152273490F008F90FF /* Int.swift in Sources */,
 				8E0012C5225B41A80034E8BB /* CoreDataManager+Manufacturer.swift in Sources */,
 				8E0FB30D225C7AE8001753C4 /* UIImageView.swift in Sources */,
@@ -674,6 +706,7 @@
 				8EC6242D2253A1D800E122F8 /* UIColor.swift in Sources */,
 				8E3120D1228E8BBB00F90B84 /* TextViewController.swift in Sources */,
 				8EC6243B2253AACA00E122F8 /* AdvertsListCell.swift in Sources */,
+				8EC0027222AFE0D3007C7307 /* YoutubeVideoCell.swift in Sources */,
 				8E9A32E52281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift in Sources */,
 				8E627B36226EED5B00B44FC6 /* CoreDataManager+Adverts.swift in Sources */,
 				8EA5251B226618ED005D342E /* FilterViewController.swift in Sources */,
@@ -694,6 +727,7 @@
 				8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */,
 				8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */,
 				8EC900DF22788E3500CEF99C /* AboutViewController.swift in Sources */,
+				8E3D11DA22B247B200F2F173 /* VideoViewController.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
 				8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */,
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
@@ -705,8 +739,8 @@
 				8E627B542271B07B00B44FC6 /* ConfigStorage.swift in Sources */,
 				8EAF5F45226797BA00C5F02B /* FilterModelsViewController.swift in Sources */,
 				8E0FB2FF225BA0F7001753C4 /* UIScreen.swift in Sources */,
+				8EC0026F22AFD43F007C7307 /* YoutubeVideo.swift in Sources */,
 				8EC624272253970E00E122F8 /* URL.swift in Sources */,
-				8E0FB32E225E3B60001753C4 /* CatalogModelViewController.swift in Sources */,
 				8EC624502255009800E122F8 /* ApiInteractor.swift in Sources */,
 				8E0FB322225E066E001753C4 /* UniversalViewController.swift in Sources */,
 				8E0012BC225B3B080034E8BB /* Category.swift in Sources */,

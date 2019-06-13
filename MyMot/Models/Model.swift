@@ -15,6 +15,7 @@ struct ModelDetails {
     
     var parameters: Parameters
     var images: Images
+    var videos: Videos
     var text: String?
     
     init?(json: JSON) {
@@ -22,10 +23,20 @@ struct ModelDetails {
         self.text = json.dictionary?["preview_text"]?.string
         
         self.images = []
+        self.videos = []
+        
         if let images = json.dictionary?["images"]?.array {
             for row in images {
                 if let imagePath = row.string {
                     self.images.append(imagePath)
+                }
+            }
+        }
+        
+        if let videos = json.dictionary?["video_reviews"]?.array {
+            for row in videos {
+                if let videoId = row.string {
+                    self.videos.append(YoutubeVideo(videoId: videoId))
                 }
             }
         }

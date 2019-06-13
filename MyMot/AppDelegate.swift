@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var restrictRotation: UIInterfaceOrientationMask = .portrait
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -49,7 +52,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManager.instance.saveContext()
     }
 
-    
+    /*func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        //return self.restrictRotation
+        
+        let vcClass = String(describing: window?.rootViewController?.presentedViewController.self)
+        print("supportedInterfaceOrientationsFor" + vcClass)
+        
+        if vcClass.contains("AVFullScreenViewController")  {
+            
+            return .all
+        } else {
+            
+            let value = UIInterfaceOrientation.portrait.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+            
+            return .portrait
+        }
+        
+    }*/
 
 }
 

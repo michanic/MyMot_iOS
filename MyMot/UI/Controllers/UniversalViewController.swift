@@ -62,7 +62,15 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
         prepareData()
         
         if dataSource.count > 0 && customTableView == nil && customCollectionView == nil {
+            
             view.addSubview(tableView)
+            
+            tableView.translatesAutoresizingMaskIntoConstraints = false
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+            tableView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 0).isActive = true
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+            tableView.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor, constant: 0).isActive = true
+            
         } else if let customCollectionView = customCollectionView {
             customCollectionView.setupWithCustomView(dataSourceDelegate: self)
         }
@@ -98,6 +106,10 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
     override func viewWillDisappear(_ animated: Bool) {
         super .viewWillDisappear(animated)
         keyboardManager.stopMonitoring()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     func prepareData() {
