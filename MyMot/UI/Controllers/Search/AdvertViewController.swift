@@ -12,6 +12,7 @@ import WebKit
 class AdvertViewController: UniversalViewController {
 
     @IBOutlet weak var imagesSlider: ImagesSliderView!
+    @IBOutlet weak var imagesSliderWidth: NSLayoutConstraint!
     @IBOutlet weak var imagesSliderHeight: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -27,6 +28,11 @@ class AdvertViewController: UniversalViewController {
     let advert: Advert
     var advertDetails: AdvertDetails?
     
+    lazy var orientationChangedSubscriber = NotificationSubscriber(types: [.screenOrientationChanged], received: { (object) in
+        guard let parameters = self.advertDetails?.parameters else { return }
+        self.drawParametersView(parameters)
+    })
+    
     init(advert: Advert) {
         self.advert = advert
         super.init(nibName: nil, bundle: nil)
@@ -38,6 +44,7 @@ class AdvertViewController: UniversalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.subscribe(orientationChangedSubscriber)
         self.navBarTitle = (advert.title ?? "")
         aboutTextView.textContainerInset = UIEdgeInsets(top: -2, left: -5, bottom: 0, right: 0)
         updateFavouriteButton()
@@ -119,7 +126,9 @@ class AdvertViewController: UniversalViewController {
     }
     
     private func fillProperties() {
-        imagesSliderHeight.constant = UIScreen.width * 0.75 + 37
+        
+        imagesSliderWidth.constant = Screen.minSide
+        imagesSliderHeight.constant = Screen.minSide * 0.75 + 37
         view.layoutIfNeeded()
         
         titleLabel.text = advert.title
@@ -167,8 +176,10 @@ class AdvertViewController: UniversalViewController {
     
     private func drawParametersView(_ parameters: Parameters) {
         
-        let captionWidth = (UIScreen.width - 26 - 32 - 10) * 0.4
-        let valueWidth = (UIScreen.width - 26 - 32 - 10) * 0.6
+        parametersView.clearSubviews()
+        
+        let captionWidth = (Screen.width - 26 - 32 - 10) * 0.4
+        let valueWidth = (Screen.width - 26 - 32 - 10) * 0.6
         var posY: CGFloat = 0
         
         for parameter in parameters {
@@ -182,9 +193,9 @@ class AdvertViewController: UniversalViewController {
                 viewHeight = valueHeight + 24.0
             }
             
-            let backView = UIView(frame: CGRect(x: 0, y: posY, width: UIScreen.width, height: viewHeight))
+            let backView = UIView(frame: CGRect(x: 0, y: posY, width: Screen.width, height: viewHeight))
             
-            let separatorView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 0.5))
+            let separatorView = UIView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: 0.5))
             separatorView.backgroundColor = UIColor.separatorGray
             backView.addSubview(separatorView)
             
@@ -195,7 +206,7 @@ class AdvertViewController: UniversalViewController {
             captionLabel.text = parameter.0
             backView.addSubview(captionLabel)
             
-            let valueLabel = UILabel(frame: CGRect(x: UIScreen.width - valueWidth - 32, y: 12, width: valueWidth, height: valueHeight))
+            let valueLabel = UILabel(frame: CGRect(x: Screen.width - valueWidth - 32, y: 12, width: valueWidth, height: valueHeight))
             valueLabel.font = UIFont.systemFont(ofSize: 12)
             valueLabel.numberOfLines = 0
             valueLabel.textColor = UIColor.textLightGray

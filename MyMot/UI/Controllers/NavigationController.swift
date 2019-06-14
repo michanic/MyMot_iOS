@@ -10,6 +10,13 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
+    override func viewDidLoad() {
+        navigationBar.isTranslucent = false
+        navigationBar.barTintColor = UIColor.appBlue
+        navigationBar.tintColor = UIColor.white
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white , NSAttributedString.Key.font: UIFont.progress(size: 20)]
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

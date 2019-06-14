@@ -11,10 +11,10 @@ import UIKit
 extension UIView {
     
     static func titleForHeaderInSection(_ title: String?) -> UIView {
-        let backView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 25.0))
+        let backView = UIView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: 25.0))
         backView.backgroundColor = UIColor.appLightBlue
         if let title = title, title.count > 0 {
-            let titleLabel = UILabel(frame: CGRect(x: 23, y: 5, width: UIScreen.width - 40, height: 16.0))
+            let titleLabel = UILabel(frame: CGRect(x: 23, y: 5, width: Screen.width - 40, height: 16.0))
             titleLabel.text = title
             titleLabel.font = UIFont.suzuki(size: 12)
             titleLabel.textColor = UIColor.white
@@ -36,5 +36,12 @@ extension UIView {
     func rotate(angle: CGFloat) {
         transform = CGAffineTransform(rotationAngle: angle)
     }
+    
+    func clearSubviews() {
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+    }
+    
     
 }

@@ -11,6 +11,7 @@ import UIKit
 class CatalogModelViewController: UniversalViewController {
 
     @IBOutlet weak var imagesSlider: ImagesSliderView!
+    @IBOutlet weak var imagesSliderWidth: NSLayoutConstraint!
     @IBOutlet weak var imagesSliderHeight: NSLayoutConstraint!
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var manufacturerLabel: UILabel!
@@ -26,9 +27,14 @@ class CatalogModelViewController: UniversalViewController {
     @IBOutlet weak var reviewsCollectionHeight: NSLayoutConstraint!
     @IBOutlet weak var reviewsCollectionBottom: NSLayoutConstraint!
     
-    
     let model: Model
     var modelDetails: ModelDetails?
+    
+    lazy var orientationChangedSubscriber = NotificationSubscriber(types: [.screenOrientationChanged], received: { (object) in
+        guard let modelDetails = self.modelDetails else { return }
+        self.drawParametersView(modelDetails.parameters)
+    })
+    
     
     init(model: Model) {
         self.model = model
@@ -41,6 +47,7 @@ class CatalogModelViewController: UniversalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.subscribe(orientationChangedSubscriber)
         self.navBarTitle = (model.name ?? "")
         
         let cellName = String(describing: CellType.youtubeVideo.cellClass)
@@ -88,7 +95,8 @@ class CatalogModelViewController: UniversalViewController {
     private func fillProperties() {
         guard let modelDetails = modelDetails else { return }
         
-        imagesSliderHeight.constant = UIScreen.width * 0.75 + 37
+        imagesSliderWidth.constant = Screen.minSide
+        imagesSliderHeight.constant = Screen.minSide * 0.75 + 37
         view.layoutIfNeeded()
         
         imagesSlider.fillWithImages(modelDetails.images, contentMode: .scaleAspectFill)
@@ -103,8 +111,10 @@ class CatalogModelViewController: UniversalViewController {
     
     private func drawParametersView(_ parameters: Parameters) {
         
-        let captionWidth = (UIScreen.width - 26 - 32 - 10) * 0.4
-        let valueWidth = (UIScreen.width - 26 - 32 - 10) * 0.6
+        parametersView.clearSubviews()
+        
+        let captionWidth = (Screen.width - 26 - 32 - 10) * 0.4
+        let valueWidth = (Screen.width - 26 - 32 - 10) * 0.6
         var posY: CGFloat = 0
         
         for parameter in parameters {
@@ -118,9 +128,9 @@ class CatalogModelViewController: UniversalViewController {
                 viewHeight = valueHeight + 24.0
             }
             
-            let backView = UIView(frame: CGRect(x: 0, y: posY, width: UIScreen.width, height: viewHeight))
+            let backView = UIView(frame: CGRect(x: 0, y: posY, width: Screen.width, height: viewHeight))
             
-            let separatorView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: 0.5))
+            let separatorView = UIView(frame: CGRect(x: 0, y: 0, width: Screen.width, height: 0.5))
             separatorView.backgroundColor = UIColor.separatorGray
             backView.addSubview(separatorView)
             
@@ -131,7 +141,7 @@ class CatalogModelViewController: UniversalViewController {
             captionLabel.text = parameter.0
             backView.addSubview(captionLabel)
             
-            let valueLabel = UILabel(frame: CGRect(x: UIScreen.width - valueWidth - 32, y: 12, width: valueWidth, height: valueHeight))
+            let valueLabel = UILabel(frame: CGRect(x: Screen.width - valueWidth - 32, y: 12, width: valueWidth, height: valueHeight))
             valueLabel.font = UIFont.systemFont(ofSize: 12)
             valueLabel.numberOfLines = 0
             valueLabel.textColor = UIColor.textLightGray
@@ -160,7 +170,6 @@ class CatalogModelViewController: UniversalViewController {
         }
     }
 }
-
 
 extension CatalogModelViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     

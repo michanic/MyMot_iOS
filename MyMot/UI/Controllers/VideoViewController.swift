@@ -13,6 +13,7 @@ class VideoViewController: UniversalViewController {
 
     var video: YoutubeVideo
     @IBOutlet weak var webVIew: WKWebView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     init(video: YoutubeVideo) {
         self.video = video
@@ -25,13 +26,26 @@ class VideoViewController: UniversalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /*let html = "<iframe width=\"420\" height=\"345\" src=\"http://www.youtube.com/embed/\(video.videoId)?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>"
-        webVIew.loadHTMLString(html, baseURL: nil)*/
+        navBarTitle = "Видеообзор"
+        webVIew.navigationDelegate = self
+        webVIew.isHidden = true
+        indicator.startAnimating()
+        
         if let url = URL(string: "https://www.youtube.com/embed/\(video.videoId)?rel=0&amp;autoplay=1") {
             webVIew.load(URLRequest(url: url))
         }
         
     }
 
+    
+    
+}
+
+extension VideoViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webVIew.isHidden = false
+        indicator.stopAnimating()
+    }
+    
 }

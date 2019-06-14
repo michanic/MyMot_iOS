@@ -42,7 +42,7 @@ enum ViewControllerFactory {
         case .textViewer(let pageTitle):
             return TextViewController(pageTitle: pageTitle)
         case .videoViewer(let video):
-            return VideoViewerController(video: video)
+            return VideoViewController(video: video)
             
         case .catalogByClass(let category):
             return CatalogByClassViewController(category: category)

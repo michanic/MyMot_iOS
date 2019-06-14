@@ -23,6 +23,7 @@ class CatalogByClassViewController: UniversalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.navBarTitle = category.name ?? ""
     }
 

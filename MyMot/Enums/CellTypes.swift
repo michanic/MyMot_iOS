@@ -66,9 +66,11 @@ enum CellType {
     var width: CGFloat {
         switch self {
         case .searchFeed:
-            return (UIScreen.width - 36) / 2
+            let cols: CGFloat = Screen.isLandscape ? 3 : 2
+            let spaces: CGFloat = Screen.isLandscape ? 46 : 36
+            return (Screen.safeWidth - spaces) / cols
         case .collectionTitle:
-            return UIScreen.width - 26
+            return Screen.width - 26
         default:
             return CGFloat.leastNonzeroMagnitude
         }

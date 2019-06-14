@@ -19,11 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        UINavigationBar.appearance().barTintColor = UIColor.appBlue
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white , NSAttributedString.Key.font: UIFont.progress(size: 20)]
         Router.shared.startApp()
-        
         return true
     }
 
@@ -51,25 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CoreDataManager.instance.cleanAdverts()
         CoreDataManager.instance.saveContext()
     }
-
-    /*func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        //return self.restrictRotation
-        
-        let vcClass = String(describing: window?.rootViewController?.presentedViewController.self)
-        print("supportedInterfaceOrientationsFor" + vcClass)
-        
-        if vcClass.contains("AVFullScreenViewController")  {
-            
-            return .all
-        } else {
-            
-            let value = UIInterfaceOrientation.portrait.rawValue
-            UIDevice.current.setValue(value, forKey: "orientation")
-            
-            return .portrait
-        }
-        
-    }*/
 
 }
 

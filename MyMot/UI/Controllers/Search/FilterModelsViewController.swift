@@ -29,6 +29,7 @@ class FilterModelsViewController: UniversalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         navBarTitle = "Модель"
     }
 

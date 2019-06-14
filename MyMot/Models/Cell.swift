@@ -27,9 +27,15 @@ class Cell {
     
     init(cellType: CellType) {
         self.type = cellType
-        self.height = cellType.height
         self.width = cellType.width
+        self.height = cellType.height
+        
         self.eventListener = self
+    }
+    
+    func updateSize() {
+        self.width = type.width
+        self.height = type.height
     }
     
 }

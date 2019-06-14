@@ -94,7 +94,7 @@ class SitesInteractor {
     
     private func loadSourceAdverts(source: Source, url: URL, completed: @escaping (([Advert], Bool)->())) {
         
-        print("loadSourceAdverts " + url.absoluteString)
+        //print("loadSourceAdverts " + url.absoluteString)
         
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {

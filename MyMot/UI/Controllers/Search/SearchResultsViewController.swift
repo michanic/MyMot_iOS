@@ -35,6 +35,7 @@ class SearchResultsViewController: UniversalViewController, UniversalViewControl
         dataSource = [Section()]
         self.loadMoreDelegate = self
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         NotificationCenter.subscribe(favouritesSwitchSubscriber)
         updateTitle()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))

@@ -23,7 +23,7 @@ class NotificationSubscriber {
     }
     
     deinit {
-        print("NotificationSubscriber deinit")
+        //print("NotificationSubscriber deinit")
         NotificationCenter.default.removeObserver(self)
     }
     

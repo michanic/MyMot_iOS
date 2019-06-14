@@ -15,8 +15,8 @@ class ImagesSliderView: UIView {
     var imagesContentMode: UIView.ContentMode = .scaleAspectFill
     
     lazy var indicatorView = UIActivityIndicatorView(style: .gray)
-    lazy var scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.width, height: self.bounds.height - 37))
-    lazy var pagerView = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - 37, width: UIScreen.width, height: 37))
+    lazy var scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: Screen.minSide, height: self.bounds.height - 37))
+    lazy var pagerView = UIPageControl(frame: CGRect(x: 0, y: self.bounds.height - 37, width: Screen.minSide, height: 37))
     
     func fillWithImages(_ images: Images, contentMode: UIView.ContentMode) {
         self.images = images
@@ -45,7 +45,7 @@ class ImagesSliderView: UIView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
-        scrollView.contentSize = CGSize(width: UIScreen.width * CGFloat(images.count), height: scrollView.bounds.height)
+        scrollView.contentSize = CGSize(width: Screen.minSide * CGFloat(images.count), height: scrollView.bounds.height)
         addSubview(scrollView)
         
         pagerView.pageIndicatorTintColor = UIColor(white: 216.0 / 255.0, alpha: 1.0)
@@ -61,7 +61,7 @@ class ImagesSliderView: UIView {
     private func createImageViews() {
         var index: Int = 0
         for image in images {
-            let imageView = UIImageView(frame: CGRect(x: UIScreen.width * CGFloat(index), y: 0, width: UIScreen.width, height: scrollView.bounds.height))
+            let imageView = UIImageView(frame: CGRect(x: Screen.minSide * CGFloat(index), y: 0, width: Screen.minSide, height: scrollView.bounds.height))
             imageView.contentMode = imagesContentMode
             imageView.setImage(path: image, placeholder: nil, completed: nil)
             imageView.clipsToBounds = true

@@ -25,11 +25,17 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
     var searchDataSource = SearchModelDataSource()
     lazy var searchTableView: TableView = TableView(dataSourceDelegate: searchDataSource, frame: customCollectionView!.bounds)
     
+    lazy var orientationChangedSubscriber = NotificationSubscriber(types: [.screenOrientationChanged], received: { (object) in
+        self.updateCellSizes()
+        self.updateData()
+    })
+    
     override func viewDidLoad() {
         dataSource = [Section()]
         self.loadMoreDelegate = self
         //self.refreshDelegate = self
         super.viewDidLoad()
+        NotificationCenter.subscribe(orientationChangedSubscriber)
         
         self.navigationItem.titleView = searchController.searchBar
         
@@ -42,7 +48,8 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         searchController.searchBar.setImage(UIImage(named: "search_clear"), for: .clear, state: .normal)
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = UIColor.white
-
+        searchController.searchBar.sizeToFit()
+        
         self.navigationItem.rightBarButtonItem = filterButton
         
         self.view.addSubview(searchTableView)
@@ -121,8 +128,8 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
                 self.dataSource[0].cells[0] = Cell(collectionTitle: sectionTitle)
             }
             
-            let newAdverts = adverts.count % 2 != 0 ? adverts.dropLast() : adverts
-            for advert in newAdverts {
+            //let newAdverts = adverts.count % 2 != 0 ? adverts.dropLast() : adverts
+            for advert in adverts {
                 let advertCell = Cell(searchFeedAdvert: advert)
                 self.dataSource[0].cells.append(advertCell)
             }
@@ -174,7 +181,6 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         Router.shared.pushController(ViewControllerFactory.searchFilter(nil, nil, searchClosedCallback).create)
     }
 }
-
 
 extension SearchViewController: UISearchBarDelegate {
     

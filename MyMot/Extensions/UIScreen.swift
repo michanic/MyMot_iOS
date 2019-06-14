@@ -9,7 +9,13 @@
 import UIKit
 
 extension UIScreen {
-
-    static var width = UIScreen.main.bounds.width
+    /*
+    static var width: CGFloat {
+        
+        //UIDevice.current.orientation
+        
+        
+        return UIScreen.main.bounds.width
+    }*/
     
 }

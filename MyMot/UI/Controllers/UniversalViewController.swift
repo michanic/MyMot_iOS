@@ -171,6 +171,14 @@ extension UniversalViewController: CellUpdateProtocol {
         customCollectionView?.reloadData()
     }
     
+    func updateCellSizes() {
+        for section in dataSource {
+            for cell in section.cells {
+                cell.updateSize()
+            }
+        }
+    }
+    
     func updateSections(sections: IndexSet) {
         tableView.beginUpdates()
         tableView.reloadSections(sections, with: .automatic)

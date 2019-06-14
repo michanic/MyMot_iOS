@@ -26,6 +26,7 @@
                 <outlet property="dateLabel" destination="pjC-Kw-YVf" id="ccC-oA-wvJ"/>
                 <outlet property="imagesSlider" destination="cgx-sc-eWW" id="9Vr-P7-1n5"/>
                 <outlet property="imagesSliderHeight" destination="auq-zC-P9G" id="8Zl-Sw-Jky"/>
+                <outlet property="imagesSliderWidth" destination="Epa-mf-muU" id="nTU-RG-Xct"/>
                 <outlet property="parametersView" destination="KNR-0F-J7A" id="VbL-UM-eUc"/>
                 <outlet property="parametersViewHeight" destination="rDR-Rb-7s4" id="eP5-oX-xuv"/>
                 <outlet property="parametersViewTop" destination="4L4-rH-0t9" id="sfD-o7-RUR"/>
@@ -46,6 +47,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="386"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="width" constant="375" id="Epa-mf-muU"/>
                                 <constraint firstAttribute="height" constant="386" id="auq-zC-P9G"/>
                             </constraints>
                         </view>
@@ -114,7 +116,6 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="cgx-sc-eWW" secondAttribute="trailing" id="1im-3W-vDi"/>
                         <constraint firstAttribute="bottom" secondItem="TdV-VX-W9c" secondAttribute="bottom" constant="10" id="3Xb-1z-C8x"/>
                         <constraint firstItem="KNR-0F-J7A" firstAttribute="top" secondItem="pfU-DM-daf" secondAttribute="bottom" constant="25" id="4L4-rH-0t9"/>
                         <constraint firstItem="KNR-0F-J7A" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" id="5G2-hN-DHA"/>
@@ -124,24 +125,24 @@
                         <constraint firstItem="T9E-qH-Pl6" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="26" id="B3K-jz-HxR"/>
                         <constraint firstItem="eWN-kj-zee" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="26" id="EuR-Vu-bcY"/>
                         <constraint firstItem="ddw-Yi-8gN" firstAttribute="top" secondItem="eWN-kj-zee" secondAttribute="bottom" constant="11" id="G4Y-Ip-uMM"/>
+                        <constraint firstItem="cgx-sc-eWW" firstAttribute="centerX" secondItem="DiT-rC-QbG" secondAttribute="centerX" id="KW0-RL-srq"/>
                         <constraint firstAttribute="trailing" secondItem="T9E-qH-Pl6" secondAttribute="trailing" constant="26" id="MpH-cY-MvW"/>
                         <constraint firstItem="pjC-Kw-YVf" firstAttribute="top" secondItem="ddw-Yi-8gN" secondAttribute="bottom" constant="5" id="NAy-TK-5Ct"/>
                         <constraint firstItem="hxO-nG-Wun" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ddw-Yi-8gN" secondAttribute="trailing" constant="10" id="NNV-Js-4b7"/>
                         <constraint firstItem="ddw-Yi-8gN" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="26" id="NaZ-M8-3Q2"/>
                         <constraint firstItem="eWN-kj-zee" firstAttribute="top" secondItem="cgx-sc-eWW" secondAttribute="bottom" constant="7" id="Nxu-gO-PVs"/>
+                        <constraint firstItem="KNR-0F-J7A" firstAttribute="width" secondItem="DiT-rC-QbG" secondAttribute="width" id="WBL-nb-34H"/>
                         <constraint firstItem="TdV-VX-W9c" firstAttribute="top" secondItem="KNR-0F-J7A" secondAttribute="bottom" constant="50" id="WQy-UN-Edq"/>
                         <constraint firstAttribute="trailing" secondItem="KNR-0F-J7A" secondAttribute="trailing" id="aiY-az-oqq"/>
                         <constraint firstItem="hxO-nG-Wun" firstAttribute="top" secondItem="eWN-kj-zee" secondAttribute="bottom" constant="11" id="axB-mR-IKY"/>
                         <constraint firstItem="T9E-qH-Pl6" firstAttribute="top" secondItem="pjC-Kw-YVf" secondAttribute="bottom" constant="20" id="edG-e0-Zcw"/>
                         <constraint firstAttribute="trailing" secondItem="pjC-Kw-YVf" secondAttribute="trailing" constant="26" id="hZ5-jz-iMU"/>
                         <constraint firstItem="pfU-DM-daf" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="26" id="iwJ-Z5-oOu"/>
-                        <constraint firstItem="cgx-sc-eWW" firstAttribute="width" secondItem="DiT-rC-QbG" secondAttribute="width" id="mEV-HP-Ia6"/>
                         <constraint firstItem="TdV-VX-W9c" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" constant="20" id="q6X-eh-cdQ"/>
                         <constraint firstAttribute="trailing" secondItem="pfU-DM-daf" secondAttribute="trailing" constant="26" id="qEl-ry-w2i"/>
                         <constraint firstAttribute="trailing" secondItem="hxO-nG-Wun" secondAttribute="trailing" constant="26" id="s56-mV-lKE"/>
                         <constraint firstItem="cgx-sc-eWW" firstAttribute="top" secondItem="DiT-rC-QbG" secondAttribute="top" id="sUe-OJ-C2j"/>
                         <constraint firstAttribute="trailing" secondItem="TdV-VX-W9c" secondAttribute="trailing" constant="20" id="srD-cw-FWr"/>
-                        <constraint firstItem="cgx-sc-eWW" firstAttribute="leading" secondItem="DiT-rC-QbG" secondAttribute="leading" id="uDW-Kc-n2f"/>
                     </constraints>
                 </scrollView>
             </subviews>
