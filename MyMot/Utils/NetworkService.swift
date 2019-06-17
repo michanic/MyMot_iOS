@@ -15,7 +15,7 @@ class NetworkService {
     
     func getJsonData(endpoint: Endpoint, result: ((JSON?, Error?) -> ())?) {
         //print(endpoint.url)
-        Alamofire.request(endpoint.url, method: endpoint.method, parameters: nil, encoding: URLEncoding.default, headers: nil).apiResponse { (json, error) in
+        Alamofire.request(endpoint.url, method: endpoint.method, parameters: nil, encoding: URLEncoding.default, headers: getHeaders()).apiResponse { (json, error) in
             result?(json, error)
         }
     }
@@ -39,6 +39,14 @@ class NetworkService {
                 }
             }
             result?(html, error)
+        }
+    }
+    
+    private func getHeaders() -> HTTPHeaders? {
+        if ConfigStorage.developerMode {
+            return ["develop" : "true"]
+        } else {
+            return nil
         }
     }
 }

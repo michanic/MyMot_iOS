@@ -14,6 +14,14 @@ class ConfigStorage {
     var exteptedWords: Set<String> = []
     var aboutText: String?
     
+    static var developerMode: Bool {
+        if let info = Bundle.main.infoDictionary, let devMode = info["Develop mode"] as? Bool {
+            return devMode
+        } else {
+            return false
+        }
+    }
+    
     static func saveFilterConfig(_ config: SearchFilterConfig) {
         
         let regionId = config.selectedRegion?.id ?? 0

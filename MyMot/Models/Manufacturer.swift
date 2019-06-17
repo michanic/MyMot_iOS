@@ -29,6 +29,9 @@ extension Manufacturer {
             manufacturer?.image = dict["image"]?.string
             
             if let modelsJson = dict["models"]?.array, let manufacturer = manufacturer {
+                
+                print(manufacturer.name! + " - " + String(modelsJson.count))
+                
                 Model.createOrUpdate(modelsJson: modelsJson, manufacturer: manufacturer)
             }
         }
