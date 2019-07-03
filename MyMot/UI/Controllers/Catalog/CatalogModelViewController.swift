@@ -18,6 +18,7 @@ class CatalogModelViewController: UniversalViewController {
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var yearsLabel: UILabel!
     @IBOutlet weak var aboutLabel: UILabel!
+    @IBOutlet weak var aboutLabelBottom: NSLayoutConstraint!
     @IBOutlet weak var parametersView: UIStackView!
     @IBOutlet weak var parametersViewHeight: NSLayoutConstraint!
     
@@ -104,7 +105,13 @@ class CatalogModelViewController: UniversalViewController {
         manufacturerLabel.text = model.manufacturer?.name
         classLabel.text = model.category?.name
         yearsLabel.text = model.years
-        aboutLabel.text = modelDetails.text
+        if let detailsText = modelDetails.text, detailsText.count > 0 {
+            aboutLabel.text = modelDetails.text
+            aboutLabelBottom.constant = 50
+        } else {
+            aboutLabel.text = nil
+            aboutLabelBottom.constant = 0
+        }
         drawParametersView(modelDetails.parameters)
         drawVideos(modelDetails.videos)
     }

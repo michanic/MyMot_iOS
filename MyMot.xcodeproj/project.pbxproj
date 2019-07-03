@@ -57,6 +57,8 @@
 		8E627B542271B07B00B44FC6 /* ConfigStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B532271B07B00B44FC6 /* ConfigStorage.swift */; };
 		8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E627B552271FE4200B44FC6 /* AdvertViewController.swift */; };
 		8E627B582271FE4200B44FC6 /* AdvertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E627B562271FE4200B44FC6 /* AdvertViewController.xib */; };
+		8E6B53E622CCDEC400076A86 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B53E522CCDEC400076A86 /* NSLayoutConstraint.swift */; };
+		8E6B53E822CCE02D00076A86 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B53E722CCE02D00076A86 /* DispatchQueue.swift */; };
 		8E9A32E322804B0D003E6D0C /* SearchModelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A32E222804B0D003E6D0C /* SearchModelDataSource.swift */; };
 		8E9A32E52281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A32E42281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift */; };
 		8E9A32E722830992003E6D0C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9A32E622830992003E6D0C /* WebKit.framework */; };
@@ -166,6 +168,8 @@
 		8E627B532271B07B00B44FC6 /* ConfigStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigStorage.swift; sourceTree = "<group>"; };
 		8E627B552271FE4200B44FC6 /* AdvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertViewController.swift; sourceTree = "<group>"; };
 		8E627B562271FE4200B44FC6 /* AdvertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdvertViewController.xib; sourceTree = "<group>"; };
+		8E6B53E522CCDEC400076A86 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		8E6B53E722CCE02D00076A86 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 		8E9A32E222804B0D003E6D0C /* SearchModelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModelDataSource.swift; sourceTree = "<group>"; };
 		8E9A32E42281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UniversalViewController+KRPullLoadViewDelegate.swift"; sourceTree = "<group>"; };
 		8E9A32E622830992003E6D0C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -394,6 +398,8 @@
 				8E0FB30C225C7AE8001753C4 /* UIImageView.swift */,
 				8EAF5F402267961E00C5F02B /* UIImage.swift */,
 				8EC900E22278947A00CEF99C /* UISearchBar.swift */,
+				8E6B53E522CCDEC400076A86 /* NSLayoutConstraint.swift */,
+				8E6B53E722CCE02D00076A86 /* DispatchQueue.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -712,6 +718,7 @@
 				8EC900E122788EE600CEF99C /* NSAttributedString.swift in Sources */,
 				8E0FB326225E0D04001753C4 /* CatalogByManufacturerViewController.swift in Sources */,
 				8EC900E32278947A00CEF99C /* UISearchBar.swift in Sources */,
+				8E6B53E622CCDEC400076A86 /* NSLayoutConstraint.swift in Sources */,
 				8EC624372253AAA100E122F8 /* ModelsListCell.swift in Sources */,
 				8E0FB2F8225B9C79001753C4 /* CellTypes.swift in Sources */,
 				8E0FB2F5225B989F001753C4 /* CatalogSlideCell.swift in Sources */,
@@ -729,6 +736,7 @@
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
 				8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */,
 				8E0012BA225B3A930034E8BB /* CoreDataManager+Locations.swift in Sources */,
+				8E6B53E822CCE02D00076A86 /* DispatchQueue.swift in Sources */,
 				8E0012BF225B3B940034E8BB /* CoreDataManager+Categories.swift in Sources */,
 				8EA0FA1D2260CBA000C18BE3 /* String.swift in Sources */,
 				8E627B38226EF5AF00B44FC6 /* NSError.swift in Sources */,

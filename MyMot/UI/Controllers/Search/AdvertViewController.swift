@@ -23,6 +23,7 @@ class AdvertViewController: UniversalViewController {
     @IBOutlet weak var parametersViewTop: NSLayoutConstraint!
     @IBOutlet weak var parametersViewHeight: NSLayoutConstraint!
     @IBOutlet weak var aboutTextView: UITextView!
+    @IBOutlet weak var aboutTextTop: NSLayoutConstraint!
     @IBOutlet weak var callButton: UIButton!
     
     let advert: Advert

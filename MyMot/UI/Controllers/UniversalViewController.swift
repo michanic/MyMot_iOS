@@ -128,6 +128,10 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
             loadingView.backgroundColor = UIColor.white
         }
         view.addSubview(loadingView)
+        
+        NSLayoutConstraint.pinBorders(of: loadingView, toView: view, top: 0, left: 0, right: 0, bottom: 0)
+        NSLayoutConstraint.pinCenter(of: indicatorView, toView: loadingView)
+        
         self.loadingView = loadingView
     }
     

@@ -15,6 +15,12 @@ class NavigationController: UINavigationController {
         navigationBar.barTintColor = UIColor.appBlue
         navigationBar.tintColor = UIColor.white
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white , NSAttributedString.Key.font: UIFont.progress(size: 20)]
+        
+        /*navigationBar.setBackgroundImage(UIImage(), for:.default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.layoutIfNeeded()*/
+        
+        view.backgroundColor = .white
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

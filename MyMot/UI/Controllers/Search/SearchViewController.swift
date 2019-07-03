@@ -20,7 +20,8 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
     let sitesInteractor = SitesInteractor()
     
     let searchController = UISearchController(searchResultsController: nil)
-    lazy var filterButton = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))
+    
+    /*lazy var filterButton = UIBarButtonItem(image: UIImage(named: "nav_filter"), style: .plain, target: self, action: #selector(showFilter))*/
     
     var searchDataSource = SearchModelDataSource()
     lazy var searchTableView: TableView = TableView(dataSourceDelegate: searchDataSource, frame: customCollectionView!.bounds)
@@ -37,20 +38,7 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         super.viewDidLoad()
         NotificationCenter.subscribe(orientationChangedSubscriber)
         
-        self.navigationItem.titleView = searchController.searchBar
-        
-        searchController.searchBar.barStyle = .blackOpaque
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Модель или объем"
-        searchController.searchBar.setSearchButtonText("Отмена")
-        searchController.searchBar.setPlaceholderColor(UIColor.white)
-        searchController.searchBar.setImage(UIImage(named: "search_clear"), for: .clear, state: .normal)
-        searchController.searchBar.delegate = self
-        searchController.searchBar.tintColor = UIColor.white
-        searchController.searchBar.sizeToFit()
-        
-        self.navigationItem.rightBarButtonItem = filterButton
+        setupSearchController()
         
         self.view.addSubview(searchTableView)
         searchTableView.isHidden = true
@@ -63,6 +51,7 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
             var searchConfig = ConfigStorage.getFilterConfig()
             searchConfig.selectedModel = model
             ConfigStorage.saveFilterConfig(searchConfig)
+            //self.navigationController?.setNavigationBarHidden(false, animated: true)
             Router.shared.pushController(ViewControllerFactory.searchResults(searchConfig).create)
         }
     }
@@ -75,6 +64,23 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
         avitoLoadMoreAvailable = true
         currentPage = 1
         loadMore()
+    }
+    
+    
+    func setupSearchController() {
+        
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.barStyle = .black
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Модель или объем"
+        searchController.searchBar.setSearchButtonText("Отмена")
+        searchController.searchBar.setupSearchField()
+        searchController.searchBar.delegate = self
+        
+        self.navigationItem.titleView = searchController.searchBar
+        //self.navigationItem.searchController = searchController
+        //self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func refreshPulled() {
@@ -184,7 +190,7 @@ class SearchViewController: UniversalViewController, UniversalViewControllerLoad
 
 extension SearchViewController: UISearchBarDelegate {
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    /*func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         showSearchResults(searchText: "")
         self.navigationItem.rightBarButtonItem = filterButton
     }
@@ -195,6 +201,24 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.navigationItem.rightBarButtonItem = nil
+    }*/
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        showFilter()
+    }
+    
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        searchController.searchBar.showsBookmarkButton = !searchController.isActive
+        
+        if let searchText = searchController.searchBar.text {
+            showSearchResults(searchText: searchText)
+        } else {
+            showSearchResults(searchText: "")
+        }
     }
     
 }

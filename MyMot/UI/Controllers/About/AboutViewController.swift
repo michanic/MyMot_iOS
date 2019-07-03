@@ -14,8 +14,8 @@ class AboutViewController: UniversalViewController {
     @IBOutlet weak var separatorHeight: NSLayoutConstraint!
     @IBOutlet weak var separator2Height: NSLayoutConstraint!
     
-    let sitesInteractor = SitesInteractor()
-    let regions = CoreDataManager.instance.getRegions()
+    //let sitesInteractor = SitesInteractor()
+    //let regions = CoreDataManager.instance.getRegions()
     //var currentRegion = 83
     //var currentcCity = 0
     
@@ -25,7 +25,6 @@ class AboutViewController: UniversalViewController {
         separator2Height.constant = 0.5
         aboutText.textContainerInset = UIEdgeInsets(top: -2, left: -5, bottom: 0, right: 0)
         
-        aboutText.text = nil
         DispatchQueue.global(qos: .background).async {
             if let aboutString = ConfigStorage.shared.aboutText, let attributedString = try? NSAttributedString(htmlString: aboutString, font: UIFont.systemFont(ofSize: 14), useDocumentFontSize: false) {
                 DispatchQueue.main.async {

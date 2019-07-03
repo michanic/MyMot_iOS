@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CatalogModelViewController" customModule="MyMot" customModuleProvider="target">
             <connections>
                 <outlet property="aboutLabel" destination="b7b-Hu-z0g" id="t37-Qy-OL1"/>
+                <outlet property="aboutLabelBottom" destination="q4P-FB-Zbl" id="8el-hX-OEi"/>
                 <outlet property="classLabel" destination="0st-wZ-lR0" id="Xes-Fh-CMv"/>
                 <outlet property="imagesSlider" destination="BBd-Pc-gUg" id="ZJu-I1-Jea"/>
                 <outlet property="imagesSliderHeight" destination="Ixf-0c-2Dz" id="DuY-j7-UuW"/>

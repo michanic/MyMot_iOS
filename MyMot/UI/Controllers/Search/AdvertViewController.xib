@@ -20,6 +20,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AdvertViewController" customModule="MyMot" customModuleProvider="target">
             <connections>
+                <outlet property="aboutTextTop" destination="Abj-qL-LLR" id="AQg-cg-JUg"/>
                 <outlet property="aboutTextView" destination="pfU-DM-daf" id="IRs-KQ-9lJ"/>
                 <outlet property="callButton" destination="TdV-VX-W9c" id="VYn-zD-Wh8"/>
                 <outlet property="cityLabel" destination="ddw-Yi-8gN" id="gvC-UY-cu8"/>
