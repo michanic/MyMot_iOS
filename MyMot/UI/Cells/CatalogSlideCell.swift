@@ -20,6 +20,9 @@ class CatalogSlideCell: UICollectionViewCell, CellContentProtocol {
         } else if let manufacturer = content as? Manufacturer {
             image.setImage(path: manufacturer.image, placeholder: UIImage.placeholder, completed: nil)
             title.text = manufacturer.name
+        } else if let volume = content as? Volume {
+            image.setImage(path: volume.image, placeholder: UIImage.placeholder, completed: nil)
+            title.text = volume.name
         }
     }
 

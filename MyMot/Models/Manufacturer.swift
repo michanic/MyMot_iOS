@@ -40,6 +40,10 @@ extension Manufacturer {
     func getModelsOfCategory(_ category: Category) -> [Model] {
         return CoreDataManager.instance.getManufacturerModels(self, ofCategory: category)
     }
+    
+    func getModelsOfVolume(_ volume: Volume) -> [Model] {
+        return CoreDataManager.instance.getVolumeModels(volume, manufacturer: self)
+    }
 }
 
 extension Manufacturer {

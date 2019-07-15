@@ -34,6 +34,7 @@ extension Category {
     func getModelsOfManufacturer(_ manufacturer: Manufacturer) -> [Model] {
         return CoreDataManager.instance.getManufacturerModels(manufacturer, ofCategory: self)
     }
+    
 }
 
 

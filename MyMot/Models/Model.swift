@@ -15,6 +15,7 @@ struct ModelDetails {
     
     var parameters: Parameters
     var images: Images
+    var bigImages: Images
     var videos: Videos
     var text: String?
     
@@ -23,12 +24,18 @@ struct ModelDetails {
         self.text = json.dictionary?["preview_text"]?.string
         
         self.images = []
+        self.bigImages = []
         self.videos = []
         
-        if let images = json.dictionary?["images"]?.array {
+        if let images = json.dictionary?["images"]?.array, let bigImages = json.dictionary?["big_images"]?.array  {
             for row in images {
                 if let imagePath = row.string {
                     self.images.append(imagePath)
+                }
+            }
+            for row in bigImages {
+                if let imagePath = row.string {
+                    self.bigImages.append(imagePath)
                 }
             }
         }
@@ -57,6 +64,9 @@ extension Model {
     
     static func createOrUpdate(modelsJson: [JSON], manufacturer: Manufacturer) {
         let categoriesMap = CoreDataManager.instance.getCategoriesMap()
+        
+        let volumesMap = CoreDataManager.instance.getCategoriesMap()
+        
         var models: [Model] = []
         for modelJson in modelsJson {
             if let model = Model.createOrUpdateModel(json: modelJson) {
@@ -87,6 +97,14 @@ extension Model {
         model?.preview_picture = dict["preview_picture"]?.string
         model?.first_year = Int16(dict["first_year"]?.int ?? 0)
         model?.last_year = Int16(dict["last_year"]?.int ?? 0)
+        
+        if let volumeText = dict["volume"]?.string {
+            model?.volume_text = volumeText + " куб.см."
+            if let volumeVal = volumeText.replacingOccurrences(of: "от ", with: "").floatValue {
+                model?.volume_value = volumeVal
+                model?.volume_type = Volume.defineVolume(value: volumeVal)
+            }
+        }
         
         return model
     }

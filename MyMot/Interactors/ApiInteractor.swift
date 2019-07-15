@@ -54,9 +54,11 @@ class ApiInteractor {
     
     func loadCatalog(completed: @escaping (()->())) {
         loadRegions {
-            self.loadClasses {
-                self.loadModels {
-                    completed()
+            self.loadVolumes {
+                self.loadClasses {
+                    self.loadModels {
+                        completed()
+                    }
                 }
             }
         }
@@ -104,7 +106,7 @@ class ApiInteractor {
     private func loadVolumes(completed: @escaping (()->())) {
         NetworkService.shared.getJsonData(endpoint: .catalogVolumes) { (json, error) in
             if let array = json?.array {
-                Category.createOrUpdate(categoriesJson: array)
+                Volume.createOrUpdate(volumesJson: array)
                 CoreDataManager.instance.saveContext()
             }
             completed()

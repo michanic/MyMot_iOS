@@ -58,11 +58,11 @@ extension CatalogSliderCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let category = slides[indexPath.row] as? Category {
-            // TEMP
             Router.shared.pushController(ViewControllerFactory.catalogByClass(category).create)
         } else if let manufacturer = slides[indexPath.row] as? Manufacturer {
-            // TEMP
             Router.shared.pushController(ViewControllerFactory.catalogByManufacturer(manufacturer).create)
+        } else if let volume = slides[indexPath.row] as? Volume {
+            Router.shared.pushController(ViewControllerFactory.catalogByVolume(volume).create)
         }
     }
     

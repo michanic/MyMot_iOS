@@ -13,6 +13,7 @@ class ModelsListCell: UITableViewCell, CellContentProtocol, CellAccessoryStatePr
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var years: UILabel!
+    @IBOutlet weak var volume: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
     
     func fillWithContent(content: Any?, eventListener: CellEventProtocol?) {
@@ -20,6 +21,7 @@ class ModelsListCell: UITableViewCell, CellContentProtocol, CellAccessoryStatePr
             photo.setImage(path: content.0.preview_picture, placeholder: UIImage.placeholder, completed: nil)
             name.text = content.0.name
             years.text = content.0.years
+            volume.text = content.0.volume_text
             setAccessoryState(content.1)
         }
     }

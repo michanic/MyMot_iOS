@@ -32,6 +32,9 @@
 		8E0FB329225E0D78001753C4 /* CatalogSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB327225E0D78001753C4 /* CatalogSliderCell.swift */; };
 		8E0FB32A225E0D78001753C4 /* CatalogSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */; };
 		8E0FB32F225E3B60001753C4 /* CatalogModelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */; };
+		8E2A8DBE22DC73BE004FD64B /* Volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A8DBD22DC73BE004FD64B /* Volume.swift */; };
+		8E2A8DC022DC7436004FD64B /* CoreDataManager+Volumes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A8DBF22DC7436004FD64B /* CoreDataManager+Volumes.swift */; };
+		8E2A8DC222DC8EE0004FD64B /* CatalogByVolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A8DC122DC8EE0004FD64B /* CatalogByVolumeViewController.swift */; };
 		8E2FF28522B373F50043CFA4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF28422B373F50043CFA4 /* TabBarController.swift */; };
 		8E3120BB228BF2CB00F90B84 /* ImagesViewerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120B9228BF2CA00F90B84 /* ImagesViewerController.xib */; };
 		8E3120BC228BF2CB00F90B84 /* ImagesViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */; };
@@ -144,6 +147,9 @@
 		8E0FB328225E0D78001753C4 /* CatalogSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogSliderCell.xib; sourceTree = "<group>"; };
 		8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModelViewController.swift; sourceTree = "<group>"; };
 		8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogModelViewController.xib; sourceTree = "<group>"; };
+		8E2A8DBD22DC73BE004FD64B /* Volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Volume.swift; sourceTree = "<group>"; };
+		8E2A8DBF22DC7436004FD64B /* CoreDataManager+Volumes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Volumes.swift"; sourceTree = "<group>"; };
+		8E2A8DC122DC8EE0004FD64B /* CatalogByVolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogByVolumeViewController.swift; sourceTree = "<group>"; };
 		8E2FF28422B373F50043CFA4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8E3120B9228BF2CA00F90B84 /* ImagesViewerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesViewerController.xib; sourceTree = "<group>"; };
 		8E3120BA228BF2CA00F90B84 /* ImagesViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesViewerController.swift; sourceTree = "<group>"; };
@@ -286,6 +292,7 @@
 				8EC6242E2253A45E00E122F8 /* CatalogViewController.swift */,
 				8E0FB323225E0BA0001753C4 /* CatalogByClassViewController.swift */,
 				8E0FB325225E0D04001753C4 /* CatalogByManufacturerViewController.swift */,
+				8E2A8DC122DC8EE0004FD64B /* CatalogByVolumeViewController.swift */,
 				8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */,
 				8E0FB32D225E3B60001753C4 /* CatalogModelViewController.xib */,
 			);
@@ -325,6 +332,7 @@
 				8E0012BE225B3B940034E8BB /* CoreDataManager+Categories.swift */,
 				8E0012C0225B3E800034E8BB /* CoreDataManager+Models.swift */,
 				8E0012C4225B41A80034E8BB /* CoreDataManager+Manufacturer.swift */,
+				8E2A8DBF22DC7436004FD64B /* CoreDataManager+Volumes.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -415,6 +423,7 @@
 				8E0012C6225B42A70034E8BB /* Manufacturer.swift */,
 				8E0012C2225B3EF60034E8BB /* Model.swift */,
 				8EC0026E22AFD43F007C7307 /* YoutubeVideo.swift */,
+				8E2A8DBD22DC73BE004FD64B /* Volume.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -673,6 +682,7 @@
 				8EA5251F22661F66005D342E /* SetPriceCell.swift in Sources */,
 				8E627B3A226EFAE400B44FC6 /* SitesInteractor.swift in Sources */,
 				8EAF5F4722679DBB00C5F02B /* CellAccessoryType.swift in Sources */,
+				8E2A8DBE22DC73BE004FD64B /* Volume.swift in Sources */,
 				8E3E9359226ECE7A006573FA /* SearchFeedCell.swift in Sources */,
 				8E3D11DC22B26BBA00F2F173 /* CatalogModelViewController.swift in Sources */,
 				8EC624312253A47200E122F8 /* SearchViewController.swift in Sources */,
@@ -711,6 +721,7 @@
 				8EC0027222AFE0D3007C7307 /* YoutubeVideoCell.swift in Sources */,
 				8E9A32E52281A42D003E6D0C /* UniversalViewController+KRPullLoadViewDelegate.swift in Sources */,
 				8E627B36226EED5B00B44FC6 /* CoreDataManager+Adverts.swift in Sources */,
+				8E2A8DC222DC8EE0004FD64B /* CatalogByVolumeViewController.swift in Sources */,
 				8EA5251B226618ED005D342E /* FilterViewController.swift in Sources */,
 				8E0012C3225B3EF60034E8BB /* Model.swift in Sources */,
 				8EC62429225399DE00E122F8 /* NetworkService.swift in Sources */,
@@ -732,6 +743,7 @@
 				8EAF5F412267961E00C5F02B /* UIImage.swift in Sources */,
 				8EC6248F2256388300E122F8 /* CoreDataManager.swift in Sources */,
 				8EC900DF22788E3500CEF99C /* AboutViewController.swift in Sources */,
+				8E2A8DC022DC7436004FD64B /* CoreDataManager+Volumes.swift in Sources */,
 				8E3D11DA22B247B200F2F173 /* VideoViewController.swift in Sources */,
 				8EC624252253963F00E122F8 /* Endpoints.swift in Sources */,
 				8E627B572271FE4200B44FC6 /* AdvertViewController.swift in Sources */,

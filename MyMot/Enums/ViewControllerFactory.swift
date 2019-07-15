@@ -19,6 +19,7 @@ enum ViewControllerFactory {
     
     case catalogByClass(Category)
     case catalogByManufacturer(Manufacturer)
+    case catalogByVolume(Volume)
     case catalogModelDetails(Model)
     
     case searchRoot
@@ -48,6 +49,8 @@ enum ViewControllerFactory {
             return CatalogByClassViewController(category: category)
         case .catalogByManufacturer(let manufacturer):
             return CatalogByManufacturerViewController(manufacturer: manufacturer)
+        case .catalogByVolume(let volume):
+            return CatalogByVolumeViewController(volume: volume)
         case .catalogModelDetails(let model):
             return CatalogModelViewController(model: model)
         

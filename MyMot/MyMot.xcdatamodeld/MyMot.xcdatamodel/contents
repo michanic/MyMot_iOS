@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Advert" representedClassName="Advert" syncable="YES" codeGenerationType="class">
         <attribute name="active" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,14 +47,28 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="preview_picture" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sort" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="volume_text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="volume_value" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="models" inverseEntity="Category" syncable="YES"/>
         <relationship name="manufacturer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Manufacturer" inverseName="models" inverseEntity="Manufacturer" syncable="YES"/>
+        <relationship name="volume_type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Volume" inverseName="models" inverseEntity="Volume" syncable="YES"/>
+    </entity>
+    <entity name="Volume" representedClassName="Volume" syncable="YES" codeGenerationType="class">
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="max" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="min" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sort" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="models" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Model" inverseName="volume_type" inverseEntity="Model" syncable="YES"/>
     </entity>
     <elements>
         <element name="Advert" positionX="-419.28515625" positionY="-290.3125" width="128" height="195"/>
         <element name="Category" positionX="68.60546875" positionY="29.0234375" width="128" height="150"/>
         <element name="Location" positionX="-650.50390625" positionY="-167.08203125" width="128" height="150"/>
-        <element name="Manufacturer" positionX="-337.93359375" positionY="46.55078125" width="128" height="135"/>
-        <element name="Model" positionX="-136.5390625" positionY="-147.69140625" width="128" height="195"/>
+        <element name="Manufacturer" positionX="-396.30859375" positionY="42.0625" width="128" height="135"/>
+        <element name="Model" positionX="-136.5390625" positionY="-147.69140625" width="128" height="238"/>
+        <element name="Volume" positionX="-333.9375" positionY="216.875" width="128" height="165"/>
     </elements>
 </model>

@@ -21,8 +21,9 @@ class CatalogViewController: UniversalViewController {
         
         let categoriesCell = Cell(categoriesSliderTitle: "По классам", categories: CoreDataManager.instance.getCategories())
         let manufacturersCell = Cell(manufacturersSliderTitle: "По производителю", content: CoreDataManager.instance.getManufacturers())
+        let volumesCell = Cell(volumesSliderTitle: "По объему", content: CoreDataManager.instance.getVolumes())
         
-        section.cells = [categoriesCell, manufacturersCell]
+        section.cells = [categoriesCell, manufacturersCell, volumesCell]
         dataSource = [section]
         
     }

@@ -78,6 +78,15 @@ class CatalogModelViewController: UniversalViewController {
         updateFavouriteButton()
     }
     
+    @objc func showImagesGallery() {
+        if let modelDetails = modelDetails {
+            let indexChangedCallback = { newPageIndex in
+                self.imagesSlider.changePage(newPage: newPageIndex)
+            }
+            Router.shared.presentController(ViewControllerFactory.imagesViewer(modelDetails.bigImages, imagesSlider.getCurrentPage(), indexChangedCallback).create)
+        }
+    }
+    
     @IBAction func searchAction(_ sender: Any) {
         var searchConfig = ConfigStorage.getFilterConfig()
         searchConfig.selectedModel = model
@@ -101,6 +110,7 @@ class CatalogModelViewController: UniversalViewController {
         view.layoutIfNeeded()
         
         imagesSlider.fillWithImages(modelDetails.images, contentMode: .scaleAspectFill)
+        imagesSlider.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showImagesGallery)))
         modelLabel.text = model.name
         manufacturerLabel.text = model.manufacturer?.name
         classLabel.text = model.category?.name
