@@ -18,6 +18,7 @@ enum Endpoint {
     case catalogRegions
     case catalogRegionCities(Int)
     case catalogClasses
+    case catalogVolumes
     case catalogModels
     case catalogModelDetails(Int)
     
@@ -43,6 +44,8 @@ enum Endpoint {
             return URL(fromEndpoint: "catalog.php?type=cities&id=\(regionId)")!
         case .catalogClasses:
             return URL(fromEndpoint: "catalog.php?type=classes")!
+        case .catalogVolumes:
+            return URL(fromEndpoint: "catalog.php?type=volumes")!
         case .catalogModels:
             return URL(fromEndpoint: "catalog.php?type=models")!
         case .catalogModelDetails(let modelId):

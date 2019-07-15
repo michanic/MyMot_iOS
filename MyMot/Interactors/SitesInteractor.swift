@@ -13,7 +13,7 @@ import UIKit
 class SitesInteractor {
 
     let htmlParser: HtmlParser = HtmlParser()
-    var currentSource: Source = .avito(nil, nil, nil, nil, nil)
+    //var currentSource: Source = .avito(nil, nil, nil, nil, nil)
     
     func loadFeedAdverts(source: Source, loaded: @escaping (([Advert], Bool)->())) {
 
