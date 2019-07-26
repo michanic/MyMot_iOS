@@ -132,7 +132,11 @@ extension Advert {
             
             let image = try row.select("img.large-picture-img[src]").array().map { try $0.attr("src").description }.first
             if let image = image {
-                advert?.previewImage = "https:" + image
+                if image.contains("http") {
+                    advert?.previewImage = image
+                } else {
+                    advert?.previewImage = "https:" + image
+                }
             }
             
         } catch let error {
@@ -194,7 +198,11 @@ extension AdvertDetails {
         
         do {
             let doc: Document = try SwiftSoup.parse(html)
-            text = try doc.select(".item-description-text p").html()
+            if try doc.select(".item-description-text").isEmpty() {
+                text = try doc.select(".item-description-html").html()
+            } else {
+                text = try doc.select(".item-description-text").html()
+            }
             date = try doc.select(".title-info-actions-item .title-info-metadata-item-redesign").text()
             warning = try doc.select(".item-view-warning-content .has-bold").text()
             
