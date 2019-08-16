@@ -23,8 +23,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Город" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uq2-Ic-mCt">
-                        <rect key="frame" x="0.0" y="23.5" width="320" height="27.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uq2-Ic-mCt">
+                        <rect key="frame" x="0.0" y="0.5" width="320" height="54.5"/>
+                        <string key="text">Все мотоциклы,
+100 000 - 200 000 руб.</string>
                         <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="20"/>
                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -32,10 +34,10 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Uq2-Ic-mCt" secondAttribute="bottom" constant="4" id="8Mz-7V-vcY"/>
+                <constraint firstAttribute="bottom" secondItem="Uq2-Ic-mCt" secondAttribute="bottom" id="8Mz-7V-vcY"/>
                 <constraint firstItem="Uq2-Ic-mCt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BYL-V0-Wtq"/>
                 <constraint firstAttribute="trailing" secondItem="Uq2-Ic-mCt" secondAttribute="trailing" id="Eii-EY-gWm"/>
-                <constraint firstItem="Uq2-Ic-mCt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="Yp3-op-Rvd"/>
+                <constraint firstItem="Uq2-Ic-mCt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" id="Yp3-op-Rvd"/>
             </constraints>
             <size key="customSize" width="321" height="70"/>
             <connections>

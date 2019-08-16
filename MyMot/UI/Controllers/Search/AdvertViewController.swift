@@ -21,6 +21,7 @@ class AdvertViewController: UniversalViewController {
     
     @IBOutlet weak var parametersView: UIStackView!
     @IBOutlet weak var parametersViewTop: NSLayoutConstraint!
+    @IBOutlet weak var parametersViewBottom: NSLayoutConstraint!
     @IBOutlet weak var parametersViewHeight: NSLayoutConstraint!
     @IBOutlet weak var aboutTextView: UITextView!
     @IBOutlet weak var aboutTextTop: NSLayoutConstraint!
@@ -147,10 +148,12 @@ class AdvertViewController: UniversalViewController {
         if let parameters = advertDetails?.parameters {
             parametersView.isHidden = false
             parametersViewTop.constant = 25
+            parametersViewBottom.constant = 50
             drawParametersView(parameters)
         } else {
             parametersView.isHidden = true
             parametersViewTop.constant = 0
+            parametersViewBottom.constant = 0
             parametersViewHeight.constant = 0
         }
         
