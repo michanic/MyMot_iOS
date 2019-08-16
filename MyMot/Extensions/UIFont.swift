@@ -14,10 +14,6 @@ extension UIFont {
         return UIFont(name: "Progress(RUS BY LYAJKA)", size: size)!
     }
     
-    static func suzuki(size: CGFloat) -> UIFont {
-        return UIFont(name: "Suzuki Alstare Extreme Racing", size: size)!
-    }
-    
     static func oswald(size: CGFloat) -> UIFont {
         return UIFont(name: "Oswald", size: size)!
     }
