@@ -38,25 +38,7 @@ class SitesInteractor {
         var loadedAdverts:[Advert] = []
         var loadMore = false
         
-        /*var query: String? = nil
-        if let manufacturer = config.selectedManufacturer {
-            query = manufacturer.autoruSearchName
-        } else if let model = config.selectedModel {
-            query = model.autoruSearchName
-        }
-        
-        let sourceAutoRu = Source.auto_ru(config.selectedRegion?.autoru, query, config.priceFrom, config.priceFor, page)
-        guard let urlAutoRu = URL(string: sourceAutoRu.searchPath) else { loaded(loadedAdverts, loadMore); return }
-        
-        self.loadSourceAdverts(source: sourceAutoRu, url: urlAutoRu, completed: { (adverts, more) in
-            
-            loadedAdverts.append(contentsOf: adverts)
-            if loadMore == false {
-                loadMore = more
-            }
-            loaded(loadedAdverts, loadMore)
-        })*/
-        
+
         var query: String? = nil
         if let manufacturer = config.selectedManufacturer {
             query = manufacturer.avitoSearchName
@@ -94,7 +76,7 @@ class SitesInteractor {
     
     private func loadSourceAdverts(source: Source, url: URL, completed: @escaping (([Advert], Bool)->())) {
         
-        //print("loadSourceAdverts " + url.absoluteString)
+        print("loadSourceAdverts " + url.absoluteString)
         
         NetworkService.shared.getHtmlData(url: url) { (html, error) in
             if let html = html {
@@ -137,7 +119,7 @@ class SitesInteractor {
 
     func loadAutoRuAdvertPhones(saleId: String, saleHash: String, token: String, completed: @escaping (([String])->())) {
         
-        let path = "https://auto.ru/-/ajax/phones/?category=moto&sale_id=\(saleId)&sale_hash=\(saleHash)&isFromPhoneModal=true&__blocks=card-phones%2Ccall-number"
+        let path = "https://auto.ru/-/ajax/desktop/phones/?category=moto&sale_id=\(saleId)&sale_hash=\(saleHash)&isFromPhoneModal=true&__blocks=card-phones%2Ccall-number"
         guard let url = URL(string: path) else { completed([]); return }
         
         let headers = [

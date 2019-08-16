@@ -136,15 +136,12 @@ class UniversalViewController: UIViewController, DataSource, KeyboardEventsDeleg
     }
     
     func showLoading(transparent: Bool? = nil) {
-        if let loadingView = loadingView {
-            view.addSubview(loadingView)
-        } else {
-            createLoadingView(transparent: transparent)
-        }
+        createLoadingView(transparent: transparent)
     }
     
     func hideLoading() {
         loadingView?.removeFromSuperview()
+        loadingView = nil
     }
     
     private func addCloseButton() {

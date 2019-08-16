@@ -87,7 +87,7 @@ enum Source {
             
         case .auto_ru(let region, let model, let pMin, let pMax, let page):
             let regionString = region ?? "rossiya"
-            let path = self.domain + "\(regionString)/motorcycle/all/"
+            let path = self.domain + "\(regionString)/motorcycle/\(model ?? "")all/"
             
             var request = ""
             if let pMin = pMin {
@@ -96,9 +96,9 @@ enum Source {
             if let pMax = pMax {
                 request += "&price_to=" + String(pMax)
             }
-            if let model = model {
+            /*if let model = model {
                 request += "&mark-model-nameplate=" + String(model)
-            }
+            }*/
             if let page = page {
                 request += "&page_num_offers=" + String(page)
             }

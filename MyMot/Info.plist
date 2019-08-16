@@ -19,9 +19,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.6</string>
+	<string>1.0.7</string>
 	<key>CFBundleVersion</key>
-	<string>106</string>
+	<string>107</string>
 	<key>Domain</key>
 	<string>http://my-mot.ru/</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -33,6 +33,7 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Oswald.ttf</string>
 		<string>Progress.ttf</string>
 		<string>Suzuki.ttf</string>
 	</array>

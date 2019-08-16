@@ -52,7 +52,12 @@ extension Manufacturer {
     }
     
     var autoruSearchName: String {
-        return name?.replacingOccurrences(of: " ", with: "_").uppercased() ?? ""
+        if let code = code {
+            return code + "/";
+        } else {
+            return "";
+        }
+        //return name?.replacingOccurrences(of: " ", with: "_").uppercased() ?? ""
     }
 }
 

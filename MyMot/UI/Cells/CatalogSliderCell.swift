@@ -23,7 +23,7 @@ class CatalogSliderCell: UITableViewCell, CellContentProtocol {
         collectionView.delegate = self
         
         if let content = content as? (String, [Any]) {
-            titleLabel.text = content.0.uppercased()
+            titleLabel.text = content.0
             slides = content.1
             collectionView.reloadData()
         }

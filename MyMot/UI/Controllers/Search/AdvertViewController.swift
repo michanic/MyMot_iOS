@@ -95,21 +95,16 @@ class AdvertViewController: UniversalViewController {
                 siteInteractor.loadAutoRuAdvertPhones(saleId: advertId, saleHash: saleHash, token: token) { (phones) in
                     
                     if phones.count == 1 {
-                        phones[0].makeCall()
-                    } else if phones.count > 1 {
-                        let actionSheet = UIAlertController(title: "Позвонить", message: nil, preferredStyle: .actionSheet)
-                        for phone in phones {
-                            let callAction = UIAlertAction(title: phone, style: .default, handler: { (alert: UIAlertAction!) -> Void in
-                                phone.makeCall()
-                            })
-                            actionSheet.addAction(callAction)
+                        let phone = phones[0]
+                        if phone.firstIndex(of: "c") != nil {
+                            self.showPhonesSheet(phones: phones)
+                        } else {
+                            phones[0].makeCall()
                         }
-                        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in })
-                        actionSheet.addAction(cancelAction)
-                        self.present(actionSheet, animated: true, completion: nil)
-                        // TODO
+                    } else if phones.count > 1 {
+                        self.showPhonesSheet(phones: phones)
                     } else {
-                        // TODO
+                        // TODO: show alert
                     }
                 }
             }
@@ -117,6 +112,18 @@ class AdvertViewController: UniversalViewController {
         
     }
 
+    private func showPhonesSheet(phones: [String]) {
+        let actionSheet = UIAlertController(title: "Позвонить", message: nil, preferredStyle: .actionSheet)
+        for phone in phones {
+            let callAction = UIAlertAction(title: phone, style: .default, handler: { (alert: UIAlertAction!) -> Void in
+                phone.makeCall()
+            })
+            actionSheet.addAction(callAction)
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: { (alert: UIAlertAction!) -> Void in })
+        actionSheet.addAction(cancelAction)
+        self.present(actionSheet, animated: true, completion: nil)
+    }
     
     private func updateFavouriteButton() {
         if advert.favourite {

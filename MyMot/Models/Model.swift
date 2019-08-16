@@ -98,11 +98,15 @@ extension Model {
         model?.first_year = Int16(dict["first_year"]?.int ?? 0)
         model?.last_year = Int16(dict["last_year"]?.int ?? 0)
         
-        if let volumeText = dict["volume"]?.string {
+        if var volumeText = dict["volume"]?.string {
             model?.volume_text = volumeText + " куб.см."
-            if let volumeVal = volumeText.replacingOccurrences(of: "от ", with: "").floatValue {
+            volumeText = volumeText.replacingOccurrences(of: "от ", with: "")
+            //volumeText = volumeText.replacingOccurrences(of: ".", with: ",")
+            if let volumeVal = volumeText.floatValue {
                 model?.volume_value = volumeVal
                 model?.volume_type = Volume.defineVolume(value: volumeVal)
+            } else {
+                print("error parse " + volumeText)
             }
         }
         
@@ -118,7 +122,9 @@ extension Model {
     }
     
     var autoruSearchName: String {
-        return (manufacturer?.name?.uppercased() ?? "") + "%23" + (code?.uppercased() ?? "")
+        guard let manufacturerCode = manufacturer?.code, let modelCode = code else { return "" }
+        return "\(manufacturerCode)/\(modelCode)/"
+        //return (manufacturer?.name?.uppercased() ?? "") + "%23" + (code?.uppercased() ?? "")
     }
 }
 

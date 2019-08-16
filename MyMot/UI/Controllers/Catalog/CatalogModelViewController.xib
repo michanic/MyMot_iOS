@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Oswald.ttf">
+            <string>Oswald-Medium</string>
+        </array>
         <array key="Progress.ttf">
             <string>Progress-BoldItalic</string>
-        </array>
-        <array key="Suzuki.ttf">
-            <string>SuzukiAlstareExtremeRacing</string>
         </array>
     </customFonts>
     <objects>
@@ -56,31 +56,31 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MODEL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBv-9x-Bj3">
-                            <rect key="frame" x="26" y="393" width="323" height="20"/>
-                            <fontDescription key="fontDescription" name="SuzukiAlstareExtremeRacing" family="Suzuki Alstare Extreme Racing" pointSize="20"/>
+                            <rect key="frame" x="26" y="393" width="323" height="27.5"/>
+                            <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="20"/>
                             <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyw-4C-LwK">
-                            <rect key="frame" x="26" y="424" width="35.5" height="17"/>
+                            <rect key="frame" x="26" y="431.5" width="35.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Спорт-турист" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0st-wZ-lR0">
-                            <rect key="frame" x="255.5" y="424" width="93.5" height="17"/>
+                            <rect key="frame" x="255.5" y="431.5" width="93.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqA-cG-Rhq">
-                            <rect key="frame" x="26" y="446" width="323" height="14.5"/>
+                            <rect key="frame" x="26" y="453.5" width="323" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUy-eq-atM" userLabel="‌‌‍‍ Поиск объявлений‌‌‍‍">
-                            <rect key="frame" x="20" y="480.5" width="335" height="50"/>
+                            <rect key="frame" x="20" y="488" width="335" height="50"/>
                             <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="bzz-iu-FwK"/>
@@ -99,7 +99,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1I3-Zr-FTY">
-                            <rect key="frame" x="26" y="555.5" width="323" height="1"/>
+                            <rect key="frame" x="26" y="563" width="323" height="1"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="IRD-gD-XFH"/>
@@ -111,32 +111,32 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7b-Hu-z0g">
-                            <rect key="frame" x="26" y="581.5" width="323" height="150.5"/>
+                            <rect key="frame" x="26" y="589" width="323" height="150.5"/>
                             <string key="text">Модель спорт-туриста Honda VFR800F (Interceptor) появилась в 1998 году, придя на смену Honda VFR750F. Модель была ориентирована, в основном, на экспорт в страны Европы, Северной Америки и Океании, но также была доступна и на внутреннем японском рынке (первые поколения внутрияпонских VFR800 были "задушены" до 80 л.с. мощности).</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Технические характеристики:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E9-P5-49c">
-                            <rect key="frame" x="20" y="789.5" width="335" height="16"/>
-                            <fontDescription key="fontDescription" name="SuzukiAlstareExtremeRacing" family="Suzuki Alstare Extreme Racing" pointSize="16"/>
+                            <rect key="frame" x="20" y="797" width="335" height="22"/>
+                            <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="16"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-Pk-tTU">
-                            <rect key="frame" x="0.0" y="821.5" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="835" width="375" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="IAT-L2-UNJ"/>
                             </constraints>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обзоры:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ol3-8K-mZW">
-                            <rect key="frame" x="20" y="896" width="335" height="16"/>
-                            <fontDescription key="fontDescription" name="SuzukiAlstareExtremeRacing" family="Suzuki Alstare Extreme Racing" pointSize="16"/>
+                            <rect key="frame" x="20" y="909.5" width="335" height="22"/>
+                            <fontDescription key="fontDescription" name="Oswald-Medium" family="Oswald" pointSize="16"/>
                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SMV-84-z6c">
-                            <rect key="frame" x="0.0" y="928" width="375" height="100"/>
+                            <rect key="frame" x="0.0" y="947.5" width="375" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="9Kx-4S-wde"/>

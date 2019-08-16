@@ -27,7 +27,6 @@ extension CoreDataManager {
     }
     
     func getVolumes() -> [Volume] {
-        print("getVolumes")
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Volume")
         //request.predicate = NSPredicate(format: "models.@count > 0")
         let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)

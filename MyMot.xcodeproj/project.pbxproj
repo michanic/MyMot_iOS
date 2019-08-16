@@ -42,6 +42,7 @@
 		8E3120C0228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */; };
 		8E3120D1228E8BBB00F90B84 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3120CF228E8BBB00F90B84 /* TextViewController.swift */; };
 		8E3120D2228E8BBB00F90B84 /* TextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3120D0228E8BBB00F90B84 /* TextViewController.xib */; };
+		8E33F04A23054D87003CC842 /* Oswald.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E33F04923054D87003CC842 /* Oswald.ttf */; };
 		8E3D11DA22B247B200F2F173 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D11D822B247B200F2F173 /* VideoViewController.swift */; };
 		8E3D11DB22B247B200F2F173 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3D11D922B247B200F2F173 /* VideoViewController.xib */; };
 		8E3D11DC22B26BBA00F2F173 /* CatalogModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0FB32C225E3B60001753C4 /* CatalogModelViewController.swift */; };
@@ -157,6 +158,7 @@
 		8E3120BE228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImagesViewerCollectionViewCell.xib; sourceTree = "<group>"; };
 		8E3120CF228E8BBB00F90B84 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		8E3120D0228E8BBB00F90B84 /* TextViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewController.xib; sourceTree = "<group>"; };
+		8E33F04923054D87003CC842 /* Oswald.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Oswald.ttf; sourceTree = "<group>"; };
 		8E3D11D822B247B200F2F173 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		8E3D11D922B247B200F2F173 /* VideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		8E3D11DD22B2921300F2F173 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 		8EC62423225394EF00E122F8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8E33F04923054D87003CC842 /* Oswald.ttf */,
 				8EC624462254F07C00E122F8 /* Progress.ttf */,
 				8EC624452254F07800E122F8 /* Suzuki.ttf */,
 			);
@@ -590,6 +593,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E33F04A23054D87003CC842 /* Oswald.ttf in Resources */,
 				8EA5251C226618ED005D342E /* FilterViewController.xib in Resources */,
 				8E627B44226F5D7600B44FC6 /* CollectionTitleCell.xib in Resources */,
 				8E3120C0228BF4D200F90B84 /* ImagesViewerCollectionViewCell.xib in Resources */,
@@ -627,7 +631,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KRPullLoader/KRPullLoader.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -646,7 +650,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyMot/Pods-MyMot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		912FFC6F413AECCCEC471566 /* [CP] Check Pods Manifest.lock */ = {

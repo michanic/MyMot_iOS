@@ -63,7 +63,7 @@ extension CoreDataManager {
     
     func getVolumeModels(_ volume: Volume, manufacturer: Manufacturer) -> [Model] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
-        let sortDescriptor = NSSortDescriptor(key: "sort", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "volume_value", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         request.predicate = NSPredicate(format: "manufacturer.id = %@ && volume_type.id = %@", "\(manufacturer.id)", "\(volume.id)")
         
